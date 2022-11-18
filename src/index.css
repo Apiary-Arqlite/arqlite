@@ -1,0 +1,5 @@
+@import url("./vendor/normalize.css");
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
+/* font-family: 'Archivo', sans-serif; ask designer back up font ?ariel*/
+@import url("./blocks/page.css");
+@import url("./blocks/root.css");
