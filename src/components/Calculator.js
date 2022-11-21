@@ -1,114 +1,125 @@
 import React from 'react';
-import infoIcon from '../images/info-icon.png';
+import { useState } from 'react';
+
+import Dropdown from './Dropdown';
+import Option from './Option';
 
 export default function Calculator() {
+  const [optionValue, setOptionValue] = useState('');
+  const handleSelect = (e) => {
+    console.log(e.target.value);
+    setOptionValue(e.target.value);
+  };
   return (
     <div>
-      <section class='calculator'>
-        <form class='form'>
+      <section>
+        <div>
           <p>Calculate your hardware footprint for a post-consumer setup</p>
-          <div>
+          <p>
             NUMBER sqft {/* footprint results will be calculated by equation */}
-          </div>
+          </p>
           <p>Hardware footprint</p>
           <p>Recycling capacity</p>
           {/* number slider goes here 
       /* number slider controls recycling capacity */}
           <p>Tonnes of plastic per hour</p>
-          <p class='form__title'>
-            Calculate the impact of a multiple revenue stream process
-          </p>
+          {/* this is the start of the form section */}
+          <p>Calculate the impact of a multiple revenue stream process</p>
           <div>
-            <label for='pFee'>Processing fee</label>
-            <button>{/* info icon hover will go here */} info</button>
-            <p>$</p>
-            <div>
-              <button>
-                {/* drop down arrow will go here */}
-                dropdown
-              </button>
-              <div id='dropdown' class='dropdown-list'>
-                <p>10</p>
-                <p>20</p>
-                <p>30</p>
-                <p>40</p>
-                <p>50</p>
-                <p>60</p>
-                <p>70</p>
-                <p>80</p>
-                <p>90</p>
-                <p>100</p>
-              </div>
-            </div>
+            <Dropdown
+              formLabel='Processing fee'
+              buttonText='send form'
+              onChange={handleSelect}
+              action='/'
+            >
+              <Option defaultValue value='60' />
+              <Option value='10' />
+              <Option value='20' />
+              <Option value='30' />
+              <Option value='40' />
+              <Option value='50' />
+              <Option value='60' />
+              <Option value='70' />
+              <Option value='80' />
+              <Option value='90' />
+              <Option value='100' />
+            </Dropdown>
+            <p>you defaultValue {optionValue}</p>
           </div>
           <div>
-            <label for='pCredits'>Plastic credits</label>
-            <button>{/* info icon hover will go here */} info</button>
-            <p>$</p>
-            <button>dropdown</button>
-            <div id='dropdown' class='dropdown-list'>
-              <div>
-                <p>10</p>
-                <p>20</p>
-                <p>30</p>
-                <p>40</p>
-                <p>50</p>
-                <p>60</p>
-                <p>70</p>
-                <p>80</p>
-                <p>90</p>
-                <p>100</p>
-              </div>
-            </div>
+            <Dropdown
+              formLabel='Plastic credits'
+              buttonText='send form'
+              action='/'
+            >
+              <Option defaultValue value='50' />
+              <Option value='10' />
+              <Option value='20' />
+              <Option value='30' />
+              <Option value='40' />
+              <Option value='50' />
+              <Option value='60' />
+              <Option value='70' />
+              <Option value='80' />
+              <Option value='90' />
+              <Option value='100' />
+            </Dropdown>
           </div>
           <div>
-            <label for='gRevenueBulk'>Gravel revenue bulk</label>
-            <button>{/* info icon hover will go here */}info</button>
-            <p>$</p>
-            <button type=''>
-              {/* drop down arrow will go here */}
-              dropdown
-            </button>
-            <div id='dropdown' class='dropdown-list'>
-              <div>
-                <p>200</p>
-                <p>300</p>
-                <p>400</p>
-                <p>500</p>
-                <p>600</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <label for='pRevenueBulk'>Pellets revenue bulk</label>
-            <button>{/* info icon hover will go here */}info</button>
-            <p>$</p>
-            <button>
-              {/* drop down arrow will go here */}
-              dropdown
-            </button>
-            <div id='dropdown' class='dropdown-list'>
-              <div>
-                <p>900</p>
-                <p>1000</p>
-                <p>1200</p>
-                <p>1400</p>
-                <p>1600</p>
-                <p>1800</p>
-              </div>
-            </div>
+            <Dropdown
+              formLabel='Gravel revenue bulk'
+              buttonText='send form'
+              action='/'
+            >
+              <Option defaultValue value='400' />
+              <Option value='200' />
+              <Option value='300' />
+              <Option value='400' />
+              <Option value='500' />
+              <Option value='600' />
+            </Dropdown>
           </div>
           <div>
-            <p for='tPM'>Total tons per month</p>
+            <Dropdown
+              formLabel='Pellets revenue bulk'
+              buttonText='send form'
+              action='/'
+            >
+              <Option defaultValue value='1200' />
+              <Option value='900' />
+              <Option value='1000' />
+              <Option value='1200' />
+              <Option value='1400' />
+              <Option value='1600' />
+              <Option value='1800' />
+            </Dropdown>
           </div>
 
-          <div class='form__result'>
+          <div>
+            <Dropdown
+              formLabel='Total tons per month'
+              buttonText='send form'
+              action='/'
+            >
+              <Option defaultValue value='2772' />
+              <Option value='462' />
+              <Option value='924' />
+              <Option value='1848' />
+              <Option value='2772' />
+              <Option value='3696' />
+              <Option value='4620' />
+            </Dropdown>
+          </div>
+          <div>
             {/* result will be calculate based on input */}
             <p>Total revenue: $1000</p>
           </div>
-        </form>
+        </div>
       </section>
     </div>
   );
+}
+
+{
+  /* created dropdowns for calculator. left off setting up useState */
 }
