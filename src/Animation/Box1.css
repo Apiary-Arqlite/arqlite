@@ -1,0 +1,9 @@
+.box-container {
+padding-bottom: 20px;
+}
+
+.box {
+width:25px;
+height:25px;
+background-color: aquamarine;
+}
