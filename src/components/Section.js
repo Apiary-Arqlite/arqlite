@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-// Create a SectionWrapper component that will render a <section> tag with some styles
+// Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
-export const SectionWrapper = styled.section`
+export const Section = styled.section`
   background: ${(props) => (props.dark ? "#54585b" : "#f5f5f5")};
   color: ${(props) => (props.dark ? "#fff" : "#54585b")};
   padding: 80px;
@@ -11,7 +11,7 @@ export const SectionWrapper = styled.section`
 `;
 
 // Create a SectionMarker component that will render an <h4> tag with styles
-export const SectionMarker = styled.h4`
+const SectionMarker = styled.h4`
   color: #f05125;
   font-family: "Archivo";
   font-style: normal;
@@ -23,7 +23,7 @@ export const SectionMarker = styled.h4`
 `;
 
 // Create a SectionHeader component that will render an <h2> tag with styles
-export const SectionHeader = styled.h2`
+const SectionHeader = styled.h2`
   font-family: "Archivo";
   font-style: normal;
   font-weight: 700;
@@ -33,10 +33,15 @@ export const SectionHeader = styled.h2`
 `;
 
 // Create a CaptionLarge component that will render an <p> tag with styles
-export const CaptionLarge = styled.p`
+const CaptionLarge = styled.p`
   font-family: "Archivo";
   font-style: normal;
   font-weight: 400;
   font-size: 28px;
   line-height: 38px;
+  max-width: 804px;
 `;
+
+Section.Marker = SectionMarker;
+Section.Header = SectionHeader;
+Section.CaptionLarge = CaptionLarge;
