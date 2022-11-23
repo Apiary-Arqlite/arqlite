@@ -1,10 +1,12 @@
 import Animation from './Animation/Animation';
-
+import { StrictMode, useState } from 'react';
 function Main() {
   return (
     <main>
       <div>
-        <Animation />
+        <StrictMode>
+          <Animation />
+        </StrictMode>
       </div>
       <div>Testing</div>
     </main>

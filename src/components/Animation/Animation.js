@@ -7,10 +7,11 @@ export default function Animation(props) {
   return (
     <motion.div
       className="box"
+      initial={{ opacity: 1, scale: 0.5 }}
       animate={{
-        scale: [1, 2, 2, 1, 1],
-        rotate: [0, 0, 180, 180, 0],
-        borderRadius: ['0%', '0%', '50%', '50%', '0%'],
+        opacity: 0.5,
+        scale: 1,
+        backgroundColor: ['hsl(0, 100, 50)', 'hsl(-120, 100, 50)'],
       }}
       transition={{
         duration: 2,
