@@ -66,8 +66,24 @@ export default function CardGrid({children}) {
   return (
     <div>
       <CardWrapper>
-      <div>{children}</div>
-       
+        <CardItem>
+          <CardItem.Image src={lwbackfill} />
+          <CardItem.Heading>
+            <span className="line-break">Lightweight </span>Backfill Aggregate
+          </CardItem.Heading>
+        </CardItem>
+        <CardItem>
+          <CardImage src={lwbackfill} />
+          <CardItem.Heading>
+            <span className="line-break">Lightweight </span>Backfill Aggregate
+          </CardItem.Heading>
+        </CardItem>
+        <CardItem>
+          <CardImage src={lwbackfill} />
+          <CardItem.Heading>
+            <span className="line-break">Lightweight </span>Backfill Aggregate
+          </CardItem.Heading>
+        </CardItem>
       </CardWrapper>
 
       <div>tall vertical cards</div>
@@ -99,5 +115,3 @@ export default function CardGrid({children}) {
 }
 
 CardGrid.Card = CardItem;
-CardGrid.Card.Image=CardImage;
-CardGrid.Card.Heading=CardHeading;
