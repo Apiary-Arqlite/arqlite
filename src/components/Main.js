@@ -2,8 +2,10 @@ import CardGrid from "./Card";
 import lwbackfill from "../images/lw-backfill-image.png"
 import {constructionCards,ecoCards} from "../utils/data"
 
+
 function Main() {
   console.log(constructionCards);
+
   return (
     <main>
       <div>Testing</div>
