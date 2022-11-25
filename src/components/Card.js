@@ -66,12 +66,12 @@ export default function CardGrid({children}) {
   return (
     <div>
       <CardWrapper>
-      <div>{children}</div>
+      {children}
        
       </CardWrapper>
 
       <div>tall vertical cards</div>
-      <CardWrapper>
+      {/* <CardWrapper>
         <CardItem>
           <CardItem.Image src={lwbackfill} />
           <CardItem.Heading>
@@ -93,7 +93,7 @@ export default function CardGrid({children}) {
             <span className="line-break">Lightweight </span>Backfill Aggregate
           </CardItem.Heading>
         </CardItem>
-      </CardWrapper>
+      </CardWrapper> */}
     </div>
   );
 }
