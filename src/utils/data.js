@@ -1,7 +1,7 @@
 import  backfill  from "../images/lw-backfill-image.png";
 
  export const constructionCards = [
-  { heading: "Lightweight Backfill Aggregate", image: { backfill } },
+  { heading: "Lightweight Backfill Aggregate", image: backfill},
   { heading: "Lightweight Concrete Aggregate", image: { backfill } },
   { heading: "Lightweight Precast Aggregate", image: { backfill } },
 ];
