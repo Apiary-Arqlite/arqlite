@@ -6,11 +6,7 @@ const CardsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 414px));
   column-gap: 20px;
-
-  /* display: flex;
-  column-gap: 20px; */
   justify-content: center;
-
   margin: 0 auto;
   border: 1px red solid;
 `;
@@ -28,16 +24,11 @@ const CardItem = styled.div`
 
 //Create a CardImg component that will render an <img> styles for a card image
 const CardImage = styled.img`
-  //need to check heights
-  //card no p height: 200px
-  //card w p height:180px
+  max-width: ${(props) => (props.horiz ? "158px" : "100%")};
 
-  max-width: 100%;
-  /* display: block;
-  object-fit: cover; */
   border: 1px green solid;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: ${(props) =>
+    props.horiz ? "0 10px 10 px 0" : "10px 10px 0 0"};
 `;
 
 //Create a CardTextBox that will render flex container for Card Text Elements
@@ -46,11 +37,13 @@ const CardTextBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: flex-end;
-  flex-grow: 1;
+  max-width:${(props) => (props.horiz ? "256px" : "414px")}
+  flex-grow: ${(props) => (props.horiz ? "0" : "1")};
 
   background-color: #ffffff;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+
+  border-radius: ${(props) =>
+    props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
   border: 1px solid orange;
 `;
 
@@ -98,8 +91,18 @@ const CardHeadingSmall = styled.h4`
   font-size: 20px;
   line-height: 1.1;
   margin: 8px 0 16px;
+  max-width: 150px;
 `;
-
+//Card link wrapper that will render styled <div> for link on Horiz card
+const CardLinkWrapper = styled.div`
+  display: flex;
+`;
+//Card link icon that will render styled <img> for link icon on Horiz Card
+const CardLinkIcon = styled.img`
+  width: 12px;
+  height: 14px;
+  margin-right: 14px;
+`;
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
   font-weight: 700;
@@ -114,6 +117,8 @@ CardItem.Paragraph = CardParagraph;
 CardItem.TextBox = CardTextBox;
 CardItem.CardCaption = CardCaption;
 CardItem.CardHeadingSmall = CardHeadingSmall;
+CardItem.CardLinkWrapper = CardLinkWrapper;
+CardItem.CardLinkIcon = CardLinkIcon;
 CardItem.CardLinkText = CardLinkText;
 
 export default function CardGrid({ children }) {
@@ -125,10 +130,12 @@ export default function CardGrid({ children }) {
 }
 
 CardGrid.Card = CardItem;
-CardGrid.Card.Image = CardItem.Image;
+CardGrid.Card.Image = CardImage;
 CardGrid.Card.TextBox = CardTextBox;
 CardGrid.Card.Heading = CardHeading;
 CardGrid.Card.Paragraph = CardParagraph;
 CardGrid.Card.Caption = CardCaption;
 CardGrid.Card.SmallHeading = CardHeadingSmall;
+CardGrid.Card.LinkWrapper = CardLinkWrapper;
+CardGrid.Card.LinkIcon = CardLinkIcon;
 CardGrid.Card.LinkText = CardLinkText;

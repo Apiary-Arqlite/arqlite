@@ -7,7 +7,8 @@ const IMAGES = {
     pelletrecycle: require('./pellets-recycling-image.png'),
     gravel:require('./gravel-regular.png'),
     microgravel: require('./gravel-micromini.png'),
-    pellet: require('./composite-pellet.png')
+    pellet: require('./composite-pellet.png'),
+    downloadBlack: require('./download-icon-black.svg').default
 }
 
 export default IMAGES;
