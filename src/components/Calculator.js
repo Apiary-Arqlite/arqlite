@@ -1,27 +1,56 @@
-import React from 'react';
-import { useState } from 'react';
+// First version with drop down forms
 
+import React from 'react';
+import { useState, useRef } from 'react';
 import Dropdown from './Dropdown';
 import Option from './Option';
 
 export default function Calculator() {
+  const [form, setForm] = useState({
+    processingFee: '',
+  });
+
   const [optionValue, setOptionValue] = useState('');
+
   const handleSelect = (e) => {
-    console.log(e.target.value);
+    console.log('this item has been clicked');
     setOptionValue(e.target.value);
   };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    const updatedForm = { ...form, [name]: value };
+
+    console.log('Form changed: ', updatedForm);
+
+    setForm(updatedForm);
+  };
+
+  const inputEl = useRef(null);
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current.focus();
+    console.log('this item has been clicked');
+  };
+
+  <>
+    <input ref={inputEl} type='text' />
+    <button onClick={onButtonClick}>Focus the input</button>
+  </>;
+
   return (
     <div>
       <section>
         <div>
           <p>Calculate your hardware footprint for a post-consumer setup</p>
           <p>
-            NUMBER sqft {/* footprint results will be calculated by equation */}
+            NUMBER sq ft{' '}
+            {/* footprint results will be calculated by equation */}
           </p>
           <p>Hardware footprint</p>
           <p>Recycling capacity</p>
           {/* number slider goes here 
-      /* number slider controls recycling capacity */}
+           /* number slider controls recycling capacity */}
           <p>Tonnes of plastic per hour</p>
           {/* this is the start of the form section */}
           <p>Calculate the impact of a multiple revenue stream process</p>
@@ -29,11 +58,10 @@ export default function Calculator() {
             <Dropdown
               formLabel='Processing fee'
               buttonText='send form'
-              onChange={handleSelect}
               action='/'
             >
               <Option defaultValue value='60' />
-              <Option value='10' />
+              <Option onClick={onButtonClick} value='10' />
               <Option value='20' />
               <Option value='30' />
               <Option value='40' />
@@ -44,8 +72,9 @@ export default function Calculator() {
               <Option value='90' />
               <Option value='100' />
             </Dropdown>
-            <p>you defaultValue {optionValue}</p>
+            <p> defaultValue {optionValue}</p>
           </div>
+
           <div>
             <Dropdown
               formLabel='Plastic credits'
@@ -118,8 +147,7 @@ export default function Calculator() {
       </section>
     </div>
   );
-}
 
-{
   /* created dropdowns for calculator. left off setting up useState */
+  /* look into context store */
 }
