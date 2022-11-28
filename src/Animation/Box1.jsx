@@ -8,18 +8,19 @@ export default function Box1() {
         end: { y: 500, opacity: 1 },
       }
 
+
+
 return(
-    <div className="box-container">
-        <motion.div className="box-blue" 
-        initial ={{opacity: 0}}
-        animate={{ y: 500, opacity: 1 }} 
-        transition={{ duration: 2 }}>
-
+    <motion.div className="box-container" >
+        <motion.div className="box-blue" initial="start" animate="end" variants={littleCube} transition={{ duration: 2 }}>
         </motion.div>
-        <motion.div className="box-orange" initial="start" animate="end" variants={littleCube}>
-
+        <motion.div className="box-orange" initial="start" animate="end" variants={littleCube} transition={{ duration: 2 }}>
+        </motion.div>
+        <motion.div className="box-light-gray" initial="start" animate="end" variants={littleCube} transition={{ duration: 2 }}>
+        </motion.div>
+        <motion.div className="box-dark-gray" initial="start" animate="end" variants={littleCube} transition={{ duration: 2 }}>
         </motion.div>
 
-    </div>
+    </motion.div>
     )
 }
