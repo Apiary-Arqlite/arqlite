@@ -1,5 +1,4 @@
 .box-container {
-padding-bottom: 20px;
 display:flex; /*causes little cubes to be side by side instead of on top of each other*/
 }
 
