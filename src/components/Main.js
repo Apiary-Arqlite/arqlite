@@ -4,6 +4,12 @@ function Main() {
   return (
     <main>
       <div>start main</div>
+      <div>.</div>
+      <div>.</div>
+      <div>.</div>
+      <div>.</div>
+      <div>.</div>
+      <div>.</div>
       <Box1 />
       <div>end main</div>
     </main>

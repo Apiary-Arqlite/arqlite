@@ -4,8 +4,8 @@ import {motion} from "framer-motion"
 export default function Box1() {
 
     const littleCube = {
-        start: { opacity: 0 },
-        end: { y: 500, opacity: 1 },
+        start: { y: -500, opacity: 0 },
+        end: { y: 0, opacity: 1 },
       }
 
 
