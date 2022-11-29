@@ -1,15 +1,3 @@
-.footer {
-  margin: 0 auto;
-  box-sizing: border-box;
-  background-color: #54585b;
-  color: #ffffff;
-  font-family: 'Archivo';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  max-width: 1440px;
-}
 .footer__container {
   display: grid;
   grid-template-columns: auto auto 1fr;
