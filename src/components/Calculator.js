@@ -29,7 +29,7 @@ export default function Calculator() {
   const inputEl = useRef(null);
   const onButtonClick = () => {
     // `current` points to the mounted text input element
-    inputEl.current.focus();
+
     console.log('this item has been clicked');
   };
 
@@ -59,6 +59,7 @@ export default function Calculator() {
               formLabel='Processing fee'
               buttonText='send form'
               action='/'
+              onCLick={onButtonClick}
             >
               <Option defaultValue value='60' />
               <Option onClick={onButtonClick} value='10' />
