@@ -52,9 +52,18 @@ font-size: 16px;
 line-height: 20px;
 max-width: 1280px;
 `
+const MeetingCard = styled.section`
+background: #F05125;
+border-radius: 10px;
+padding: 80px;
+display: flex;
+flex-direction: column;
+color: #ffffff;
 
+`
 
 Section.Marker = SectionMarker;
 Section.Header = SectionHeader;
 Section.CaptionLarge = CaptionLarge;
 Section.Footer = Footer;
+Section.MeetingCard=MeetingCard;
