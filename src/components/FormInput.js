@@ -9,7 +9,7 @@ export default function FormInput(props) {
   return (
     <div>
       <label>{label}</label>
-      <select
+      <input
         type={type}
         name={name}
         value={form[name]}

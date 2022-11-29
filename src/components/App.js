@@ -1,5 +1,5 @@
 /* --------------------------------- imports -------------------------------- */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState, useRef } from 'react';
 import Header from './Header';
 import Main from './Main';
@@ -14,7 +14,7 @@ import Option from './Option';
 /* -------------------------------------------------------------------------- */
 
 function App() {
-  const [message, setMessage] = useState('');
+  const [revenue, setRevenue] = useState('2,522,520');
 
   const initialValues = {
     processingFee: '60',
@@ -44,7 +44,26 @@ function App() {
       A * E + B * E + C * E * 0.5 + D * E * 0.5
     );
   }
+  console.log(calculate());
 
+  // VERSION 3 START HERE
+
+  function DropdownMenu() {
+    const [activeMenu, setActiveMenu] = useState('main');
+    const [menuHeight, setMenuHeight] = useState(null);
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+      setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
+    }, []);
+
+    function calcHeight(el) {
+      const height = el.offsetHeight;
+      setMenuHeight(height);
+    }
+
+    // pick up here. create DropdownItem(props)
+  }
   return (
     <div className='root'>
       <div className='page'>
@@ -63,7 +82,7 @@ function App() {
           <FormInput label='Pellets revenue bulk' name='pelletsRevenueBulk' />
           {/* e */}
           <FormInput label='Total tons per month' name='totalTonsPerMonth' />
-          <button onClick={console.log(calculate())}>Calculate</button>
+          <button onClick={() => setRevenue(calculate())}>${revenue}</button>
         </Form>
 
         <Calculator />
