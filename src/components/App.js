@@ -6,8 +6,8 @@ import Main from './Main';
 import Footer from './Footer';
 import Calculator from './Calculator';
 import Form from './Form';
-import FormInput from './FormInput';
-import Option from './Option';
+import FormSelect from './FormSelect';
+import FormOption from './FormOption';
 
 /* -------------------------------------------------------------------------- */
 /*                                function App                                */
@@ -37,7 +37,7 @@ function App() {
     console.log('this item has been clicked');
   };
 
-  function calculate() {
+  function calculate(e) {
     /*  a*e + b*e + c*e*0.5 + d*e*0.5 */
     /* what are the units here? what do we do with the ratio?*/
     return Intl.NumberFormat('en-US').format(
@@ -46,24 +46,6 @@ function App() {
   }
   console.log(calculate());
 
-  // VERSION 3 START HERE
-
-  function DropdownMenu() {
-    const [activeMenu, setActiveMenu] = useState('main');
-    const [menuHeight, setMenuHeight] = useState(null);
-    const dropdownRef = useRef(null);
-
-    useEffect(() => {
-      setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
-    }, []);
-
-    function calcHeight(el) {
-      const height = el.offsetHeight;
-      setMenuHeight(height);
-    }
-
-    // pick up here. create DropdownItem(props)
-  }
   return (
     <div className='root'>
       <div className='page'>
@@ -73,19 +55,64 @@ function App() {
 
         <Form initialValues={initialValues}>
           {/* a */}
-          <FormInput label='Processing Fee' name='processingFee' />
+          <FormSelect
+            label='Processing Fee'
+            name='processingFee'
+            defaultValue={60}
+          >
+            <FormOption value={10} />
+            <FormOption value={20} />
+            <FormOption value={30} />
+            <FormOption value={40} />
+            <FormOption value={50} />
+            <FormOption value={60} />
+            <FormOption value={70} />
+            <FormOption value={80} />
+            <FormOption value={90} />
+            <FormOption value={100} />
+          </FormSelect>
           {/* b */}
-          <FormInput label='Plastic credits' name='plasticCredits' />
+          <FormSelect label='Plastic credits' name='plasticCredits'>
+            <FormOption value={10} />
+            <FormOption value={20} />
+            <FormOption value={30} />
+            <FormOption value={40} />
+            <FormOption defaultValue value={50} />
+            <FormOption value={60} />
+            <FormOption value={70} />
+            <FormOption value={80} />
+            <FormOption value={90} />
+            <FormOption value={100} />
+          </FormSelect>
           {/* c */}
-          <FormInput label='Gravel revenue bulk' name='gravelRevenueBulk' />
+          <FormSelect label='Gravel revenue bulk' name='gravelRevenueBulk'>
+            <FormOption value={200} />
+            <FormOption value={300} />
+            <FormOption selected value={400} />
+            <FormOption value={500} />
+            <FormOption value={600} />
+          </FormSelect>
           {/* d */}
-          <FormInput label='Pellets revenue bulk' name='pelletsRevenueBulk' />
+          <FormSelect label='Pellets revenue bulk' name='pelletsRevenueBulk'>
+            <FormOption value={900} />
+            <FormOption value={1000} />
+            <FormOption value={1200} />
+            <FormOption selected value={1400} />
+            <FormOption value={1600} />
+            <FormOption value={1800} />
+          </FormSelect>
           {/* e */}
-          <FormInput label='Total tons per month' name='totalTonsPerMonth' />
+          <FormSelect label='Total tons per month' name='totalTonsPerMonth'>
+            <FormOption value={462} />
+            <FormOption value={924} />
+            <FormOption value={1848} />
+            <FormOption selected value={2772} />
+            <FormOption value={3696} />
+            <FormOption value={4620} />
+          </FormSelect>
           <button onClick={() => setRevenue(calculate())}>${revenue}</button>
         </Form>
 
-        <Calculator />
         <Footer />
       </div>
     </div>

@@ -1,9 +1,10 @@
 // First version with drop down forms
+// This will be replaced with the calculator version in App.js
 
 import React from 'react';
 import { useState, useRef } from 'react';
 import Dropdown from './Dropdown';
-import Option from './Option';
+import Option from './FormOption';
 
 export default function Calculator() {
   const [form, setForm] = useState({
@@ -28,8 +29,6 @@ export default function Calculator() {
 
   const inputEl = useRef(null);
   const onButtonClick = () => {
-    // `current` points to the mounted text input element
-
     console.log('this item has been clicked');
   };
 

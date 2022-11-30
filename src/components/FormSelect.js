@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { FormContext } from './Form';
-export default function FormInput(props) {
+export default function FormSelect(props) {
   const { label, type = 'text', name } = props;
 
   const formContext = useContext(FormContext);
@@ -9,12 +9,16 @@ export default function FormInput(props) {
   return (
     <div>
       <label>{label}</label>
-      <input
+      <select
         type={type}
         name={name}
         value={form[name]}
+        // should value or default value be assigned {form[name]}?
+        defaultValue={form[name]}
         onChange={handleFormChange}
-      />
+      >
+        {props.children}
+      </select>
     </div>
   );
 }
