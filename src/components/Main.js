@@ -1,11 +1,13 @@
 import CardGrid from "./Card";
-
+import Theme from "./Theme";
 import { constructionCards, ecoCards, productCards } from "../utils/data";
 
 function Main() {
   return (
+  
     <main>
       <div> text box</div>
+      <Theme>
       <CardGrid>
         {constructionCards.map((card, i) => (
           <CardGrid.Card key={i} card={card}>
@@ -16,6 +18,7 @@ function Main() {
           </CardGrid.Card>
         ))}
       </CardGrid>
+      </Theme>
       <div> vert wrapper</div>
       <CardGrid>
         {ecoCards.map((card, i) => (
@@ -35,16 +38,18 @@ function Main() {
         {productCards.map((card, i) => (
           <CardGrid.Card key={i} card={card} horiz>
             <CardGrid.Card.Image horiz src={card.image} />
+         
             <CardGrid.Card.TextBox horiz>
               <CardGrid.Card.Caption>{card.smallHeading}</CardGrid.Card.Caption>
               <CardGrid.Card.SmallHeading>
                 {card.heading}
               </CardGrid.Card.SmallHeading>
-              <CardGrid.Card.Paragraph>
+              <CardGrid.Card.Paragraph horiz>
                 {card.paragraph}
               </CardGrid.Card.Paragraph>
               <CardGrid.Card.LinkWrapper>
-                <CardGrid.Card.LinkIcon src={card.icon} />
+                {/* <CardGrid.Card.LinkIcon src={card.icon} /> */}
+                <CardGrid.Card.LinkIcon  />
                 <CardGrid.Card.LinkText>{card.linkText}</CardGrid.Card.LinkText>
               </CardGrid.Card.LinkWrapper>
             </CardGrid.Card.TextBox>

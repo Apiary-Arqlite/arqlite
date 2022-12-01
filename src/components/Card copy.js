@@ -1,117 +1,158 @@
 //components/Card.js
 import styled from "styled-components/macro";
-import lwbackfill from "../images/lw-backfill-image.png";
 
 //Create a CardWrapper component that will render a <div> with display:grid for cards
-export const CardWrapper = styled.div`
+const CardsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 414px));
   column-gap: 20px;
   justify-content: center;
-
   margin: 0 auto;
-  border: 1px red solid;
 `;
 
 //Create a CardItem component that will render a <div> with styles for a card item
-export const CardItem = styled.div`
-  max-width: 414px;
+const CardItem = styled.div`
   /* background-color: ${(theme) => theme.colors.white}; */
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-collapse: separate;
-  border: 1px blue solid;
+
+  position: relative;
+  max-width: 414px;
+  display: flex;
+  /* flex-wrap:wrap; */
+  flex-direction: ${(props) => (props.horiz ? "row-reverse" : "column")};
 `;
 
 //Create a CardImg component that will render an <img> styles for a card image
 const CardImage = styled.img`
-//need to check heights
-//card no p height: 200px
-//card w p height:180px
-  max-width: 100%;
-  display: block;
-  object-fit: cover;
-  border: 1px green solid;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  ${(props) => `
+    max-width: ${props.horiz ? "158px" : "100%"};
+    border-radius: ${props.horiz ? "1 10px 10px 0" : "10px 10px 0 0"};
+  `}
+  /* max-width: ${(props) => (props.horiz ? "158px" : "100%")}; */
+  flex-shrink:${(props) => (props.horiz ? "2" : "0")};
+  width: ${(props) => (props.horiz ? "38%" : "100%")};
+
+  /* border: 1px green solid; */
+  /* border-radius: ${(props) =>
+    props.horiz ? "0 10px 10 px 0" : "10px 10px 0 0"}; */
 `;
 
+//Create a CardTextBox that will render flex container for Card Text Elements
+const CardTextBox = styled.div`
+  padding: ${(props) => (props.horiz ? "0 24px 20px" : "0 24px 28px")};
+  /* padding: ${(props) => (props.horiz ? "0 24px 20px" : "0 24px 28px")}; */
+  display: flex;
+  flex-direction: column;
+
+  max-width: ${(props) => (props.horiz ? "256px" : "414px")};
+  flex-grow: ${(props) =>
+    props.horiz
+      ? "0"
+      : "1"}; //keeps text box same size as wrapping increases size of one box
+  flex-shrink: ${(props) => (props.horiz ? "1" : "0")};
+  width: ${(props) => (props.horiz ? "62%" : "100%")};
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+
+  border-radius: ${(props) =>
+    props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
+  /* border: 1px solid orange; */
+`;
+
+//Card Heading that will render styled <h3> used in Vert Card
 const CardHeading = styled.h3`
   font-weight: 700;
   font-size: 28px;
   line-height: 1.14;
-
+  max-width: 300px;
   margin-top: 20px;
-
-  & .line-break {
-    display: block;
-  }
+  margin-bottom: 16px;
+  border:1px solid blue;
+  /* margin-bottom: auto; */
+  flex-grow: 1;
+  /* margin-bottom: 0; */
 `;
-
-const CardParagraph=styled.p` 
+//Card Text that will render styled <p> for Horiz and Vert Card paragraph
+const CardParagraph = styled.p`
+  border: 1px solid red;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
 
-  margin-top: 16px;
-  margin-bottom:58px;
-  //need to put prop in cardheading to remove margin bottom:28px
-//will also need a prop here to change bottom margin forwide card
-`
+  //vert settings that work here:
+  /* margin-top: ${(props) => (props.horiz ? "16px" : "auto")}; */
+  margin-top: ${(props) => (props.horiz ? "auto" : "auto")};
+  /* flex-grow: 1; */
+  /* margin-top: ${(props) => (props.horiz ? "16px" : "auto")}; */
+  /* margin-top: 16px; */
+  margin-bottom: 30px;
+`;
+
+//Card Caption that will render styled <p> for caption on Horiz Card
+const CardCaption = styled.p`
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #8f999a;
+
+  margin: 16px 0 0;
+`;
+
+//Card Heading that will render styled <h4> for Heading on Horiz Card
+const CardHeadingSmall = styled.h4`
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.1;
+  /* margin: 8px 0 0; */
+  margin: 8px 0 16px;
+  max-width: 150px;
+  flex-grow:1;
+`;
+//Card link wrapper that will render styled <div> for link on Horiz card
+const CardLinkWrapper = styled.div`
+  display: flex;
+  justify-self: flex-end;
+  margin-top: auto;
+`;
+//Card link icon that will render styled <img> for link icon on Horiz Card
+const CardLinkIcon = styled.img`
+  width: 12px;
+  height: 14px;
+  margin-right: 14px;
+`;
+//Card link text that will render styled <p> for Link text on  Horiz Card
+const CardLinkText = styled.p`
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 0;
+`;
 
 CardItem.Image = CardImage;
-CardItem.Heading = CardHeading;
+// CardItem.Heading = CardHeading;
+// CardItem.Paragraph = CardParagraph;
+// CardItem.TextBox = CardTextBox;
+// CardItem.CardCaption = CardCaption;
+// CardItem.CardHeadingSmall = CardHeadingSmall;
+// CardItem.CardLinkWrapper = CardLinkWrapper;
+// CardItem.CardLinkIcon = CardLinkIcon;
+// CardItem.CardLinkText = CardLinkText;
 
-export default function CardGrid({children}) {
+export default function CardGrid({ children }) {
   return (
     <div>
-      <CardWrapper>
-        <CardItem>
-          <CardItem.Image src={lwbackfill} />
-          <CardItem.Heading>
-            <span className="line-break">Lightweight </span>Backfill Aggregate
-          </CardItem.Heading>
-        </CardItem>
-        <CardItem>
-          <CardImage src={lwbackfill} />
-          <CardItem.Heading>
-            <span className="line-break">Lightweight </span>Backfill Aggregate
-          </CardItem.Heading>
-        </CardItem>
-        <CardItem>
-          <CardImage src={lwbackfill} />
-          <CardItem.Heading>
-            <span className="line-break">Lightweight </span>Backfill Aggregate
-          </CardItem.Heading>
-        </CardItem>
-      </CardWrapper>
-
-      <div>tall vertical cards</div>
-      <CardWrapper>
-        <CardItem>
-          <CardItem.Image src={lwbackfill} />
-          <CardItem.Heading>
-            <span className="line-break">Laminated packaging </span>recycling
-          </CardItem.Heading>
-          <CardParagraph>
-            <span>PE+PP+PET+BOPP, ABS, and more, can all be  </span>processed into a high quality blend
-          </CardParagraph>
-        </CardItem>
-        <CardItem>
-          <CardImage src={lwbackfill} />
-          <CardItem.Heading>
-            <span className="line-break">Lightweight </span>Backfill Aggregate
-          </CardItem.Heading>
-        </CardItem>
-        <CardItem>
-          <CardImage src={lwbackfill} />
-          <CardItem.Heading>
-            <span className="line-break">Lightweight </span>Backfill Aggregate
-          </CardItem.Heading>
-        </CardItem>
-      </CardWrapper>
+      <CardsWrapper>{children}</CardsWrapper>
     </div>
   );
 }
 
 CardGrid.Card = CardItem;
+CardGrid.Card.Image = CardImage;
+CardGrid.Card.TextBox = CardTextBox;
+CardGrid.Card.Heading = CardHeading;
+CardGrid.Card.Paragraph = CardParagraph;
+CardGrid.Card.Caption = CardCaption;
+CardGrid.Card.SmallHeading = CardHeadingSmall;
+CardGrid.Card.LinkWrapper = CardLinkWrapper;
+CardGrid.Card.LinkIcon = CardLinkIcon;
+CardGrid.Card.LinkText = CardLinkText;
