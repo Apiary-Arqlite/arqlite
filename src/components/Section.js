@@ -50,25 +50,24 @@ const Footer = styled.footer`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  max-width: 1280px;
+ width: 100%;
 `;
 const MeetingCard = styled.section`
-  background: #f05125;
-  border-radius: 10px;
-  margin: 120px 80px;
-  padding-left:40px;
+  padding: 80px;
   display: flex;
   flex-direction: row;
   color: #ffffff;
-  
+  width: 1280px;
+  margin-bottom:40px;
 `;
-const MeetingCardContainer=styled.section`
-display:flex;
-flex-direction:column;
-width:100%;
-height:100%;
-
-`
+const MeetingCardContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  background: #f05125;
+  padding: 40px;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+`;
 const MeetingCardButton = styled.button`
   background: ${(props) => (props.orange ? ' #F05125' : '#FFFFFF')};
   color: ${(props) => (props.orange ? '#FFFFFF' : '#F05125')};
@@ -83,33 +82,32 @@ const MeetingCardButton = styled.button`
   line-height: 22px;
   text-align: center;
   letter-spacing: 0.02em;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
+  margin-right: 25px;
 `;
-const MeetingCardDownload=styled.p`
-display:flex;
-flex-direction:row;
-font-family: 'Archivo';
+const MeetingCardDownload = styled.p`
+  display: flex;
+  flex-direction: row;
+  font-family: 'Archivo';
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 22px;
   letter-spacing: 0.02em;
   color: #ffffff;
-`
-const MeetingCardAction=styled.section`
-display:flex;
-flex-direction:row;
-
-`
-
+`;
+const MeetingCardAction = styled.section`
+  display: flex;
+  flex-direction: row;
+`;
 
 Section.Marker = SectionMarker;
 Section.Header = SectionHeader;
 Section.CaptionLarge = CaptionLarge;
 Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
-Section.MeetingCardContainer=MeetingCardContainer;
+Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
-Section.MeetingCardDownload=MeetingCardDownload;
-Section.MeetingCardAction=MeetingCardAction;
+Section.MeetingCardDownload = MeetingCardDownload;
+Section.MeetingCardAction = MeetingCardAction;

@@ -1,11 +1,17 @@
-.meetingCard__img{
+.meetingCard__img {
   width: 414px;
-  height: 373px;
- 
   margin: 0;
   padding: 0;
   object-fit: cover;
   border-radius: 0px 10px 10px 0px;
+}
+.meetingCard__header {
+  padding: 0 0px 32px 0;
+  margin: 0;
+}
+.meetingCard__text {
+  margin: 0;
+  padding-bottom: 60px;
 }
 .meetingCard__download {
   font-family: 'Archivo';
@@ -23,5 +29,5 @@
   object-fit: contain;
   padding: 0;
   margin: 0;
-  margin-left:12px;
+  margin-left: 12px;
 }

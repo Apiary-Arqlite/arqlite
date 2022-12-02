@@ -2,13 +2,22 @@ import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 
 import recycleImgPath from "../images/recycle-plastics-icons.png";
+import MeetingCard from "./MeetingCard";
+import pelletProductionImg from "../images/pellet-production-image.png"
+import buildingImg from '../images/building-image.png';
 
 function Main() {
+  const handleArrangeMeetingClick=()=>{
+    console.log("schedule meeting");
+  }
   return (
     <main>
       <Section dark>
         <Section.Header>Our products</Section.Header>
       </Section>
+      <MeetingCard
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+        img={pelletProductionImg}></MeetingCard>
       <Section>
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
@@ -55,7 +64,11 @@ function Main() {
         <Section.Header>
           We set up <br></br> the process for you
         </Section.Header>
+        
       </Section>
+      <MeetingCard
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+        img={buildingImg}></MeetingCard>
     </main>
   );
 }
