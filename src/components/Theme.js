@@ -3,10 +3,10 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
-    dark: "54585B",
-    light: " 8F999A",
-    brightA: "0091A6", //aquatic
-    brightB: "F05125", //orange
+    dark: "#54585B",
+    light: "#8F999A",
+    brightA: "#0091A6", //aquatic
+    brightB: "#F05125", //orange
     white: "#FFFFFF",
   },
   fonts: ["sans-serif", "Archivo"],
@@ -19,7 +19,7 @@ const theme = {
     xlg: "100px", //title
   },
 
-  fontWeight: {
+  fontWeights: {
     muted: "400",
     regular: "600",
     bold: "700",
