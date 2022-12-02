@@ -1,12 +1,10 @@
 import React from "react";
-import styled from "styled-components";
-
-import Theme from "../Theme";
 
 export default function DownloadIcon({
   width = 12,
   height = 14,
-  color="", className
+  color = "",
+  className,
 }) {
   return (
     <svg

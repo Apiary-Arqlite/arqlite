@@ -1,11 +1,9 @@
 //components/Card.js
+/* --------------------------------- imports -------------------------------- */
 import React from "react";
 import Theme from "./Theme";
 import styled from "styled-components/macro";
 import DownloadIcon from "./icons/DownloadIcon";
-
-import downloadIconBlack from "../images/download-icon-black.svg";
-import downloadIconOrange from "../images/download-icon-orange.svg";
 
 //Create a CardWrapper component that will render a <div> with display:grid for cards
 const CardsWrapper = styled.div`
@@ -28,7 +26,6 @@ const CardsWrapper = styled.div`
 
 //Create a CardItem component that will render a <div> with styles for a card item
 const CardItem = styled.div`
-  /* background-color: ${(theme) => theme.colors.white}; */
   ${(props) => `
 flex-direction: ${props.horiz ? "row-reverse" : "column"};
 `}
@@ -86,8 +83,7 @@ const CardParagraph = styled.p`
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.muted};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.xs};
   color: ${({ theme: { colors } }) => colors.dark};
-  /* font-weight: 400; */
-  /* font-size: 16px; */
+
   line-height: 1.25;
 
   //vert settings that work here:

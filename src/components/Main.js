@@ -1,5 +1,4 @@
 import CardGrid from "./Card";
-import { DownloadIcon } from "./icons/DownloadIcon";
 import { constructionCards, ecoCards, productCards } from "../utils/data";
 
 function Main() {

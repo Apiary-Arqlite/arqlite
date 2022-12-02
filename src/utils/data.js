@@ -34,7 +34,7 @@ export const productCards = [
     paragraph: "Backfill, drainage, hydroponics, and more",
     linkText: "Info brochure",
     image: IMAGES.gravel,
-    icon: IMAGES.downloadBlack,
+ 
   },
   {
     smallHeading: "100% RECYCLED",
@@ -42,7 +42,7 @@ export const productCards = [
     paragraph: "Building and precast concrete",
     linkText: "Info brochure",
     image: IMAGES.microgravel,
-    icon: IMAGES.downloadBlack,
+  
   },
   { 
     smallHeading: "100% RECYCLED",
@@ -50,6 +50,6 @@ export const productCards = [
     paragraph: "Extrusion and injection molding",
     linkText: "Info brochure",
     image: IMAGES.pellet,
-    icon: IMAGES.downloadBlack,
+   
   }
 ];
