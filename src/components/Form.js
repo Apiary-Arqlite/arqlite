@@ -1,5 +1,3 @@
-// THIS IS A COPY OF CALCULATOR.JS
-
 import React from 'react';
 import { useState } from 'react';
 
@@ -17,6 +15,8 @@ export default function Form(props) {
       ...form,
       [name]: value,
     });
+    console.log(value);
+    console.table(initialValues);
   };
 
   return (
@@ -24,7 +24,7 @@ export default function Form(props) {
       <FormContext.Provider value={{ form, handleFormChange }}>
         {children}
       </FormContext.Provider>
-
+      {/* submit button doesn't do anything */}
       <button type='button' onClick={() => submit(form)}>
         Submit
       </button>
