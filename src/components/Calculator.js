@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useState, useRef } from 'react';
+import React from 'react';
+import { useState } from 'react';
 
 import Form from './Form';
 import FormSelect from './FormSelect';
@@ -95,8 +95,4 @@ export default function Calculator() {
       <button onClick={() => setRevenue(calculate())}>${revenue}</button>
     </Form>
   );
-}
-
-{
-  /* wrap in context.provider to manage values */
 }
