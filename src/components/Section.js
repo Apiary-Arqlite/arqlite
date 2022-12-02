@@ -86,7 +86,7 @@ const MeetingCardButton = styled.button`
   padding: 0;
   margin-right: 25px;
 `;
-const MeetingCardDownload = styled.p`
+const MeetingCardDownloadButton = styled.button`
   display: flex;
   flex-direction: row;
   font-family: 'Archivo';
@@ -95,7 +95,10 @@ const MeetingCardDownload = styled.p`
   font-size: 20px;
   line-height: 22px;
   letter-spacing: 0.02em;
+  background:transparent;
   color: #ffffff;
+  // text-align: center;
+  border: none;
 `;
 const MeetingCardAction = styled.section`
   display: flex;
@@ -109,5 +112,5 @@ Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
 Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
-Section.MeetingCardDownload = MeetingCardDownload;
+Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;

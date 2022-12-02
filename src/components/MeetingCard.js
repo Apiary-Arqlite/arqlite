@@ -1,7 +1,7 @@
 import {Section} from '../components/Section';
 import buildingImg from '../images/building-image.png';
 import downloadIcon from '../images/download-icon-white.png';
-function MeetingCard({handleArrangeMeetingClick, img}) {
+function MeetingCard({handleArrangeMeetingClick, handleDownload,img}) {
   return (
     <Section.MeetingCard>
       <Section.MeetingCardContainer>
@@ -16,14 +16,14 @@ function MeetingCard({handleArrangeMeetingClick, img}) {
           >
             Arrange a meeting
           </Section.MeetingCardButton>
-          <Section.MeetingCardDownload>
+          <Section.MeetingCardDownloadButton>
             Download our licensing Deck
             <img
               className="meetingCard__icon"
               src={downloadIcon}
               alt="download icon"
             />
-          </Section.MeetingCardDownload>
+          </Section.MeetingCardDownloadButton>
         </Section.MeetingCardAction>
       </Section.MeetingCardContainer>
       <img className="meetingCard__img" src={img} />
