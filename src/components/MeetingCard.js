@@ -1,7 +1,7 @@
 import {Section} from '../components/Section';
 import buildingImg from '../images/building-image.png';
 import downloadIcon from '../images/download-icon-white.png';
-function MeetingCard({handleArrangeMeetingClick, handleDownload,img}) {
+function MeetingCard({handleArrangeMeetingClick, handleDownloadClick,img}) {
   return (
     <Section.MeetingCard>
       <Section.MeetingCardContainer>
@@ -16,7 +16,7 @@ function MeetingCard({handleArrangeMeetingClick, handleDownload,img}) {
           >
             Arrange a meeting
           </Section.MeetingCardButton>
-          <Section.MeetingCardDownloadButton>
+          <Section.MeetingCardDownloadButton type="button" onClick={handleDownloadClick}>
             Download our licensing Deck
             <img
               className="meetingCard__icon"

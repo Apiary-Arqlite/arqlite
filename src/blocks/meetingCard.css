@@ -1,5 +1,5 @@
 .meetingCard__img {
-  width: 414px;
+  max-width: 414px;
   margin: 0;
   padding: 0;
   object-fit: cover;

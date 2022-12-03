@@ -10,6 +10,9 @@ function Main() {
   const handleArrangeMeetingClick=()=>{
     console.log("schedule meeting");
   }
+  const handleDownloadClick=()=>{
+    console.log("download");
+  }
   return (
     <main>
       <Section dark>
@@ -17,7 +20,8 @@ function Main() {
       </Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}></MeetingCard>
+        img={pelletProductionImg}
+        handleDownloadClick={handleDownloadClick}></MeetingCard>
       <Section>
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
@@ -68,7 +72,7 @@ function Main() {
       </Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={buildingImg}></MeetingCard>
+        img={buildingImg}handleDownloadClick={handleDownloadClick}></MeetingCard>
     </main>
   );
 }

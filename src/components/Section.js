@@ -57,7 +57,7 @@ const MeetingCard = styled.section`
   display: flex;
   flex-direction: row;
   color: #ffffff;
-  width: 1280px;
+  max-width: 1280px;
   margin-bottom:40px;
 `;
 const MeetingCardContainer = styled.section`
@@ -85,6 +85,7 @@ const MeetingCardButton = styled.button`
   margin: 0;
   padding: 0;
   margin-right: 25px;
+  cursor:pointer;
 `;
 const MeetingCardDownloadButton = styled.button`
   display: flex;
@@ -97,12 +98,16 @@ const MeetingCardDownloadButton = styled.button`
   letter-spacing: 0.02em;
   background:transparent;
   color: #ffffff;
-  // text-align: center;
+ align-items:center;
   border: none;
+  padding:0;
+  border-radius: 10px;
+  cursor:pointer;
 `;
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
+ 
 `;
 
 Section.Marker = SectionMarker;
