@@ -50,7 +50,11 @@
 .footer__link {
   color: #ffffff;
   text-decoration: none;
+  transition: all 0.2s ease;
+}
+.footer__link:hover{
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
 }
 .footer__copyright {
   grid-row: 3 / 4;
