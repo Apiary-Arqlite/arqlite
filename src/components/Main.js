@@ -32,7 +32,7 @@ function Main() {
         ))}
       </CardGrid>
       </Section>
-      <Section>
+      <Section id="calculator">
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
@@ -40,7 +40,7 @@ function Main() {
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
       </Section>
-      <Section dark>
+      <Section dark id="construction">
         <Section.Marker>
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -60,7 +60,7 @@ function Main() {
         ))}
       </CardGrid>
       </Section>
-      <Section>
+      <Section id="recycle">
         <Section.Marker>
           For plastic companies and recyclers{" "}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -75,7 +75,7 @@ function Main() {
         </Section.CaptionLarge>
         <img className="section__recycle-icons" src={recycleImgPath} />
       </Section>
-      <Section dark>
+      <Section dark id="eco">
         <Section.Marker>
           For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />

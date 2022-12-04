@@ -41,19 +41,41 @@ const CaptionLarge = styled.p`
   line-height: 38px;
   max-width: 804px;
 `;
+
+const Header = styled.header`
+  padding: 80px;
+  margin: 0 auto;
+  background-color: #54585b;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  max-width: 1280px;
+`;
+
+const HeaderLink = styled.a`
+  font-size: 20px;
+  color: #0091a6;
+  font-weight: 700;
+  line-height: 21px;
+  text-decoration: none;
+`;
+
 const Footer = styled.footer`
-margin: 0 auto;
-background-color: #54585b;
-box-sizing: border-box;
-color: #ffffff;
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 20px;
-max-width: 1280px;
-`
+  margin: 0 auto 60px;
+  background-color: #54585b;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  max-width: 1280px;
+`;
 
-
+Section.Header = Header;
+Section.HeaderLink = HeaderLink;
 Section.Marker = SectionMarker;
 Section.Header = SectionHeader;
 Section.CaptionLarge = CaptionLarge;
