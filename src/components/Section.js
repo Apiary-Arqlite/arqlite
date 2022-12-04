@@ -50,7 +50,7 @@ const Footer = styled.footer`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
- width: 100%;
+  width: 100%;
 `;
 const MeetingCard = styled.section`
   padding: 80px;
@@ -58,7 +58,7 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-  margin-bottom:40px;
+  margin-bottom: 40px;
 `;
 const MeetingCardContainer = styled.section`
   display: flex;
@@ -85,7 +85,7 @@ const MeetingCardButton = styled.button`
   margin: 0;
   padding: 0;
   margin-right: 25px;
-  cursor:pointer;
+  cursor: pointer;
 `;
 const MeetingCardDownloadButton = styled.button`
   display: flex;
@@ -96,19 +96,32 @@ const MeetingCardDownloadButton = styled.button`
   font-size: 20px;
   line-height: 22px;
   letter-spacing: 0.02em;
-  background:transparent;
+  background: transparent;
   color: #ffffff;
- align-items:center;
+  align-items: center;
   border: none;
-  padding:0;
+  padding: 0;
   border-radius: 10px;
-  cursor:pointer;
+  cursor: pointer;
 `;
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
- 
 `;
+const ArrangeMeetingForm = styled.section`
+display: flex;
+  flex-direction: column;
+  font-family: 'Archivo';
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.5);
+  border:solid red 1px;
+ 
+
+`
+
+
+
+
 
 Section.Marker = SectionMarker;
 Section.Header = SectionHeader;
@@ -119,3 +132,4 @@ Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
+Section.ArrangeMeetingForm=ArrangeMeetingForm;

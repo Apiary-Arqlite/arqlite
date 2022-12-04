@@ -1,5 +1,5 @@
 import {Section} from '../components/Section';
-import buildingImg from '../images/building-image.png';
+
 import downloadIcon from '../images/download-icon-white.png';
 function MeetingCard({handleArrangeMeetingClick, handleDownloadClick,img}) {
   return (
