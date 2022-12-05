@@ -1,0 +1,28 @@
+.box-container {
+display:flex; /*causes little cubes to be side by side instead of on top of each other*/
+width:126px; /* 21px per box*6 boxes*/
+}
+
+.box-blue {
+width:21px;
+height:21px;
+background-color:#0091A6;
+}
+
+.box-dark-gray {
+width:21px;
+height:21px;
+background-color:#54585B;
+}
+
+.box-light-gray {
+width:21px;
+height:21px;
+background-color:#8F999A;
+}
+
+.box-orange {
+width:21px;
+height:21px;
+background-color:#F05125;
+}

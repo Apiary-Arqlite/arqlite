@@ -1,10 +1,12 @@
-import "../blocks/header.css";
-import { Section } from "./Section";
-import arqliteLogo2 from "../images/arqlite-logo-2.svg";
-import CalcIcon from "../images/CalcIcon.png";
-import WallIcon from "../images/WallIcon.png";
-import FactoryIcon from "../images/FactoryIcon.png";
-import RecycleIcon from "../images/RecycleIcon.png";
+import '../blocks/header.css';
+import { Section } from './Section';
+import arqliteLogo2 from '../images/arqlite-logo-2.svg';
+import CalcIcon from '../images/CalcIcon.png';
+import WallIcon from '../images/WallIcon.png';
+import FactoryIcon from '../images/FactoryIcon.png';
+import RecycleIcon from '../images/RecycleIcon.png';
+import Box1 from '../Animation/Box1.jsx';
+import '../Animation/Box1.css';
 
 function Header() {
   return (
@@ -20,6 +22,7 @@ function Header() {
             company. From zero to production-ready.
           </Section.CaptionLarge>
         </div>
+        <Box1 />
         <div className="header__links">
           <Section.HeaderLink
             className="header__link header__link-calc"
