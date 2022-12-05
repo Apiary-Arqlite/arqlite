@@ -32,7 +32,7 @@ export const ecoCards = [
 
 export const productCards = [
   {
-    smallHeading: "100% RECYCLED",
+    caption: "100% RECYCLED",
     heading: "Regular & Mini Smart Gravel",
     paragraph: "Backfill, drainage, hydroponics, and more",
     linkText: "Info brochure",
@@ -41,7 +41,7 @@ export const productCards = [
  
   },
   {
-    smallHeading: "100% RECYCLED",
+    caption: "100% RECYCLED",
     heading: "Micro Mini Smart Gravel",
     paragraph: "Building and precast concrete",
     linkText: "Info brochure",
@@ -50,7 +50,7 @@ export const productCards = [
   
   },
   { 
-    smallHeading: "100% RECYCLED",
+    caption: "100% RECYCLED",
     heading: "Composite plastic pellet",
     paragraph: "Extrusion and injection molding",
     linkText: "Info brochure",
