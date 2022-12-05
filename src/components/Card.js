@@ -73,12 +73,9 @@ const CardHeading = styled.h3`
   max-width: 300px;
   margin-top: 20px;
   margin-bottom: 16px;
-
-  border: 1px solid blue;
 `;
 //Card Text that will render styled <p> for Horiz and Vert Card paragraph
 const CardParagraph = styled.p`
-  border: 1px solid red;
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.muted};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.xs};
   color: ${({ theme: { colors } }) => colors.dark};
