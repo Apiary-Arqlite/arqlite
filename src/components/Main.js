@@ -3,9 +3,30 @@ import { constructionCards, ecoCards, productCards } from "../utils/data";
 import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 
-import recycleImgPath from "../images/recycle-plastics-icons.png";
+
+import recycleImgPath from '../images/recycle-plastics-icons.png';
+import MeetingCard from './MeetingCard';
+import pelletProductionImg from '../images/pellet-production-image.png';
+import buildingImg from '../images/building-image.png';
 
 function Main() {
+  const handleArrangeMeetingClick = () => {
+    console.log('implement schedule meeting logic');
+  };
+  const handleDownloadClick = () => {
+    // using Java Script method to get PDF file
+    fetch('ArqliteLicensingDeck.pdf').then((response) => {
+      response.blob().then((blob) => {
+        // Creating new object of PDF file
+        const fileURL = window.URL.createObjectURL(blob);
+        // Setting various property values
+        let alink = document.createElement('a');
+        alink.href = fileURL;
+        alink.download = 'ArqliteLicensingDeck.pdf';
+        alink.click();
+      });
+    });
+  };
   return (
     <main>
       <Section dark>
@@ -36,7 +57,15 @@ function Main() {
           ))}
         </CardGrid>
       </Section>
-      <Section>
+
+      <MeetingCard
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+        img={pelletProductionImg}
+        handleDownloadClick={handleDownloadClick}
+      ></MeetingCard>
+
+      <Section id="calculator">
+
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
@@ -44,9 +73,9 @@ function Main() {
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
       </Section>
-      <Section dark>
+      <Section dark id="construction">
         <Section.Marker>
-          For construction companies{" "}
+          For construction companies{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Header>
@@ -63,9 +92,9 @@ function Main() {
           ))}
         </CardGrid>
       </Section>
-      <Section>
+      <Section id="recycle">
         <Section.Marker>
-          For plastic companies and recyclers{" "}
+          For plastic companies and recyclers{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Header>
@@ -78,13 +107,13 @@ function Main() {
         </Section.CaptionLarge>
         <img className="section__recycle-icons" src={recycleImgPath} />
       </Section>
-      <Section dark>
+      <Section dark id="eco">
         <Section.Marker>
-          For eco-conscious brands{" "}
+          For eco-conscious brands{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Header>
-          Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
+          Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
           into sustainable products
         </Section.Header>
         <CardGrid>
@@ -106,6 +135,11 @@ function Main() {
           We set up <br></br> the process for you
         </Section.Header>
       </Section>
+      <MeetingCard
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+        img={buildingImg}
+        handleDownloadClick={handleDownloadClick}
+      ></MeetingCard>
     </main>
   );
 }
