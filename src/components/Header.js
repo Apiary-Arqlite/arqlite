@@ -21,8 +21,9 @@ function Header() {
             We set up a recycling line of hard-to-recycle plastic waste for your
             company. From zero to production-ready.
           </Section.CaptionLarge>
+          <Box1 />
         </div>
-        <Box1 />
+
         <div className="header__links">
           <Section.HeaderLink
             className="header__link header__link-calc"
