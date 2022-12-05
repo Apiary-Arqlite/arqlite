@@ -11,26 +11,30 @@ function Main() {
       <Section dark>
         <Section.Header>Our products</Section.Header>
         <CardGrid>
-        {productCards.map((card, i) => (
-          <CardGrid.Card key={i} card={card} horiz>
-            <CardGrid.Card.Image horiz src={card.image} />
+          {productCards.map((card, i) => (
+            <CardGrid.Card key={i} card={card} horiz>
+              <CardGrid.Card.Image horiz src={card.image} alt={card.alt} />
 
-            <CardGrid.Card.TextBox horiz>
-              <CardGrid.Card.Caption>{card.smallHeading}</CardGrid.Card.Caption>
-              <CardGrid.Card.SmallHeading>
-                {card.heading}
-              </CardGrid.Card.SmallHeading>
-              <CardGrid.Card.Paragraph horiz>
-                {card.paragraph}
-              </CardGrid.Card.Paragraph>
-              <CardGrid.Card.LinkWrapper>
-                <CardGrid.Card.LinkIconS />
-                <CardGrid.Card.LinkText>{card.linkText}</CardGrid.Card.LinkText>
-              </CardGrid.Card.LinkWrapper>
-            </CardGrid.Card.TextBox>
-          </CardGrid.Card>
-        ))}
-      </CardGrid>
+              <CardGrid.Card.TextBox horiz>
+                <CardGrid.Card.Caption>
+                  {card.smallHeading}
+                </CardGrid.Card.Caption>
+                <CardGrid.Card.SmallHeading>
+                  {card.heading}
+                </CardGrid.Card.SmallHeading>
+                <CardGrid.Card.Paragraph horiz>
+                  {card.paragraph}
+                </CardGrid.Card.Paragraph>
+                <CardGrid.Card.LinkWrapper>
+                  <CardGrid.Card.LinkIcon />
+                  <CardGrid.Card.LinkText>
+                    {card.linkText}
+                  </CardGrid.Card.LinkText>
+                </CardGrid.Card.LinkWrapper>
+              </CardGrid.Card.TextBox>
+            </CardGrid.Card>
+          ))}
+        </CardGrid>
       </Section>
       <Section>
         <Section.CaptionLarge className="section__caption_center">
@@ -44,21 +48,20 @@ function Main() {
         <Section.Marker>
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
-
         </Section.Marker>
         <Section.Header>
           Produce your own low-carbon <br></br> & LEED building materials
         </Section.Header>
         <CardGrid>
-        {constructionCards.map((card, i) => (
-          <CardGrid.Card key={i} card={card}>
-            <CardGrid.Card.Image src={card.image} />
-            <CardGrid.Card.TextBox>
-              <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
-            </CardGrid.Card.TextBox>
-          </CardGrid.Card>
-        ))}
-      </CardGrid>
+          {constructionCards.map((card, i) => (
+            <CardGrid.Card key={i} card={card}>
+              <CardGrid.Card.Image src={card.image} alt={card.alt} />
+              <CardGrid.Card.TextBox>
+                <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
+              </CardGrid.Card.TextBox>
+            </CardGrid.Card>
+          ))}
+        </CardGrid>
       </Section>
       <Section>
         <Section.Marker>
@@ -85,18 +88,18 @@ function Main() {
           into sustainable products
         </Section.Header>
         <CardGrid>
-        {ecoCards.map((card, i) => (
-          <CardGrid.Card key={i} card={card}>
-            <CardGrid.Card.Image src={card.image} />
-            <CardGrid.Card.TextBox>
-              <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
-              <CardGrid.Card.Paragraph>
-                {card.paragraph}
-              </CardGrid.Card.Paragraph>
-            </CardGrid.Card.TextBox>
-          </CardGrid.Card>
-        ))}
-      </CardGrid>
+          {ecoCards.map((card, i) => (
+            <CardGrid.Card key={i} card={card}>
+              <CardGrid.Card.Image src={card.image} alt={card.alt} />
+              <CardGrid.Card.TextBox>
+                <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
+                <CardGrid.Card.Paragraph>
+                  {card.paragraph}
+                </CardGrid.Card.Paragraph>
+              </CardGrid.Card.TextBox>
+            </CardGrid.Card>
+          ))}
+        </CardGrid>
       </Section>
       <Section>
         <Section.Header>
