@@ -128,6 +128,22 @@ const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
 `;
+const Modal = styled.div`
+box-sizing: border-box;
+justify-content: center;
+align-items: center;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+background-color: rgba(0, 0, 0, .5);
+z-index: 999;
+transition: visibility 0s ease-in-out 0.4s, opacity 0.4s ease-in-out;
+margin:0;
+padding:0;`
+
 const ArrangeMeetingForm = styled.div`
 
 box-sizing: border-box;
@@ -143,7 +159,7 @@ border:solid green 1px;
 background-color: rgba(0, 0, 0, .5);
 z-index: 999;
 transition: visibility 0s ease-in-out 0.4s, opacity 0.4s ease-in-out;
-pointer-events: none;
+
 margin:0;
 padding:0;
 
@@ -162,7 +178,7 @@ Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
-
+Section.Modal=Modal;
 Section.HeaderLink=HeaderLink;
 Section.ArrangeMeetingForm=ArrangeMeetingForm;
 

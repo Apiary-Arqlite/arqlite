@@ -1,6 +1,6 @@
 import {Section} from '../components/Section';
 import{useState}from 'react';
-
+import Modal from "./Modal"
 
 const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
 
@@ -23,14 +23,14 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
   const handleSendRequest=(event)=>{
     event.preventDefault();
     console.log("send request");
-    console.log("clear form");
+    console.log("open success form");
     // fetch("http://localhost:3001/", {
 		// 	method: "POST",
 		// 	headers: {
 		// 		Accept: "application/json, text/plain, */*",
 		// 		"Content-Type": "application/json",
 		// 	},
-		// 	body: JSON.stringify(values),
+		// 	body: JSON.stringify(formValues),
 		// })
 		// 	.then((res) => {
 		// 		resetForm();//?
@@ -41,9 +41,8 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
 		// 	});
   }
   return (
-    <Section.ArrangeMeetingForm>
-      <div className="form__container">
-        <button className="form__close-button" type="button" />
+    <Modal isOpen={isOpen} onClose={onClose}>
+      
         <form className="form" action="#" onSubmit={handleSendRequest}>
           
           <p className="form__title">Arrange a meeting</p>
@@ -90,8 +89,8 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
           </Section.MeetingCardButton>
          
         </form>
-      </div>
-      </Section.ArrangeMeetingForm>
+      
+      </Modal>
   );
 };
 export default ArrangeMeetingForm;
