@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
