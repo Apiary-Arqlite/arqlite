@@ -1,5 +1,5 @@
 import { Section } from '../components/Section';
-import Calculator from './Calculator';
+import Calculator from './Calculator.tsx';
 import markerIconPath from '../images/arrow-down-orange.png';
 
 import recycleImgPath from '../images/recycle-plastics-icons.png';

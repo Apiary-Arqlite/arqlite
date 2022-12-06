@@ -1,13 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
-
-import Form from './Form';
-import FormSelect from './FormSelect';
-import FormOption from './FormOption';
+import React, { useEffect } from 'react';
+import { useState, useContext } from 'react';
 
 export default function Calculator() {
   const [revenue, setRevenue] = useState('2,522,520');
-  const initialValues = {
+
+  let initialValues = {
     processingFee: 60,
     plasticCredits: 50,
     gravelRevenueBulk: 400,
@@ -15,11 +12,87 @@ export default function Calculator() {
     totalTonsPerMonth: 2772,
   };
 
-  const submit = (form) => {
-    console.log(calculate());
-  };
+  const FormContext = React.createContext({
+    form: {},
+    handleFormChange: () => {},
+  });
+
+  interface FormOptionProps {
+    selected?: boolean;
+    value: number;
+  }
+
+  function FormOption(props: FormOptionProps) {
+    return <option selected={props.selected}>${props.value}</option>;
+  }
+
+  interface FormSelectProps {
+    label: string;
+    name: string;
+    children: React.ReactNode;
+    [key: string]: any;
+  }
+
+  interface Form {
+    [key: string]: any;
+  }
+
+  function FormSelect(props: FormSelectProps) {
+    const { label, name } = props;
+
+    const formContext = useContext(FormContext);
+    const { form, handleFormChange } = formContext;
+
+    form: Form = formContext.form;
+    return (
+      <div>
+        <label>{label}</label>
+        <select name={name} value={form?.(name)} onChange={handleFormChange}>
+          {props.children}
+        </select>
+      </div>
+    );
+  }
+
+  interface FormProps {
+    children: React.ReactNode;
+    submit?: () => void;
+    initialValues: { [key: string]: any };
+  }
+
+  function Form(props: FormProps) {
+    const { children, submit = () => {}, initialValues } = props;
+    const [form, setForm] = useState(initialValues);
+    const [values, setValues] = useState(initialValues);
+
+    useEffect(() => {
+      setValues(form);
+    }, [form]);
+
+    const handleFormChange = (e) => {
+      const { name, value } = e.target;
+
+      setForm({
+        ...form,
+        [name]: value,
+      });
+
+      console.log(value);
+      console.table(form);
+      debugger;
+    };
+
+    return (
+      <form>
+        <FormContext.Provider value={{ form, handleFormChange }}>
+          {children}
+        </FormContext.Provider>
+      </form>
+    );
+  }
 
   function calculate() {
+    // calculations needs to be based on 'values' instead of 'initialValues'
     const A = initialValues.processingFee;
     const B = initialValues.plasticCredits;
     const C = initialValues.gravelRevenueBulk;
@@ -35,7 +108,7 @@ export default function Calculator() {
   }
 
   return (
-    <Form submit={submit} initialValues={initialValues}>
+    <Form initialValues={initialValues}>
       {/* a */}
       <FormSelect
         label='Processing Fee'
@@ -59,7 +132,7 @@ export default function Calculator() {
         <FormOption value={20} />
         <FormOption value={30} />
         <FormOption value={40} />
-        <FormOption defaultValue value={50} />
+        <FormOption value={50} />
         <FormOption value={60} />
         <FormOption value={70} />
         <FormOption value={80} />
@@ -70,7 +143,7 @@ export default function Calculator() {
       <FormSelect label='Gravel revenue bulk' name='gravelRevenueBulk'>
         <FormOption value={200} />
         <FormOption value={300} />
-        <FormOption selected value={400} />
+        <FormOption value={400} />
         <FormOption value={500} />
         <FormOption value={600} />
       </FormSelect>
@@ -79,7 +152,7 @@ export default function Calculator() {
         <FormOption value={900} />
         <FormOption value={1000} />
         <FormOption value={1200} />
-        <FormOption selected value={1400} />
+        <FormOption value={1400} />
         <FormOption value={1600} />
         <FormOption value={1800} />
       </FormSelect>
@@ -88,11 +161,11 @@ export default function Calculator() {
         <FormOption value={462} />
         <FormOption value={924} />
         <FormOption value={1848} />
-        <FormOption selected value={2772} />
+        <FormOption value={2772} />
         <FormOption value={3696} />
         <FormOption value={4620} />
       </FormSelect>
-      <button onClick={() => setRevenue(calculate())}>${revenue}</button>
+      <button>${revenue}</button>
     </Form>
   );
 }
