@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
@@ -20,6 +20,8 @@ const SectionMarker = styled.h4`
   line-height: 22px;
   margin: 0px;
   display: flex;
+    //trying this to standardize spacing
+    margin:0 0 100px;
 `;
 
 // Create a SectionHeader component that will render an <h2> tag with styles
@@ -30,6 +32,8 @@ const SectionHeader = styled.h2`
   font-size: 60px;
   line-height: 107%;
   letter-spacing: -0.02em;
+  //trying this to standardize spacing
+  margin:0 0 44px;
 `;
 
 // Create a CaptionLarge component that will render an <p> tag with styles
