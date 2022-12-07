@@ -5,7 +5,6 @@ import Theme from "./Theme";
 import styled from "styled-components/macro";
 import DownloadIcon from "./icons/DownloadIcon";
 
-/* ---------------------------- styled components --------------------------- */
 //Create a CardWrapper component that will render a <div> with display:grid for cards
 const CardsWrapper = styled.div`
   display: grid;
@@ -19,10 +18,10 @@ const CardsWrapper = styled.div`
     row-gap: 20px;
   } */
 
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr;
+  /* @media (max-width:600px) {
+    grid-template-columns: repeat(1, minmax(0, 347px));
     row-gap: 20px;
-  }
+  } */
 `;
 
 //Create a CardItem component that will render a <div> with styles for a card item
@@ -33,6 +32,7 @@ flex-direction: ${props.horiz ? "row-reverse" : "column"};
   display: flex;
   position: relative;
   max-width: 414px;
+  /* row-gap:16px; */
 `;
 
 //Create a CardImg component that will render an <img> styles for a card image
@@ -66,6 +66,7 @@ const CardTextBox = styled.div`
 
 //Card Heading that will render styled <h3> used in Vert Card (Caption Large)
 const CardHeading = styled.h3`
+  /* background-color: ${(theme) => theme.colors.white}; */
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.md};
   color: ${({ theme: { colors } }) => colors.dark};
@@ -73,15 +74,24 @@ const CardHeading = styled.h3`
   max-width: 300px;
   margin-top: 20px;
   margin-bottom: 16px;
+  /* margin-bottom: 0; */
+  border: 1px solid blue;
 `;
 //Card Text that will render styled <p> for Horiz and Vert Card paragraph
 const CardParagraph = styled.p`
+  border: 1px solid red;
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.muted};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.xs};
   color: ${({ theme: { colors } }) => colors.dark};
 
   line-height: 1.25;
+
+  //vert settings that work here:
+  /* margin-top: ${(props) => (props.horiz ? "16px" : "auto")}; */
   margin-top: ${(props) => (props.horiz ? "16px" : "0")};
+  /* margin-top: ${(props) => (props.horiz ? "0" : "16px")}; */
+  /* flex-grow: 1; */
+
   margin-bottom: 30px;
 `;
 
@@ -90,7 +100,10 @@ const CardCaption = styled.p`
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.xxs};
   color: ${({ theme: { colors } }) => colors.light};
+  /* font-weight: 700;
+  font-size: 12px; */
   line-height: 1.6;
+  /* color: #8f999a; */
 
   margin: 16px 0 0;
 `;
@@ -100,10 +113,13 @@ const CardHeadingSmall = styled.h4`
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
   color: ${({ theme: { colors } }) => colors.dark};
+  /* font-weight: 700;
+  font-size: 20px; */
   line-height: 1.1;
-
+  /* margin: 8px 0 0; */
   margin: 8px 0 0px;
   max-width: 150px;
+  /* flex-grow: 1; */
 `;
 //Card link wrapper that will render styled <div> for link on Horiz card
 const CardLinkWrapper = styled.div`
@@ -115,35 +131,48 @@ const CardLinkWrapper = styled.div`
     path {
       stroke: ${({ theme: { colors } }) => colors.brightB};
     }
-    p {
-      color: ${({ theme: { colors } }) => colors.brightB};
-    }
+  }
+`;
+
+const CardLinkIconS = styled(DownloadIcon)`
+  /* color: #F05125; */
+  width: 12px;
+  height: 14px;
+  margin-right: 14px;
+
+  path {
+    stroke: ${({ theme: { colors } }) => colors.dark};
   }
 `;
 
 //Card link icon that will render styled <img> for link icon on Horiz Card
-const CardLinkIcon = styled(DownloadIcon)`
-  width: 20px;
-  height: 20px;
+const CardLinkIcon = styled.div`
+  width: 12px;
+  height: 14px;
   margin-right: 14px;
-  stroke: ${({ theme: { colors } }) => colors.dark};
-
-  /* path {
-    stroke: ${({ theme: { colors } }) => colors.dark};
-  } */
 `;
 
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.xs};
+  /* color: ${({ theme: { colors } }) => colors.dark}; */
   color: ${({ theme }) => theme.colors.dark};
-
+  /* font-weight: 700;
+  font-size: 16px; */
   line-height: 1.25;
   margin: 0;
 `;
 
 CardItem.Image = CardImage;
+// CardItem.Heading = CardHeading;
+// CardItem.Paragraph = CardParagraph;
+// CardItem.TextBox = CardTextBox;
+// CardItem.CardCaption = CardCaption;
+// CardItem.CardHeadingSmall = CardHeadingSmall;
+// CardItem.CardLinkWrapper = CardLinkWrapper;
+// CardItem.CardLinkIcon = CardLinkIcon;
+// CardItem.CardLinkText = CardLinkText;
 
 export default function CardGrid({ children }) {
   return (
@@ -162,4 +191,5 @@ CardGrid.Card.Caption = CardCaption;
 CardGrid.Card.SmallHeading = CardHeadingSmall;
 CardGrid.Card.LinkWrapper = CardLinkWrapper;
 CardGrid.Card.LinkIcon = CardLinkIcon;
+CardGrid.Card.LinkIconS = CardLinkIconS;
 CardGrid.Card.LinkText = CardLinkText;
