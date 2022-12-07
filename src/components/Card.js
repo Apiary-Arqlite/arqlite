@@ -1,7 +1,7 @@
 //components/Card.js
 /* --------------------------------- imports -------------------------------- */
 import React from "react";
-import Theme from "./Theme";
+// import Theme from "./Theme";
 import styled from "styled-components/macro";
 import DownloadIcon from "./icons/DownloadIcon";
 
@@ -136,7 +136,7 @@ const CardLinkIcon = styled(DownloadIcon)`
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.xs};
+  font-size: ${(props) => props.theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.dark};
 
   line-height: 1.25;
@@ -145,21 +145,21 @@ const CardLinkText = styled.p`
 
 CardItem.Image = CardImage;
 
-export default function CardGrid({ children }) {
+export default function Cards({ children }) {
   return (
-    <Theme>
+   
       <CardsWrapper>{children}</CardsWrapper>
-    </Theme>
+
   );
 }
 
-CardGrid.Card = CardItem;
-CardGrid.Card.Image = CardImage;
-CardGrid.Card.TextBox = CardTextBox;
-CardGrid.Card.Heading = CardHeading;
-CardGrid.Card.Paragraph = CardParagraph;
-CardGrid.Card.Caption = CardCaption;
-CardGrid.Card.SmallHeading = CardHeadingSmall;
-CardGrid.Card.LinkWrapper = CardLinkWrapper;
-CardGrid.Card.LinkIcon = CardLinkIcon;
-CardGrid.Card.LinkText = CardLinkText;
+Cards.Card = CardItem;
+Cards.Image = CardImage;
+Cards.TextBox = CardTextBox;
+Cards.Heading = CardHeading;
+Cards.Paragraph = CardParagraph;
+Cards.Caption = CardCaption;
+Cards.SmallHeading = CardHeadingSmall;
+Cards.LinkWrapper = CardLinkWrapper;
+Cards.LinkIcon = CardLinkIcon;
+Cards.LinkText = CardLinkText;

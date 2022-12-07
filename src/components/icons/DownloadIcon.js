@@ -2,14 +2,10 @@ import React from "react";
 
 export default function DownloadIcon({
   color = "",
-  height = "",
-  width = "",
   ...rest
 }) {
   return (
     <svg
-      height={height}
-      width={width} 
       fill="none"
       stroke={color}
       strokeLinecap="round"
