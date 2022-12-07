@@ -5,18 +5,17 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 
-
 /* -------------------------------------------------------------------------- */
 /*                                function App                                */
 /* -------------------------------------------------------------------------- */
-function App() { 
-
+function App() {
   return (
-    <div className="root">
-      <div className="page">
+    <div >
+      {/* <div className="page"> */}
+      <div>
         <Header />
-        <Main/>
-       
+        <Main />
+
         <Footer />
       </div>
     </div>
