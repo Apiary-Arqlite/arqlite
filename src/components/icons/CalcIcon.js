@@ -5,6 +5,7 @@ export default function CalcIcon({
   height = 40,
   color = "",
   className,
+  ...rest
 }) {
   return (
     <svg
@@ -14,6 +15,7 @@ export default function CalcIcon({
       width={width}
       height={height}
       className={className}
+      {...rest}
     >
       <rect
         width="32"
