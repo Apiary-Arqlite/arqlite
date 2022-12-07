@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" xmlns:v="https://vecta.io/nano"><g fill="#0091a6"><circle cx="18" cy="18" r="14"/><rect x="14" width="8" height="36" rx="2"/><rect x="36" y="14" width="8" height="36" rx="2" transform="rotate(90 36 14)"/><rect x="33.557" y="27.899" width="8" height="36" rx="2" transform="rotate(135 33.557 27.899)"/><rect x="8.101" y="33.556" width="8" height="36" rx="2" transform="rotate(225 8.101 33.556)"/></g><circle cx="18" cy="18" r="8" fill="#fff"/></svg>
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="18.0004" cy="18" r="14" fill="#0091A6"/>
+<rect x="14.0004" width="8" height="36" rx="2" fill="#0091A6"/>
+<rect x="36.0004" y="14" width="8" height="36" rx="2" transform="rotate(90 36.0004 14)" fill="#0091A6"/>
+<rect x="33.5567" y="27.8994" width="8" height="36" rx="2" transform="rotate(135 33.5567 27.8994)" fill="#0091A6"/>
+<rect x="8.10117" y="33.5562" width="8" height="36" rx="2" transform="rotate(-135 8.10117 33.5562)" fill="#0091A6"/>
+<circle cx="18.0004" cy="18" r="8" fill="white"/>
+</svg>

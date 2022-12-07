@@ -123,13 +123,14 @@ const CardLinkWrapper = styled.div`
 
 //Card link icon that will render styled <img> for link icon on Horiz Card
 const CardLinkIcon = styled(DownloadIcon)`
-  width: 12px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   margin-right: 14px;
+  stroke: ${({ theme: { colors } }) => colors.dark};
 
-  path {
+  /* path {
     stroke: ${({ theme: { colors } }) => colors.dark};
-  }
+  } */
 `;
 
 //Card link text that will render styled <p> for Link text on  Horiz Card
