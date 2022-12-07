@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DownloadIcon({
+export default function DownloadimportIcon({
   width = 12,
   height = 14,
   color = "",

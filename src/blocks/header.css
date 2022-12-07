@@ -1,11 +1,8 @@
 .header {
   padding: 0px 80px;
-  margin: 0 auto 60px;
-}
-
-.header__main {
-    display: flex;
-    flex-direction: column;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .header__title {
@@ -17,56 +14,11 @@
 }
 
 .header__caption {
-    margin-bottom: 120px;
+  margin-bottom: 28px;
 }
 
 .header__logo {
   width: 139px;
   height: 33px;
   margin-top: 42px;
-}
-
-.header__links {
-  display: flex;
-  column-gap: 60px;
-  align-items: baseline;
-}
-
-.header__link:hover {
-  cursor: pointer;
-  filter: brightness(0) saturate(100%) invert(40%) sepia(48%) saturate(3251%)
-    hue-rotate(347deg) brightness(96%) contrast(95%);
-}
-
-.header__link-calc {
-  width: 104px;
-}
-
-.header__link-wall {
-  width: 157px;
-}
-
-.header__link-factory {
-  width: 205px;
-}
-
-.header__link-recycle {
-  width: 177px;
-}
-
-.header__link-icon {
-  margin-bottom: 12px;
-}
-
-.header__link-caption {
-  margin: 0;
-}
-
-.header__meeting-btn {
-  
-  align-self: flex-end;
-}
-
-.header__meeting-btn:hover {
-  cursor: pointer;
 }
