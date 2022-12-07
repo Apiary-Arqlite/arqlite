@@ -1,4 +1,4 @@
-import Cards from "./Card";
+import NavBar from "./NavBar";
 import { constructionCards, ecoCards, productCards } from "../utils/data";
 import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
@@ -28,6 +28,7 @@ function Main() {
   };
   return (
     <main>
+      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
       <Section dark>
         <Section.Header>Our products</Section.Header>
         <Cards>
