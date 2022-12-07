@@ -4,26 +4,25 @@ import { constructionCards, ecoCards, productCards } from "../utils/data";
 import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 
-
-import recycleImgPath from '../images/recycle-plastics-icons.png';
-import MeetingCard from './MeetingCard';
-import pelletProductionImg from '../images/pellet-production-image.png';
-import buildingImg from '../images/building-image.png';
+import recycleImgPath from "../images/recycle-plastics-icons.png";
+import MeetingCard from "./MeetingCard";
+import pelletProductionImg from "../images/pellet-production-image.png";
+import buildingImg from "../images/building-image.png";
 
 function Main() {
   const handleArrangeMeetingClick = () => {
-    console.log('implement schedule meeting logic');
+    console.log("implement schedule meeting logic");
   };
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
-    fetch('ArqliteLicensingDeck.pdf').then((response) => {
+    fetch("ArqliteLicensingDeck.pdf").then((response) => {
       response.blob().then((blob) => {
         // Creating new object of PDF file
         const fileURL = window.URL.createObjectURL(blob);
         // Setting various property values
-        let alink = document.createElement('a');
+        let alink = document.createElement("a");
         alink.href = fileURL;
-        alink.download = 'ArqliteLicensingDeck.pdf';
+        alink.download = "ArqliteLicensingDeck.pdf";
         alink.click();
       });
     });
@@ -34,36 +33,30 @@ function Main() {
       <Section dark>
         <Section.Header>Our products</Section.Header>
         <CardGrid>
-        {productCards.map((card, i) => (
-          <CardGrid.Card key={i} card={card} horiz>
-            <CardGrid.Card.Image horiz src={card.image} />
+          {productCards.map((card, i) => (
+            <CardGrid.Card key={i} card={card} horiz>
+              <CardGrid.Card.Image horiz src={card.image} alt={card.alt} />
 
-            <CardGrid.Card.TextBox horiz>
-              <CardGrid.Card.Caption>{card.smallHeading}</CardGrid.Card.Caption>
-              <CardGrid.Card.SmallHeading>
-                {card.heading}
-              </CardGrid.Card.SmallHeading>
-              <CardGrid.Card.Paragraph horiz>
-                {card.paragraph}
-              </CardGrid.Card.Paragraph>
-              <CardGrid.Card.LinkWrapper>
-                <CardGrid.Card.LinkIconS />
-                <CardGrid.Card.LinkText>{card.linkText}</CardGrid.Card.LinkText>
-              </CardGrid.Card.LinkWrapper>
-            </CardGrid.Card.TextBox>
-          </CardGrid.Card>
-        ))}
-      </CardGrid>
+              <CardGrid.Card.TextBox horiz>
+                <CardGrid.Card.Caption>{card.caption}</CardGrid.Card.Caption>
+                <CardGrid.Card.SmallHeading>
+                  {card.heading}
+                </CardGrid.Card.SmallHeading>
+                <CardGrid.Card.Paragraph horiz>
+                  {card.paragraph}
+                </CardGrid.Card.Paragraph>
+                <CardGrid.Card.LinkWrapper>
+                  <CardGrid.Card.LinkIcon />
+                  <CardGrid.Card.LinkText>
+                    {card.linkText}
+                  </CardGrid.Card.LinkText>
+                </CardGrid.Card.LinkWrapper>
+              </CardGrid.Card.TextBox>
+            </CardGrid.Card>
+          ))}
+        </CardGrid>
       </Section>
-
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
-
       <Section id="calculator">
-
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
@@ -71,29 +64,34 @@ function Main() {
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
       </Section>
+      <MeetingCard
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+        img={pelletProductionImg}
+        handleDownloadClick={handleDownloadClick}
+      ></MeetingCard>
+
       <Section dark id="construction">
         <Section.Marker>
-          For construction companies{' '}
+          For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
-
         </Section.Marker>
         <Section.Header>
           Produce your own low-carbon <br></br> & LEED building materials
         </Section.Header>
         <CardGrid>
-        {constructionCards.map((card, i) => (
-          <CardGrid.Card key={i} card={card}>
-            <CardGrid.Card.Image src={card.image} />
-            <CardGrid.Card.TextBox>
-              <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
-            </CardGrid.Card.TextBox>
-          </CardGrid.Card>
-        ))}
-      </CardGrid>
+          {constructionCards.map((card, i) => (
+            <CardGrid.Card key={i} card={card}>
+              <CardGrid.Card.Image src={card.image} alt={card.alt} />
+              <CardGrid.Card.TextBox>
+                <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
+              </CardGrid.Card.TextBox>
+            </CardGrid.Card>
+          ))}
+        </CardGrid>
       </Section>
       <Section id="recycle">
         <Section.Marker>
-          For plastic companies and recyclers{' '}
+          For plastic companies and recyclers{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Header>
@@ -108,26 +106,26 @@ function Main() {
       </Section>
       <Section dark id="eco">
         <Section.Marker>
-          For eco-conscious brands{' '}
+          For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Header>
-          Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
+          Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
           into sustainable products
         </Section.Header>
         <CardGrid>
-        {ecoCards.map((card, i) => (
-          <CardGrid.Card key={i} card={card}>
-            <CardGrid.Card.Image src={card.image} />
-            <CardGrid.Card.TextBox>
-              <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
-              <CardGrid.Card.Paragraph>
-                {card.paragraph}
-              </CardGrid.Card.Paragraph>
-            </CardGrid.Card.TextBox>
-          </CardGrid.Card>
-        ))}
-      </CardGrid>
+          {ecoCards.map((card, i) => (
+            <CardGrid.Card key={i} card={card}>
+              <CardGrid.Card.Image src={card.image} alt={card.alt} />
+              <CardGrid.Card.TextBox>
+                <CardGrid.Card.Heading>{card.heading}</CardGrid.Card.Heading>
+                <CardGrid.Card.Paragraph>
+                  {card.paragraph}
+                </CardGrid.Card.Paragraph>
+              </CardGrid.Card.TextBox>
+            </CardGrid.Card>
+          ))}
+        </CardGrid>
       </Section>
       <Section>
         <Section.Header>
