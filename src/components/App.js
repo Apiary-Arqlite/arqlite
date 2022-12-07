@@ -16,9 +16,8 @@ function App() {
   return (
     <div className="root">
       <div className="page">
-        <Header handleArrangeMeetingClick={handleArrangeMeetingClick} />
+        <Header />
         <Main />
-
         <Footer />
       </div>
     </div>
