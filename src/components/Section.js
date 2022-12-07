@@ -3,7 +3,8 @@ import styled from 'styled-components/macro';
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
 export const Section = styled.section`
-  background: ${(props) => (props.dark ? '#54585b' : '#f5f5f5')};
+  background: ${({theme, ...props}) => (props.dark ? theme.colors.dark : '#ffffff')};
+  /* background: ${({theme, ...props}) => (props.dark ? theme.colors.dark : '#f5f5f5')}; */
   color: ${(props) => (props.dark ? '#fff' : '#54585b')};
   padding: 80px;
   display: flex;
