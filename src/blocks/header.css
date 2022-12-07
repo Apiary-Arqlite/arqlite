@@ -63,16 +63,7 @@
 }
 
 .header__meeting-btn {
-  background-color: #f05125;
-  border-radius: 10px;
-  border: none;
-  color: #fff;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 22px;
-  letter-spacing: 0.02em;
-  padding: 19px 30px;
-  margin-left: auto;
+  
   align-self: flex-end;
 }
 

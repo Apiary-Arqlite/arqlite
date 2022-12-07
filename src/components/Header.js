@@ -6,7 +6,7 @@ import WallIcon from "../images/WallIcon.png";
 import FactoryIcon from "../images/FactoryIcon.png";
 import RecycleIcon from "../images/RecycleIcon.png";
 
-function Header() {
+function Header({ handleArrangeMeetingClick }) {
   return (
     <header>
       <Section.Header className="header">
@@ -52,7 +52,14 @@ function Header() {
             <h4 className="header__link-caption">For eco-conscious brands</h4>
           </Section.HeaderLink>
 
-          <button className="header__meeting-btn">Arrange a meeting</button>
+          <Section.MeetingCardButton
+            orange
+            type="button"
+            onClick={handleArrangeMeetingClick}
+            className="header__meeting-btn"
+          >
+            Arrange a meeting
+          </Section.MeetingCardButton>
         </div>
       </Section.Header>
     </header>

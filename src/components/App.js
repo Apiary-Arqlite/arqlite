@@ -5,18 +5,20 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 
-
 /* -------------------------------------------------------------------------- */
 /*                                function App                                */
 /* -------------------------------------------------------------------------- */
-function App() { 
+function App() {
+  const handleArrangeMeetingClick = () => {
+    console.log("implement schedule meeting logic");
+  };
 
   return (
     <div className="root">
       <div className="page">
-        <Header />
-        <Main/>
-       
+        <Header handleArrangeMeetingClick={handleArrangeMeetingClick} />
+        <Main />
+
         <Footer />
       </div>
     </div>
