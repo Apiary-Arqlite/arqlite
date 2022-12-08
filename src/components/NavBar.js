@@ -19,23 +19,23 @@ function NavBar({ handleArrangeMeetingClick }) {
     })
 
   return (
-    <Section className={`h-16 w-full bg-gray-200 ${stickyClass}`}>
+    <Section className={`${stickyClass}`}>
       <div className="navbar__links">
-        <Section.HeaderLink
+        <Section.NavLink
           className="navbar__link navbar__link-calc"
           href="#calculator"
         >
           <CalcIcon className="navbar__link-icon" color="#0091A6" />
           <h4 className="navbar__link-caption">Calculate your return</h4>
-        </Section.HeaderLink>
-        <Section.HeaderLink
+        </Section.NavLink>
+        <Section.NavLink
           className="navbar__link navbar__link-wall"
           href="#construction"
         >
           <WallIcon className="navbar__link-icon" color="#0091A6" />
           <h4 className="navbar__link-caption">For construction companies</h4>
-        </Section.HeaderLink>
-        <Section.HeaderLink
+        </Section.NavLink>
+        <Section.NavLink
           className="navbar__link navbar__link-factory"
           href="#recycle"
         >
@@ -43,14 +43,14 @@ function NavBar({ handleArrangeMeetingClick }) {
           <h4 className="navbar__link-caption">
             For plastic producers and recyclers
           </h4>
-        </Section.HeaderLink>
-        <Section.HeaderLink
+        </Section.NavLink>
+        <Section.NavLink
           className="navbar__link navbar__link-recycle"
           href="#eco"
         >
           <RecycleIcon className="navbar__link-icon" color="#0091A6" />
           <h4 className="navbar__link-caption">For eco-conscious brands</h4>
-        </Section.HeaderLink>
+        </Section.NavLink>
 
         <Section.MeetingCardButton
           orange

@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import { constructionCards, ecoCards, productCards } from "../utils/data";
 import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
-
+import Cards from "./Card";
 import recycleImgPath from "../images/recycle-plastics-icons.png";
 import MeetingCard from "./MeetingCard";
 import pelletProductionImg from "../images/pellet-production-image.png";
@@ -30,7 +30,7 @@ function Main() {
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
       <Section dark>
-        <Section.Header>Our products</Section.Header>
+        <Section.Title>Our products</Section.Title>
         <Cards>
           {productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
@@ -70,9 +70,9 @@ function Main() {
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Header>
+        <Section.Title>
           Produce your own low-carbon <br></br> & LEED building materials
-        </Section.Header>
+        </Section.Title>
         <Cards>
           {constructionCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
@@ -89,9 +89,9 @@ function Main() {
           For plastic companies and recyclers{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Header>
+        <Section.Title>
           Recycle plastics <br></br> that no one else can
-        </Section.Header>
+        </Section.Title>
         <Section.CaptionLarge>
           We set up a recycling line of hard-to-recycle plastic waste for your
           company. From zero to production-ready. Add value to the plastics
@@ -104,10 +104,10 @@ function Main() {
           For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Header>
+        <Section.Title>
           Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
           into sustainable products
-        </Section.Header>
+        </Section.Title>
         <Cards>
           {ecoCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
@@ -121,9 +121,9 @@ function Main() {
         </Cards>
       </Section>
       <Section>
-        <Section.Header>
+        <Section.Title>
           We set up <br></br> the process for you
-        </Section.Header>
+        </Section.Title>
       </Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
