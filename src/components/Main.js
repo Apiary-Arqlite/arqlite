@@ -1,6 +1,6 @@
 import NavBar from "./NavBar";
 import { constructionCards, ecoCards, productCards } from "../utils/data";
-import { Section, SectionHoriz, SectionVert } from "../components/Section";
+import { Section, SectionHoriz, SectionVert, SectionVertLong} from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 import Cards from "./Card";
 import recycleImgPath from "../images/recycle-plastics-icons.png";
@@ -65,7 +65,7 @@ function Main() {
       ></MeetingCard>
       </Section>
 
-      <SectionVert long dark id="construction">
+      <SectionVertLong dark id="construction">
         <Section.Marker>
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -83,7 +83,7 @@ function Main() {
             </Cards.Card>
           ))}
         </Cards>
-      </SectionVert>
+      </SectionVertLong>
       <Section id="recycle">
         <Section.Marker>
           For plastic companies and recyclers{" "}

@@ -17,8 +17,10 @@ export const SectionHoriz = styled(Section)`
 `;
 //Create a styledSection to render horiz card top padding
 export const SectionVert = styled(Section)`
-  padding: 80px 80px 97px 80px;
-  padding: ${(props) => (props.long ? `80px 80px 118px` : "80px 80px 72px")};
+  padding-bottom: 118px;
+`;
+export const SectionVertLong = styled(Section)`
+  padding-bottom: 72px;
 `;
 
 // Create a SectionMarker component that will render an <h4> tag with styles
