@@ -1,6 +1,6 @@
 import NavBar from "./NavBar";
 import { constructionCards, ecoCards, productCards } from "../utils/data";
-import { Section } from "../components/Section";
+import { Section, SectionHoriz, SectionVert } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 import Cards from "./Card";
 import recycleImgPath from "../images/recycle-plastics-icons.png";
@@ -29,7 +29,7 @@ function Main() {
   return (
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
-      <Section dark>
+      <SectionHoriz dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
           {productCards.map((card, i) => (
@@ -48,7 +48,7 @@ function Main() {
             </Cards.Card>
           ))}
         </Cards>
-      </Section>
+      </SectionHoriz>
       <Section id="calculator">
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
@@ -65,7 +65,7 @@ function Main() {
       ></MeetingCard>
       </Section>
 
-      <Section dark id="construction">
+      <SectionVert long dark id="construction">
         <Section.Marker>
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -83,7 +83,7 @@ function Main() {
             </Cards.Card>
           ))}
         </Cards>
-      </Section>
+      </SectionVert>
       <Section id="recycle">
         <Section.Marker>
           For plastic companies and recyclers{" "}
@@ -99,7 +99,8 @@ function Main() {
         </Section.CaptionLarge>
         <img className="section__recycle-icons" src={recycleImgPath} />
       </Section>
-      <Section dark id="eco">
+
+      <SectionVert dark id="eco">
         <Section.Marker>
           For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -119,7 +120,7 @@ function Main() {
             </Cards.Card>
           ))}
         </Cards>
-      </Section>
+      </SectionVert>
       <Section>
         <Section.Title>
           We set up <br></br> the process for you

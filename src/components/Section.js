@@ -4,11 +4,21 @@ import styled from "styled-components/macro";
 // Colors adapt based on 'dark' prop
 export const Section = styled.section`
   background: ${({ theme, ...props }) =>
-    props.dark ? theme.colors.dark : "#ffffff"};
+    props.dark ? theme.colors.dark : theme.colors.white};
   color: ${(props) => (props.dark ? "#fff" : "#54585b")};
   padding: 80px;
   display: flex;
   flex-direction: column;
+`;
+
+//Create a styledSection to render horiz card top padding
+export const SectionHoriz = styled(Section)`
+  padding: 64px 80px 97px 80px;
+`;
+//Create a styledSection to render horiz card top padding
+export const SectionVert = styled(Section)`
+  padding: 80px 80px 97px 80px;
+  padding: ${(props) => (props.long ? `80px 80px 118px` : "80px 80px 72px")};
 `;
 
 // Create a SectionMarker component that will render an <h4> tag with styles
@@ -50,14 +60,14 @@ const NavLink = styled.a`
   &:hover {
     cursor: pointer;
     path {
-      fill: ${({ theme: { colors } }) => colors.brightB};
+      fill: ${({ theme: { colors } }) => colors.brightB} rect {
+        fill: ${({ theme: { colors } }) => colors.brightB};
+      }
+      h4 {
+        color: ${({ theme: { colors } }) => colors.brightB};
+      }
     }
-    rect {
-      fill: ${({ theme: { colors } }) => colors.brightB};
-    }
-    h4 {
-      color: ${({ theme: { colors } }) => colors.brightB};
-    }
+  }
 `;
 
 const Footer = styled.footer`
