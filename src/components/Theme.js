@@ -8,8 +8,9 @@ const theme = {
     brightA: "#0091A6", //aquatic
     brightB: "#F05125", //orange
     white: "#FFFFFF",
+    bg: "#f5f5f5",
   },
-  fonts: ["sans-serif", "Archivo"],
+
   fontSizes: {
     xxs: "12px", //small caption
     xs: "16px", //p, input, links
@@ -26,8 +27,8 @@ const theme = {
   },
 };
 //Create a Theme component that will render children with all the properties from the Theme provider
-const Theme = ({children})=>(
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-)
+const Theme = ({ children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
 
 export default Theme;
