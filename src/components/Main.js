@@ -1,10 +1,19 @@
 import { Section } from '../components/Section';
 import Calculator from './Calculator.tsx';
+import { useState } from 'react';
 import markerIconPath from '../images/arrow-down-orange.png';
 
 import recycleImgPath from '../images/recycle-plastics-icons.png';
 
 function Main() {
+  const form = useState({
+    processingFee: 60,
+    plasticCredits: 50,
+    gravelRevenueBulk: 400,
+    pelletsRevenueBulk: 1200,
+    totalTonsPerMonth: 2772,
+  });
+
   return (
     <main>
       <Section dark>
@@ -17,7 +26,7 @@ function Main() {
         <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
-        <Calculator />
+        <Calculator form={form} />
       </Section>
       <Section dark>
         <Section.Marker>
