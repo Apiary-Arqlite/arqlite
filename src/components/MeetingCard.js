@@ -5,7 +5,7 @@ function MeetingCard({handleArrangeMeetingClick, handleDownloadClick,img}) {
   return (
     <Section.MeetingCard>
       <Section.MeetingCardContainer>
-        <Section.Header className="meetingCard__header">Arrange a meeting</Section.Header>
+        <Section.Title className="meetingCard__header">Arrange a meeting</Section.Title>
         <Section.CaptionLarge className="meetingCard__text">
           We will discuss your specific case and the details of our partnership
         </Section.CaptionLarge>

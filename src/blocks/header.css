@@ -1,6 +1,4 @@
 .header {
-  padding: 0px 80px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }

@@ -4,18 +4,13 @@
   z-index: 3;
   display: flex;
   flex-direction: row;
+  position: fixed;
 }
 
 .navbar__links {
   display: flex;
-  column-gap: 60px;
+  justify-content: space-between;
   align-items: baseline;
-}
-
-.navbar__link:hover {
-  cursor: pointer;
-  filter: brightness(0) saturate(100%) invert(40%) sepia(48%) saturate(3251%)
-    hue-rotate(347deg) brightness(96%) contrast(95%);
 }
 
 .navbar__link-calc {
@@ -42,7 +37,6 @@
 .navbar__meeting-btn {
   margin-right: 0px;
   align-self: flex-end;
-  margin-right: 0px;
 }
 
 .navbar__meeting-btn:hover {
