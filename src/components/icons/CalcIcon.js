@@ -1,10 +1,7 @@
 import React from "react";
 
 export default function CalcIcon({
-  width = 32,
-  height = 40,
   color = "",
-  className,
   ...rest
 }) {
   return (
@@ -12,18 +9,11 @@ export default function CalcIcon({
       fill="none"
       viewBox="0 0 32 40"
       xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
-      className={className}
+      width="32"
+      height="40"
       {...rest}
     >
-      <rect
-        width="32"
-        height="40"
-        rx="2"
-        fill={color}
-        //fill="#0091A6"
-      />
+      <rect width="32" height="40" rx="2" fill={color} />
       <rect x="2" y="2" width="28" height="11" rx="2" fill="white" />
       <rect x="2" y="15" width="4" height="4" rx="2" fill="white" />
       <rect x="2" y="21" width="4" height="4" rx="2" fill="white" />

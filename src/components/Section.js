@@ -43,21 +43,13 @@ const CaptionLarge = styled.p`
 
 const NavLink = styled.a`
   font-size: 20px;
-  color: #0091a6;
+  color:${({ theme: { colors } }) => colors.brightA};
   font-weight: 700;
   line-height: 21px;
   text-decoration: none;
   &:hover {
     cursor: pointer;
-    path {
-      fill: ${({ theme: { colors } }) => colors.brightB};
-    }
-    rect {
-      fill: ${({ theme: { colors } }) => colors.brightB};
-    }
-    h4 {
-      color: ${({ theme: { colors } }) => colors.brightB};
-    }
+    color: ${({ theme: { colors } }) => colors.brightB};
 `;
 
 const Footer = styled.footer`

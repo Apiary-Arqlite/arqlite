@@ -146,11 +146,7 @@ const CardLinkText = styled.p`
 CardItem.Image = CardImage;
 
 export default function Cards({ children }) {
-  return (
-   
-      <CardsWrapper>{children}</CardsWrapper>
-
-  );
+  return <CardsWrapper>{children}</CardsWrapper>;
 }
 
 Cards.Card = CardItem;

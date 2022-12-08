@@ -28,7 +28,7 @@ function Main() {
   };
   return (
     <main>
-      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
+      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <Section dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
@@ -58,11 +58,11 @@ function Main() {
         </Section.CaptionLarge>
       </Section>
       <Section>
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={pelletProductionImg}
+          handleDownloadClick={handleDownloadClick}
+        ></MeetingCard>
       </Section>
 
       <Section dark id="construction">
@@ -84,6 +84,7 @@ function Main() {
           ))}
         </Cards>
       </Section>
+
       <Section id="recycle">
         <Section.Marker>
           For plastic companies and recyclers{" "}
@@ -99,6 +100,7 @@ function Main() {
         </Section.CaptionLarge>
         <img className="section__recycle-icons" src={recycleImgPath} />
       </Section>
+
       <Section dark id="eco">
         <Section.Marker>
           For eco-conscious brands{" "}
@@ -120,6 +122,7 @@ function Main() {
           ))}
         </Cards>
       </Section>
+
       <Section>
         <Section.Title>
           We set up <br></br> the process for you
