@@ -8,14 +8,13 @@ import Footer from './Footer';
 /* -------------------------------------------------------------------------- */
 /*                                function App                                */
 /* -------------------------------------------------------------------------- */
-
 function App() {
   return (
-    <div className='root'>
-      <div className='page'>
+    <div>
+      {/* <div className="page"> */}
+      <div>
         <Header />
         <Main />
-
         <Footer />
       </div>
     </div>

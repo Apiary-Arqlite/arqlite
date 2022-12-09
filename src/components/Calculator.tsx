@@ -84,7 +84,7 @@ export default function Calculator({ form }) {
         [name]: value,
       });
 
-      console.log(formState);
+      // console.log(formState);
     };
 
     return (
