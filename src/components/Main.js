@@ -1,44 +1,82 @@
-import NavBar from "./NavBar";
-import React,{ useState,useEffect } from 'react';
-import { constructionCards, ecoCards, productCards } from "../utils/data";
-import { Section } from "../components/Section";
-import markerIconPath from "../images/arrow-down-orange.png";
-import Cards from "./Card";
-import recycleImgPath from "../images/recycle-plastics-icons.png";
-import MeetingCard from "./MeetingCard";
-import pelletProductionImg from "../images/pellet-production-image.png";
-import buildingImg from "../images/building-image.png";
+import NavBar from './NavBar';
+import React, {useState, useEffect} from 'react';
+import {constructionCards, ecoCards, productCards} from '../utils/data';
+import {Section} from '../components/Section';
+import markerIconPath from '../images/arrow-down-orange.png';
+import Cards from './Card';
+import recycleImgPath from '../images/recycle-plastics-icons.png';
+import MeetingCard from './MeetingCard';
+import pelletProductionImg from '../images/pellet-production-image.png';
+import buildingImg from '../images/building-image.png';
 import ArrangeMeetingForm from './ArrangeMeetingForm';
+import InfoToolModal from "./InfoToolModal";
 
 function Main() {
-  const [isArrangeMeetingFormOpen,setIsArrangeMeetingFormOpen]=useState(false);
-
+  const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
+    useState(false);
+    const [isInfoToolModalOpen,setIsInfoToolOpen]=useState(false);
+    const [isInfoToolStatus, setInfoToolStatus] = useState('');
   const handleArrangeMeetingClick = () => {
-    console.log("open form");
+    console.log('open form');
     setIsArrangeMeetingFormOpen(true);
   };
   const closeModal = () => {
-    setIsArrangeMeetingFormOpen(false);}
-const handleSendRequest =()=>{
-  console.log("request sent");
-}
+    setIsArrangeMeetingFormOpen(false);
+    setIsInfoToolOpen(false);
+    console.log('close');
+  };
+  const handleSendRequest = (event) => {
+    event.preventDefault();
+
+    //implement logic for submit request
+    console.log('request sent');
+   
+    
+    setIsInfoToolOpen(true);
+    //if request submit is successful or if not setInfoToolStatus("fail");
+    setInfoToolStatus("success");
+
+
+    // fetch("http://localhost:3001/", {
+  	// 	method: "POST",
+  	// 	headers: {
+  	// 		Accept: "application/json, text/plain, */*",
+  	// 		"Content-Type": "application/json",
+  	// 	},
+  	// 	body: JSON.stringify(formValues),
+  	// })
+  	// 	.then((res) => {
+  	// 		setInfoToolStatus("success")
+  	// 	})
+  	// 	.catch((error) => {
+  	// 		console.log(error);
+    //setInfoToolStatus("fail")
+  	// 	})
+  // .finally(() => {
+  //   setInfoToolPopupOpen(true);
+  //   setTimeout(() => {
+  //     setInfoToolPopupOpen(false);
+  //   }, 2000);
+  // });
+  
+  };
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
-    fetch("ArqliteLicensingDeck.pdf").then((response) => {
+    fetch('ArqliteLicensingDeck.pdf').then((response) => {
       response.blob().then((blob) => {
         // Creating new object of PDF file
         const fileURL = window.URL.createObjectURL(blob);
         // Setting various property values
-        let alink = document.createElement("a");
+        let alink = document.createElement('a');
         alink.href = fileURL;
-        alink.download = "ArqliteLicensingDeck.pdf";
+        alink.download = 'ArqliteLicensingDeck.pdf';
         alink.click();
       });
     });
   };
   return (
     <main>
-      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
+      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <Section dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
@@ -68,16 +106,16 @@ const handleSendRequest =()=>{
         </Section.CaptionLarge>
       </Section>
       <Section>
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={pelletProductionImg}
+          handleDownloadClick={handleDownloadClick}
+        ></MeetingCard>
       </Section>
 
       <Section dark id="construction">
         <Section.Marker>
-          For construction companies{" "}
+          For construction companies{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
@@ -96,7 +134,7 @@ const handleSendRequest =()=>{
       </Section>
       <Section id="recycle">
         <Section.Marker>
-          For plastic companies and recyclers{" "}
+          For plastic companies and recyclers{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
@@ -111,11 +149,11 @@ const handleSendRequest =()=>{
       </Section>
       <Section dark id="eco">
         <Section.Marker>
-          For eco-conscious brands{" "}
+          For eco-conscious brands{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
-          Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
+          Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
           into sustainable products
         </Section.Title>
         <Cards>
@@ -139,10 +177,13 @@ const handleSendRequest =()=>{
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
         handleDownloadClick={handleDownloadClick}
-      >
-        
-      </MeetingCard>
-      <ArrangeMeetingForm isOpen={isArrangeMeetingFormOpen} onClose={closeModal} onSubmit={handleSendRequest}/>
+      ></MeetingCard>
+      <ArrangeMeetingForm
+        isOpen={isArrangeMeetingFormOpen}
+        onClose={closeModal}
+        onSubmit={handleSendRequest}
+      />
+      <InfoToolModal isOpen={isInfoToolModalOpen} onClose={closeModal}status={isInfoToolStatus}/>
     </main>
   );
 }

@@ -6,6 +6,7 @@ const Modal = ({isOpen, onClose, children}) => {
           className="modal__close-button"
           type="button"
           onClick={onClose}
+          aria-label="Close modal"
         />
         {children}
       </div>

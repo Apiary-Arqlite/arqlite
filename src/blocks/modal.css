@@ -31,6 +31,9 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   max-width: 630px;
   height: 460px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 .modal__close-button {
   box-sizing: border-box;
@@ -53,17 +56,15 @@
   cursor: pointer;
   color: rgba(255, 255, 255, 0.7);
 }
-.modal__text{
-  font-family: 'Archivo';
+
+.modal__status-message{
+font-family: 'Archivo';
 font-style: normal;
 font-weight: 700;
 font-size: 28px;
 line-height: 32px;
-/* or 114% */
-
 text-align: center;
-
-/* Dark gray */
-
 color: #54585B;
+margin:0;
+
 }
