@@ -151,7 +151,8 @@ background-color: rgba(0, 0, 0, .5);
 z-index: 999;
 transition: visibility 0s ease-in-out 0.4s, opacity 0.4s ease-in-out;
 margin:0;
-padding:0;`
+padding:0;
+visibility: hidden;`
 
 const ArrangeMeetingForm = styled.div`
 
@@ -190,6 +191,6 @@ Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
 Section.Modal=Modal;
-Section.HeaderLink=HeaderLink;
+
 Section.ArrangeMeetingForm=ArrangeMeetingForm;
 

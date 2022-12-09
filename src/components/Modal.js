@@ -1,8 +1,6 @@
-import {Section} from './Section';
-
 const Modal = ({isOpen, onClose, children}) => {
   return (
-    <Section.Modal>
+    <div className={`modal ${isOpen ? 'modal_opened' : ''}`}>
       <div className="modal__container">
         <button
           className="modal__close-button"
@@ -11,7 +9,7 @@ const Modal = ({isOpen, onClose, children}) => {
         />
         {children}
       </div>
-    </Section.Modal>
+    </div>
   );
 };
 export default Modal;

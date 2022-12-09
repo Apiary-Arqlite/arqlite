@@ -1,4 +1,5 @@
 import NavBar from "./NavBar";
+import React,{ useState,useEffect } from 'react';
 import { constructionCards, ecoCards, productCards } from "../utils/data";
 import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
@@ -7,11 +8,20 @@ import recycleImgPath from "../images/recycle-plastics-icons.png";
 import MeetingCard from "./MeetingCard";
 import pelletProductionImg from "../images/pellet-production-image.png";
 import buildingImg from "../images/building-image.png";
+import ArrangeMeetingForm from './ArrangeMeetingForm';
 
 function Main() {
+  const [isArrangeMeetingFormOpen,setIsArrangeMeetingFormOpen]=useState(false);
+
   const handleArrangeMeetingClick = () => {
-    console.log("implement schedule meeting logic");
+    console.log("open form");
+    setIsArrangeMeetingFormOpen(true);
   };
+  const closeModal = () => {
+    setIsArrangeMeetingFormOpen(false);}
+const handleSendRequest =()=>{
+  console.log("request sent");
+}
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
     fetch("ArqliteLicensingDeck.pdf").then((response) => {
@@ -129,7 +139,10 @@ function Main() {
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
         handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
+      >
+        
+      </MeetingCard>
+      <ArrangeMeetingForm isOpen={isArrangeMeetingFormOpen} onClose={closeModal} onSubmit={handleSendRequest}/>
     </main>
   );
 }
