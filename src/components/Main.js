@@ -9,23 +9,27 @@ import MeetingCard from './MeetingCard';
 import pelletProductionImg from '../images/pellet-production-image.png';
 import buildingImg from '../images/building-image.png';
 import ArrangeMeetingForm from './ArrangeMeetingForm';
-import InfoToolModal from "./InfoToolModal";
+import InfoToolModal from './InfoToolModal';
 
 function Main() {
+
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
     useState(false);
-    const [isInfoToolModalOpen,setIsInfoToolOpen]=useState(false);
-    const [isInfoToolStatus, setInfoToolStatus] = useState('');
-    const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
+  const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
+  const [isInfoToolStatus, setInfoToolStatus] = useState('');
+  
+  const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
+
   const handleArrangeMeetingClick = () => {
-    console.log('open form');
     setIsArrangeMeetingFormOpen(true);
   };
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
-    console.log('close');
+     // once the error message modal closes, the error message will be reset
+    
   };
+
   useEffect(() => {
     const handleClickClose = (event) => {
       if (event.target.classList.contains('modal_opened')) {
@@ -49,41 +53,18 @@ function Main() {
       document.removeEventListener('keydown', handleEscClose);
     };
   }, [isAnyModalOpen]);
-  
+
   const handleSendRequest = (event) => {
     event.preventDefault();
 
     //implement logic for submit request
     console.log('request sent');
-   
-    
+
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
-    setInfoToolStatus("success");
+    setInfoToolStatus('success');
 
-
-    // fetch("http://localhost:3001/", {
-  	// 	method: "POST",
-  	// 	headers: {
-  	// 		Accept: "application/json, text/plain, */*",
-  	// 		"Content-Type": "application/json",
-  	// 	},
-  	// 	body: JSON.stringify(formValues),
-  	// })
-  	// 	.then((res) => {
-  	// 		setInfoToolStatus("success")
-  	// 	})
-  	// 	.catch((error) => {
-  	// 		console.log(error);
-    //setInfoToolStatus("fail")
-  	// 	})
-  // .finally(() => {
-  //   setInfoToolPopupOpen(true);
-  //   setTimeout(() => {
-  //     setInfoToolPopupOpen(false);
-  //   }, 2000);
-  // });
-  
+   
   };
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
@@ -130,13 +111,13 @@ function Main() {
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
       </Section>
-      <Section>
+      
         <MeetingCard
           handleArrangeMeetingClick={handleArrangeMeetingClick}
           img={pelletProductionImg}
           handleDownloadClick={handleDownloadClick}
         ></MeetingCard>
-      </Section>
+     
 
       <Section dark id="construction">
         <Section.Marker>
@@ -206,9 +187,13 @@ function Main() {
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}
-        onSubmit={handleSendRequest}
+        handleFormSubmit={handleSendRequest}
       />
-      <InfoToolModal isOpen={isInfoToolModalOpen} onClose={closeModal}status={isInfoToolStatus}/>
+      <InfoToolModal
+        isOpen={isInfoToolModalOpen}
+        onClose={closeModal}
+        status={isInfoToolStatus}
+      />
     </main>
   );
 }
