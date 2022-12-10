@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 96%;
+  letter-spacing: -0.04em;
+}
+
+.header__caption {
+  margin-bottom: 28px;
+}
+
+.header__logo {
+  width: 139px;
+  height: 33px;
+  margin-top: 42px;
+}
