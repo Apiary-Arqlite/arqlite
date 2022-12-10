@@ -1,13 +1,13 @@
 import NavBar from './NavBar';
 import { constructionCards, ecoCards, productCards } from '../utils/data';
 import { Section } from '../components/Section';
+import Calculator from './Calculator.tsx';
 import markerIconPath from '../images/arrow-down-orange.png';
 import Cards from './Card';
 import recycleImgPath from '../images/recycle-plastics-icons.png';
 import MeetingCard from './MeetingCard';
 import pelletProductionImg from '../images/pellet-production-image.png';
 import buildingImg from '../images/building-image.png';
-import Calculator from './Calculator.tsx';
 
 function Main() {
   const form = {
@@ -65,7 +65,7 @@ function Main() {
         <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
-        <Calculator form={form} />
+        <Calculator />
       </Section>
       <Section>
         <MeetingCard
