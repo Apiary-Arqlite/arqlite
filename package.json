@@ -12,11 +12,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "save-dev": "^0.0.1-security",
     "styled-components": "^5.3.6",
-=======
->>>>>>> 43e5def4250ffc6f61c611a9955a07792cb83bb7
     "web-vitals": "^2.1.4"
   },
   "scripts": {

@@ -7,6 +7,7 @@ import recycleImgPath from '../images/recycle-plastics-icons.png';
 import MeetingCard from './MeetingCard';
 import pelletProductionImg from '../images/pellet-production-image.png';
 import buildingImg from '../images/building-image.png';
+import Calculator from './Calculator';
 
 function Main() {
   const form = {
