@@ -16,6 +16,7 @@ function Main() {
     useState(false);
     const [isInfoToolModalOpen,setIsInfoToolOpen]=useState(false);
     const [isInfoToolStatus, setInfoToolStatus] = useState('');
+    const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
   const handleArrangeMeetingClick = () => {
     console.log('open form');
     setIsArrangeMeetingFormOpen(true);
@@ -25,6 +26,30 @@ function Main() {
     setIsInfoToolOpen(false);
     console.log('close');
   };
+  useEffect(() => {
+    const handleClickClose = (event) => {
+      if (event.target.classList.contains('modal_opened')) {
+        closeModal();
+      }
+    };
+
+    const handleEscClose = (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (isAnyModalOpen) {
+      document.addEventListener('click', handleClickClose);
+      document.addEventListener('keydown', handleEscClose);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickClose);
+      document.removeEventListener('keydown', handleEscClose);
+    };
+  }, [isAnyModalOpen]);
+  
   const handleSendRequest = (event) => {
     event.preventDefault();
 
