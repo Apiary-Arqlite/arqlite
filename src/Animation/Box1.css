@@ -1,3 +1,8 @@
+.box {
+    margin-top: 283px;
+    margin-left:1096px;
+}
+
 .box-row {
 display:flex; /*causes little cubes to be side by side instead of on top of each other*/
 width:126px; /* 21px per box*6 boxes*/

@@ -12,7 +12,7 @@ export default function Box1() {
 
 
 return(
-    <div>
+    <div className="box">
 {/*top row*/}
 <motion.div className="box-row">
         <motion.div className="box-light-gray" initial="start" animate="end" variants={littleCube} transition={{delay: 9.4, duration: 2 }}>
