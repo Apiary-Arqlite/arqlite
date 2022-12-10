@@ -1,4 +1,23 @@
+
 .box-container {
+    position:absolute;
+    top: 283px;
+    left:1176px; 
+}
+
+.box {
+    border-color: #F05125;
+    margin: 0px;
+    padding:0px;
+    
+    width: 200px;/*126px;*/
+    height: 168px;
+   /* position:absolute;*/
+    /* top: 283px;
+    left:1176px; */
+}
+
+.box-row {
 display:flex; /*causes little cubes to be side by side instead of on top of each other*/
 width:126px; /* 21px per box*6 boxes*/
 }
