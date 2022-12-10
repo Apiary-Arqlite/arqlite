@@ -1,7 +1,6 @@
 import NavBar from './NavBar';
 import { constructionCards, ecoCards, productCards } from '../utils/data';
 import { Section } from '../components/Section';
-import Calculator from './Calculator.tsx';
 import markerIconPath from '../images/arrow-down-orange.png';
 import Cards from './Card';
 import recycleImgPath from '../images/recycle-plastics-icons.png';
