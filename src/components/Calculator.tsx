@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { useState, useContext } from 'react';
 
 export default function Calculator() {
@@ -29,12 +30,8 @@ export default function Calculator() {
   interface FormSelectProps {
     label: string;
     name: string;
+    value?: any;
     children: React.ReactNode;
-    [key: string]: any;
-  }
-
-  interface Form {
-    [key: string]: any;
   }
 
   function FormSelect(props: FormSelectProps) {
@@ -47,11 +44,15 @@ export default function Calculator() {
     return (
       <div>
         <label>{label}</label>
-        <select name={name} value={form?.(name)} onChange={handleFormChange}>
+        <select name={name} value={currentValue} onChange={handleFormChange}>
           {props.children}
         </select>
       </div>
     );
+  }
+
+  interface Form {
+    [key: string]: any;
   }
 
   interface FormProps {
@@ -166,4 +167,5 @@ export default function Calculator() {
       <button>${revenue}</button>
     </Form>
   );
+}
 }
