@@ -65,7 +65,7 @@ function Main() {
         <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
-        <Calculator />
+        <Calculator form={form} />
       </Section>
       <Section>
         <MeetingCard

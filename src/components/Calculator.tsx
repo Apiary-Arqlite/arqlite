@@ -1,37 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
-import { useState, useContext } from 'react';
+import {
+  FormOptionProps,
+  FormProps,
+  FormSelectProps,
+  FormType,
+  FormContextType,
+} from './CalculatorTypes';
 
-export default function Calculator() {
+export default function Calculator(props: FormProps) {
+  const { initialValues } = props;
   const [revenue, setRevenue] = useState('2,522,520');
 
-  let initialValues = {
-    processingFee: 60,
-    plasticCredits: 50,
-    gravelRevenueBulk: 400,
-    pelletsRevenueBulk: 1200,
-    totalTonsPerMonth: 2772,
-  };
-
-  const FormContext = React.createContext({
-    form: {},
+  const FormContext = React.createContext<FormContextType>({
+    form: initialValues,
     handleFormChange: () => {},
   });
 
-  interface FormOptionProps {
-    selected?: boolean;
-    value: number;
-  }
-
   function FormOption(props: FormOptionProps) {
     return <option selected={props.selected}>${props.value}</option>;
-  }
-
-  interface FormSelectProps {
-    label: string;
-    name: string;
-    value?: any;
-    children: React.ReactNode;
   }
 
   function FormSelect(props: FormSelectProps) {
@@ -39,8 +26,8 @@ export default function Calculator() {
 
     const formContext = useContext(FormContext);
     const { form, handleFormChange } = formContext;
+    const currentValue = form[name];
 
-    form: Form = formContext.form;
     return (
       <div>
         <label>{label}</label>
@@ -51,59 +38,44 @@ export default function Calculator() {
     );
   }
 
-  interface Form {
-    [key: string]: any;
-  }
-
-  interface FormProps {
-    children: React.ReactNode;
-    submit?: () => void;
-    initialValues: { [key: string]: any };
-  }
-
   function Form(props: FormProps) {
-    const { children, submit = () => {}, initialValues } = props;
-    const [form, setForm] = useState(initialValues);
+    const { children, initialValues } = props;
     const [values, setValues] = useState(initialValues);
 
     useEffect(() => {
-      setValues(form);
-    }, [form]);
+      setValues(initialValues);
+    }, [initialValues]);
 
-    const handleFormChange = (e) => {
+    const handleFormChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       const { name, value } = e.target;
 
-      setForm({
-        ...form,
+      setValues({
+        ...values,
         [name]: value,
       });
 
-      // console.log(formState)
+      const calculatedValue = calculate(values);
+
+      setRevenue(Intl.NumberFormat('en-US').format(calculatedValue));
     };
 
     return (
       <form>
-        <FormContext.Provider value={{ form, handleFormChange }}>
+        <FormContext.Provider value={{ form: values, handleFormChange }}>
           {children}
         </FormContext.Provider>
       </form>
     );
   }
 
-  function calculate() {
-    // calculations needs to be based on 'values' instead of 'initialValues'
-    const A = initialValues.processingFee;
-    const B = initialValues.plasticCredits;
-    const C = initialValues.gravelRevenueBulk;
-    const D = initialValues.pelletsRevenueBulk;
-    const E = initialValues.totalTonsPerMonth;
-    /*  a*e + b*e + c*e*0.5 + d*e*0.5 */
-    /* what are the units here? what do we do with the ratio?*/
-    setRevenue(
-      Intl.NumberFormat('en-US').format(
-        A * E + B * E + C * E * 0.5 + D * E * 0.5
-      )
-    );
+  function calculate(values: FormType) {
+    const A = values.processingFee;
+    const B = values.plasticCredits;
+    const C = values.gravelRevenueBulk;
+    const D = values.pelletsRevenueBulk;
+    const E = values.totalTonsPerMonth;
+
+    return A * E + B * E + C * E * 0.5 + D * E * 0.5;
   }
 
   return (
@@ -167,5 +139,4 @@ export default function Calculator() {
       <button>${revenue}</button>
     </Form>
   );
-}
 }
