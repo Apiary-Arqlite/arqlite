@@ -18,13 +18,13 @@ function Main() {
     const [isInfoToolStatus, setInfoToolStatus] = useState('');
     const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
   const handleArrangeMeetingClick = () => {
-    console.log('open form');
+    
     setIsArrangeMeetingFormOpen(true);
   };
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
-    console.log('close');
+    
   };
   useEffect(() => {
     const handleClickClose = (event) => {
@@ -50,39 +50,16 @@ function Main() {
     };
   }, [isAnyModalOpen]);
   
-  const handleSendRequest = (event) => {
-    event.preventDefault();
+  const handleSendRequest = () => {
+   
 
     //implement logic for submit request
-    console.log('request sent');
+    console.log('implement logic for submit request');
    
     
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
     setInfoToolStatus("success");
-
-
-    // fetch("http://localhost:3001/", {
-  	// 	method: "POST",
-  	// 	headers: {
-  	// 		Accept: "application/json, text/plain, */*",
-  	// 		"Content-Type": "application/json",
-  	// 	},
-  	// 	body: JSON.stringify(formValues),
-  	// })
-  	// 	.then((res) => {
-  	// 		setInfoToolStatus("success")
-  	// 	})
-  	// 	.catch((error) => {
-  	// 		console.log(error);
-    //setInfoToolStatus("fail")
-  	// 	})
-  // .finally(() => {
-  //   setInfoToolPopupOpen(true);
-  //   setTimeout(() => {
-  //     setInfoToolPopupOpen(false);
-  //   }, 2000);
-  // });
   
   };
   const handleDownloadClick = () => {
@@ -206,7 +183,7 @@ function Main() {
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}
-        onSubmit={handleSendRequest}
+        onSendRequest={handleSendRequest}
       />
       <InfoToolModal isOpen={isInfoToolModalOpen} onClose={closeModal}status={isInfoToolStatus}/>
     </main>

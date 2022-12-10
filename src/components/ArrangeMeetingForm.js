@@ -2,8 +2,7 @@ import {Section} from '../components/Section';
 import {useState} from 'react';
 import Modal from './Modal';
 
-
-const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
+const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
@@ -12,12 +11,15 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
   const {name, email} = formValues;
 
   const handleInputChange = (event) => {
-    console.log('handle change');
-    console.log(event.target.name, '#', event.target.value);
     setFormValues((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
+  };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    onSendRequest(name, email);
   };
 
   return (
@@ -26,7 +28,7 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
         className="form"
         name="arrange-meeting"
         action="#"
-        onSubmit={onSubmit}
+        onSubmit={handleFormSubmit}
       >
         <p className="form__title">Arrange a meeting</p>
         <p className="form__text">
@@ -36,7 +38,7 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
 
         <div className="form__input-container">
           <label htmlFor="name" className="form__input-label">
-            Your name
+            {name && <span>Your name</span>}
             <input
               type="text"
               id="name"
@@ -51,7 +53,7 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSubmit}) => {
         </div>
         <div className="form__input-container">
           <label htmlFor="email" className="form__input-label">
-            Your email
+            {email && <span>Your email</span>}
             <span id="email-error"></span>
             <input
               type="email"
