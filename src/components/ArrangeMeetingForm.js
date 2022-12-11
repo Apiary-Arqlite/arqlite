@@ -1,22 +1,19 @@
 import {Section} from '../components/Section';
-import {useState,useRef,useEffect} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import Modal from './Modal';
-import { useFormAndValidation } from "../hooks/useFormAndValidation";
+import {useFormAndValidation} from '../hooks/useFormAndValidation';
 
 const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
+  const {values, isValid, errors, handleChange, resetForm} =
+    useFormAndValidation(['name', 'email']);
 
-const {values, isValid,errors,handleChange,resetForm}=useFormAndValidation([
-  'name',
-  'email'
-]);
-const formRef = useRef(null);
+  const formRef = useRef();
 
-const [isFormValid, setIsFormValid] = useState(false);
-  
+  const [isFormValid, setIsFormValid] = useState(false);
 
-useEffect(() => {
-  setIsFormValid(formRef.current.checkValidity());
-}, [isOpen, formRef]);
+  useEffect(() => {
+    setIsFormValid(formRef.current.checkValidity());
+  }, [isOpen, formRef]);
 
   useEffect(() => {
     const initialInputValues = {
@@ -27,47 +24,20 @@ useEffect(() => {
       name: '',
       email: '',
     };
-    resetForm({ ...initialInputValues }, { ...initialErrorValues }, true);
+    resetForm({...initialInputValues}, {...initialErrorValues}, true);
   }, [isOpen, resetForm]);
 
-  const handleFormChange = () => setIsFormValid(formRef.current.checkValidity());
+  const handleFormChange = () =>
+    setIsFormValid(formRef.current.checkValidity());
 
   const handleInputChange = (event) => {
     handleChange(event);
-   console.log('handle change');
+
+    console.log('handle change');
+    console.log(event.target.name, '#', event.target.value);
   };
-// const handleFormSubmit =(event)=>{
-//   event.preventDefault();
-//   const { name, email } = values;
-//   if(isValid || (name && email)){
-//     // fetch("http://localhost:3001/", {
-//     // 	method: "POST",
-//     // 	headers: {
-//     // 		Accept: "application/json, text/plain, */*",
-//     // 		"Content-Type": "application/json",
-//     // 	},
-//     // 	body: JSON.stringify(values),
-//     // })
-//     // 	.then((res) => {
-//     // resetForm();
-//     // 		setInfoToolStatus("success")
-//     // 	})
-//     // 	.catch((error) => {
-//     // 		console.log(error);
-//     //setInfoToolStatus("fail")
-//     // 	})
-//     // .finally(() => {
-//     //   setInfoToolPopupOpen(true);
-//     //   setTimeout(() => {
-//     //     setInfoToolPopupOpen(false);
-//     //   }, 2000);
-//     // });
-//     console.log("sent")
-//   }
-// };
 
-
-const setInputLabelClassName = (name, isRequired) =>
+  const setInputLabelClassName = (name, isRequired) =>
     `form__input-label ${isRequired && `form__input-label_required`} ${
       !isValid && errors[name] && `form__input-label_error`
     }`;
@@ -76,35 +46,10 @@ const setInputLabelClassName = (name, isRequired) =>
   const setErrorClassName = (name) =>
     `form__error ${!isValid && errors[name] && `form__error_visible`}`;
 
-
-
-
-  // const [formValues, setFormValues] = useState({
-  //   name: '',
-  //   email: '',
-  // });
-
-  // const {name, email} = formValues;
-  
- 
-
-
-
-  
-
-  // const handleInputChange = (event) => {
-  //   console.log('handle change');
-  //   console.log(event.target.name, '#', event.target.value);
-  //   setFormValues((prevState) => ({
-  //     ...prevState,
-  //     [event.target.name]: event.target.value,
-  //   }));
-  // };
-   
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    onSendRequest(name:values.name, email:values.email);
+    onSendRequest({name: values.name, email: values.email});
   };
 
   return (
@@ -126,7 +71,7 @@ const setInputLabelClassName = (name, isRequired) =>
 
         <div className="form__input-container">
           <label htmlFor="name" className="form__input-label">
-            {name && <span>Your name</span>}
+            {values.name && <span>Your name</span>}
             <input
               type="text"
               id="name"
@@ -141,16 +86,16 @@ const setInputLabelClassName = (name, isRequired) =>
         </div>
         <div className="form__input-container">
           <label htmlFor="email" className={setInputLabelClassName('email')}>
-           
-          
-            {email && <span>Your email</span>}
-            <span id="email-error"></span>
+            {values.email && isFormValid && <span>Your email</span>}
+            <span id="email-error" className={setErrorClassName('email')}>
+              {errors['email'] && 'Your email (incorrect email)'}
+            </span>
             <input
               type="email"
               id="email"
               name="email"
               placeholder="Your email"
-              className="form__input"
+              className={setInputClassName('email')}
               value={values.email}
               onChange={handleInputChange}
               required
@@ -163,6 +108,7 @@ const setInputLabelClassName = (name, isRequired) =>
           className="form__button"
           type="submit"
           aria-label="form submit"
+          disabled={!isFormValid}
         >
           Send Request
         </Section.MeetingCardButton>

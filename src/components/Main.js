@@ -12,22 +12,19 @@ import ArrangeMeetingForm from './ArrangeMeetingForm';
 import InfoToolModal from './InfoToolModal';
 
 function Main() {
-
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
     useState(false);
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
   const [isInfoToolStatus, setInfoToolStatus] = useState('');
-  
+
   const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
 
   const handleArrangeMeetingClick = () => {
-    
     setIsArrangeMeetingFormOpen(true);
   };
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
-    
   };
 
   useEffect(() => {
@@ -53,18 +50,14 @@ function Main() {
       document.removeEventListener('keydown', handleEscClose);
     };
   }, [isAnyModalOpen]);
-  
-  const handleSendRequest = () => {
-   
 
+  const handleSendRequest = () => {
     //implement logic for submit request
     console.log('implement logic for submit request');
-   
-    
+
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
-    setInfoToolStatus("success");
-  
+    setInfoToolStatus('success');
   };
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
@@ -111,13 +104,12 @@ function Main() {
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
       </Section>
-      
-        <MeetingCard
-          handleArrangeMeetingClick={handleArrangeMeetingClick}
-          img={pelletProductionImg}
-          handleDownloadClick={handleDownloadClick}
-        ></MeetingCard>
-     
+
+      <MeetingCard
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+        img={pelletProductionImg}
+        handleDownloadClick={handleDownloadClick}
+      ></MeetingCard>
 
       <Section dark id="construction">
         <Section.Marker>
@@ -188,6 +180,11 @@ function Main() {
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}
         onSendRequest={handleSendRequest}
+      />
+      <InfoToolModal
+        isOpen={isInfoToolModalOpen}
+        onClose={closeModal}
+        status={isInfoToolStatus}
       />
     </main>
   );
