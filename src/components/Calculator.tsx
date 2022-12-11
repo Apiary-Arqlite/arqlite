@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import {
   FormOptionProps,
@@ -8,8 +8,15 @@ import {
   FormContextType,
 } from './CalculatorTypes';
 
-export default function Calculator(props: FormProps) {
-  const { initialValues } = props;
+export default function Calculator() {
+  const initialValues = {
+    processingFee: 60,
+    plasticCredits: 60,
+    gravelRevenueBulk: 400,
+    pelletsRevenueBulk: 600,
+    totalTonsPerMonth: 2772,
+  };
+
   const [revenue, setRevenue] = useState('2,522,520');
 
   const FormContext = React.createContext<FormContextType>({
@@ -18,7 +25,7 @@ export default function Calculator(props: FormProps) {
   });
 
   function FormOption(props: FormOptionProps) {
-    return <option selected={props.selected}>${props.value}</option>;
+    return <option value={props.value}>${props.value}</option>;
   }
 
   function FormSelect(props: FormSelectProps) {
@@ -27,11 +34,16 @@ export default function Calculator(props: FormProps) {
     const formContext = useContext(FormContext);
     const { form, handleFormChange } = formContext;
     const currentValue = form[name];
+    console.log(currentValue);
 
     return (
       <div>
         <label>{label}</label>
-        <select name={name} value={currentValue} onChange={handleFormChange}>
+        <select
+          name={name}
+          value={Number(currentValue)}
+          onChange={handleFormChange}
+        >
           {props.children}
         </select>
       </div>
@@ -42,10 +54,6 @@ export default function Calculator(props: FormProps) {
     const { children, initialValues } = props;
     const [values, setValues] = useState(initialValues);
 
-    useEffect(() => {
-      setValues(initialValues);
-    }, [initialValues]);
-
     const handleFormChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       const { name, value } = e.target;
 
@@ -54,21 +62,21 @@ export default function Calculator(props: FormProps) {
         [name]: value,
       });
 
-      const calculatedValue = calculate(values);
+      const calculatedValue = Calculate(values);
 
       setRevenue(Intl.NumberFormat('en-US').format(calculatedValue));
+      console.log(values);
+      console.log(calculatedValue);
     };
 
     return (
-      <form>
-        <FormContext.Provider value={{ form: values, handleFormChange }}>
-          {children}
-        </FormContext.Provider>
-      </form>
+      <FormContext.Provider value={{ form: values, handleFormChange }}>
+        <form>{children}</form>
+      </FormContext.Provider>
     );
   }
 
-  function calculate(values: FormType) {
+  function Calculate(values: FormType) {
     const A = values.processingFee;
     const B = values.plasticCredits;
     const C = values.gravelRevenueBulk;
@@ -81,11 +89,7 @@ export default function Calculator(props: FormProps) {
   return (
     <Form initialValues={initialValues}>
       {/* a */}
-      <FormSelect
-        label='Processing Fee'
-        name='processingFee'
-        value={initialValues.processingFee}
-      >
+      <FormSelect label='Processing Fee' name='processingFee'>
         <FormOption value={10} />
         <FormOption value={20} />
         <FormOption value={30} />

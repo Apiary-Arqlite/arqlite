@@ -13,7 +13,6 @@ export interface FormProps {
 export interface FormSelectProps {
   label: string;
   name: string;
-  value?: any;
   children: React.ReactNode;
 }
 

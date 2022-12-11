@@ -10,14 +10,6 @@ import pelletProductionImg from '../images/pellet-production-image.png';
 import buildingImg from '../images/building-image.png';
 
 function Main() {
-  const form = {
-    processingFee: 60,
-    plasticCredits: 60,
-    gravelRevenueBulk: 400,
-    pelletsRevenueBulk: 600,
-    totalTonsPerMonth: 2772,
-  };
-
   const handleArrangeMeetingClick = () => {
     console.log('implement schedule meeting logic');
   };
@@ -65,7 +57,7 @@ function Main() {
         <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
-        <Calculator form={form} />
+        <Calculator />
       </Section>
       <Section>
         <MeetingCard
