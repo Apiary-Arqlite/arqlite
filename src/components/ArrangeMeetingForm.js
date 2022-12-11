@@ -3,7 +3,7 @@ import {useState,useRef,useEffect} from 'react';
 import Modal from './Modal';
 import { useFormAndValidation } from "../hooks/useFormAndValidation";
 
-const ArrangeMeetingForm = ({isOpen, onClose, handleFormSubmit}) => {
+const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
 
 const {values, isValid,errors,handleChange,resetForm}=useFormAndValidation([
   'name',
@@ -100,6 +100,12 @@ const setInputLabelClassName = (name, isRequired) =>
   //     [event.target.name]: event.target.value,
   //   }));
   // };
+   
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    onSendRequest(name:values.name, email:values.email);
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -120,7 +126,7 @@ const setInputLabelClassName = (name, isRequired) =>
 
         <div className="form__input-container">
           <label htmlFor="name" className="form__input-label">
-            Your name
+            {name && <span>Your name</span>}
             <input
               type="text"
               id="name"
@@ -135,7 +141,9 @@ const setInputLabelClassName = (name, isRequired) =>
         </div>
         <div className="form__input-container">
           <label htmlFor="email" className={setInputLabelClassName('email')}>
-            Your email
+           
+          
+            {email && <span>Your email</span>}
             <span id="email-error"></span>
             <input
               type="email"

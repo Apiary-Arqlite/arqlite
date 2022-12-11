@@ -21,12 +21,12 @@ function Main() {
   const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
 
   const handleArrangeMeetingClick = () => {
+    
     setIsArrangeMeetingFormOpen(true);
   };
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
-     // once the error message modal closes, the error message will be reset
     
   };
 
@@ -53,18 +53,18 @@ function Main() {
       document.removeEventListener('keydown', handleEscClose);
     };
   }, [isAnyModalOpen]);
-
-  const handleSendRequest = (event) => {
-    event.preventDefault();
+  
+  const handleSendRequest = () => {
+   
 
     //implement logic for submit request
-    console.log('request sent');
-
+    console.log('implement logic for submit request');
+   
+    
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
-    setInfoToolStatus('success');
-
-   
+    setInfoToolStatus("success");
+  
   };
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
@@ -187,12 +187,7 @@ function Main() {
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}
-        handleFormSubmit={handleSendRequest}
-      />
-      <InfoToolModal
-        isOpen={isInfoToolModalOpen}
-        onClose={closeModal}
-        status={isInfoToolStatus}
+        onSendRequest={handleSendRequest}
       />
     </main>
   );
