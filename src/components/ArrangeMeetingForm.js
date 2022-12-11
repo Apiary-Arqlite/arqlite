@@ -32,10 +32,7 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
 
   const handleInputChange = (event) => {
     handleChange(event);
-
-    console.log('handle change');
-    console.log(event.target.name, '#', event.target.value);
-  };
+    };
 
   const setInputLabelClassName = (name, isRequired) =>
     `form__input-label ${isRequired && `form__input-label_required`} ${
