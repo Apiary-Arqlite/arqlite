@@ -17,7 +17,7 @@ export interface FormSelectProps {
 }
 
 export interface FormType {
-  [key: string]: any;
+  [key: string]: number | string;
 }
 
 export interface FormContextType {

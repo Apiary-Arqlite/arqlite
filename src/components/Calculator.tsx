@@ -8,84 +8,92 @@ import {
   FormContextType,
 } from './CalculatorTypes';
 
-export default function Calculator() {
-  const initialValues = {
-    processingFee: 60,
-    plasticCredits: 60,
-    gravelRevenueBulk: 400,
-    pelletsRevenueBulk: 600,
-    totalTonsPerMonth: 2772,
-  };
+const initialValues = {
+  processingFee: 60,
+  plasticCredits: 60,
+  gravelRevenueBulk: 400,
+  pelletsRevenueBulk: 600,
+  totalTonsPerMonth: 2772,
+  totalRevenue: '2522520',
+};
 
-  const [revenue, setRevenue] = useState('2,522,520');
+const FormContext = React.createContext<FormContextType>({
+  form: initialValues,
+  handleFormChange: () => {},
+});
 
-  const FormContext = React.createContext<FormContextType>({
-    form: initialValues,
-    handleFormChange: () => {},
-  });
+function FormOption(props: FormOptionProps) {
+  return <option value={props.value}>${props.value}</option>;
+}
 
-  function FormOption(props: FormOptionProps) {
-    return <option value={props.value}>${props.value}</option>;
-  }
+function FormSelect(props: FormSelectProps) {
+  const { label, name } = props;
 
-  function FormSelect(props: FormSelectProps) {
-    const { label, name } = props;
+  const formContext = useContext(FormContext);
+  const { form, handleFormChange } = formContext;
+  const currentValue = form[name];
 
-    const formContext = useContext(FormContext);
-    const { form, handleFormChange } = formContext;
-    const currentValue = form[name];
-    console.log(currentValue);
+  return (
+    <div>
+      <label>{label}</label>
+      <select
+        name={name}
+        value={Number(currentValue)}
+        onChange={handleFormChange}
+      >
+        {props.children}
+      </select>
+    </div>
+  );
+}
 
-    return (
-      <div>
-        <label>{label}</label>
-        <select
-          name={name}
-          value={Number(currentValue)}
-          onChange={handleFormChange}
-        >
-          {props.children}
-        </select>
-      </div>
-    );
-  }
+function TotalRevenue() {
+  const {
+    form: { totalRevenue },
+  } = useContext(FormContext);
+  return <div>{totalRevenue}</div>;
+}
 
-  function Form(props: FormProps) {
-    const { children, initialValues } = props;
-    const [values, setValues] = useState(initialValues);
+function Form(props: FormProps) {
+  const { children, initialValues } = props;
+  const [values, setValues] = useState<FormType>(initialValues);
 
-    const handleFormChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const { name, value } = e.target;
+  const handleFormChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
 
-      setValues({
-        ...values,
-        [name]: value,
-      });
-
-      const calculatedValue = Calculate(values);
-
-      setRevenue(Intl.NumberFormat('en-US').format(calculatedValue));
-      console.log(values);
-      console.log(calculatedValue);
+    const newValues = {
+      ...values,
+      [name]: value,
     };
 
-    return (
-      <FormContext.Provider value={{ form: values, handleFormChange }}>
-        <form>{children}</form>
-      </FormContext.Provider>
+    const totalRevenue = Intl.NumberFormat('en-US').format(
+      Calculate(newValues)
     );
-  }
 
-  function Calculate(values: FormType) {
-    const A = values.processingFee;
-    const B = values.plasticCredits;
-    const C = values.gravelRevenueBulk;
-    const D = values.pelletsRevenueBulk;
-    const E = values.totalTonsPerMonth;
+    setValues({
+      ...newValues,
+      totalRevenue,
+    });
+  };
 
-    return A * E + B * E + C * E * 0.5 + D * E * 0.5;
-  }
+  return (
+    <FormContext.Provider value={{ form: values, handleFormChange }}>
+      <form>{children}</form>
+    </FormContext.Provider>
+  );
+}
 
+function Calculate(values: FormType) {
+  const A = values.processingFee as number;
+  const B = values.plasticCredits as number;
+  const C = values.gravelRevenueBulk as number;
+  const D = values.pelletsRevenueBulk as number;
+  const E = values.totalTonsPerMonth as number;
+
+  return A * E + B * E + C * E * 0.5 + D * E * 0.5;
+}
+
+export default function Calculator() {
   return (
     <Form initialValues={initialValues}>
       {/* a */}
@@ -140,7 +148,7 @@ export default function Calculator() {
         <FormOption value={3696} />
         <FormOption value={4620} />
       </FormSelect>
-      <button>${revenue}</button>
+      <TotalRevenue />
     </Form>
   );
 }
