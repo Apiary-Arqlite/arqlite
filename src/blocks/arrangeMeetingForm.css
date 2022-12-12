@@ -79,10 +79,7 @@ border:none;
 outline: none;
 transition: all 0.3s linear;
 }
-.form__input_error {
-  color: rgba(240, 37, 37, 1);
- 
-}
+
 .form__error {
   box-sizing: border-box;
   margin: 0;
