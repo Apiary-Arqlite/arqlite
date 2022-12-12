@@ -106,7 +106,7 @@ const CardHeadingSmall = styled.h4`
   max-width: 150px;
 `;
 //Card link wrapper that will render styled <div> for link on Horiz card
-const CardLinkWrapper = styled.div`
+const CardLinkWrapper = styled.a`
   display: flex;
   justify-self: flex-end;
   margin-top: auto;
@@ -148,7 +148,7 @@ CardItem.Image = CardImage;
 export default function Cards({ children }) {
   return (
    
-      <CardsWrapper>{children}</CardsWrapper>
+      <CardsWrapper >{children}</CardsWrapper>
 
   );
 }

@@ -1,7 +1,13 @@
 import NavBar from "./NavBar";
 import * as data from "../utils/data";
+import * as pdfs from "../utils/downloads";
 // import { constructionCards, ecoCards, productCards } from "../utils/data";
-import { Section, SectionHoriz, SectionVert, SectionVertLong} from "../components/Section";
+import {
+  Section,
+  SectionHoriz,
+  SectionVert,
+  SectionVertLong,
+} from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 import Cards from "./Card";
 import recycleImgPath from "../images/recycle-plastics-icons.png";
@@ -9,7 +15,7 @@ import MeetingCard from "./MeetingCard";
 import pelletProductionImg from "../images/pellet-production-image.png";
 import buildingImg from "../images/building-image.png";
 
-function Main({onDownloadClick}) {
+function Main({ onDownloadClick }) {
   const handleArrangeMeetingClick = () => {
     console.log("implement schedule meeting logic");
   };
@@ -44,7 +50,7 @@ function Main({onDownloadClick}) {
   // };
   return (
     <main>
-      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
+      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <SectionHoriz dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
@@ -56,7 +62,7 @@ function Main({onDownloadClick}) {
                 <Cards.Caption>{card.caption}</Cards.Caption>
                 <Cards.SmallHeading>{card.heading}</Cards.SmallHeading>
                 <Cards.Paragraph horiz>{card.paragraph}</Cards.Paragraph>
-                <Cards.LinkWrapper>
+                <Cards.LinkWrapper onClick={() => onDownloadClick(card.pdf)}>
                   <Cards.LinkIcon />
                   <Cards.LinkText>{card.linkText}</Cards.LinkText>
                 </Cards.LinkWrapper>
@@ -74,11 +80,11 @@ function Main({onDownloadClick}) {
         </Section.CaptionLarge>
       </Section>
       <Section>
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        // handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={pelletProductionImg}
+          onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
+        ></MeetingCard>
       </Section>
 
       <SectionVertLong dark id="construction">
@@ -145,7 +151,7 @@ function Main({onDownloadClick}) {
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
-        onDownloadClick={()=>onDownloadClick("ArqliteLicensingDeck.pdf")}
+        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
       ></MeetingCard>
     </main>
   );
