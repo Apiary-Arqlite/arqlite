@@ -34,12 +34,11 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
     handleChange(event);
     };
 
-  const setInputLabelClassName = (name, isRequired) =>
-    `form__input-label ${isRequired && `form__input-label_required`} ${
+  const setInputLabelClassName = (name) =>
+    `form__input-label ${
       !isValid && errors[name] && `form__input-label_error`
     }`;
-  const setInputClassName = (name) =>
-    `form__input ${!isValid && errors[name] && `form__input_error`}`;
+  
   const setErrorClassName = (name) =>
     `form__error ${!isValid && errors[name] && `form__error_visible`}`;
 
@@ -92,7 +91,7 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
               id="email"
               name="email"
               placeholder="Your email"
-              className={setInputClassName('email')}
+              className="form__input"
               value={values.email}
               onChange={handleInputChange}
               required

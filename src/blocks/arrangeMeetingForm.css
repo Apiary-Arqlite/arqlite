@@ -61,9 +61,7 @@
   position: relative;
   transition: all 0.3s linear;
 }
-.form__input-label_required {
-  margin: 0;
-}
+
 .form__input-label_error {
   color: rgba(240, 37, 37, 1);
 }
