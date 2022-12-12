@@ -2,7 +2,7 @@ import "../blocks/header.css";
 import { Section } from "./Section";
 import arqliteLogo2 from "../images/arqlite-logo-2.svg";
 
-function Header({handleArrangeMeetingClick}) {
+function Header() {
   return (
       <Section.Header className="header">
           <img alt="Arqlite logo" src={arqliteLogo2} className="header__logo" />
