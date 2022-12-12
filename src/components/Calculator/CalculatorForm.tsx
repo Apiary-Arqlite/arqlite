@@ -1,13 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { FormProps, FormType } from '../Form/FormTypes';
 import { FormContext } from '../Form/FormCtx';
-
-function TotalRevenue() {
-  const {
-    form: { totalRevenue },
-  } = useContext(FormContext);
-  return <div>{totalRevenue}</div>;
-}
 
 function Calculate(values: FormType) {
   const A = values.processingFee as number;

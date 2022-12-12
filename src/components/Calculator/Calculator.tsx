@@ -10,7 +10,14 @@ function TotalRevenue() {
   const {
     form: { totalRevenue },
   } = useContext(FormContext);
-  return <div>{totalRevenue}</div>;
+
+  // totalRevenue is a string, so we need to convert it to a number
+  // then format it as a currency
+  let totalRevenueFormatted = Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(Number(totalRevenue));
+  return <div>${totalRevenue}</div>;
 }
 
 export default function Calculator() {
