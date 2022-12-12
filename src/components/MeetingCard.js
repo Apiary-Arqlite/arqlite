@@ -14,6 +14,7 @@ const MeetingCard = ({handleDownloadClick, handleArrangeMeetingClick, img}) => {
         <Section.MeetingCardAction>
           <Section.MeetingCardButton
             type="button"
+            className="meetingCard__button"
             onClick={handleArrangeMeetingClick}
           >
             Arrange a meeting
@@ -21,6 +22,7 @@ const MeetingCard = ({handleDownloadClick, handleArrangeMeetingClick, img}) => {
           <Section.MeetingCardDownloadButton
             type="button"
             onClick={handleDownloadClick}
+            className="meetingCard__download-button"
           >
             Download our licensing Deck
             <img

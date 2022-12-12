@@ -117,6 +117,7 @@ const MeetingCardButton = styled.button`
   padding: 0;
   margin-right: 25px;
   cursor: pointer;
+  transition: linear 0.4s;
 `;
 const MeetingCardDownloadButton = styled.button`
   display: flex;
@@ -169,10 +170,8 @@ border:solid green 1px;
 background-color: rgba(0, 0, 0, .5);
 z-index: 999;
 transition: visibility 0s ease-in-out 0.4s, opacity 0.4s ease-in-out;
-
 margin:0;
 padding:0;
-
 `
 
 
