@@ -114,7 +114,7 @@ const MeetingCardButton = styled.button`
   text-align: center;
   letter-spacing: 0.02em;
   margin: 0;
- padding:0;
+  padding: 0;
   margin-right: 25px;
   cursor: pointer;
 `;
