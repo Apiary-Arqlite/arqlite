@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { FormSelectProps } from './FormTypes';
 import { FormContext } from './FormCtx';
+import styled from 'styled-components';
+
+const StyledFormSelect = styled.div``;
 
 export default function FormSelect(props: FormSelectProps) {
   const { label, name } = props;
@@ -10,7 +13,7 @@ export default function FormSelect(props: FormSelectProps) {
   const currentValue = form[name];
 
   return (
-    <div>
+    <StyledFormSelect>
       <label>{label}</label>
       <select
         name={name}
@@ -19,6 +22,6 @@ export default function FormSelect(props: FormSelectProps) {
       >
         {props.children}
       </select>
-    </div>
+    </StyledFormSelect>
   );
 }
