@@ -8,24 +8,25 @@ import MeetingCard from "./MeetingCard";
 import pelletProductionImg from "../images/pellet-production-image.png";
 import buildingImg from "../images/building-image.png";
 
-function Main() {
+function Main({onDownloadClick}) {
   const handleArrangeMeetingClick = () => {
     console.log("implement schedule meeting logic");
   };
-  const handleDownloadClick = (pdf) => {
-    // using Java Script method to get PDF file
-    fetch(pdf).then((response) => {
-      response.blob().then((blob) => {
-        // Creating new object of PDF file
-        const fileURL = window.URL.createObjectURL(blob);
-        // Setting various property values
-        let alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = pdf;
-        alink.click();
-      });
-    });
-  };
+
+  // const handleDownloadClick = (pdf) => {
+  //   // using Java Script method to get PDF file
+  //   fetch(pdf).then((response) => {
+  //     response.blob().then((blob) => {
+  //       // Creating new object of PDF file
+  //       const fileURL = window.URL.createObjectURL(blob);
+  //       // Setting various property values
+  //       let alink = document.createElement("a");
+  //       alink.href = fileURL;
+  //       alink.download = pdf;
+  //       alink.click();
+  //     });
+  //   });
+  // };
   // const handleDownloadClick = () => {
   //   // using Java Script method to get PDF file
   //   fetch("ArqliteLicensingDeck.pdf").then((response) => {
@@ -75,7 +76,7 @@ function Main() {
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={pelletProductionImg}
-        handleDownloadClick={handleDownloadClick}
+        // handleDownloadClick={handleDownloadClick}
       ></MeetingCard>
       </Section>
 
@@ -143,7 +144,7 @@ function Main() {
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
-        handleDownloadClick={event=>handleDownloadClick("ArqliteLicensingDeck.pdf")}
+        onDownloadClick={()=>onDownloadClick("ArqliteLicensingDeck.pdf")}
       ></MeetingCard>
     </main>
   );
