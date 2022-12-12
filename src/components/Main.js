@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
-import { constructionCards, ecoCards, productCards } from "../utils/data";
+import * as data from "../utils/data";
+// import { constructionCards, ecoCards, productCards } from "../utils/data";
 import { Section, SectionHoriz, SectionVert, SectionVertLong} from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 import Cards from "./Card";
@@ -47,7 +48,7 @@ function Main({onDownloadClick}) {
       <SectionHoriz dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
-          {productCards.map((card, i) => (
+          {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
               <Cards.Image horiz src={card.image} alt={card.alt} />
 
@@ -89,7 +90,7 @@ function Main({onDownloadClick}) {
           Produce your own low-carbon <br></br> & LEED building materials
         </Section.Title>
         <Cards>
-          {constructionCards.map((card, i) => (
+          {data.constructionCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
               <Cards.Image src={card.image} alt={card.alt} />
               <Cards.TextBox>
@@ -125,7 +126,7 @@ function Main({onDownloadClick}) {
           into sustainable products
         </Section.Title>
         <Cards>
-          {ecoCards.map((card, i) => (
+          {data.ecoCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
               <Cards.Image src={card.image} alt={card.alt} />
               <Cards.TextBox>
