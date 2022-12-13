@@ -1,34 +1,35 @@
-import NavBar from "./NavBar";
-import { constructionCards, ecoCards, productCards } from "../utils/data";
-import { Section } from "../components/Section";
-import markerIconPath from "../images/arrow-down-orange.png";
-import Cards from "./Card";
-import recycleImgPath from "../images/recycle-plastics-icons.png";
-import MeetingCard from "./MeetingCard";
-import pelletProductionImg from "../images/pellet-production-image.png";
-import buildingImg from "../images/building-image.png";
+import NavBar from './NavBar';
+import { constructionCards, ecoCards, productCards } from '../utils/data';
+import { Section } from '../components/Section';
+import Calculator from './Calculator/Calculator.tsx';
+import markerIconPath from '../images/arrow-down-orange.png';
+import Cards from './Card';
+import recycleImgPath from '../images/recycle-plastics-icons.png';
+import MeetingCard from './MeetingCard';
+import pelletProductionImg from '../images/pellet-production-image.png';
+import buildingImg from '../images/building-image.png';
 
 function Main() {
   const handleArrangeMeetingClick = () => {
-    console.log("implement schedule meeting logic");
+    console.log('implement schedule meeting logic');
   };
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
-    fetch("ArqliteLicensingDeck.pdf").then((response) => {
+    fetch('ArqliteLicensingDeck.pdf').then((response) => {
       response.blob().then((blob) => {
         // Creating new object of PDF file
         const fileURL = window.URL.createObjectURL(blob);
         // Setting various property values
-        let alink = document.createElement("a");
+        let alink = document.createElement('a');
         alink.href = fileURL;
-        alink.download = "ArqliteLicensingDeck.pdf";
+        alink.download = 'ArqliteLicensingDeck.pdf';
         alink.click();
       });
     });
   };
   return (
     <main>
-      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
+      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <Section dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
@@ -49,26 +50,27 @@ function Main() {
           ))}
         </Cards>
       </Section>
-      <Section id="calculator">
-        <Section.CaptionLarge className="section__caption_center">
+      <Section id='calculator'>
+        <Section.CaptionLarge className='section__caption_center'>
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
-        <Section.CaptionLarge className="section__caption_center">
+        <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
+        <Calculator />
       </Section>
       <Section>
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={pelletProductionImg}
+          handleDownloadClick={handleDownloadClick}
+        ></MeetingCard>
       </Section>
 
-      <Section dark id="construction">
+      <Section dark id='construction'>
         <Section.Marker>
-          For construction companies{" "}
-          <img className="section__marker-icon" src={markerIconPath} />
+          For construction companies{' '}
+          <img className='section__marker-icon' src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
           Produce your own low-carbon <br></br> & LEED building materials
@@ -84,10 +86,10 @@ function Main() {
           ))}
         </Cards>
       </Section>
-      <Section id="recycle">
+      <Section id='recycle'>
         <Section.Marker>
-          For plastic companies and recyclers{" "}
-          <img className="section__marker-icon" src={markerIconPath} />
+          For plastic companies and recyclers{' '}
+          <img className='section__marker-icon' src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
           Recycle plastics <br></br> that no one else can
@@ -97,15 +99,15 @@ function Main() {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        <img className="section__recycle-icons" src={recycleImgPath} />
+        <img className='section__recycle-icons' src={recycleImgPath} />
       </Section>
-      <Section dark id="eco">
+      <Section dark id='eco'>
         <Section.Marker>
-          For eco-conscious brands{" "}
-          <img className="section__marker-icon" src={markerIconPath} />
+          For eco-conscious brands{' '}
+          <img className='section__marker-icon' src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
-          Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
+          Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
           into sustainable products
         </Section.Title>
         <Cards>
