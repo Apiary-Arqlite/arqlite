@@ -1,11 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 
-export default function DownloadIcon({
-  color = "",
-  ...rest
-}) {
+const DLIcon = styled.svg`
+  width: 20px;
+  height: 20px;
+
+  /* @media (max-width: 1000px) {
+    width: 12px;
+    height: 14px;
+  } */
+`;
+export default function DownloadIcon({ color = "", ...rest }) {
   return (
-    <svg
+    <DLIcon
       fill="none"
       stroke={color}
       strokeLinecap="round"
@@ -16,30 +23,6 @@ export default function DownloadIcon({
       {...rest}
     >
       <path d="m10 3v9l-4-4m4 4 4-4m-10 5v4h12v-4" />
-    </svg>
-
-    // <svg
-    //   fill="none"
-    //   viewBox="0 0 14 16"
-    //   xmlns="http://www.w3.org/2000/svg"
-    //   {...rest}
-    // >
-    //   <path
-    //     d="m7 1v9m0 0-4-4m4 4 4-4"
-    //     stroke={color}
-    //     // stroke="#54585B"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     strokeWidth="2"
-    //   />
-    //   <path
-    //     d="m1 11v4h12v-4"
-    //     stroke={color}
-    //     // stroke="#54585B"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     strokeWidth="2"
-    //   />
-    // </svg>
+    </DLIcon>
   );
 }

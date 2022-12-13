@@ -7,6 +7,7 @@
 @import url("./blocks/meetingCard.css");
 @import url("./blocks/modal.css");
 @import url("./blocks/arrangeMeetingForm.css");
+@import url("./blocks/timelineCard.css");
 html {
     scroll-behavior: smooth;
 }
