@@ -121,15 +121,19 @@ const CardLinkWrapper = styled.a`
   }
 `;
 
-//Card link icon that will render styled <img> for link icon on Horiz Card
+//Card link icon that will render styled <svg> for link icon on Horiz Card
 const CardLinkIcon = styled(DownloadIcon)`
-  width: 20px;
-  height: 20px;
+  /* width: 20px;
+  height: 20px; */
   margin-right: 14px;
   stroke: ${({ theme: { colors } }) => colors.dark};
 
   /* path {
     stroke: ${({ theme: { colors } }) => colors.dark};
+  } */
+  /* @media (max-width: 1000px) {
+    width: 12px;
+    height: 14px;
   } */
 `;
 
@@ -146,11 +150,7 @@ const CardLinkText = styled.p`
 CardItem.Image = CardImage;
 
 export default function Cards({ children }) {
-  return (
-   
-      <CardsWrapper >{children}</CardsWrapper>
-
-  );
+  return <CardsWrapper>{children}</CardsWrapper>;
 }
 
 Cards.Card = CardItem;
