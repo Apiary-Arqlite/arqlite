@@ -32,7 +32,7 @@
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   max-width: 630px;
-  max-height: 460px;
+  height: 460px;
   align-items: center;
   justify-content: center;
   display: flex;
