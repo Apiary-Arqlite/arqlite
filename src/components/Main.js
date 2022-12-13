@@ -55,7 +55,7 @@ function Main() {
   const handleSendRequest = () => {
     //implement logic for submit request
     console.log('implement logic for submit request');
-
+setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
     setInfoToolStatus('success');
