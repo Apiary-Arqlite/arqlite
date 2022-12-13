@@ -61,7 +61,7 @@ const NavLink = styled.a`
 `;
 
 const Footer = styled.footer`
-  margin: 0 auto 60px;
+  margin: 0 ;
   background-color: #54585b;
   box-sizing: border-box;
   color: #ffffff;
@@ -69,7 +69,7 @@ const Footer = styled.footer`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  max-width: 1280px;
+  width: 100%;
 `;
 
 const Header = styled.header`
@@ -89,7 +89,8 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-  margin-bottom: 40px;
+  
+  background:#ffffff;
 `;
 const MeetingCardContainer = styled.section`
   display: flex;
@@ -117,6 +118,7 @@ const MeetingCardButton = styled.button`
   padding: 0;
   margin-right: 25px;
   cursor: pointer;
+  transition: linear 0.4s;
 `;
 const MeetingCardDownloadButton = styled.button`
   display: flex;
@@ -138,6 +140,13 @@ const MeetingCardAction = styled.section`
   flex-direction: row;
 `;
 
+const TimelineCards =styled.div`
+background:#ffffff;
+padding: 80px;
+  display: flex;
+  flex-direction:row;
+  gap:20px;
+`
 Section.Header = Header;
 Section.NavLink = NavLink;
 Section.Marker = SectionMarker;
@@ -149,3 +158,8 @@ Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
+Section.TimelineCards=TimelineCards;
+
+
+
+

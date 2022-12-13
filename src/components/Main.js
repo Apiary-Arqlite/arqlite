@@ -1,34 +1,82 @@
-import NavBar from "./NavBar";
-import { constructionCards, ecoCards, productCards } from "../utils/data";
-import { Section } from "../components/Section";
-import markerIconPath from "../images/arrow-down-orange.png";
-import Cards from "./Card";
-import recycleImgPath from "../images/recycle-plastics-icons.png";
-import MeetingCard from "./MeetingCard";
-import pelletProductionImg from "../images/pellet-production-image.png";
-import buildingImg from "../images/building-image.png";
+import NavBar from './NavBar';
+import React, {useState, useEffect} from 'react';
+import {constructionCards, ecoCards, productCards, timelineCards} from '../utils/data';
+import {Section} from '../components/Section';
+import markerIconPath from '../images/arrow-down-orange.png';
+import Cards from './Card';
+import recycleImgPath from '../images/recycle-plastics-icons.png';
+import MeetingCard from './MeetingCard';
+import pelletProductionImg from '../images/pellet-production-image.png';
+import buildingImg from '../images/building-image.png';
+import ArrangeMeetingForm from './ArrangeMeetingForm';
+import InfoToolModal from './InfoToolModal';
+import TimelineCard from './TimelineCard';
 
 function Main() {
+  const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
+    useState(false);
+  const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
+  const [isInfoToolStatus, setInfoToolStatus] = useState('');
+
+  const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
+
   const handleArrangeMeetingClick = () => {
-    console.log("implement schedule meeting logic");
+    setIsArrangeMeetingFormOpen(true);
+  };
+  const closeModal = () => {
+    setIsArrangeMeetingFormOpen(false);
+    setIsInfoToolOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickClose = (event) => {
+      if (event.target.classList.contains('modal_opened')) {
+        closeModal();
+      }
+    };
+
+    const handleEscClose = (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (isAnyModalOpen) {
+      document.addEventListener('click', handleClickClose);
+      document.addEventListener('keydown', handleEscClose);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickClose);
+      document.removeEventListener('keydown', handleEscClose);
+    };
+  }, [isAnyModalOpen]);
+
+  const handleSendRequest = () => {
+    //implement logic for submit request
+    console.log('implement logic for submit request');
+setIsArrangeMeetingFormOpen(false);
+    setIsInfoToolOpen(true);
+    //if request submit is successful or if not setInfoToolStatus("fail");
+    setInfoToolStatus('success');
   };
   const handleDownloadClick = () => {
     // using Java Script method to get PDF file
-    fetch("ArqliteLicensingDeck.pdf").then((response) => {
+    fetch('ArqliteLicensingDeck.pdf').then((response) => {
       response.blob().then((blob) => {
         // Creating new object of PDF file
         const fileURL = window.URL.createObjectURL(blob);
         // Setting various property values
-        let alink = document.createElement("a");
+        let alink = document.createElement('a');
         alink.href = fileURL;
-        alink.download = "ArqliteLicensingDeck.pdf";
+        alink.download = 'ArqliteLicensingDeck.pdf';
         alink.click();
       });
     });
   };
   return (
     <main>
-      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick}/>
+      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <Section dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
@@ -57,17 +105,16 @@ function Main() {
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
       </Section>
-      <Section>
+
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={pelletProductionImg}
         handleDownloadClick={handleDownloadClick}
       ></MeetingCard>
-      </Section>
 
       <Section dark id="construction">
         <Section.Marker>
-          For construction companies{" "}
+          For construction companies{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
@@ -86,7 +133,7 @@ function Main() {
       </Section>
       <Section id="recycle">
         <Section.Marker>
-          For plastic companies and recyclers{" "}
+          For plastic companies and recyclers{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
@@ -101,11 +148,11 @@ function Main() {
       </Section>
       <Section dark id="eco">
         <Section.Marker>
-          For eco-conscious brands{" "}
+          For eco-conscious brands{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
-          Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
+          Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
           into sustainable products
         </Section.Title>
         <Cards>
@@ -124,12 +171,30 @@ function Main() {
         <Section.Title>
           We set up <br></br> the process for you
         </Section.Title>
+       
       </Section>
+      <Section.TimelineCards>{
+        timelineCards.map((card,i)=>{
+          return (
+          <TimelineCard key={i} title={card.title} step={card.step} icon={card.icon} element={card.element} alt={card.alt}/>)
+        })}
+   
+      </Section.TimelineCards>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
         handleDownloadClick={handleDownloadClick}
       ></MeetingCard>
+      <ArrangeMeetingForm
+        isOpen={isArrangeMeetingFormOpen}
+        onClose={closeModal}
+        onSendRequest={handleSendRequest}
+      />
+      <InfoToolModal
+        isOpen={isInfoToolModalOpen}
+        onClose={closeModal}
+        status={isInfoToolStatus}
+      />
     </main>
   );
 }
