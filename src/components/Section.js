@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import DownloadIcon from "./icons/DownloadIcon";
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
@@ -119,7 +120,7 @@ const MeetingCardButton = styled.button`
   border-radius: 10px;
   border: none;
   font-family: "Archivo";
-  font-style: normal;
+  /* font-style: normal; */
   font-weight: 600;
   font-size: 20px;
   line-height: 22px;
@@ -149,6 +150,13 @@ const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
 `;
+const MeetingCardIcon = styled(DownloadIcon) `
+padding: 0;
+margin: 0;
+margin-left: 12px;
+align-self: center;
+stroke: ${({ theme: { colors } }) => colors.white};
+`
 
 Section.Header = Header;
 Section.NavLink = NavLink;
@@ -161,3 +169,4 @@ Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
+Section.MeetingCardIcon =MeetingCardIcon;
