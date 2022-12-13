@@ -5,51 +5,21 @@ import CalculatorForm from './CalculatorForm';
 import { FormContext } from '../Form/FormCtx';
 import { initialValues } from '../Form/FormData';
 import styled from 'styled-components';
+import { Section } from '../Section';
 
-const StyledTotalRevenue = styled.div`
-  width: 870px;
-  height: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  line-height: 32px;
-  color: #fff;
-  background: #0091a6;
-  border-radius: 4px;
-`;
-
-const StyledSpan = styled.span`
-  font-weight: 700;
-`;
-
-const StyledRow1 = styled.div`
-  display: flex;
-  gap: 20px;
-`;
-
-const StyledRow2 = styled.div`
-  display: flex;
-  gap: 20px;
-`;
-
-const StyledRow3 = styled.div``;
+const StyledTotalRevenue = styled.div``;
 
 function TotalRevenue() {
   const {
     form: { totalRevenue },
   } = useContext(FormContext);
-  return (
-    <StyledTotalRevenue>
-      Total revenue: <StyledSpan> ${totalRevenue}</StyledSpan>
-    </StyledTotalRevenue>
-  );
+  return <StyledTotalRevenue>${totalRevenue}</StyledTotalRevenue>;
 }
 
 export default function Calculator() {
   return (
-    <CalculatorForm initialValues={initialValues}>
-      <StyledRow1>
+    <Section>
+      <CalculatorForm initialValues={initialValues}>
         {/* a */}
         <FormSelect label='Processing Fee' name='processingFee'>
           <FormOption value={10} />
@@ -76,8 +46,6 @@ export default function Calculator() {
           <FormOption value={90} />
           <FormOption value={100} />
         </FormSelect>
-      </StyledRow1>
-      <StyledRow2>
         {/* c */}
         <FormSelect label='Gravel revenue bulk' name='gravelRevenueBulk'>
           <FormOption value={200} />
@@ -95,8 +63,6 @@ export default function Calculator() {
           <FormOption value={1600} />
           <FormOption value={1800} />
         </FormSelect>
-      </StyledRow2>
-      <StyledRow3>
         {/* e */}
         <FormSelect label='Total tons per month' name='totalTonsPerMonth'>
           <FormOption value={462} />
@@ -106,9 +72,8 @@ export default function Calculator() {
           <FormOption value={3696} />
           <FormOption value={4620} />
         </FormSelect>
-      </StyledRow3>
-
-      <TotalRevenue />
-    </CalculatorForm>
+        <TotalRevenue />
+      </CalculatorForm>
+    </Section>
   );
 }

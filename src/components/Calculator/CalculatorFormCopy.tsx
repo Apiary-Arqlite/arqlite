@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import { FormProps, FormType } from '../Form/FormTypes';
 import { FormContext } from '../Form/FormCtx';
-import styled from 'styled-components';
-
-const StyledForm = styled.form`
-  margin: 0 auto;
-  padding: 0;
-  max-width: 870px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
 
 function Calculate(values: FormType) {
   const A = values.processingFee as number;
@@ -46,7 +36,7 @@ export default function CalculatorForm(props: FormProps) {
 
   return (
     <FormContext.Provider value={{ form: values, handleFormChange }}>
-      <StyledForm>{children}</StyledForm>
+      <form>{children}</form>
     </FormContext.Provider>
   );
 }
