@@ -14,6 +14,7 @@ function MeetingCard({ handleArrangeMeetingClick, onDownloadClick, img }) {
         <Section.MeetingCardAction>
           <Section.MeetingCardButton
             type="button"
+            className="meetingCard__button"
             onClick={handleArrangeMeetingClick}
           >
             Arrange a meeting
@@ -27,8 +28,8 @@ function MeetingCard({ handleArrangeMeetingClick, onDownloadClick, img }) {
           <Section.MeetingCardIcon />
         </Section.MeetingCardAction>
       </Section.MeetingCardContainer>
-      <img className="meetingCard__img" src={img} />
+      <img className="meetingCard__img" src={img} alt="company img" />
     </Section.MeetingCard>
   );
-}
+};
 export default MeetingCard;

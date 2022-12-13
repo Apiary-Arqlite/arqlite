@@ -72,3 +72,35 @@ export const productCards = [
     pdf: pdfs.reproPelletSDS,
   },
 ];
+export const timelineCards=[
+  {
+    title:'Find the plastic feedstock',
+    step:'STEP 1', 
+    icon: IMAGES.searchIcon,
+    alt: 'search icon',
+    element:IMAGES.sideElement
+  },
+  {
+    title:'Build your recycling line',
+    step:'STEP 2', 
+    icon: IMAGES.buildIcon,
+    alt: 'build icon',
+    element:IMAGES.sideElement
+  },
+  {
+  title:'Provide setup and support',
+  step:'STEP 3', 
+  icon: IMAGES.setupIcon,
+  alt: 'setup icon',
+  element:IMAGES.sideElement
+},
+{
+  title:'Connect you to the markets',
+  step:'STEP 4', 
+  icon: IMAGES.marketIcon,
+  alt: 'market icon',
+  element:""
+}
+
+
+]

@@ -13,3 +13,28 @@
   margin: 0;
   padding-bottom: 60px;
 }
+.meetingCard__download {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+.meetingCard__download-button:hover{
+  opacity: 0.9;
+}
+.meetingCard__icon {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  object-fit: contain;
+  padding: 0;
+  margin: 0;
+  margin-left: 12px;
+}
+.meetingCard__button:hover{
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
