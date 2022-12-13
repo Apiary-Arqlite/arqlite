@@ -1,0 +1,108 @@
+.form {
+  color: #54585b;
+  font-family: 'Archivo';
+}
+
+.form__input {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #54585B;
+  padding: 0;
+  padding-top: 11px;
+  border: none;
+  outline: none;
+ 
+}
+
+.form_opened {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: 0s;
+}
+
+.form__title {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.form__text {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  margin-top: 16px;
+  margin-bottom: 40px;
+}
+.form__input-container {
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.form__input-container:last-of-type {
+  margin-bottom: 32px;
+}
+.form__input-label {
+  border: 1px solid #54585b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 9px 20px;
+  height: 60px;
+  color: #8f999a;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.form__input-label_error {
+  color: rgba(240, 37, 37, 1);
+}
+
+.form__error {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(240, 37, 37, 1);
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+.form__error_visible {
+  opacity: 1;
+}
+.form__button{
+  background:  #F05125; 
+  color: #FFFFFF;
+  width: 237px;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0;
+  margin-right: 25px;
+  cursor: pointer;
+ }

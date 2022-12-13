@@ -1,4 +1,3 @@
-//import './Footer.css';
 import { Link } from 'react-router-dom';
 import arqliteLogo2 from '../images/arqlite-logo-2.svg';
 import { Section } from './Section';
