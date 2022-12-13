@@ -67,20 +67,7 @@ function Main({ onDownloadClick }) {
     //if request submit is successful or if not setInfoToolStatus("fail");
     setInfoToolStatus("success");
   };
-  // const handleDownloadClick = () => {
-  //   // using Java Script method to get PDF file
-  //   fetch("ArqliteLicensingDeck.pdf").then((response) => {
-  //     response.blob().then((blob) => {
-  //       // Creating new object of PDF file
-  //       const fileURL = window.URL.createObjectURL(blob);
-  //       // Setting various property values
-  //       let alink = document.createElement("a");
-  //       alink.href = fileURL;
-  //       alink.download = "ArqliteLicensingDeck.pdf";
-  //       alink.click();
-  //     });
-  //   });
-  // };
+
   return (
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
