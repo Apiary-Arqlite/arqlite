@@ -1,12 +1,12 @@
-import styled from "styled-components/macro";
-import DownloadIcon from "./icons/DownloadIcon";
+import styled from 'styled-components/macro';
+import DownloadIcon from './icons/DownloadIcon';
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
 export const Section = styled.section`
-  background: ${({ theme, ...props }) =>
+  background: ${({theme, ...props}) =>
     props.dark ? theme.colors.dark : theme.colors.white};
-  color: ${(props) => (props.dark ? "#fff" : "#54585b")};
+  color: ${(props) => (props.dark ? '#fff' : '#54585b')};
   padding: 80px;
   display: flex;
   flex-direction: column;
@@ -63,18 +63,18 @@ const NavLink = styled.a`
   &:hover {
     cursor: pointer;
     path {
-      fill: ${({ theme: { colors } }) => colors.brightB} rect {
-        fill: ${({ theme: { colors } }) => colors.brightB};
+      fill: ${({theme: {colors}}) => colors.brightB} rect {
+        fill: ${({theme: {colors}}) => colors.brightB};
       }
       h4 {
-        color: ${({ theme: { colors } }) => colors.brightB};
+        color: ${({theme: {colors}}) => colors.brightB};
       }
     }
   }
 `;
 
 const Footer = styled.footer`
-  margin: 0 ;
+  margin: 0;
   background-color: #54585b;
   box-sizing: border-box;
   color: #ffffff;
@@ -102,8 +102,8 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-  
-  background:#ffffff;
+
+  background: #ffffff;
 `;
 const MeetingCardContainer = styled.section`
   display: flex;
@@ -114,13 +114,13 @@ const MeetingCardContainer = styled.section`
   border-radius: 10px 0 0 10px;
 `;
 const MeetingCardButton = styled.button`
-  background: ${(props) => (props.orange ? " #F05125" : "#FFFFFF")};
-  color: ${(props) => (props.orange ? "#FFFFFF" : "#F05125")};
+  background: ${(props) => (props.orange ? ' #F05125' : '#FFFFFF')};
+  color: ${(props) => (props.orange ? '#FFFFFF' : '#F05125')};
   width: 237px;
   height: 60px;
   border-radius: 10px;
   border: none;
-  font-family: "Archivo";
+  font-family: 'Archivo';
   /* font-style: normal; */
   font-weight: 600;
   font-size: 20px;
@@ -147,28 +147,25 @@ const MeetingCardDownloadButton = styled.button`
   padding: 0;
   border-radius: 10px;
   cursor: pointer;
- 
 `;
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
 `;
-const MeetingCardIcon = styled(DownloadIcon) `
-padding: 0;
-margin: 0;
-margin-left: 12px;
-align-self: center;
-stroke: ${({ theme: { colors } }) => colors.white};
+const MeetingCardIcon = styled(DownloadIcon)`
+  padding: 0;
+  margin: 0;
+  margin-left: 12px;
+  align-self: center;
+  stroke: ${({theme: {colors}}) => colors.white};
+`;
 
-`
-
-const TimelineCards =styled.div`
-background:#ffffff;
-padding: 80px;
+const TimelineCards = styled.div`
+  background: #ffffff;
   display: flex;
-  flex-direction:row;
-  gap:20px;
-`
+  flex-direction: row;
+  gap: 20px;
+`;
 Section.Header = Header;
 Section.NavLink = NavLink;
 Section.Marker = SectionMarker;
@@ -180,9 +177,5 @@ Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
-Section.MeetingCardIcon =MeetingCardIcon;
-Section.TimelineCards=TimelineCards;
-
-
-
-
+Section.MeetingCardIcon = MeetingCardIcon;
+Section.TimelineCards = TimelineCards;
