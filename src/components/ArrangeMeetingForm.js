@@ -99,15 +99,14 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
             />
           </label>
         </div>
-        <Section.MeetingCardButton
-          orange
+        <button
           className="form__button"
           type="submit"
           aria-label="form submit"
           disabled={!isFormValid}
         >
           Send Request
-        </Section.MeetingCardButton>
+        </button>
       </form>
     </Modal>
   );

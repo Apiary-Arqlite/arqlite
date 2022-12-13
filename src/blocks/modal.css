@@ -36,7 +36,6 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  transition: all 0.3s linear;
 }
 .modal__close-button {
   box-sizing: border-box;

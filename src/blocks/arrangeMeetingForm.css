@@ -9,10 +9,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  color: #54585b;
+  color: #54585B;
+  padding: 0;
+  padding-top: 11px;
   border: none;
   outline: none;
-  transition: all 0.3s linear;
+ 
 }
 
 .form_opened {
@@ -47,7 +49,6 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s linear;
 }
 .form__input-container:last-of-type {
   margin-bottom: 32px;
@@ -62,9 +63,10 @@
   font-size: 12px;
   line-height: 16px;
   padding: 9px 20px;
+  height: 60px;
   color: #8f999a;
   position: relative;
-  transition: all 0.3s linear;
+  box-sizing: border-box;
 }
 
 .form__input-label_error {
@@ -85,3 +87,22 @@
 .form__error_visible {
   opacity: 1;
 }
+.form__button{
+  background:  #F05125; 
+  color: #FFFFFF;
+  width: 237px;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0;
+  margin-right: 25px;
+  cursor: pointer;
+ }
