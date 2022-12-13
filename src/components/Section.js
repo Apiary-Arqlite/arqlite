@@ -15,7 +15,7 @@ export const Section = styled.section`
 export const SectionHoriz = styled(Section)`
   padding: 64px 80px 97px 80px;
 `;
-//Create a styledSection to render horiz card top padding
+//Create a styledSection to render vert card top padding
 export const SectionVert = styled(Section)`
   padding-bottom: 118px;
 `;
