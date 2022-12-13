@@ -1,9 +1,9 @@
-import element from '../images/side-element.png';
-const TimelineCard = ({title, step, icon, alt}) => {
+// import element from '../images/side-element.svg';
+const TimelineCard = ({title, step, icon, element,alt}) => {
   return (
     <div className="card__container">
       <img className="card__icon" src={icon} alt={alt} />
-      <img className="card__side-element" src={element} alt="design element" />
+      <img className="card__side-element" src={element}  />
       <p className="card__text">{step}</p>
       <p className="card__title">{title}</p>
     </div>

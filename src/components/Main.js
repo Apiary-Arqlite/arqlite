@@ -176,7 +176,7 @@ function Main() {
       <Section.TimelineCards>{
         timelineCards.map((card,i)=>{
           return (
-          <TimelineCard key={i} title={card.title} step={card.step} icon={card.icon} alt={card.alt}/>)
+          <TimelineCard key={i} title={card.title} step={card.step} icon={card.icon} element={card.element} alt={card.alt}/>)
         })}
    
       </Section.TimelineCards>
