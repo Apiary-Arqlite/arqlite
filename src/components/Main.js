@@ -1,6 +1,6 @@
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react';
-import {constructionCards, ecoCards, productCards} from '../utils/data';
+import {constructionCards, ecoCards, productCards, timelineCards} from '../utils/data';
 import {Section} from '../components/Section';
 import markerIconPath from '../images/arrow-down-orange.png';
 import Cards from './Card';
@@ -10,6 +10,7 @@ import pelletProductionImg from '../images/pellet-production-image.png';
 import buildingImg from '../images/building-image.png';
 import ArrangeMeetingForm from './ArrangeMeetingForm';
 import InfoToolModal from './InfoToolModal';
+import TimelineCard from './TimelineCard';
 
 function Main() {
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
@@ -170,7 +171,15 @@ function Main() {
         <Section.Title>
           We set up <br></br> the process for you
         </Section.Title>
+       
       </Section>
+      <Section.TimelineCards>{
+        timelineCards.map((card,i)=>{
+          return (
+          <TimelineCard key={i} title={card.title} step={card.step} icon={card.icon} alt={card.alt}/>)
+        })}
+   
+      </Section.TimelineCards>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}

@@ -59,3 +59,31 @@ export const productCards = [
    
   }
 ];
+export const timelineCards=[
+  {
+    title:'Find the plastic feedstock',
+    step:'STEP 1', 
+    icon: IMAGES.searchIcon,
+    alt: 'search icon'
+  },
+  {
+    title:'Build your recycling line',
+    step:'STEP 2', 
+    icon: IMAGES.buildIcon,
+    alt: 'build icon'
+  },
+  {
+  title:'Provide setup and support',
+  step:'STEP 3', 
+  icon: IMAGES.setupIcon,
+  alt: 'setup icon'
+},
+{
+  title:'Connect you to the markets',
+  step:'STEP 4', 
+  icon: IMAGES.marketIcon,
+  alt: 'market icon'
+}
+
+
+]
