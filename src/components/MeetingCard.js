@@ -1,5 +1,4 @@
 import { Section } from "../components/Section";
-import buildingImg from "../images/building-image.png";
 
 function MeetingCard({ handleArrangeMeetingClick, onDownloadClick, img }) {
   return (
@@ -22,14 +21,15 @@ function MeetingCard({ handleArrangeMeetingClick, onDownloadClick, img }) {
           <Section.MeetingCardDownloadButton
             type="button"
             onClick={onDownloadClick}
+            className="meetingCard__download-button"
           >
             Download our licensing Deck
+            <Section.MeetingCardIcon />
           </Section.MeetingCardDownloadButton>
-          <Section.MeetingCardIcon />
         </Section.MeetingCardAction>
       </Section.MeetingCardContainer>
       <img className="meetingCard__img" src={img} alt="company img" />
     </Section.MeetingCard>
   );
-};
+}
 export default MeetingCard;

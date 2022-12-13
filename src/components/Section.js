@@ -147,6 +147,7 @@ const MeetingCardDownloadButton = styled.button`
   padding: 0;
   border-radius: 10px;
   cursor: pointer;
+ 
 `;
 const MeetingCardAction = styled.section`
   display: flex;
@@ -158,6 +159,7 @@ margin: 0;
 margin-left: 12px;
 align-self: center;
 stroke: ${({ theme: { colors } }) => colors.white};
+
 `
 
 const TimelineCards =styled.div`
