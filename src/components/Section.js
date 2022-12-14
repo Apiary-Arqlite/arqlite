@@ -86,7 +86,7 @@ const Footer = styled.footer`
 `;
 
 const Header = styled.header`
-  padding: 80px;
+  padding: 0px 80px;
   margin: 0 auto;
   background-color: #fff;
   font-style: normal;
