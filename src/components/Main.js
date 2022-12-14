@@ -158,9 +158,8 @@ function Main({ onDownloadClick }) {
               <Cards.Image backgroundImage={card.image} />
               <Cards.TextBox>
                 <Cards.Heading>{card.heading}</Cards.Heading>
-                {cards.paragraph && (
-                  <Cards.Paragraph>{card.paragraph}</Cards.Paragraph>
-                )}
+
+                <Cards.Paragraph>{card.paragraph}</Cards.Paragraph>
               </Cards.TextBox>
             </Cards.Card>
           ))}

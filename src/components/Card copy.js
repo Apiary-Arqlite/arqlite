@@ -139,8 +139,18 @@ const CardLinkText = styled.p`
 
 CardItem.Image = CardImage;
 
-export default function Cards({ children }) {
-  return <CardsWrapper>{children}</CardsWrapper>;
+export default function Cards({ children, render }) {
+  return (
+    <CardsWrapper>
+      {data.productCards.map((card, i) => (
+        <Cards.Card key={i} card={card} horiz>
+          {/* <Cards.Image horiz src={card.image} alt={card.alt} /> */}
+          <Cards.Image horiz backgroundImage={card.image} />
+          <Cards.TextBox horiz>{render(card)}</Cards.TextBox>
+        </Cards.Card>
+      ))}
+    </CardsWrapper>
+  );
 }
 
 Cards.Card = CardItem;
