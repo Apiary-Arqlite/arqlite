@@ -76,8 +76,8 @@ function Main({ onDownloadClick }) {
         <Cards>
           {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
-              <Cards.Image horiz src={card.image} alt={card.alt} />
-
+              {/* <Cards.Image horiz src={card.image} alt={card.alt} /> */}
+              <Cards.Image horiz backgroundImage={card.image} />
               <Cards.TextBox horiz>
                 <Cards.Caption>{card.caption}</Cards.Caption>
                 <Cards.SmallHeading>{card.heading}</Cards.SmallHeading>
@@ -117,7 +117,9 @@ function Main({ onDownloadClick }) {
         <Cards>
           {data.constructionCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
-              <Cards.Image src={card.image} alt={card.alt} />
+              {/* <Cards.Image src={card.image} alt={card.alt} /> */}
+              <Cards.Image backgroundImage={card.image} />
+              {/* <Cards.Image backgroundImage={card.image} alt={card.alt}/> */}
               <Cards.TextBox>
                 <Cards.Heading>{card.heading}</Cards.Heading>
               </Cards.TextBox>

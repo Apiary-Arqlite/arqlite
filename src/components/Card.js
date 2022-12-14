@@ -31,19 +31,33 @@ const CardItem = styled.div`
 flex-direction: ${props.horiz ? "row-reverse" : "column"};
 `}
   display: flex;
+  flex-wrap:wrap;
   position: relative;
   max-width: 414px;
 `;
 
 //Create a CardImg component that will render an <img> styles for a card image
-const CardImage = styled.img`
+const CardImage = styled.div`
   ${(props) => `
     max-width: ${props.horiz ? "158px" : "100%"};
     border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
     width:${props.horiz ? "38%" : "100%"};
     flex-shrink:${props.horiz ? "2" : "0"};
+    
   `}
+  background-image:url(${props => props.backgroundImage});
+
+  background-size: cover;
 `;
+//Create a CardImg component that will render an <img> styles for a card image
+// const CardImage = styled.img`
+//   ${(props) => `
+//     max-width: ${props.horiz ? "158px" : "100%"};
+//     border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
+//     width:${props.horiz ? "38%" : "100%"};
+//     flex-shrink:${props.horiz ? "2" : "0"};
+//   `}
+// `;
 
 //Create a CardTextBox that will render flex container for Card Text Elements
 const CardTextBox = styled.div`
