@@ -31,5 +31,5 @@ function MeetingCard({ handleArrangeMeetingClick, onDownloadClick, img }) {
       <img className="meetingCard__img" src={img} alt="company img" />
     </Section.MeetingCard>
   );
-}
+};
 export default MeetingCard;
