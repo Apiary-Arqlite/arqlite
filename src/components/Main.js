@@ -71,7 +71,7 @@ function Main({ onDownloadClick }) {
   return (
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
-      <SectionHoriz dark>
+      <Section dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
           {data.productCards.map((card, i) => (
@@ -90,7 +90,7 @@ function Main({ onDownloadClick }) {
             </Cards.Card>
           ))}
         </Cards>
-      </SectionHoriz>
+      </Section>
       <Section id="calculator">
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
@@ -106,7 +106,7 @@ function Main({ onDownloadClick }) {
         onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
       ></MeetingCard>
 
-      <SectionVertLong dark id="construction">
+      <Section dark id="construction">
         <Section.Marker>
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -124,7 +124,7 @@ function Main({ onDownloadClick }) {
             </Cards.Card>
           ))}
         </Cards>
-      </SectionVertLong>
+      </Section>
       <Section id="recycle">
         <Section.Marker>
           For plastic companies and recyclers{" "}
@@ -141,7 +141,7 @@ function Main({ onDownloadClick }) {
         <img className="section__recycle-icons" src={recycleImgPath} />
       </Section>
 
-      <SectionVert dark id="eco">
+      <Section dark id="eco">
         <Section.Marker>
           For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -161,7 +161,7 @@ function Main({ onDownloadClick }) {
             </Cards.Card>
           ))}
         </Cards>
-      </SectionVert>
+      </Section>
       <Section>
         <Section.Title>
           We set up <br></br> the process for you

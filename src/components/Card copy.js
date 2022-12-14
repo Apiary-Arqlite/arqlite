@@ -19,10 +19,10 @@ const CardsWrapper = styled.div`
     row-gap: 20px;
   } */
 
-  @media screen and (max-width: 1000px) {
+  /* @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
     row-gap: 20px;
-  }
+  } */
 `;
 
 //Create a CardItem component that will render a <div> with styles for a card item

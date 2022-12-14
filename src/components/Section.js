@@ -33,7 +33,8 @@ const SectionMarker = styled.h4`
   margin: 0px;
   display: flex;
   //trying this to standardize spacing
-  margin: 0 0 100px;
+  /* margin: 0 0 100px; */
+  margin: 0 0 32px;
 `;
 
 // Create a SectionTitle component that will render an <h2> tag with styles
