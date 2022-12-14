@@ -86,6 +86,7 @@
 }
 .form__error_visible {
   opacity: 1;
+  margin: -11px 0 6px 0;
 }
 .form__button{
   background:  #F05125; 
