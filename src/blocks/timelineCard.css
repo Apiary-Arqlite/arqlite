@@ -38,8 +38,6 @@
   top: -35px;
 }
 .card__side-element {
-  width: 15px;
-  height: 37px;
   z-index: 999;
   position: absolute;
   top: 5px;

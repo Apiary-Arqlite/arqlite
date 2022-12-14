@@ -182,6 +182,7 @@ function Main({onDownloadClick}) {
           })}
         </Section.TimelineCards>
       </Section>
+      
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}

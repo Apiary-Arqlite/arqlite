@@ -38,7 +38,6 @@ const ArrangeMeetingForm = ({isOpen, onClose, onSendRequest}) => {
     `form__input-label ${
       !isValid && errors[name] && `form__input-label_error`
     }`;
-
   const setErrorClassName = (name) =>
     `form__error ${!isValid && errors[name] && `form__error_visible`}`;
 
