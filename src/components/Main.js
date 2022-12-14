@@ -1,7 +1,14 @@
 import NavBar from './NavBar';
+import * as data from '../utils/data';
+import * as pdfs from '../utils/downloads';
 import React, {useState, useEffect} from 'react';
-import {constructionCards, ecoCards, productCards, timelineCards} from '../utils/data';
-import {Section} from '../components/Section';
+
+import {
+  Section,
+  SectionHoriz,
+  SectionVert,
+  SectionVertLong,
+} from '../components/Section';
 import markerIconPath from '../images/arrow-down-orange.png';
 import Cards from './Card';
 import recycleImgPath from '../images/recycle-plastics-icons.png';
@@ -12,7 +19,7 @@ import ArrangeMeetingForm from './ArrangeMeetingForm';
 import InfoToolModal from './InfoToolModal';
 import TimelineCard from './TimelineCard';
 
-function Main() {
+function Main({onDownloadClick}) {
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
     useState(false);
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
@@ -55,32 +62,19 @@ function Main() {
   const handleSendRequest = () => {
     //implement logic for submit request
     console.log('implement logic for submit request');
-setIsArrangeMeetingFormOpen(false);
+    setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
     setInfoToolStatus('success');
   };
-  const handleDownloadClick = () => {
-    // using Java Script method to get PDF file
-    fetch('ArqliteLicensingDeck.pdf').then((response) => {
-      response.blob().then((blob) => {
-        // Creating new object of PDF file
-        const fileURL = window.URL.createObjectURL(blob);
-        // Setting various property values
-        let alink = document.createElement('a');
-        alink.href = fileURL;
-        alink.download = 'ArqliteLicensingDeck.pdf';
-        alink.click();
-      });
-    });
-  };
+
   return (
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
-      <Section dark>
+      <SectionHoriz dark>
         <Section.Title>Our products</Section.Title>
         <Cards>
-          {productCards.map((card, i) => (
+          {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
               <Cards.Image horiz src={card.image} alt={card.alt} />
 
@@ -88,7 +82,7 @@ setIsArrangeMeetingFormOpen(false);
                 <Cards.Caption>{card.caption}</Cards.Caption>
                 <Cards.SmallHeading>{card.heading}</Cards.SmallHeading>
                 <Cards.Paragraph horiz>{card.paragraph}</Cards.Paragraph>
-                <Cards.LinkWrapper>
+                <Cards.LinkWrapper onClick={() => onDownloadClick(card.pdf)}>
                   <Cards.LinkIcon />
                   <Cards.LinkText>{card.linkText}</Cards.LinkText>
                 </Cards.LinkWrapper>
@@ -96,7 +90,7 @@ setIsArrangeMeetingFormOpen(false);
             </Cards.Card>
           ))}
         </Cards>
-      </Section>
+      </SectionHoriz>
       <Section id="calculator">
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
@@ -109,10 +103,10 @@ setIsArrangeMeetingFormOpen(false);
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={pelletProductionImg}
-        handleDownloadClick={handleDownloadClick}
+        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
       ></MeetingCard>
 
-      <Section dark id="construction">
+      <SectionVertLong dark id="construction">
         <Section.Marker>
           For construction companies{' '}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -121,7 +115,7 @@ setIsArrangeMeetingFormOpen(false);
           Produce your own low-carbon <br></br> & LEED building materials
         </Section.Title>
         <Cards>
-          {constructionCards.map((card, i) => (
+          {data.constructionCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
               <Cards.Image src={card.image} alt={card.alt} />
               <Cards.TextBox>
@@ -130,7 +124,7 @@ setIsArrangeMeetingFormOpen(false);
             </Cards.Card>
           ))}
         </Cards>
-      </Section>
+      </SectionVertLong>
       <Section id="recycle">
         <Section.Marker>
           For plastic companies and recyclers{' '}
@@ -146,7 +140,8 @@ setIsArrangeMeetingFormOpen(false);
         </Section.CaptionLarge>
         <img className="section__recycle-icons" src={recycleImgPath} />
       </Section>
-      <Section dark id="eco">
+
+      <SectionVert dark id="eco">
         <Section.Marker>
           For eco-conscious brands{' '}
           <img className="section__marker-icon" src={markerIconPath} />
@@ -156,7 +151,7 @@ setIsArrangeMeetingFormOpen(false);
           into sustainable products
         </Section.Title>
         <Cards>
-          {ecoCards.map((card, i) => (
+          {data.ecoCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
               <Cards.Image src={card.image} alt={card.alt} />
               <Cards.TextBox>
@@ -166,12 +161,26 @@ setIsArrangeMeetingFormOpen(false);
             </Cards.Card>
           ))}
         </Cards>
-      </Section>
+      </SectionVert>
       <Section>
         <Section.Title>
           We set up <br></br> the process for you
         </Section.Title>
-       
+
+        <Section.TimelineCards>
+          {data.timelineCards.map((card, i) => {
+            return (
+              <TimelineCard
+                key={i}
+                title={card.title}
+                step={card.step}
+                icon={card.icon}
+                element={card.element}
+                alt={card.alt}
+              />
+            );
+          })}
+        </Section.TimelineCards>
       </Section>
       <Section.TimelineCards>{
         timelineCards.map((card,i)=>{
@@ -183,7 +192,7 @@ setIsArrangeMeetingFormOpen(false);
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
-        handleDownloadClick={handleDownloadClick}
+        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
       ></MeetingCard>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}

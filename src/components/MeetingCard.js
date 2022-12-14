@@ -1,7 +1,6 @@
-import {Section} from '../components/Section';
-import downloadIcon from '../images/download-icon-white.png';
+import { Section } from "../components/Section";
 
-const MeetingCard = ({handleDownloadClick, handleArrangeMeetingClick, img}) => {
+function MeetingCard({ handleArrangeMeetingClick, onDownloadClick, img }) {
   return (
     <Section.MeetingCard>
       <Section.MeetingCardContainer>
@@ -21,15 +20,11 @@ const MeetingCard = ({handleDownloadClick, handleArrangeMeetingClick, img}) => {
           </Section.MeetingCardButton>
           <Section.MeetingCardDownloadButton
             type="button"
-            onClick={handleDownloadClick}
+            onClick={onDownloadClick}
             className="meetingCard__download-button"
           >
             Download our licensing Deck
-            <img
-              className="meetingCard__icon"
-              src={downloadIcon}
-              alt="download icon"
-            />
+            <Section.MeetingCardIcon />
           </Section.MeetingCardDownloadButton>
         </Section.MeetingCardAction>
       </Section.MeetingCardContainer>
