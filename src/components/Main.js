@@ -182,13 +182,7 @@ function Main({onDownloadClick}) {
           })}
         </Section.TimelineCards>
       </Section>
-      <Section.TimelineCards>{
-        timelineCards.map((card,i)=>{
-          return (
-          <TimelineCard key={i} title={card.title} step={card.step} icon={card.icon} element={card.element} alt={card.alt}/>)
-        })}
-   
-      </Section.TimelineCards>
+      
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
