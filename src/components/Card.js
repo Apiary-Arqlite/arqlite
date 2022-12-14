@@ -31,7 +31,7 @@ const CardItem = styled.div`
 flex-direction: ${props.horiz ? "row-reverse" : "column"};
 `}
   display: flex;
-  flex-wrap:wrap;
+  /* flex-wrap: wrap; */
   position: relative;
   max-width: 414px;
 `;
@@ -39,14 +39,15 @@ flex-direction: ${props.horiz ? "row-reverse" : "column"};
 //Create a CardImg component that will render an <img> styles for a card image
 const CardImage = styled.div`
   ${(props) => `
-    max-width: ${props.horiz ? "158px" : "100%"};
+    max-width: ${props.horiz ? "" : "100%"};
     border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
-    width:${props.horiz ? "38%" : "100%"};
+    width:${props.horiz ? "auto" : "100%"};
     flex-shrink:${props.horiz ? "2" : "0"};
-    
+    height:${props.horiz ? "100%" : "200px"};
+    flex-basis:${props.horiz ? "158px" : ""};
   `}
-  background-image:url(${props => props.backgroundImage});
-
+  background-image:url(${(props) => props.backgroundImage});
+  /* height:100%; */
   background-size: cover;
 `;
 //Create a CardImg component that will render an <img> styles for a card image
@@ -63,11 +64,12 @@ const CardImage = styled.div`
 const CardTextBox = styled.div`
   ${(props) => `
     padding:${props.horiz ? "0 24px 20px" : "0 24px 28px"};
-    max-width: ${props.horiz ? "256px" : "414px"};
+    max-width: ${props.horiz ? "" : "414px"};
     flex-grow: ${props.horiz ? "0" : "1"};
     flex-shrink:${props.horiz ? "1" : "0"};
-    width:${props.horiz ? "62%" : "100%"};
+    width:${props.horiz ? "auto" : "100%"};
     border-radius:${props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
+    flex-basis:${props.horiz ? "256px" : ""};
 `}
 
   display: flex;

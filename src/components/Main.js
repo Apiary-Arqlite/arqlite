@@ -155,10 +155,12 @@ function Main({ onDownloadClick }) {
         <Cards>
           {data.ecoCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
-              <Cards.Image src={card.image} alt={card.alt} />
+              <Cards.Image backgroundImage={card.image} />
               <Cards.TextBox>
                 <Cards.Heading>{card.heading}</Cards.Heading>
-                <Cards.Paragraph>{card.paragraph}</Cards.Paragraph>
+                {cards.paragraph && (
+                  <Cards.Paragraph>{card.paragraph}</Cards.Paragraph>
+                )}
               </Cards.TextBox>
             </Cards.Card>
           ))}
