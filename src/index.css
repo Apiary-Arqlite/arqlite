@@ -1,7 +1,13 @@
 @import url('./vendor/normalize.css');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
 /* font-family: 'Archivo', sans-serif; ask designer back up font ?arial*/
-@import url('./blocks/page.css');
-@import url('./blocks/section.css');
-@import url('./blocks/footer.css');
-@import url('./blocks/meetingCard.css');
+@import url("./blocks/page.css");
+@import url("./blocks/section.css");
+@import url("./blocks/footer.css");
+@import url("./blocks/meetingCard.css");
+@import url("./blocks/modal.css");
+@import url("./blocks/arrangeMeetingForm.css");
+@import url("./blocks/timelineCard.css");
+html {
+    scroll-behavior: smooth;
+}

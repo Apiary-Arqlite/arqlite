@@ -1,33 +1,33 @@
 .box {
-    margin-top: 283px;
-    margin-left:1096px;
+  margin-top: 283px;
+  margin-left: 1096px;
 }
 
 .box-row {
-display:flex; /*causes little cubes to be side by side instead of on top of each other*/
-width:126px; /* 21px per box*6 boxes*/
+  display: flex; /*causes little cubes to be side by side instead of on top of each other*/
+  width: 126px; /* 21px per box*6 boxes*/
 }
 
 .box-blue {
-width:21px;
-height:21px;
-background-color:#0091A6;
+  width: 21px;
+  height: 21px;
+  background-color: #0091a6;
 }
 
 .box-dark-gray {
-width:21px;
-height:21px;
-background-color:#54585B;
+  width: 21px;
+  height: 21px;
+  background-color: #54585b;
 }
 
 .box-light-gray {
-width:21px;
-height:21px;
-background-color:#8F999A;
+  width: 21px;
+  height: 21px;
+  background-color: #8f999a;
 }
 
 .box-orange {
-width:21px;
-height:21px;
-background-color:#F05125;
+  width: 21px;
+  height: 21px;
+  background-color: #f05125;
 }

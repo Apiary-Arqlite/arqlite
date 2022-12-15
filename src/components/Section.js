@@ -1,14 +1,27 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro';
+import DownloadIcon from './icons/DownloadIcon';
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
 export const Section = styled.section`
-  background: ${({ theme, ...props }) =>
-    props.dark ? theme.colors.dark : "#ffffff"};
-  color: ${(props) => (props.dark ? "#fff" : "#54585b")};
+  background: ${({theme, ...props}) =>
+    props.dark ? theme.colors.dark : theme.colors.white};
+  color: ${(props) => (props.dark ? '#fff' : '#54585b')};
   padding: 80px;
   display: flex;
   flex-direction: column;
+`;
+
+//Create a styledSection to render horiz card top padding
+export const SectionHoriz = styled(Section)`
+  padding: 64px 80px 97px 80px;
+`;
+//Create a styledSection to render vert card top padding
+export const SectionVert = styled(Section)`
+  padding-bottom: 118px;
+`;
+export const SectionVertLong = styled(Section)`
+  padding-bottom: 72px;
 `;
 
 // Create a SectionMarker component that will render an <h4> tag with styles
@@ -49,11 +62,19 @@ const NavLink = styled.a`
   text-decoration: none;
   &:hover {
     cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.brightB};
+    path {
+      fill: ${({theme: {colors}}) => colors.brightB} rect {
+        fill: ${({theme: {colors}}) => colors.brightB};
+      }
+      h4 {
+        color: ${({theme: {colors}}) => colors.brightB};
+      }
+    }
+  }
 `;
 
 const Footer = styled.footer`
-  margin: 0 auto 60px;
+  margin: 0;
   background-color: #54585b;
   box-sizing: border-box;
   color: #ffffff;
@@ -61,11 +82,11 @@ const Footer = styled.footer`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  max-width: 1280px;
+  width: 100%;
 `;
 
 const Header = styled.header`
-  padding: 80px;
+  padding: 0px 80px;
   margin: 0 auto;
   background-color: #fff;
   font-style: normal;
@@ -81,7 +102,8 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-  margin-bottom: 40px;
+
+  background: #ffffff;
 `;
 const MeetingCardContainer = styled.section`
   display: flex;
@@ -92,14 +114,14 @@ const MeetingCardContainer = styled.section`
   border-radius: 10px 0 0 10px;
 `;
 const MeetingCardButton = styled.button`
-  background: ${(props) => (props.orange ? " #F05125" : "#FFFFFF")};
-  color: ${(props) => (props.orange ? "#FFFFFF" : "#F05125")};
+  background: ${(props) => (props.orange ? ' #F05125' : '#FFFFFF')};
+  color: ${(props) => (props.orange ? '#FFFFFF' : '#F05125')};
   width: 237px;
   height: 60px;
   border-radius: 10px;
   border: none;
-  font-family: "Archivo";
-  font-style: normal;
+  font-family: 'Archivo';
+  /* font-style: normal; */
   font-weight: 600;
   font-size: 20px;
   line-height: 22px;
@@ -109,6 +131,7 @@ const MeetingCardButton = styled.button`
   padding: 0;
   margin-right: 25px;
   cursor: pointer;
+  transition: linear 0.4s;
 `;
 const MeetingCardDownloadButton = styled.button`
   display: flex;
@@ -129,7 +152,20 @@ const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
 `;
+const MeetingCardIcon = styled(DownloadIcon)`
+  padding: 0;
+  margin: 0;
+  margin-left: 12px;
+  align-self: center;
+  stroke: ${({theme: {colors}}) => colors.white};
+`;
 
+const TimelineCards = styled.div`
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+`;
 Section.Header = Header;
 Section.NavLink = NavLink;
 Section.Marker = SectionMarker;
@@ -141,3 +177,5 @@ Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
+Section.MeetingCardIcon = MeetingCardIcon;
+Section.TimelineCards = TimelineCards;
