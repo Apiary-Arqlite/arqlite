@@ -90,9 +90,6 @@ function Main({onDownloadClick}) {
             </Cards.Card>
           ))}
         </Cards>
-      </Section>
-      <Section id='calculator'>
-        <Section.CaptionLarge className='section__caption_center'>
       </SectionHoriz>
       <Section id="calculator">
         <Section.CaptionLarge className="section__caption_center">
