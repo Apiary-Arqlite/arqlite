@@ -13,20 +13,7 @@ function Main() {
   const handleArrangeMeetingClick = () => {
     console.log('implement schedule meeting logic');
   };
-  const handleDownloadClick = () => {
-    // using Java Script method to get PDF file
-    fetch('ArqliteLicensingDeck.pdf').then((response) => {
-      response.blob().then((blob) => {
-        // Creating new object of PDF file
-        const fileURL = window.URL.createObjectURL(blob);
-        // Setting various property values
-        let alink = document.createElement('a');
-        alink.href = fileURL;
-        alink.download = 'ArqliteLicensingDeck.pdf';
-        alink.click();
-      });
-    });
-  };
+  
   return (
     <main>
       <Section dark>
@@ -56,9 +43,7 @@ function Main() {
 
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
+        img={pelletProductionImg}/>
 
       <Section id="calculator">
 
@@ -134,9 +119,7 @@ function Main() {
       </Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={buildingImg}
-        handleDownloadClick={handleDownloadClick}
-      ></MeetingCard>
+        img={buildingImg}/>
     </main>
   );
 }

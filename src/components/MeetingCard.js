@@ -1,6 +1,6 @@
 import {Section} from '../components/Section';
 import downloadIcon from '../images/download-icon-white.png';
-function MeetingCard({handleArrangeMeetingClick, handleDownloadClick,img}) {
+function MeetingCard({handleArrangeMeetingClick,img}) {
   return (
     <Section.MeetingCard>
       <Section.MeetingCardContainer>
