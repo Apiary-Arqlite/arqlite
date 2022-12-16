@@ -102,9 +102,7 @@ function Main({onDownloadClick}) {
 
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-       
-      ></MeetingCard>
+        img={pelletProductionImg}/>
 
       <SectionVertLong dark id="construction">
         <Section.Marker>
@@ -186,6 +184,16 @@ function Main({onDownloadClick}) {
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}/>
+      <ArrangeMeetingForm
+        isOpen={isArrangeMeetingFormOpen}
+        onClose={closeModal}
+        onSendRequest={handleSendRequest}
+      />
+      <InfoToolModal
+        isOpen={isInfoToolModalOpen}
+        onClose={closeModal}
+        status={isInfoToolStatus}
+      />
     </main>
   );
 }
