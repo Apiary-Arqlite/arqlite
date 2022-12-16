@@ -2,7 +2,7 @@ import NavBar from './NavBar';
 import * as data from '../utils/data';
 import * as pdfs from '../utils/downloads';
 import React, {useState, useEffect} from 'react';
-
+import Calculator from './Calculator/Calculator.tsx';
 import {
   Section,
   SectionHoriz,
@@ -95,9 +95,10 @@ function Main({onDownloadClick}) {
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
-        <Section.CaptionLarge className="section__caption_center">
+        <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
+        <Calculator />
       </Section>
 
       <MeetingCard
@@ -136,7 +137,7 @@ function Main({onDownloadClick}) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        <img className="section__recycle-icons" src={recycleImgPath} />
+        <img className='section__recycle-icons' src={recycleImgPath} />
       </Section>
 
       <SectionVert dark id="eco">
