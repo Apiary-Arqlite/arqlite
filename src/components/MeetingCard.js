@@ -1,5 +1,4 @@
 import {Section} from '../components/Section';
-import buildingImg from '../images/building-image.png';
 import downloadIcon from '../images/download-icon-white.png';
 function MeetingCard({handleArrangeMeetingClick, handleDownloadClick,img}) {
   return (
@@ -16,14 +15,17 @@ function MeetingCard({handleArrangeMeetingClick, handleDownloadClick,img}) {
           >
             Arrange a meeting
           </Section.MeetingCardButton>
-          <Section.MeetingCardDownloadButton type="button" onClick={handleDownloadClick}>
-            Download our licensing Deck
+          
+           <Section.MeetingCardArqliteLicensingDeckLink 
+            href="https://docs.google.com/presentation/d/1mPSghnCJKGwfaGw6Fkz0dcMUZ8NSmlH__FzODv4d0Dw/edit#slide=id.g17e28408c82_0_13" target="_blank" rel="noreferrer">
+            Arqlite Licensing Deck
             <img
               className="meetingCard__icon"
               src={downloadIcon}
               alt="download icon"
             />
-          </Section.MeetingCardDownloadButton>
+           
+           </Section.MeetingCardArqliteLicensingDeckLink > 
         </Section.MeetingCardAction>
       </Section.MeetingCardContainer>
       <img className="meetingCard__img" src={img} />

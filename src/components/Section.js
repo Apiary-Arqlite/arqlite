@@ -107,7 +107,7 @@ const MeetingCardButton = styled.button`
   margin-right: 25px;
   cursor:pointer;
 `;
-const MeetingCardDownloadButton = styled.button`
+const MeetingCardArqliteLicensingDeckLink = styled.a`
   display: flex;
   flex-direction: row;
   font-family: 'Archivo';
@@ -118,6 +118,7 @@ const MeetingCardDownloadButton = styled.button`
   letter-spacing: 0.02em;
   background:transparent;
   color: #ffffff;
+  text-decoration:none;
  align-items:center;
   border: none;
   padding:0;
@@ -138,6 +139,6 @@ Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
 Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
-Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
+Section.MeetingCardArqliteLicensingDeckLink  = MeetingCardArqliteLicensingDeckLink ;
 Section.MeetingCardAction = MeetingCardAction;
 
