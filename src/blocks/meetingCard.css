@@ -22,6 +22,9 @@
   letter-spacing: 0.02em;
   color: #ffffff;
 }
+.meetingCard__download-button:hover{
+  opacity: 0.9;
+}
 .meetingCard__icon {
   width: 20px;
   height: 20px;
@@ -30,4 +33,8 @@
   padding: 0;
   margin: 0;
   margin-left: 12px;
+}
+.meetingCard__button:hover{
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
 }
