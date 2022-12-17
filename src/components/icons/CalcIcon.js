@@ -1,16 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 
-export default function CalcIcon({
-  color = "",
-  ...rest
-}) {
+const CalIcon = styled.svg`
+  width: 32px;
+  height: 40px;
+`;
+
+export default function CalcIcon({ color = "", ...rest }) {
   return (
-    <svg
+    <CalIcon
       fill="none"
       viewBox="0 0 32 40"
       xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="40"
       {...rest}
     >
       <rect width="32" height="40" rx="2" fill={color} />
@@ -35,6 +36,6 @@ export default function CalcIcon({
       <rect x="26" y="21" width="4" height="4" rx="2" fill="white" />
       <rect x="26" y="27" width="4" height="4" rx="2" fill="white" />
       <rect x="26" y="33" width="4" height="4" rx="2" fill="white" />
-    </svg>
+    </CalIcon>
   );
 }
