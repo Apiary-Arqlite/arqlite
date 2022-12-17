@@ -63,10 +63,10 @@ const Footer = () => {
               Arqlite <sup>TM</sup> {new Date().getFullYear()}
             </p>
           </div>
-          <div className='footer__link-main-site'>
-            <Link className='footer__link' to='/'>
+          <div className="footer__link-main-site">
+            <a className="footer__link" href='https://google.com' target="_blank" rel="noreferrer">
               → Main corporate website
-            </Link>
+            </a>
           </div>
         </section>
       </Section.Footer>

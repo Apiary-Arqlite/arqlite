@@ -103,9 +103,7 @@ function Main({onDownloadClick}) {
 
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
-      ></MeetingCard>
+        img={pelletProductionImg}/>
 
       <SectionVertLong dark id="construction">
         <Section.Marker>
@@ -186,9 +184,7 @@ function Main({onDownloadClick}) {
       
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={buildingImg}
-        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
-      ></MeetingCard>
+        img={buildingImg}/>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}
