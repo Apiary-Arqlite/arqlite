@@ -1,16 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 
-export default function FactoryIcon({
-  color = "",
-  ...rest
-}) {
+const FactIcon = styled.svg`
+  width: 44px;
+  height: 40px;
+`;
+
+export default function FactoryIcon({ color = "", ...rest }) {
   return (
-    <svg
-      width="44"
-      height="40"
+    <FactIcon
       viewBox="0 0 44 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M0 18H44V38C44 39.1046 43.1046 40 42 40H2C0.895431 40 0 39.1046 0 38V18Z"
@@ -27,6 +29,6 @@ export default function FactoryIcon({
       />
       <rect x="36" y="2" width="8" height="2" fill="white" />
       <rect x="36" y="6" width="8" height="2" fill="white" />
-    </svg>
+    </FactIcon>
   );
 }

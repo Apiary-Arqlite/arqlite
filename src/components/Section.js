@@ -1,12 +1,13 @@
-import styled from 'styled-components/macro';
-import DownloadIcon from './icons/DownloadIcon';
+import styled from "styled-components/macro";
+import DownloadIcon from "./icons/DownloadIcon";
+import FactoryIcon from "./icons/FactoryIcon";
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
 export const Section = styled.section`
-  background: ${({theme, ...props}) =>
+  background: ${({ theme, ...props }) =>
     props.dark ? theme.colors.dark : theme.colors.white};
-  color: ${(props) => (props.dark ? '#fff' : '#54585b')};
+  color: ${(props) => (props.dark ? "#fff" : "#54585b")};
   padding: 80px;
   display: flex;
   flex-direction: column;
@@ -56,21 +57,21 @@ const CaptionLarge = styled.p`
 
 const NavLink = styled.a`
   font-size: 20px;
-  color:${({ theme: { colors } }) => colors.brightA};
+  text-decoration: none;
+  color: ${({ theme: { colors } }) => colors.brightA};
   font-weight: 700;
   line-height: 21px;
-  text-decoration: none;
   &:hover {
     cursor: pointer;
-    path {
-      fill: ${({theme: {colors}}) => colors.brightB} rect {
-        fill: ${({theme: {colors}}) => colors.brightB};
-      }
-      h4 {
-        color: ${({theme: {colors}}) => colors.brightB};
-      }
+    color: ${({ theme: { colors } }) => colors.brightB};
+    h4 {
+      color: ${({ theme: { colors } }) => colors.brightB};
     }
   }
+`;
+
+const NavFactoryIcon = styled(FactoryIcon)`
+  color: ${({ theme: { colors } }) => colors.brightA};
 `;
 
 const Footer = styled.footer`
@@ -114,13 +115,13 @@ const MeetingCardContainer = styled.section`
   border-radius: 10px 0 0 10px;
 `;
 const MeetingCardButton = styled.button`
-  background: ${(props) => (props.orange ? ' #F05125' : '#FFFFFF')};
-  color: ${(props) => (props.orange ? '#FFFFFF' : '#F05125')};
+  background: ${(props) => (props.orange ? " #F05125" : "#FFFFFF")};
+  color: ${(props) => (props.orange ? "#FFFFFF" : "#F05125")};
   width: 237px;
   height: 60px;
   border-radius: 10px;
   border: none;
-  font-family: 'Archivo';
+  font-family: "Archivo";
   /* font-style: normal; */
   font-weight: 600;
   font-size: 20px;
@@ -157,7 +158,7 @@ const MeetingCardIcon = styled(DownloadIcon)`
   margin: 0;
   margin-left: 12px;
   align-self: center;
-  stroke: ${({theme: {colors}}) => colors.white};
+  stroke: ${({ theme: { colors } }) => colors.white};
 `;
 
 const TimelineCards = styled.div`
@@ -168,6 +169,7 @@ const TimelineCards = styled.div`
 `;
 Section.Header = Header;
 Section.NavLink = NavLink;
+Section.FactoryIcon = NavFactoryIcon;
 Section.Marker = SectionMarker;
 Section.Title = SectionTitle;
 Section.CaptionLarge = CaptionLarge;
