@@ -64,9 +64,14 @@ const Footer = () => {
             </p>
           </div>
           <div className='footer__link-main-site'>
-            <Link className='footer__link' to='/'>
+            <a
+              className='footer__link'
+              href='https://google.com'
+              target='_blank'
+              rel='noreferrer'
+            >
               → Main corporate website
-            </Link>
+            </a>
           </div>
         </section>
       </Section.Footer>

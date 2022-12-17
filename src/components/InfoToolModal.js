@@ -4,14 +4,14 @@ const InfoToolModal = ({isOpen, onClose, status}) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       {status === 'success' ? (
-        <div>
+        <div className='modal__status-container'>
           <p className="modal__status-message">Thanks!</p>
           <p className="modal__status-message">
             We will reach out to you soon!
           </p>
         </div>
       ) : (
-        <div>
+        <div className='modal__status-container'>
         <p className="modal__status-message">
           Oops, something went wrong!
         </p>

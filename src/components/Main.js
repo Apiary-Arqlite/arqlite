@@ -104,8 +104,7 @@ function Main({ onDownloadClick }) {
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={pelletProductionImg}
-        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
-      ></MeetingCard>
+      />
 
       <SectionVertLong dark id='construction'>
         <Section.Marker>
@@ -183,11 +182,11 @@ function Main({ onDownloadClick }) {
           })}
         </Section.TimelineCards>
       </Section>
+
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
-        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
-      ></MeetingCard>
+      />
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}
