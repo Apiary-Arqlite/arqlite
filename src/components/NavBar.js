@@ -9,14 +9,15 @@ import RecycleIcon from "./icons/RecycleIcon";
 
 function NavBar({ handleArrangeMeetingClick, theme }) {
   const [hovered, setHovered] = useState(false);
-  
-  const handleMouseEnter = e => {
-    setHovered(true)
-  }
 
-  const handleMouseLeave = e => {
-    setHovered(false)
-  }
+  const handleMouseEnter = (e) => {
+    console.log(e.target)
+    setHovered(true);
+  };
+
+  const handleMouseLeave = (e) => {
+    setHovered(false);
+  };
 
   return (
     <Section className="navbar">
@@ -28,12 +29,14 @@ function NavBar({ handleArrangeMeetingClick, theme }) {
           href="#calculator"
         >
           <CalcIcon
-            className="navbar__link-icon"
             color={hovered ? "#F05125" : "#0091A6"}
+            className="navbar__link-icon"
           />
           <h4 className="navbar__link-caption">Calculate your return</h4>
         </Section.NavLink>
         <Section.NavLink
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           className="navbar__link navbar__link-wall"
           href="#construction"
         >
@@ -44,6 +47,8 @@ function NavBar({ handleArrangeMeetingClick, theme }) {
           <h4 className="navbar__link-caption">For construction companies</h4>
         </Section.NavLink>
         <Section.NavLink
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           className="navbar__link navbar__link-factory"
           href="#recycle"
         >
@@ -56,6 +61,8 @@ function NavBar({ handleArrangeMeetingClick, theme }) {
           </h4>
         </Section.NavLink>
         <Section.NavLink
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           className="navbar__link navbar__link-recycle"
           href="#eco"
         >
