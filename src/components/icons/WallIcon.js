@@ -1,15 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 
-export default function WallIcon({
-  color = ""
-}) {
+const WIcon = styled.svg`
+  width: 78px;
+  height: 28px;
+`;
+
+export default function WallIcon({ color = "", ...rest }) {
   return (
-    <svg
-      width="78"
-      height="28"
+    <WIcon
       viewBox="0 0 78 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <rect y="20" width="16" height="8" rx="2" fill={color} />
       <rect x="8" y="10" width="16" height="8" rx="2" fill={color} />
@@ -23,6 +26,6 @@ export default function WallIcon({
       <rect x="54" y="20" width="16" height="8" rx="2" fill={color} />
       <rect x="62" y="10" width="16" height="8" rx="2" fill={color} />
       <rect x="54" width="16" height="8" rx="2" fill={color} />
-    </svg>
+    </WIcon>
   );
 }
