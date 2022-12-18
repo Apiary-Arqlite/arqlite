@@ -1,15 +1,20 @@
 .navbar {
-  transition: all 0.6s ease-in;
   align-content: center;
-  z-index: 3;
   display: flex;
   flex-direction: row;
+  position: sticky;
+  top: 0px;
+  z-index: 7;
+  transition: ease-in-out 0.7s;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .navbar__links {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  background-color: #fff;
+  width: 100%;
 }
 
 .navbar__link-calc {
@@ -40,5 +45,5 @@
 
 .navbar__meeting-btn:hover {
   cursor: pointer;
-  background: #D2390E;
+  background: #d2390e;
 }
