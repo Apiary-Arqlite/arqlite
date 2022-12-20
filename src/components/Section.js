@@ -1,5 +1,9 @@
 import styled from 'styled-components/macro';
 import DownloadIcon from './icons/DownloadIcon';
+import WallIcon from './icons/WallIcon';
+import FactoryIcon from './icons/FactoryIcon';
+import RecycleIcon from './icons/RecycleIcon';
+import CalcIcon from './icons/CalcIcon';
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
@@ -52,25 +56,42 @@ const CaptionLarge = styled.p`
   font-size: 28px;
   line-height: 38px;
   max-width: 804px;
+  @media (max-width: 1000px) {
+    font-size: 24px;
+    line-height: 120%;
+  }
 `;
 
 const NavLink = styled.a`
   font-size: 20px;
-  color: #0091a6;
+  text-decoration: none;
+  color: ${({theme: {colors}}) => colors.brightA};
   font-weight: 700;
   line-height: 21px;
-  text-decoration: none;
   &:hover {
     cursor: pointer;
-    path {
-      fill: ${({theme: {colors}}) => colors.brightB} rect {
-        fill: ${({theme: {colors}}) => colors.brightB};
-      }
-      h4 {
-        color: ${({theme: {colors}}) => colors.brightB};
-      }
-    }
+    color: ${({theme: {colors}}) => colors.brightB};
   }
+  &:hover .navbar__link-icon {
+    fill: ${({theme: {colors}}) => colors.brightB};
+    color: ${({theme: {colors}}) => colors.brightB};
+  }
+`;
+
+const NavCalcIcon = styled(CalcIcon)`
+  fill: ${({theme: {colors}}) => colors.brightA};
+`;
+
+const NavWallIcon = styled(WallIcon)`
+  fill: ${({theme: {colors}}) => colors.brightA};
+`;
+
+const NavFactoryIcon = styled(FactoryIcon)`
+  fill: ${({theme: {colors}}) => colors.brightA};
+`;
+
+const NavRecycleIcon = styled(RecycleIcon)`
+  fill: ${({theme: {colors}}) => colors.brightA};
 `;
 
 const Footer = styled.footer`
@@ -86,7 +107,7 @@ const Footer = styled.footer`
 `;
 
 const Header = styled.header`
-  padding: 80px;
+  padding: 0px 80px;
   margin: 0 auto;
   background-color: #fff;
   font-style: normal;
@@ -104,6 +125,14 @@ const MeetingCard = styled.section`
   max-width: 1280px;
 
   background: #ffffff;
+
+  @media (max-width: 1000px) {
+    flex-direction: column-reverse;
+    padding: 0 16px;
+    max-width: 375px;
+    max-height: 735px;
+    box-sizing:border-box;
+  }
 `;
 const MeetingCardContainer = styled.section`
   display: flex;
@@ -112,6 +141,10 @@ const MeetingCardContainer = styled.section`
   padding: 40px;
   height: 100%;
   border-radius: 10px 0 0 10px;
+  @media (max-width: 1000px) {
+    border-radius: 0 0 10px 10px;
+    padding: 40px 16px;
+  }
 `;
 const MeetingCardButton = styled.button`
   background: ${(props) => (props.orange ? ' #F05125' : '#FFFFFF')};
@@ -132,8 +165,13 @@ const MeetingCardButton = styled.button`
   margin-right: 25px;
   cursor: pointer;
   transition: linear 0.4s;
+  @media (max-width: 1000px) {
+    margin:0;
+    margin-bottom:20px;
+    width:311px;
+  }
 `;
-const MeetingCardDownloadButton = styled.button`
+const MeetingCardArqliteLicensingDeckLink = styled.a`
   display: flex;
   flex-direction: row;
   font-weight: 600;
@@ -142,15 +180,22 @@ const MeetingCardDownloadButton = styled.button`
   letter-spacing: 0.02em;
   background: transparent;
   color: #ffffff;
+  text-decoration: none;
   align-items: center;
   border: none;
   padding: 0;
   border-radius: 10px;
   cursor: pointer;
+ 
 `;
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items:center;
+    width:311px;
+  }
 `;
 const MeetingCardIcon = styled(DownloadIcon)`
   padding: 0;
@@ -168,6 +213,10 @@ const TimelineCards = styled.div`
 `;
 Section.Header = Header;
 Section.NavLink = NavLink;
+Section.CalcIcon = NavCalcIcon;
+Section.WallIcon = NavWallIcon;
+Section.FactoryIcon = NavFactoryIcon;
+Section.RecycleIcon = NavRecycleIcon;
 Section.Marker = SectionMarker;
 Section.Title = SectionTitle;
 Section.CaptionLarge = CaptionLarge;
@@ -175,7 +224,8 @@ Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
 Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
-Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
+Section.MeetingCardArqliteLicensingDeckLink =
+  MeetingCardArqliteLicensingDeckLink;
 Section.MeetingCardAction = MeetingCardAction;
 Section.MeetingCardIcon = MeetingCardIcon;
 Section.TimelineCards = TimelineCards;

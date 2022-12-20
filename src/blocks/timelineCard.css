@@ -33,7 +33,7 @@
   width: 64px;
   height: 64px;
   position: absolute;
-  z-index: 1000;
+  z-index: 5;
   right: calc(50% - 32px);
   top: -35px;
 }
