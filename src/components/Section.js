@@ -131,7 +131,7 @@ const MeetingCard = styled.section`
     padding: 0 16px;
     max-width: 375px;
     max-height: 735px;
-    box-sizing:border-box;
+    box-sizing: border-box;
   }
 `;
 const MeetingCardContainer = styled.section`
@@ -166,9 +166,9 @@ const MeetingCardButton = styled.button`
   cursor: pointer;
   transition: linear 0.4s;
   @media (max-width: 1000px) {
-    margin:0;
-    margin-bottom:20px;
-    width:311px;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 311px;
   }
 `;
 const MeetingCardArqliteLicensingDeckLink = styled.a`
@@ -186,15 +186,14 @@ const MeetingCardArqliteLicensingDeckLink = styled.a`
   padding: 0;
   border-radius: 10px;
   cursor: pointer;
- 
 `;
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
   @media (max-width: 1000px) {
     flex-direction: column;
-    align-items:center;
-    width:311px;
+    align-items: center;
+    width: 311px;
   }
 `;
 const MeetingCardIcon = styled(DownloadIcon)`
@@ -210,6 +209,13 @@ const TimelineCards = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    max-width: 375px;
+    gap: 64px;
+    padding-bottom: 80px;
+  }
 `;
 Section.Header = Header;
 Section.NavLink = NavLink;
