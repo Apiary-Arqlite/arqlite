@@ -166,7 +166,7 @@ function Main({onDownloadClick}) {
         <Section.Title>
           We set up <br></br> the process for you
         </Section.Title>
-      </Section>
+      
       <Section.TimelineCards>
         {data.timelineCards.map((card, i) => {
           return (
@@ -181,7 +181,7 @@ function Main({onDownloadClick}) {
           );
         })}
       </Section.TimelineCards>
-
+      </Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}

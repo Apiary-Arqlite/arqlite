@@ -104,6 +104,11 @@ const Footer = styled.footer`
   font-size: 16px;
   line-height: 20px;
   width: 100%;
+  @media (max-width: 1000px) {
+   
+    max-width: 375px;
+  
+    box-sizing: border-box;
 `;
 
 const Header = styled.header`
@@ -123,12 +128,10 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-
   background: #ffffff;
-
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-    padding: 0 16px;
+    padding: 0 16px 60px 16px;
     max-width: 375px;
     max-height: 735px;
     box-sizing: border-box;

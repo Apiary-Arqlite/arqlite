@@ -13,6 +13,7 @@
   height: 33px;
   object-fit: cover;
   border-style: none;
+  
 }
 
 .footer__column_title {
@@ -63,4 +64,20 @@
 .footer__copyright_text {
   margin: 0;
   padding-top: 40px;
+}
+@media  screen and (max-width:1000px) {
+  .footer__container {
+    display:flex;
+    flex-direction: column;
+    gap:60px;
+    padding: 40px 16px;
+  }
+  .footer__column-contact-info ,.footer__copyright_text{
+    padding: 0;
+  }
+  .footer__link-main-site {
+    padding: 0;}
+    .footer__logo {
+      margin-bottom:20px;
+    }
 }
