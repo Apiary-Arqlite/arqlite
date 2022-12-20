@@ -4,9 +4,9 @@ function MeetingCard({handleArrangeMeetingClick,img}) {
   return (
     <Section.MeetingCard>
       <Section.MeetingCardContainer>
-        <Section.Title className="meetingCard__header">
+        <h3 className="meetingCard__header">
           Arrange a meeting
-        </Section.Title>
+        </h3>
         <Section.CaptionLarge className="meetingCard__text">
           We will discuss your specific case and the details of our partnership
         </Section.CaptionLarge>
@@ -20,8 +20,9 @@ function MeetingCard({handleArrangeMeetingClick,img}) {
           </Section.MeetingCardButton>
           
            <Section.MeetingCardArqliteLicensingDeckLink 
+          className="meetingCard__link"
             href="https://docs.google.com/presentation/d/1mPSghnCJKGwfaGw6Fkz0dcMUZ8NSmlH__FzODv4d0Dw/edit#slide=id.g17e28408c82_0_13" target="_blank" rel="noreferrer">
-            Arqlite Licensing Deck
+            Download our licensing Deck
             <Section.MeetingCardIcon />
            
            </Section.MeetingCardArqliteLicensingDeckLink > 
