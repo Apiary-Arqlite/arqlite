@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import FormOption from '../Form/FormOption';
+import CalculatorFormOptionTons from './CalculatorFormOptionTons';
 import FormSelect from '../Form/FormSelect';
+import CalculatorFormSelectTons from './CalculatorFormSelectTons';
 import CalculatorForm from './CalculatorForm';
 import { FormContext } from '../Form/FormCtx';
 import { initialValues } from '../Form/FormData';
@@ -41,7 +43,7 @@ function TotalRevenue() {
   } = useContext(FormContext);
   return (
     <StyledTotalRevenue>
-      Total revenue: <StyledSpan> ${totalRevenue}</StyledSpan>
+      Total revenue: <StyledSpan> $ {totalRevenue}</StyledSpan>
     </StyledTotalRevenue>
   );
 }
@@ -98,14 +100,20 @@ export default function Calculator() {
       </StyledRow2>
       <StyledRow3>
         {/* e */}
-        <FormSelect label='Total tons per month' name='totalTonsPerMonth'>
-          <FormOption value={462} />
-          <FormOption value={924} />
-          <FormOption value={1848} />
-          <FormOption value={2772} />
-          <FormOption value={3696} />
-          <FormOption value={4620} />
-        </FormSelect>
+
+        <CalculatorFormSelectTons
+          label='Total tons per month'
+          name='totalTonsPerMonth'
+        >
+          <CalculatorFormOptionTons value={462} />
+          <CalculatorFormOptionTons value={462} />
+          <CalculatorFormOptionTons value={462} />
+          <CalculatorFormOptionTons value={924} />
+          <CalculatorFormOptionTons value={1848} />
+          <CalculatorFormOptionTons value={2772} />
+          <CalculatorFormOptionTons value={3696} />
+          <CalculatorFormOptionTons value={4620} />
+        </CalculatorFormSelectTons>
       </StyledRow3>
 
       <TotalRevenue />
