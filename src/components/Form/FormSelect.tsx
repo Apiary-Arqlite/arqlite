@@ -3,7 +3,7 @@ import { FormSelectProps } from './FormTypes';
 import { FormContext } from './FormCtx';
 import styled from 'styled-components';
 
-const StyledFormSelect = styled.div`
+export const StyledFormSelect = styled.div`
   width: 425px;
   height: 90px;
   display: flex;
@@ -12,7 +12,7 @@ const StyledFormSelect = styled.div`
   border-radius: 4px;
 `;
 
-const StyledLabel = styled.label`
+export const StyledLabel = styled.label`
   font-size: 14px;
   line-height: 16px;
   color: #54585b;
@@ -20,15 +20,36 @@ const StyledLabel = styled.label`
   margin-left: 20px;
 `;
 
-const StyledSelect = styled.select`
+export const StyledSelect = styled.select`
+  position: relative;
+  appearance: none;
   height: 40px;
-  margin: 12px auto 0 20px;
+  margin: 12px 20px 0;
   padding: 0;
   border: none;
   border-radius: 4px;
-
+  outline: none;
   line-height: 19px;
   color: #54585b;
+
+  border: 2px solid red;
+  width: 385px;
+
+  option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: red;
+    background-color: blue;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:first-child {
+    padding-top: 8px;
+  }
 `;
 
 export default function FormSelect(props: FormSelectProps) {

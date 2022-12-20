@@ -1,34 +1,19 @@
 import React, { useContext } from 'react';
 import { FormSelectProps } from '../Form/FormTypes';
 import { FormContext } from '../Form/FormCtx';
+import {
+  StyledFormSelect,
+  StyledLabel,
+  StyledSelect,
+} from '../Form/FormSelect';
 import styled from 'styled-components';
 
-const StyledFormSelectTons = styled.div`
+const StyledFormSelectTons = styled(StyledFormSelect)`
   width: 870px;
-  height: 90px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #54585b;
-  border-radius: 4px;
 `;
 
-const StyledLabel = styled.label`
-  font-size: 14px;
-  line-height: 16px;
-  color: #54585b;
-  margin-top: 16px;
-  margin-left: 20px;
-`;
-
-const StyledSelect = styled.select`
-  height: 40px;
-  margin: 12px auto 0 20px;
-  padding: 0;
-  border: none;
-  border-radius: 4px;
-
-  line-height: 19px;
-  color: #54585b;
+const StyledSelectTons = styled(StyledSelect)`
+  width: 830px;
 `;
 
 export default function FormSelect(props: FormSelectProps) {
@@ -41,13 +26,13 @@ export default function FormSelect(props: FormSelectProps) {
   return (
     <StyledFormSelectTons>
       <StyledLabel>{label}</StyledLabel>
-      <StyledSelect
+      <StyledSelectTons
         name={name}
         value={Number(currentValue)}
         onChange={handleFormChange}
       >
         {props.children}
-      </StyledSelect>
+      </StyledSelectTons>
     </StyledFormSelectTons>
   );
 }
