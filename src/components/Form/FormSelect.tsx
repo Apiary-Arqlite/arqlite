@@ -35,6 +35,14 @@ export const StyledSelect = styled.select`
   border: 2px solid red;
   width: 385px;
 
+  option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: red;
+    background-color: blue;
+  }
+
   &:hover {
     opacity: 0.8;
   }
