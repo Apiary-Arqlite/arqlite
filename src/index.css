@@ -3,6 +3,7 @@
 /* font-family: 'Archivo', sans-serif; ask designer back up font ?arial*/
 @import url('./blocks/page.css');
 @import url('./blocks/section.css');
+@import url('./blocks/slider.css');
 @import url('./blocks/footer.css');
 @import url('./blocks/meetingCard.css');
 @import url('./blocks/modal.css');
