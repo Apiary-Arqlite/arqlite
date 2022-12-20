@@ -1,5 +1,4 @@
-//import './Footer.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import arqliteLogo2 from '../images/arqlite-logo-2.svg';
 import { Section } from './Section';
 const Footer = () => {
@@ -64,10 +63,10 @@ const Footer = () => {
               Arqlite <sup>TM</sup> {new Date().getFullYear()}
             </p>
           </div>
-          <div className='footer__link-main-site'>
-            <Link className='footer__link' to='/'>
+          <div className="footer__link-main-site">
+            <a className="footer__link" href='https://google.com' target="_blank" rel="noreferrer">
               → Main corporate website
-            </Link>
+            </a>
           </div>
         </section>
       </Section.Footer>

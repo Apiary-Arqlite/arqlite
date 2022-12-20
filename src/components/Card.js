@@ -19,10 +19,10 @@ const CardsWrapper = styled.div`
     row-gap: 20px;
   } */
 
-  @media screen and (max-width: 1000px) {
+  /* @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
     row-gap: 20px;
-  }
+  } */
 `;
 
 //Create a CardItem component that will render a <div> with styles for a card item
@@ -106,7 +106,7 @@ const CardHeadingSmall = styled.h4`
   max-width: 150px;
 `;
 //Card link wrapper that will render styled <div> for link on Horiz card
-const CardLinkWrapper = styled.div`
+const CardLinkWrapper = styled.a`
   display: flex;
   justify-self: flex-end;
   margin-top: auto;
@@ -121,16 +121,10 @@ const CardLinkWrapper = styled.div`
   }
 `;
 
-//Card link icon that will render styled <img> for link icon on Horiz Card
+//Card link icon that will render styled <svg> for link icon on Horiz Card
 const CardLinkIcon = styled(DownloadIcon)`
-  width: 20px;
-  height: 20px;
   margin-right: 14px;
   stroke: ${({ theme: { colors } }) => colors.dark};
-
-  /* path {
-    stroke: ${({ theme: { colors } }) => colors.dark};
-  } */
 `;
 
 //Card link text that will render styled <p> for Link text on  Horiz Card
@@ -146,11 +140,7 @@ const CardLinkText = styled.p`
 CardItem.Image = CardImage;
 
 export default function Cards({ children }) {
-  return (
-   
-      <CardsWrapper>{children}</CardsWrapper>
-
-  );
+  return <CardsWrapper>{children}</CardsWrapper>;
 }
 
 Cards.Card = CardItem;
