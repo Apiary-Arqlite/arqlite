@@ -14,6 +14,15 @@ export const Section = styled.section`
   padding: 80px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1000px) {
+    max-width: 770px;
+    box-sizing: border-box;
+    padding: 40px;
+  }
+  @media (max-width: 700px) {
+    max-width: 375px;
+    padding: 40px 16px;
+  }
 `;
 
 //Create a styledSection to render horiz card top padding
@@ -123,18 +132,17 @@ const Header = styled.header`
 `;
 
 const MeetingCard = styled.section`
-  padding: 80px;
   display: flex;
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
+  
   background: #ffffff;
+  
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-    padding: 0 16px 60px 16px;
-    max-width: 375px;
-    max-height: 735px;
-    box-sizing: border-box;
+
+   
   }
 `;
 const MeetingCardContainer = styled.section`
@@ -147,6 +155,8 @@ const MeetingCardContainer = styled.section`
   @media (max-width: 1000px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
+    
+   
   }
 `;
 const MeetingCardButton = styled.button`
@@ -171,7 +181,7 @@ const MeetingCardButton = styled.button`
   @media (max-width: 1000px) {
     margin: 0;
     margin-bottom: 20px;
-    width: 311px;
+    width: 100%;
   }
 `;
 const MeetingCardArqliteLicensingDeckLink = styled.a`
@@ -196,15 +206,18 @@ const MeetingCardAction = styled.section`
   @media (max-width: 1000px) {
     flex-direction: column;
     align-items: center;
-    width: 311px;
+    width: 100%;
   }
 `;
 const MeetingCardIcon = styled(DownloadIcon)`
+ 
   padding: 0;
   margin: 0;
   margin-left: 12px;
   align-self: center;
   stroke: ${({theme: {colors}}) => colors.white};
+  @media (max-width: 700px) {
+    margin:0;
 `;
 
 const TimelineCards = styled.div`
@@ -214,10 +227,10 @@ const TimelineCards = styled.div`
   gap: 20px;
   @media (max-width: 1000px) {
     flex-direction: column;
+    align-self:center;
     align-items: center;
     max-width: 375px;
     gap: 64px;
-    padding-bottom: 80px;
   }
 `;
 Section.Header = Header;

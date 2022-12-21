@@ -100,12 +100,12 @@ function Main({onDownloadClick}) {
         </Section.CaptionLarge>
         <Calculator />
       </Section>
-
-      <MeetingCard
+<Section id="meeting">
+      <MeetingCard 
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={pelletProductionImg}
       />
-
+</Section>
       <SectionVertLong dark id="construction">
         <Section.Marker>
           For construction companies{' '}
@@ -182,10 +182,12 @@ function Main({onDownloadClick}) {
         })}
       </Section.TimelineCards>
       </Section>
+      <Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
       />
+      </Section>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}

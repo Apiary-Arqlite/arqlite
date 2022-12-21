@@ -1,5 +1,5 @@
 .meetingCard__img {
-  max-width: 414px;
+
   margin: 0;
   padding: 0;
   object-fit: cover;
@@ -46,16 +46,20 @@
   color:#D2390E;
   cursor: pointer;
 }
+
 @media only screen and  (max-width: 1000px){
   .meetingCard__img{
   border-radius: 10px 10px 0 0;
   max-height: 268px;
-  max-width: 343px;
+  object-fit: cover;
+  
 }
 .meetingCard__header{
-  padding: 0 0px 24px 0;
+  padding: 0 0 24px;
   font-size: 52px;
   line-height: 57px;
+  
+  
 }
 
 }

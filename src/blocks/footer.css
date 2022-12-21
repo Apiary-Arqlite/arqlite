@@ -69,15 +69,28 @@
   .footer__container {
     display:flex;
     flex-direction: column;
-    gap:60px;
     padding: 40px 16px;
+    gap:0;
+    position: relative;
   }
-  .footer__column-contact-info ,.footer__copyright_text{
+  .footer__column-contact-info{
+    padding: 0 0 120px;
+  } 
+  .footer__copyright_text{
     padding: 0;
   }
   .footer__link-main-site {
     padding: 0;}
     .footer__logo {
       margin-bottom:20px;
+    }
+    .footer__column{
+      padding-top: 60px;
+    }
+    .footer__copyright {
+     
+    }
+    .footer__link-main-site {
+      padding: 0;
     }
 }
