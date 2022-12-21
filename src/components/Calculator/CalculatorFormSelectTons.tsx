@@ -3,8 +3,10 @@ import { FormSelectProps } from '../Form/FormTypes';
 import { FormContext } from '../Form/FormCtx';
 import {
   StyledFormSelect,
+  StyledFormSelectDiv,
   StyledLabel,
   StyledSelect,
+  StyledInfoButton,
 } from '../Form/FormSelect';
 import styled from 'styled-components';
 
@@ -25,7 +27,11 @@ export default function FormSelect(props: FormSelectProps) {
 
   return (
     <StyledFormSelectTons>
-      <StyledLabel>{label}</StyledLabel>
+      <StyledFormSelectDiv>
+        <StyledLabel>{label}</StyledLabel>
+        <StyledInfoButton>&#9432;</StyledInfoButton>
+      </StyledFormSelectDiv>
+
       <StyledSelectTons
         name={name}
         value={Number(currentValue)}
