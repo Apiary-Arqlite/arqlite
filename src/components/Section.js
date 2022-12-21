@@ -150,7 +150,7 @@ const MeetingCardContainer = styled.section`
   flex-direction: column;
   background: #f05125;
   padding: 40px;
-  height: 100%;
+
   border-radius: 10px 0 0 10px;
   @media (max-width: 1000px) {
     border-radius: 0 0 10px 10px;
