@@ -9,51 +9,83 @@ import DownloadIcon from "./icons/DownloadIcon";
 //Create a CardWrapper component that will render a <div> with display:grid for cards
 const CardsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 414px));
+  grid-template-columns: repeat(3, minmax(0, 414px)); 
   column-gap: 20px;
   justify-content: center;
   margin: 0 auto;
 
-  /* @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, minmax(0, 414px));
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 414px;
+    /* grid-template-columns: 1fr; */
     row-gap: 20px;
-  } */
-
-  /* @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr;
-    row-gap: 20px;
-  } */
+  }
 `;
 
 //Create a CardItem component that will render a <div> with styles for a card item
 const CardItem = styled.div`
   ${(props) => `
-flex-direction: ${props.horiz ? "row-reverse" : "column"};
-`}
+    flex-direction: ${props.horiz ? "row-reverse" : "column"};
+  `}
   display: flex;
   position: relative;
   max-width: 414px;
+  flex-basis:414px;
+  //flex bases 414px may keep width
 `;
 
 //Create a CardImg component that will render an <img> styles for a card image
-const CardImage = styled.img`
-  ${(props) => `
-    max-width: ${props.horiz ? "158px" : "100%"};
+const CardImage = styled.div`
+  ${(props) =>
+    props.horiz
+      ? `
+    border-radius:0 10px 10px 0;
+    width:auto;
+    
+    height:100%;
+    flex-basis:158px;
+  `
+      : `
+  max-width: 100%;
+  border-radius:10px 10px 0 0;
+  width: 100%;
+
+  height:200px;
+  // flex-basis:0;
+  //flex basis here made the image disappear
+  `};
+  /* ${(props) => `
+    max-width: ${props.horiz ? "" : "100%"};
     border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
-    width:${props.horiz ? "38%" : "100%"};
+    width:${props.horiz ? "auto" : "100%"};
     flex-shrink:${props.horiz ? "2" : "0"};
-  `}
+    height:${props.horiz ? "100%" : "200px"};
+    flex-basis:${props.horiz ? "158px" : ""};
+  `} */
+
+  background-image: url(${(props) => props.backgroundImage});
+  /* height:100%; */
+  background-size: cover;
 `;
+//Create a CardImg component that will render an <img> styles for a card image
+// const CardImage = styled.img`
+//   ${(props) => `
+//     max-width: ${props.horiz ? "158px" : "100%"};
+//     border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
+//     width:${props.horiz ? "38%" : "100%"};
+//     flex-shrink:${props.horiz ? "2" : "0"};
+//   `}
+// `;
 
 //Create a CardTextBox that will render flex container for Card Text Elements
 const CardTextBox = styled.div`
   ${(props) => `
     padding:${props.horiz ? "0 24px 20px" : "0 24px 28px"};
-    max-width: ${props.horiz ? "256px" : "414px"};
+    max-width: ${props.horiz ? "" : "414px"};
     flex-grow: ${props.horiz ? "0" : "1"};
-    flex-shrink:${props.horiz ? "1" : "0"};
-    width:${props.horiz ? "62%" : "100%"};
+
+    width:${props.horiz ? "auto" : "100%"};
     border-radius:${props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
+    flex-basis:${props.horiz ? "256px" : ""};
 `}
 
   display: flex;
@@ -139,18 +171,8 @@ const CardLinkText = styled.p`
 
 CardItem.Image = CardImage;
 
-export default function Cards({ children, render }) {
-  return (
-    <CardsWrapper>
-      {data.productCards.map((card, i) => (
-        <Cards.Card key={i} card={card} horiz>
-          {/* <Cards.Image horiz src={card.image} alt={card.alt} /> */}
-          <Cards.Image horiz backgroundImage={card.image} />
-          <Cards.TextBox horiz>{render(card)}</Cards.TextBox>
-        </Cards.Card>
-      ))}
-    </CardsWrapper>
-  );
+export default function Cards({ children }) {
+  return <CardsWrapper>{children}</CardsWrapper>;
 }
 
 Cards.Card = CardItem;

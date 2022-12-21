@@ -14,13 +14,9 @@ const CardsWrapper = styled.div`
   justify-content: center;
   margin: 0 auto;
 
-  /* @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, minmax(0, 414px));
-    row-gap: 20px;
-  } */
-
   @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 414px;
+    /* grid-template-columns: 1fr; */
     row-gap: 20px;
   }
 `;
@@ -28,49 +24,55 @@ const CardsWrapper = styled.div`
 //Create a CardItem component that will render a <div> with styles for a card item
 const CardItem = styled.div`
   ${(props) => `
-flex-direction: ${props.horiz ? "row-reverse" : "column"};
-`}
+    flex-direction: ${props.horiz ? "row-reverse" : "column"};
+  `}
   display: flex;
-  /* flex-wrap: wrap; */
   position: relative;
   max-width: 414px;
+  flex-basis: 414px;
+  //flex bases 414px may keep width
 `;
 
 //Create a CardImg component that will render an <img> styles for a card image
 const CardImage = styled.div`
-  ${(props) => `
-    max-width: ${props.horiz ? "" : "100%"};
-    border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
-    width:${props.horiz ? "auto" : "100%"};
-    flex-shrink:${props.horiz ? "2" : "0"};
-    height:${props.horiz ? "100%" : "200px"};
-    flex-basis:${props.horiz ? "158px" : ""};
-  `}
-  background-image:url(${(props) => props.backgroundImage});
-  /* height:100%; */
+  ${(props) =>
+    props.horiz
+      ? `
+    border-radius:0 10px 10px 0;
+    width:auto;
+    
+    height:100%;
+    flex-basis:158px;
+  `
+      : `
+  max-width: 100%;
+  border-radius:10px 10px 0 0;
+  width: 100%;
+  height:200px;
+ 
+  `};
+  background-image: url(${(props) => props.backgroundImage});
   background-size: cover;
 `;
-//Create a CardImg component that will render an <img> styles for a card image
-// const CardImage = styled.img`
-//   ${(props) => `
-//     max-width: ${props.horiz ? "158px" : "100%"};
-//     border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
-//     width:${props.horiz ? "38%" : "100%"};
-//     flex-shrink:${props.horiz ? "2" : "0"};
-//   `}
-// `;
 
 //Create a CardTextBox that will render flex container for Card Text Elements
 const CardTextBox = styled.div`
-  ${(props) => `
-    padding:${props.horiz ? "0 24px 20px" : "0 24px 28px"};
-    max-width: ${props.horiz ? "" : "414px"};
-    flex-grow: ${props.horiz ? "0" : "1"};
-    flex-shrink:${props.horiz ? "1" : "0"};
-    width:${props.horiz ? "auto" : "100%"};
-    border-radius:${props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
-    flex-basis:${props.horiz ? "256px" : ""};
-`}
+  ${(props) => props.horiz?`
+    padding:0 24px 20px;
+    // max-width: ${props.horiz ? "" : "414px"};
+    // flex-grow: ${props.horiz ? "0" : "1"};
+
+    width:auto;
+    border-radius:10px 0 0 10px;
+    flex-basis:256px;
+`:`
+padding:0 24px 28px;
+max-width:414px;
+flex-grow:1;
+width:100%;
+border-radius: 0 0 10px 10px;
+
+`};
 
   display: flex;
   flex-direction: column;
@@ -79,6 +81,25 @@ const CardTextBox = styled.div`
   justify-items: flex-start;
   align-items: flex-start;
 `;
+//Create a CardTextBox that will render flex container for Card Text Elements
+// const CardTextBox = styled.div`
+//   ${(props) => `
+//     padding:${props.horiz ? "0 24px 20px" : "0 24px 28px"};
+//     max-width: ${props.horiz ? "" : "414px"};
+//     flex-grow: ${props.horiz ? "0" : "1"};
+
+//     width:${props.horiz ? "auto" : "100%"};
+//     border-radius:${props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
+//     flex-basis:${props.horiz ? "256px" : ""};
+// `}
+
+//   display: flex;
+//   flex-direction: column;
+//   box-sizing: border-box;
+//   background-color: #ffffff;
+//   justify-items: flex-start;
+//   align-items: flex-start;
+// `;
 
 //Card Heading that will render styled <h3> used in Vert Card (Caption Large)
 const CardHeading = styled.h3`
@@ -98,7 +119,7 @@ const CardParagraph = styled.p`
 
   line-height: 1.25;
   margin-top: ${(props) => (props.horiz ? "16px" : "0")};
-  margin-bottom: 30px;
+  margin-bottom: ${(props) => (props.horiz ? "28px" : "0")};
 `;
 
 //Card Caption that will render styled <p> for caption on Horiz Card

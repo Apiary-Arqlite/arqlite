@@ -12,18 +12,6 @@ export const Section = styled.section`
   flex-direction: column;
 `;
 
-//Create a styledSection to render horiz card top padding
-export const SectionHoriz = styled(Section)`
-  padding: 64px 80px 97px 80px;
-`;
-//Create a styledSection to render vert card top padding
-export const SectionVert = styled(Section)`
-  padding-bottom: 118px;
-`;
-export const SectionVertLong = styled(Section)`
-  padding-bottom: 72px;
-`;
-
 // Create a SectionMarker component that will render an <h4> tag with styles
 const SectionMarker = styled.h4`
   color: #f05125;
@@ -75,7 +63,7 @@ const NavLink = styled.a`
 `;
 
 const Footer = styled.footer`
-  margin: 0 ;
+  margin: 0;
   background-color: #54585b;
   box-sizing: border-box;
   color: #ffffff;
@@ -103,8 +91,8 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-  
-  background:#ffffff;
+
+  background: #ffffff;
 `;
 const MeetingCardContainer = styled.section`
   display: flex;
@@ -148,28 +136,26 @@ const MeetingCardDownloadButton = styled.button`
   padding: 0;
   border-radius: 10px;
   cursor: pointer;
- 
 `;
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
 `;
-const MeetingCardIcon = styled(DownloadIcon) `
-padding: 0;
-margin: 0;
-margin-left: 12px;
-align-self: center;
-stroke: ${({ theme: { colors } }) => colors.white};
+const MeetingCardIcon = styled(DownloadIcon)`
+  padding: 0;
+  margin: 0;
+  margin-left: 12px;
+  align-self: center;
+  stroke: ${({ theme: { colors } }) => colors.white};
+`;
 
-`
-
-const TimelineCards =styled.div`
-background:#ffffff;
-padding: 80px;
+const TimelineCards = styled.div`
+  background: #ffffff;
+  padding: 80px;
   display: flex;
-  flex-direction:row;
-  gap:20px;
-`
+  flex-direction: row;
+  gap: 20px;
+`;
 Section.Header = Header;
 Section.NavLink = NavLink;
 Section.Marker = SectionMarker;
@@ -181,9 +167,5 @@ Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
 Section.MeetingCardDownloadButton = MeetingCardDownloadButton;
 Section.MeetingCardAction = MeetingCardAction;
-Section.MeetingCardIcon =MeetingCardIcon;
-Section.TimelineCards=TimelineCards;
-
-
-
-
+Section.MeetingCardIcon = MeetingCardIcon;
+Section.TimelineCards = TimelineCards;
