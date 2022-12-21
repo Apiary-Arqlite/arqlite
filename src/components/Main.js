@@ -1,29 +1,29 @@
-import NavBar from "./NavBar";
-import * as data from "../utils/data";
-import * as pdfs from "../utils/downloads";
-import React, { useState, useEffect } from "react";
-
+import NavBar from './NavBar';
+import * as data from '../utils/data';
+import * as pdfs from '../utils/downloads';
+import React, {useState, useEffect} from 'react';
+import Calculator from './Calculator/Calculator.tsx';
 import {
   Section,
   SectionHoriz,
   SectionVert,
   SectionVertLong,
-} from "../components/Section";
-import markerIconPath from "../images/arrow-down-orange.png";
-import Cards from "./Card";
-import recycleImgPath from "../images/recycle-plastics-icons.png";
-import MeetingCard from "./MeetingCard";
-import pelletProductionImg from "../images/pellet-production-image.png";
-import buildingImg from "../images/building-image.png";
-import ArrangeMeetingForm from "./ArrangeMeetingForm";
-import InfoToolModal from "./InfoToolModal";
-import TimelineCard from "./TimelineCard";
+} from '../components/Section';
+import markerIconPath from '../images/arrow-down-orange.png';
+import Cards from './Card';
+import recycleImgPath from '../images/recycle-plastics-icons.png';
+import MeetingCard from './MeetingCard';
+import pelletProductionImg from '../images/pellet-production-image.png';
+import buildingImg from '../images/building-image.png';
+import ArrangeMeetingForm from './ArrangeMeetingForm';
+import InfoToolModal from './InfoToolModal';
+import TimelineCard from './TimelineCard';
 
-function Main({ onDownloadClick }) {
+function Main({onDownloadClick}) {
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
     useState(false);
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
-  const [isInfoToolStatus, setInfoToolStatus] = useState("");
+  const [isInfoToolStatus, setInfoToolStatus] = useState('');
 
   const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
 
@@ -37,35 +37,35 @@ function Main({ onDownloadClick }) {
 
   useEffect(() => {
     const handleClickClose = (event) => {
-      if (event.target.classList.contains("modal_opened")) {
+      if (event.target.classList.contains('modal_opened')) {
         closeModal();
       }
     };
 
     const handleEscClose = (event) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         closeModal();
       }
     };
 
     if (isAnyModalOpen) {
-      document.addEventListener("click", handleClickClose);
-      document.addEventListener("keydown", handleEscClose);
+      document.addEventListener('click', handleClickClose);
+      document.addEventListener('keydown', handleEscClose);
     }
 
     return () => {
-      document.removeEventListener("click", handleClickClose);
-      document.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener('click', handleClickClose);
+      document.removeEventListener('keydown', handleEscClose);
     };
   }, [isAnyModalOpen]);
 
   const handleSendRequest = () => {
     //implement logic for submit request
-    console.log("implement logic for submit request");
+    console.log('implement logic for submit request');
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
-    setInfoToolStatus("success");
+    setInfoToolStatus('success');
   };
 
   return (
@@ -95,20 +95,19 @@ function Main({ onDownloadClick }) {
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
-        <Section.CaptionLarge className="section__caption_center">
+        <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
+        <Calculator />
       </Section>
 
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
-      ></MeetingCard>
+        img={pelletProductionImg}/>
 
       <Section dark id="construction">
         <Section.Marker>
-          For construction companies{" "}
+          For construction companies{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
@@ -129,7 +128,7 @@ function Main({ onDownloadClick }) {
       </Section>
       <Section id="recycle">
         <Section.Marker>
-          For plastic companies and recyclers{" "}
+          For plastic companies and recyclers{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
@@ -140,16 +139,16 @@ function Main({ onDownloadClick }) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        <img className="section__recycle-icons" src={recycleImgPath} />
+        <img className='section__recycle-icons' src={recycleImgPath} />
       </Section>
 
       <Section dark id="eco">
         <Section.Marker>
-          For eco-conscious brands{" "}
+          For eco-conscious brands{' '}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
         <Section.Title>
-          Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
+          Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
           into sustainable products
         </Section.Title>
         <Cards>
@@ -169,26 +168,26 @@ function Main({ onDownloadClick }) {
         <Section.Title>
           We set up <br></br> the process for you
         </Section.Title>
+
+        <Section.TimelineCards>
+          {data.timelineCards.map((card, i) => {
+            return (
+              <TimelineCard
+                key={i}
+                title={card.title}
+                step={card.step}
+                icon={card.icon}
+                element={card.element}
+                alt={card.alt}
+              />
+            );
+          })}
+        </Section.TimelineCards>
       </Section>
-      <Section.TimelineCards>
-        {data.timelineCards.map((card, i) => {
-          return (
-            <TimelineCard
-              key={i}
-              title={card.title}
-              step={card.step}
-              icon={card.icon}
-              element={card.element}
-              alt={card.alt}
-            />
-          );
-        })}
-      </Section.TimelineCards>
+      
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={buildingImg}
-        onDownloadClick={() => onDownloadClick(pdfs.licensingDeck)}
-      ></MeetingCard>
+        img={buildingImg}/>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}

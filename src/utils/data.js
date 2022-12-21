@@ -99,7 +99,7 @@ export const timelineCards=[
   step:'STEP 4', 
   icon: IMAGES.marketIcon,
   alt: 'market icon',
-  element:""
+  element:null
 }
 
 

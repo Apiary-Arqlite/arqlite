@@ -32,7 +32,7 @@
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   max-width: 630px;
-  height: 460px;
+  max-height: 460px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -68,4 +68,11 @@
   text-align: center;
   color: #54585b;
   margin: 0;
+}
+.modal__status-container{
+  height: 360px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
