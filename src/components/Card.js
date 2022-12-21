@@ -57,15 +57,15 @@ const CardImage = styled.div`
 
 //Create a CardTextBox that will render flex container for Card Text Elements
 const CardTextBox = styled.div`
-  ${(props) => props.horiz?`
+  ${(props) =>
+    props.horiz
+      ? `
     padding:0 24px 20px;
-    // max-width: ${props.horiz ? "" : "414px"};
-    // flex-grow: ${props.horiz ? "0" : "1"};
-
     width:auto;
     border-radius:10px 0 0 10px;
     flex-basis:256px;
-`:`
+`
+      : `
 padding:0 24px 28px;
 max-width:414px;
 flex-grow:1;
@@ -77,35 +77,16 @@ border-radius: 0 0 10px 10px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
   justify-items: flex-start;
   align-items: flex-start;
 `;
-//Create a CardTextBox that will render flex container for Card Text Elements
-// const CardTextBox = styled.div`
-//   ${(props) => `
-//     padding:${props.horiz ? "0 24px 20px" : "0 24px 28px"};
-//     max-width: ${props.horiz ? "" : "414px"};
-//     flex-grow: ${props.horiz ? "0" : "1"};
-
-//     width:${props.horiz ? "auto" : "100%"};
-//     border-radius:${props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
-//     flex-basis:${props.horiz ? "256px" : ""};
-// `}
-
-//   display: flex;
-//   flex-direction: column;
-//   box-sizing: border-box;
-//   background-color: #ffffff;
-//   justify-items: flex-start;
-//   align-items: flex-start;
-// `;
 
 //Card Heading that will render styled <h3> used in Vert Card (Caption Large)
 const CardHeading = styled.h3`
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.md};
-  color: ${({ theme: { colors } }) => colors.dark};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  color: ${({ theme }) => theme.colors.dark};
   line-height: 1.14;
   max-width: 300px;
   margin-top: 20px;
@@ -113,20 +94,20 @@ const CardHeading = styled.h3`
 `;
 //Card Text that will render styled <p> for Horiz and Vert Card paragraph
 const CardParagraph = styled.p`
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.muted};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.xs};
-  color: ${({ theme: { colors } }) => colors.dark};
-
-  line-height: 1.25;
   margin-top: ${(props) => (props.horiz ? "16px" : "0")};
   margin-bottom: ${(props) => (props.horiz ? "28px" : "0")};
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  color: ${({ theme }) => theme.colors.dark};
+  line-height: 1.25;
+
 `;
 
 //Card Caption that will render styled <p> for caption on Horiz Card
 const CardCaption = styled.p`
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.xxs};
-  color: ${({ theme: { colors } }) => colors.light};
+  font-weight: ${({ theme}) => theme.fontWeights.bold};
+  font-size: ${({ theme}) => theme.fontSizes.xxs};
+  color: ${({ theme }) => theme.colors.light};
   line-height: 1.6;
 
   margin: 16px 0 0;
@@ -134,9 +115,9 @@ const CardCaption = styled.p`
 
 //Card Heading that will render styled <h4> for Heading on Horiz Card
 const CardHeadingSmall = styled.h4`
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
-  color: ${({ theme: { colors } }) => colors.dark};
+  font-weight: ${({ theme}) => theme.fontWeights.bold};
+  font-size: ${({ theme}) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.dark};
   line-height: 1.1;
 
   margin: 8px 0 0px;
@@ -150,10 +131,10 @@ const CardLinkWrapper = styled.a`
   &:hover {
     cursor: pointer;
     path {
-      stroke: ${({ theme: { colors } }) => colors.brightB};
+      stroke: ${({ theme }) => theme.colors.brightB};
     }
     p {
-      color: ${({ theme: { colors } }) => colors.brightB};
+      color: ${({ theme}) => theme.colors.brightB};
     }
   }
 `;
@@ -161,12 +142,12 @@ const CardLinkWrapper = styled.a`
 //Card link icon that will render styled <svg> for link icon on Horiz Card
 const CardLinkIcon = styled(DownloadIcon)`
   margin-right: 14px;
-  stroke: ${({ theme: { colors } }) => colors.dark};
+  stroke: ${({ theme }) => theme.colors.dark};
 `;
 
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${(props) => props.theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.dark};
 
