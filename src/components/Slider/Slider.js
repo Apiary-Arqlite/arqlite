@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import ReactSlider from 'react-slider';
 
 export const Slider = () => {
-  const [currentValue, setCurrentValue] = useState(1);
+  const [currentValue, setCurrentValue] = useState();
   return (
     <ReactSlider
       className='slider'
       thumbClassName='slider-thumb'
       trackClassName='slider-track'
       markClassName='slider-mark'
-      marks={[0, 1, 2, 4, 6, 8, 10]}
-      min={0}
+      marks={[1, 2, 4, 6, 8, 10]}
+      min={1}
       max={10}
+      defaultValue={6}
       renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
-      defaultValue={5}
       onAfterChange={(value) => setCurrentValue(value)}
     />
   );
 };
+// q: how to check the linked remote repo?
 
 /* values for the slider 
 

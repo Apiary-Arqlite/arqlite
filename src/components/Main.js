@@ -2,7 +2,7 @@ import NavBar from './NavBar';
 import * as data from '../utils/data';
 import * as pdfs from '../utils/downloads';
 import React, { useState, useEffect } from 'react';
-import { Slider } from './Slider/Slider';
+import { Slider } from './Slider/Slider.js';
 import Calculator from './Calculator/Calculator';
 import {
   Section,
