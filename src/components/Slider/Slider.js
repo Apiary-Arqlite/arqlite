@@ -1,21 +1,57 @@
 import React, { useState } from 'react';
 import ReactSlider from 'react-slider';
+import styled from 'styled-components';
+
+const StyledValue = styled.p`
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 44px;
+  color: #54585b;
+`;
+
+const StyledTons = styled(StyledValue)`
+  margin: 64px auto 0;
+`;
+
+const StyledTitle = styled.p`
+  margin: 12px auto 0;
+  text-align: center;
+  font-eight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #8f999a;
+`;
+
+const StyledTitleLeft = styled(StyledTitle)`
+  max-width: 1064px;
+  text-align: left;
+  margin: 48px auto 0;
+`;
 
 export const Slider = () => {
   const [currentValue, setCurrentValue] = useState(1);
   return (
-    <ReactSlider
-      className='slider'
-      thumbClassName='slider-thumb'
-      trackClassName='slider-track'
-      markClassName='slider-mark'
-      marks={[1, 2, 4, 6, 8, 10]}
-      min={1}
-      max={10}
-      defaultValue={6}
-      renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
-      onAfterChange={(value) => setCurrentValue(value)}
-    />
+    <div>
+      <StyledValue>1000 ft2</StyledValue>
+      <StyledTitle>Hardware Footprint</StyledTitle>{' '}
+      <StyledTitleLeft>Recycling Capacity</StyledTitleLeft>
+      <ReactSlider
+        className='slider'
+        thumbClassName='slider-thumb'
+        trackClassName='slider-track'
+        markClassName='slider-mark'
+        marks={[1, 2, 4, 6, 8, 10]}
+        min={1}
+        max={10}
+        defaultValue={6}
+        renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+        onAfterChange={(value) => setCurrentValue(value)}
+      />
+      <StyledTons>{currentValue}</StyledTons>
+      <StyledTitle>Tonns of plastic per hour</StyledTitle>
+    </div>
   );
 };
 
