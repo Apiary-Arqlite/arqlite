@@ -26,6 +26,7 @@ const SectionMarker = styled.h4`
   display: flex;
   //trying this to standardize spacing
   /* margin: 0 0 100px; */
+
   margin: 0 0 32px;
 `;
 
@@ -36,7 +37,12 @@ const SectionTitle = styled.h2`
   line-height: 107%;
   letter-spacing: -0.02em;
   //trying this to standardize spacing
-  margin: 0 0 44px;
+  /* margin: 0 0 44px; */
+  margin-bottom:${(props) => props.marginBottom};
+  margin-top:0;
+  margin-left:0;
+  margin-right:0;
+  
 `;
 
 // Create a CaptionLarge component that will render an <p> tag with styles
@@ -148,8 +154,8 @@ const MeetingCardArqliteLicensingDeckLink = styled.a`
   letter-spacing: 0.02em;
   background: transparent;
   color: #ffffff;
-  text-decoration:none;
- align-items:center;
+  text-decoration: none;
+  align-items: center;
   border: none;
   padding: 0;
   border-radius: 10px;
@@ -186,7 +192,8 @@ Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
 Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
-Section.MeetingCardArqliteLicensingDeckLink  = MeetingCardArqliteLicensingDeckLink ;
+Section.MeetingCardArqliteLicensingDeckLink =
+  MeetingCardArqliteLicensingDeckLink;
 Section.MeetingCardAction = MeetingCardAction;
 Section.MeetingCardIcon = MeetingCardIcon;
 Section.TimelineCards = TimelineCards;

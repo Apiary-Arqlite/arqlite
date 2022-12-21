@@ -67,7 +67,7 @@ function Main({ onDownloadClick }) {
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <Section dark>
-        <Section.Title>Our products</Section.Title>
+        <Section.Title marginBottom="44px">Our products</Section.Title>
         <Cards>
           {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
@@ -111,7 +111,7 @@ function Main({ onDownloadClick }) {
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Title>
+        <Section.Title marginBottom="60px">
           Produce your own low-carbon <br></br> & LEED building materials
         </Section.Title>
         <Cards>
@@ -136,7 +136,7 @@ function Main({ onDownloadClick }) {
           For plastic companies and recyclers{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Title>
+        <Section.Title marginBottom="32px">
           Recycle plastics <br></br> that no one else can
         </Section.Title>
         <Section.CaptionLarge>
@@ -152,7 +152,7 @@ function Main({ onDownloadClick }) {
           For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Title>
+        <Section.Title marginBottom="60px">
           Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
           into sustainable products
         </Section.Title>
@@ -174,7 +174,7 @@ function Main({ onDownloadClick }) {
         </Cards>
       </Section>
       <Section>
-        <Section.Title>
+        <Section.Title marginBottom="74px">
           We set up <br></br> the process for you
         </Section.Title>
 

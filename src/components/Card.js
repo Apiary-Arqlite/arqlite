@@ -148,7 +148,7 @@ const CardLinkIcon = styled(DownloadIcon)`
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${(props) => props.theme.fontSizes.xs};
+  font-size: ${({theme}) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.dark};
 
   line-height: 1.25;
