@@ -112,6 +112,7 @@ const Footer = styled.footer`
   @media (max-width: 1000px) {
     min-width: 375px;
     box-sizing: border-box;
+  }
 `;
 
 const Header = styled.header`
@@ -205,6 +206,7 @@ const MeetingCardIcon = styled(DownloadIcon)`
   stroke: ${({theme: {colors}}) => colors.white};
   @media (max-width: 1000px) {
     margin:0;
+  }
 `;
 
 const TimelineCards = styled.div`
