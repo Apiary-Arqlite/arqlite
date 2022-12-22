@@ -1,4 +1,3 @@
-
 import arqliteLogo2 from '../images/arqlite-logo-2.svg';
 import { Section } from './Section';
 const Footer = () => {
