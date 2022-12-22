@@ -6,7 +6,7 @@ const IMAGES = {
   mixrecycle: require("./mixed-recycling-image.png"),
   pelletrecycle: require("./pellets-recycling-image.png"),
   gravel: require("./gravel-regular.png"),
-  microgravel:require("./gravel-micromini.png"),
+  microgravel: require("./gravel-micromini.png"),
   pellet: require("./composite-pellet.png"),
   searchIcon: require("./search-icon.png"),
   buildIcon: require("./build-icon.png"),
