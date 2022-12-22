@@ -38,8 +38,15 @@
   top: -35px;
 }
 .card__side-element {
-  z-index: 6;
+  z-index: 999;
   position: absolute;
   top: 5px;
   right: -14px;
+}
+@media only screen and (max-width: 1000px) {
+  .card__side-element {
+    transform: rotate(90deg);
+    right: calc(50% - 10px);
+    top: 193px;
+  }
 }

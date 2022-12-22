@@ -100,12 +100,11 @@ function Main({ onDownloadClick }) {
         </Section.CaptionLarge>
         <Calculator />
       </Section>
-
-      <MeetingCard
+<Section id="meeting">
+      <MeetingCard 
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-      />
-
+        img={pelletProductionImg}/>
+</Section>
       <Section dark id="construction">
         <Section.Marker>
           For construction companies{" "}
@@ -177,27 +176,28 @@ function Main({ onDownloadClick }) {
         <Section.Title >
           We set up <br></br> the process for you
         </Section.Title>
-
-        <Section.TimelineCards>
-          {data.timelineCards.map((card, i) => {
-            return (
-              <TimelineCard
-                key={i}
-                title={card.title}
-                step={card.step}
-                icon={card.icon}
-                element={card.element}
-                alt={card.alt}
-              />
-            );
-          })}
-        </Section.TimelineCards>
+      
+      <Section.TimelineCards>
+        {data.timelineCards.map((card, i) => {
+          return (
+            <TimelineCard
+              key={i}
+              title={card.title}
+              step={card.step}
+              icon={card.icon}
+              element={card.element}
+              alt={card.alt}
+            />
+          );
+        })}
+      </Section.TimelineCards>
       </Section>
-
+      <Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
         img={buildingImg}
       />
+      </Section>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}

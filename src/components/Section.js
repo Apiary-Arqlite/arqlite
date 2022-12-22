@@ -1,19 +1,24 @@
-import styled from "styled-components/macro";
-import DownloadIcon from "./icons/DownloadIcon";
-import WallIcon from "./icons/WallIcon";
-import FactoryIcon from "./icons/FactoryIcon";
-import RecycleIcon from "./icons/RecycleIcon";
-import CalcIcon from "./icons/CalcIcon";
+import styled from 'styled-components/macro';
+import DownloadIcon from './icons/DownloadIcon';
+import WallIcon from './icons/WallIcon';
+import FactoryIcon from './icons/FactoryIcon';
+import RecycleIcon from './icons/RecycleIcon';
+import CalcIcon from './icons/CalcIcon';
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
 export const Section = styled.section`
-  background: ${({ theme, ...props }) =>
+  background: ${({theme, ...props}) =>
     props.dark ? theme.colors.dark : theme.colors.white};
-  color: ${(props) => (props.dark ? "#fff" : "#54585b")};
+  color: ${(props) => (props.dark ? '#fff' : '#54585b')};
   padding: 80px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1000px) {
+    box-sizing: border-box;
+    min-width: 375px;
+    padding: 40px 16px;
+  }
 `;
 
 // Create a SectionMarker component that will render an <h4> tag with styles
@@ -44,38 +49,42 @@ const CaptionLarge = styled.p`
   font-size: 28px;
   line-height: 38px;
   max-width: 804px;
+  @media (max-width: 1000px) {
+    font-size: 24px;
+    line-height: 120%;
+  }
 `;
 
 const NavLink = styled.a`
   font-size: 20px;
   text-decoration: none;
-  color: ${({ theme: { colors } }) => colors.brightA};
+  color: ${({theme: {colors}}) => colors.brightA};
   font-weight: 700;
   line-height: 21px;
   &:hover {
     cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.brightB};
+    color: ${({theme: {colors}}) => colors.brightB};
   }
   &:hover .navbar__link-icon {
-    fill: ${({ theme: { colors } }) => colors.brightB};
-    color: ${({ theme: { colors } }) => colors.brightB};
+    fill: ${({theme: {colors}}) => colors.brightB};
+    color: ${({theme: {colors}}) => colors.brightB};
   }
 `;
 
 const NavCalcIcon = styled(CalcIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({theme: {colors}}) => colors.brightA};
 `;
 
 const NavWallIcon = styled(WallIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({theme: {colors}}) => colors.brightA};
 `;
 
 const NavFactoryIcon = styled(FactoryIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({theme: {colors}}) => colors.brightA};
 `;
 
 const NavRecycleIcon = styled(RecycleIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({theme: {colors}}) => colors.brightA};
 `;
 
 const Footer = styled.footer`
@@ -88,6 +97,9 @@ const Footer = styled.footer`
   font-size: 16px;
   line-height: 20px;
   width: 100%;
+  @media (max-width: 1000px) {
+    min-width: 375px;
+    box-sizing: border-box;
 `;
 
 const Header = styled.header`
@@ -102,30 +114,34 @@ const Header = styled.header`
 `;
 
 const MeetingCard = styled.section`
-  padding: 80px;
   display: flex;
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-
   background: #ffffff;
+  @media (max-width: 700px) {
+    flex-direction: column-reverse;
+  }
 `;
 const MeetingCardContainer = styled.section`
   display: flex;
   flex-direction: column;
   background: #f05125;
   padding: 40px;
-  height: 100%;
   border-radius: 10px 0 0 10px;
+  @media (max-width: 700px) {
+    border-radius: 0 0 10px 10px;
+    padding: 40px 16px;
+  }
 `;
 const MeetingCardButton = styled.button`
-  background: ${(props) => (props.orange ? " #F05125" : "#FFFFFF")};
-  color: ${(props) => (props.orange ? "#FFFFFF" : "#F05125")};
+  background: ${(props) => (props.orange ? ' #F05125' : '#FFFFFF')};
+  color: ${(props) => (props.orange ? '#FFFFFF' : '#F05125')};
   width: 237px;
   height: 60px;
   border-radius: 10px;
   border: none;
-  font-family: "Archivo";
+  font-family: 'Archivo';
   /* font-style: normal; */
   font-weight: 600;
   font-size: 20px;
@@ -137,6 +153,11 @@ const MeetingCardButton = styled.button`
   margin-right: 25px;
   cursor: pointer;
   transition: linear 0.4s;
+  @media (max-width: 1000px) {
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
 `;
 const MeetingCardArqliteLicensingDeckLink = styled.a`
   display: flex;
@@ -157,13 +178,21 @@ const MeetingCardArqliteLicensingDeckLink = styled.a`
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `;
 const MeetingCardIcon = styled(DownloadIcon)`
+ 
   padding: 0;
   margin: 0;
   margin-left: 12px;
   align-self: center;
-  stroke: ${({ theme: { colors } }) => colors.white};
+  stroke: ${({theme: {colors}}) => colors.white};
+  @media (max-width: 1000px) {
+    margin:0;
 `;
 
 const TimelineCards = styled.div`
@@ -171,6 +200,13 @@ const TimelineCards = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    min-width: 375px;
+    gap: 64px;
+  }
 `;
 Section.Header = Header;
 Section.NavLink = NavLink;

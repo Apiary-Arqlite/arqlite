@@ -69,10 +69,19 @@
   color: #54585b;
   margin: 0;
 }
-.modal__status-container{
+.modal__status-container {
   height: 360px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+}
+@media screen and (max-width: 550px) {
+  .modal__container {
+    padding: 40px 16px;
+  }
+  .modal__close-button {
+    right: 30px;
+    top: 30px;
+  }
 }

@@ -1,19 +1,26 @@
 .meetingCard__img {
-  max-width: 414px;
+
   margin: 0;
   padding: 0;
   object-fit: cover;
   border-radius: 0px 10px 10px 0px;
 }
+
 .meetingCard__header {
-  padding: 0 0px 32px 0;
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 65px;
+  color: #FFFFFF;
+  padding: 0 0px 28px 0;
   margin: 0;
 }
 .meetingCard__text {
   margin: 0;
   padding-bottom: 60px;
 }
-.meetingCard__download {
+.meetingCard__link{
   font-family: 'Archivo';
   font-style: normal;
   font-weight: 600;
@@ -22,7 +29,7 @@
   letter-spacing: 0.02em;
   color: #ffffff;
 }
-.meetingCard__download-button:hover{
+.meetingCard__link:hover{
   opacity: 0.9;
 }
 .meetingCard__icon {
@@ -36,5 +43,23 @@
 }
 .meetingCard__button:hover{
   background: rgba(255, 255, 255, 0.9);
+  color:#D2390E;
   cursor: pointer;
+}
+
+@media only screen and  (max-width: 700px){
+  .meetingCard__img{
+  border-radius: 10px 10px 0 0;
+  max-height: 268px;
+  object-fit: cover;
+  
+}
+.meetingCard__header{
+  padding: 0 0 24px;
+  font-size: 52px;
+  line-height: 57px;
+  
+  
+}
+
 }
