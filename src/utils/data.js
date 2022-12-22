@@ -69,7 +69,7 @@ export const productCards = [
     linkText: "Info brochure",
     image: IMAGES.pellet,
     alt: "Image of composite plastic pellest used fro injection molding",
-    pdf: pdfs.reproPelletSDS,
+    pdf: pdfs.reproPelletDataSheet,
   },
 ];
 export const timelineCards=[
