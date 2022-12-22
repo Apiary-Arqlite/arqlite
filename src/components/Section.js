@@ -36,13 +36,6 @@ const SectionTitle = styled.h2`
   font-size: 60px;
   line-height: 107%;
   letter-spacing: -0.02em;
-  //trying this to standardize spacing
-  /* margin: 0 0 44px; */
-  margin-bottom:${(props) => props.marginBottom};
-  margin-top:0;
-  margin-left:0;
-  margin-right:0;
-  
 `;
 
 // Create a CaptionLarge component that will render an <p> tag with styles

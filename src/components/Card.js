@@ -90,23 +90,22 @@ const CardHeading = styled.h3`
   line-height: 1.14;
   max-width: 300px;
   margin-top: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 `;
 //Card Text that will render styled <p> for Horiz and Vert Card paragraph
 const CardParagraph = styled.p`
-  margin-top: ${(props) => (props.horiz ? "16px" : "0")};
+  margin-top: 16px;
   margin-bottom: ${(props) => (props.horiz ? "28px" : "0")};
   font-weight: ${({ theme }) => theme.fontWeights.muted};
   font-size: ${({ theme }) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.dark};
   line-height: 1.25;
-
 `;
 
 //Card Caption that will render styled <p> for caption on Horiz Card
 const CardCaption = styled.p`
-  font-weight: ${({ theme}) => theme.fontWeights.bold};
-  font-size: ${({ theme}) => theme.fontSizes.xxs};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
   color: ${({ theme }) => theme.colors.light};
   line-height: 1.6;
 
@@ -115,8 +114,8 @@ const CardCaption = styled.p`
 
 //Card Heading that will render styled <h4> for Heading on Horiz Card
 const CardHeadingSmall = styled.h4`
-  font-weight: ${({ theme}) => theme.fontWeights.bold};
-  font-size: ${({ theme}) => theme.fontSizes.sm};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
   color: ${({ theme }) => theme.colors.dark};
   line-height: 1.1;
 
@@ -134,7 +133,7 @@ const CardLinkWrapper = styled.a`
       stroke: ${({ theme }) => theme.colors.brightB};
     }
     p {
-      color: ${({ theme}) => theme.colors.brightB};
+      color: ${({ theme }) => theme.colors.brightB};
     }
   }
 `;
@@ -148,7 +147,7 @@ const CardLinkIcon = styled(DownloadIcon)`
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({theme}) => theme.fontSizes.xs};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.dark};
 
   line-height: 1.25;
