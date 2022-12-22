@@ -7,7 +7,7 @@ const Footer = () => {
       <Section.Footer>
         <section className='footer__container'>
           <img alt='arqlite logo' src={arqliteLogo2} className='footer__logo' />
-          <div className='footer__column'>
+          <div className='footer__column footer__column-solutions'>
             <p className='footer__column_title'>Solutions</p>
             <ul className='footer__column_container'>
               <li className='footer__column_item'>
@@ -25,7 +25,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className='footer__column'>
+          <div className='footer__column footer__column-assistance'>
             <p className='footer__column_title'>Assistance</p>
             <ul className='footer__column_container'>
               <li className='footer__column_item'>

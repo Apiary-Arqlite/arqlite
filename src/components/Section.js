@@ -115,8 +115,7 @@ const Footer = styled.footer`
   width: 100%;
   @media (max-width: 1000px) {
    
-    max-width: 375px;
-  
+    min-width: 375px;
     box-sizing: border-box;
 `;
 
@@ -136,13 +135,11 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-  
+
   background: #ffffff;
-  
+
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-
-   
   }
 `;
 const MeetingCardContainer = styled.section`
@@ -155,8 +152,6 @@ const MeetingCardContainer = styled.section`
   @media (max-width: 1000px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
-    
-   
   }
 `;
 const MeetingCardButton = styled.button`
@@ -227,7 +222,7 @@ const TimelineCards = styled.div`
   gap: 20px;
   @media (max-width: 1000px) {
     flex-direction: column;
-    align-self:center;
+    align-self: center;
     align-items: center;
     max-width: 375px;
     gap: 64px;
