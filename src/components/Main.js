@@ -95,16 +95,17 @@ function Main({onDownloadClick}) {
         <Section.CaptionLarge className="section__caption_center">
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
-        <Section.CaptionLarge className='section__caption_center'>
+        <Section.CaptionLarge className="section__caption_center">
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
         <Calculator />
       </Section>
-
-      <MeetingCard
+<Section id="meeting">
+      <MeetingCard 
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}/>
-
+        img={pelletProductionImg}
+      />
+</Section>
       <SectionVertLong dark id="construction">
         <Section.Marker>
           For construction companies{' '}
@@ -137,7 +138,7 @@ function Main({onDownloadClick}) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        <img className='section__recycle-icons' src={recycleImgPath} />
+        <img className="section__recycle-icons" src={recycleImgPath} />
       </Section>
 
       <SectionVert dark id="eco">
@@ -165,26 +166,28 @@ function Main({onDownloadClick}) {
         <Section.Title>
           We set up <br></br> the process for you
         </Section.Title>
-
-        <Section.TimelineCards>
-          {data.timelineCards.map((card, i) => {
-            return (
-              <TimelineCard
-                key={i}
-                title={card.title}
-                step={card.step}
-                icon={card.icon}
-                element={card.element}
-                alt={card.alt}
-              />
-            );
-          })}
-        </Section.TimelineCards>
-      </Section>
       
+      <Section.TimelineCards>
+        {data.timelineCards.map((card, i) => {
+          return (
+            <TimelineCard
+              key={i}
+              title={card.title}
+              step={card.step}
+              icon={card.icon}
+              element={card.element}
+              alt={card.alt}
+            />
+          );
+        })}
+      </Section.TimelineCards>
+      </Section>
+      <Section>
       <MeetingCard
         handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={buildingImg}/>
+        img={buildingImg}
+      />
+      </Section>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}

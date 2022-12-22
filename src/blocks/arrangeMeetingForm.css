@@ -1,6 +1,8 @@
 .form {
   color: #54585b;
   font-family: 'Archivo';
+  display: flex;
+  flex-direction: column;
 }
 
 .form__input {
@@ -9,11 +11,10 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  color: #54585B;
+  color: #54585b;
   padding: 0;
   border: none;
   outline: none;
- 
 }
 
 .form_opened {
@@ -39,9 +40,8 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  margin: 0;
-  margin-top: 16px;
-  margin-bottom: 40px;
+  margin: 16px 0 40px;
+  
 }
 .form__input-container {
   margin: 20px 0 0;
@@ -61,7 +61,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  padding:20px;
+  padding: 20px;
   height: 60px;
   color: #8f999a;
   position: relative;
@@ -88,14 +88,14 @@
   opacity: 1;
   margin: -11px 0 6px 0;
 }
-.form__button{
-  background:  #F05125; 
-  color: #FFFFFF;
+.form__button {
+  background: #f05125;
+  color: #ffffff;
   width: 237px;
   height: 60px;
   border-radius: 10px;
   border: none;
-  font-family: "Archivo";
+  font-family: 'Archivo';
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -106,7 +106,17 @@
   padding: 0;
   margin-right: 25px;
   cursor: pointer;
- }
- .form__input-span {
+}
+.form__input-span {
   margin: -11px 0 6px 0;
+}
+@media screen and (max-width: 550px) {
+  .form__button {
+    margin: 0;
+    width: 100%;
+    align-self:center;
+  }
+  .form__text {
+    margin: 16px 0 0 0;
+  }
 }
