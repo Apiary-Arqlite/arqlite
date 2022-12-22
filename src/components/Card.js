@@ -14,104 +14,82 @@ const CardsWrapper = styled.div`
   justify-content: center;
   margin: 0 auto;
 
-  @media (max-width: 1000px) {
-    grid-template-columns: 414px;
-    /* grid-template-columns: 1fr; */
+  /* @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, minmax(0, 414px));
     row-gap: 20px;
-  }
-  @media (max-width: 600px) {
-    grid-template-columns: 343px;
-    /* grid-template-columns: 1fr; */
-    row-gap: 24px;
-  }
+  } */
+
+  /* @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  } */
 `;
 
 //Create a CardItem component that will render a <div> with styles for a card item
 const CardItem = styled.div`
   ${(props) => `
-    flex-direction: ${props.horiz ? "row-reverse" : "column"};
-  `}
+flex-direction: ${props.horiz ? "row-reverse" : "column"};
+`}
   display: flex;
   position: relative;
   max-width: 414px;
-  flex-basis: 414px;
-  //flex bases 414px may keep width
 `;
 
 //Create a CardImg component that will render an <img> styles for a card image
-const CardImage = styled.div`
-  ${(props) =>
-    props.horiz
-      ? `
-    border-radius:0 10px 10px 0;
-    width:auto;
-    
-    height:100%;
-    flex-basis:158px;
-  `
-      : `
-  max-width: 100%;
-  border-radius:10px 10px 0 0;
-  width: 100%;
-  height:200px;
- 
-  `};
-  background-image: url(${(props) => props.backgroundImage});
-  background-size: cover;
+const CardImage = styled.img`
+  ${(props) => `
+    max-width: ${props.horiz ? "158px" : "100%"};
+    border-radius: ${props.horiz ? "0 10px 10px 0" : "10px 10px 0 0"};
+    width:${props.horiz ? "38%" : "100%"};
+    flex-shrink:${props.horiz ? "2" : "0"};
+  `}
 `;
 
 //Create a CardTextBox that will render flex container for Card Text Elements
 const CardTextBox = styled.div`
-  ${(props) =>
-    props.horiz
-      ? `
-    padding:0 24px 20px;
-    width:auto;
-    border-radius:10px 0 0 10px;
-    flex-basis:256px;
-`
-      : `
-padding:0 24px 28px;
-max-width:414px;
-flex-grow:1;
-width:100%;
-border-radius: 0 0 10px 10px;
-
-`};
+  ${(props) => `
+    padding:${props.horiz ? "0 24px 20px" : "0 24px 28px"};
+    max-width: ${props.horiz ? "256px" : "414px"};
+    flex-grow: ${props.horiz ? "0" : "1"};
+    flex-shrink:${props.horiz ? "1" : "0"};
+    width:${props.horiz ? "62%" : "100%"};
+    border-radius:${props.horiz ? "10px 0 0 10px" : "0 0 10px 10px"};
+`}
 
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: #ffffff;
   justify-items: flex-start;
   align-items: flex-start;
 `;
 
 //Card Heading that will render styled <h3> used in Vert Card (Caption Large)
 const CardHeading = styled.h3`
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.dark};
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.md};
+  color: ${({ theme: { colors } }) => colors.dark};
   line-height: 1.14;
   max-width: 300px;
   margin-top: 20px;
-  margin-bottom: 0;
+  margin-bottom: 16px;
 `;
 //Card Text that will render styled <p> for Horiz and Vert Card paragraph
 const CardParagraph = styled.p`
-  margin-top: 16px;
-  margin-bottom: ${(props) => (props.horiz ? "28px" : "0")};
-  font-weight: ${({ theme }) => theme.fontWeights.muted};
-  font-size: ${({ theme }) => theme.fontSizes.xs};
-  color: ${({ theme }) => theme.colors.dark};
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.muted};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.xs};
+  color: ${({ theme: { colors } }) => colors.dark};
+
   line-height: 1.25;
+  margin-top: ${(props) => (props.horiz ? "16px" : "0")};
+  margin-bottom: 30px;
 `;
 
 //Card Caption that will render styled <p> for caption on Horiz Card
 const CardCaption = styled.p`
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.xxs};
-  color: ${({ theme }) => theme.colors.light};
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.xxs};
+  color: ${({ theme: { colors } }) => colors.light};
   line-height: 1.6;
 
   margin: 16px 0 0;
@@ -119,9 +97,9 @@ const CardCaption = styled.p`
 
 //Card Heading that will render styled <h4> for Heading on Horiz Card
 const CardHeadingSmall = styled.h4`
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.dark};
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
+  color: ${({ theme: { colors } }) => colors.dark};
   line-height: 1.1;
 
   margin: 8px 0 0px;
@@ -135,10 +113,10 @@ const CardLinkWrapper = styled.a`
   &:hover {
     cursor: pointer;
     path {
-      stroke: ${({ theme }) => theme.colors.brightB};
+      stroke: ${({ theme: { colors } }) => colors.brightB};
     }
     p {
-      color: ${({ theme }) => theme.colors.brightB};
+      color: ${({ theme: { colors } }) => colors.brightB};
     }
   }
 `;
@@ -146,13 +124,13 @@ const CardLinkWrapper = styled.a`
 //Card link icon that will render styled <svg> for link icon on Horiz Card
 const CardLinkIcon = styled(DownloadIcon)`
   margin-right: 14px;
-  stroke: ${({ theme }) => theme.colors.dark};
+  stroke: ${({ theme: { colors } }) => colors.dark};
 `;
 
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.bold};
+  font-size: ${(props) => props.theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.dark};
 
   line-height: 1.25;
