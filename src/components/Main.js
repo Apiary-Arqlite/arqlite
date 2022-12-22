@@ -67,7 +67,7 @@ function Main({ onDownloadClick }) {
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <Section dark>
-        <Section.Title >Our products</Section.Title>
+        <Section.TitleCard horiz >Our products</Section.TitleCard>
         <Cards>
           {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
@@ -110,9 +110,9 @@ function Main({ onDownloadClick }) {
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Title >
+        <Section.TitleCard >
           Produce your own low-carbon <br></br> & LEED building materials
-        </Section.Title>
+        </Section.TitleCard>
         <Cards>
           {data.constructionCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
@@ -151,10 +151,10 @@ function Main({ onDownloadClick }) {
           For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.Title >
+        <Section.TitleCard >
           Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
           into sustainable products
-        </Section.Title>
+        </Section.TitleCard>
         <Cards>
           {data.ecoCards.map((card, i) => (
             <Cards.Card key={i} card={card}>

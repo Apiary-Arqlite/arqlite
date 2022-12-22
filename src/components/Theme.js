@@ -16,6 +16,7 @@ const theme = {
     xs: "16px", //p, input, links
     sm: "20px", //h4, button, drop down, download text
     md: "28px", //caption large, h3
+    //need 44px and 52 px for med q on h2
     lg: "60px", //h2
     xlg: "100px", //title
   },

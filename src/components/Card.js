@@ -14,10 +14,15 @@ const CardsWrapper = styled.div`
   justify-content: center;
   margin: 0 auto;
 
-  @media screen and (max-width: 1000px) {
+  @media (max-width: 1000px) {
     grid-template-columns: 414px;
     /* grid-template-columns: 1fr; */
     row-gap: 20px;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 343px;
+    /* grid-template-columns: 1fr; */
+    row-gap: 24px;
   }
 `;
 
