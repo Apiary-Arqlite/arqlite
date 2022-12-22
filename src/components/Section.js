@@ -51,7 +51,8 @@ const SectionTitle = styled.h2`
 //create a SectionTitleCard to pass props to card title
 const SectionTitleCard = styled(SectionTitle)`
   ${(props) => `
-    margin:${props.horiz ? "0 0 44px 0" : "0 0 60px 0"};`};
+    margin:${props.horiz ? "0 0 44px 0" : "0 0 60px 0"};
+    `};
 
   @media (max-width: 700px) {
     ${(props) => `
@@ -59,6 +60,9 @@ const SectionTitleCard = styled(SectionTitle)`
       font-size:${props.horiz ? "52px" : "44px"}
 `}
   }
+  @media (max-width:500px){
+  max-width: 350px;
+}
 `;
 // Create a CaptionLarge component that will render an <p> tag with styles
 const CaptionLarge = styled.p`
