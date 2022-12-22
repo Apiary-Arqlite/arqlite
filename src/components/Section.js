@@ -15,12 +15,8 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   @media (max-width: 1000px) {
-    max-width: 770px;
     box-sizing: border-box;
-    padding: 40px;
-  }
-  @media (max-width: 700px) {
-    max-width: 375px;
+    min-width: 375px;
     padding: 40px 16px;
   }
 `;
@@ -114,7 +110,6 @@ const Footer = styled.footer`
   line-height: 20px;
   width: 100%;
   @media (max-width: 1000px) {
-   
     min-width: 375px;
     box-sizing: border-box;
 `;
@@ -135,10 +130,8 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-
   background: #ffffff;
-
-  @media (max-width: 1000px) {
+  @media (max-width: 700px) {
     flex-direction: column-reverse;
   }
 `;
@@ -147,9 +140,8 @@ const MeetingCardContainer = styled.section`
   flex-direction: column;
   background: #f05125;
   padding: 40px;
-
   border-radius: 10px 0 0 10px;
-  @media (max-width: 1000px) {
+  @media (max-width: 700px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
   }
@@ -211,7 +203,7 @@ const MeetingCardIcon = styled(DownloadIcon)`
   margin-left: 12px;
   align-self: center;
   stroke: ${({theme: {colors}}) => colors.white};
-  @media (max-width: 700px) {
+  @media (max-width: 1000px) {
     margin:0;
 `;
 
@@ -224,7 +216,7 @@ const TimelineCards = styled.div`
     flex-direction: column;
     align-self: center;
     align-items: center;
-    max-width: 375px;
+    min-width: 375px;
     gap: 64px;
   }
 `;
