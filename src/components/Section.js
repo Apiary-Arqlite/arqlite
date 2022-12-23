@@ -130,9 +130,13 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
+  min-height:373px;
   background: #ffffff;
+  box-sizing:border-box;
   @media (max-width: 800px) {
     flex-direction: column-reverse;
+    height:735px;
+    min-height:100%
   }
 `;
 const MeetingCardContainer = styled.section`
@@ -141,6 +145,8 @@ const MeetingCardContainer = styled.section`
   background: #f05125;
   padding: 40px;
   border-radius: 10px 0 0 10px;
+  box-sizing:border-box;
+ 
   @media (max-width: 800px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
