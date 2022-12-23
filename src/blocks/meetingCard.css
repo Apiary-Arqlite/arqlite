@@ -52,7 +52,7 @@
 @media only screen and (max-width: 800px) {
   .meetingCard__img {
     border-radius: 10px 10px 0 0;
-    height: 268px;
+    min-height: 268px;
    
     max-width: 100%;
     
