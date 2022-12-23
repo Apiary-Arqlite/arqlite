@@ -3,6 +3,9 @@
   padding: 0;
   object-fit: cover;
   border-radius: 0px 10px 10px 0px;
+
+  /* height: 100%; */
+  max-width: 414px;
 }
 
 .meetingCard__header {
@@ -11,8 +14,8 @@
   font-weight: 700;
   font-size: 60px;
   line-height: 65px;
-  color: #FFFFFF;
-  padding: 0 0px 28px 0;
+  color: #ffffff;
+  padding: 0 0px 32px 0;
   margin: 0;
 }
 .meetingCard__text {
@@ -50,7 +53,9 @@
   .meetingCard__img {
     border-radius: 10px 10px 0 0;
     height: 268px;
-    object-fit: cover;
+   
+    max-width: 100%;
+    
   }
   .meetingCard__header {
     padding: 0 0 24px;
