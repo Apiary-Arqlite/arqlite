@@ -121,6 +121,7 @@ const Footer = styled.footer`
   @media (max-width: 1000px) {
     min-width: 375px;
     box-sizing: border-box;
+  }
 `;
 
 const Header = styled.header`
