@@ -131,7 +131,7 @@ const MeetingCard = styled.section`
   color: #ffffff;
   max-width: 1280px;
   background: #ffffff;
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     flex-direction: column-reverse;
   }
 `;
@@ -141,7 +141,7 @@ const MeetingCardContainer = styled.section`
   background: #f05125;
   padding: 40px;
   border-radius: 10px 0 0 10px;
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
   }
@@ -165,7 +165,7 @@ const MeetingCardButton = styled.button`
   margin-right: 25px;
   cursor: pointer;
   transition: linear 0.4s;
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     margin: 0;
     margin-bottom: 20px;
     width: 100%;
