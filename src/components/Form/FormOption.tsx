@@ -2,8 +2,10 @@ import React from 'react';
 import { FormOptionProps } from './FormTypes';
 import styled from 'styled-components';
 
-const StyledFormOption = styled.option`
+export const StyledFormOption = styled.li`
   color: red;
+  list-style: none;
+  visibility: hidden;
 `;
 
 export default function FormOption(props: FormOptionProps) {

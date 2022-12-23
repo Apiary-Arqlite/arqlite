@@ -5,7 +5,7 @@ import {
   StyledFormSelect,
   StyledFormSelectDiv,
   StyledLabel,
-  StyledSelect,
+  StyledSelectDiv,
   StyledInfoButton,
 } from '../Form/FormSelect';
 import styled from 'styled-components';
@@ -14,7 +14,7 @@ const StyledFormSelectTons = styled(StyledFormSelect)`
   width: 870px;
 `;
 
-const StyledSelectTons = styled(StyledSelect)`
+const StyledSelectTons = styled(StyledSelectDiv)`
   width: 830px;
 `;
 
@@ -32,12 +32,12 @@ export default function FormSelect(props: FormSelectProps) {
         <StyledInfoButton>&#9432;</StyledInfoButton>
       </StyledFormSelectDiv>
 
-      <StyledSelectTons
+      <StyledSelectTons<any>
         name={name}
         value={Number(currentValue)}
         onChange={handleFormChange}
       >
-        {props.children}
+        <ul>{props.children}</ul>
       </StyledSelectTons>
     </StyledFormSelectTons>
   );

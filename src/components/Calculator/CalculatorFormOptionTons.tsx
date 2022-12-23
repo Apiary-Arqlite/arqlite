@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormOptionProps } from '../Form/FormTypes';
+import { StyledFormOption } from '../Form/FormOption';
 
 export default function FormOption(props: FormOptionProps) {
-  return <option value={props.value}>{props.value}</option>;
+  return <StyledFormOption value={props.value}>{props.value}</StyledFormOption>;
 }

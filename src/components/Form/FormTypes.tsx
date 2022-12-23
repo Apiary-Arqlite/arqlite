@@ -11,8 +11,8 @@ export interface FormProps {
 }
 
 export interface FormSelectProps {
+  name: any;
   label: string;
-  name: string;
   children: React.ReactNode;
 }
 
@@ -22,5 +22,5 @@ export interface FormType {
 
 export interface FormContextType {
   form: FormType;
-  handleFormChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleFormChange: (arg: any) => void;
 }

@@ -45,7 +45,7 @@ export const StyledInfoButton = styled.button`
 //  background-repeat: no-repeat;
 //  image-fit: contain;
 
-export const StyledSelect = styled.select`
+export const StyledSelectDiv = styled.div`
   position: relative;
   appearance: none;
   height: 22px;
@@ -62,14 +62,6 @@ export const StyledSelect = styled.select`
 
   border: 2px solid red;
   width: 385px;
-
-  option {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    color: red;
-    background-color: blue;
-  }
 
   &:hover {
     opacity: 0.8;
@@ -94,15 +86,18 @@ export default function FormSelect(props: FormSelectProps) {
         <StyledInfoButton>&#9432;</StyledInfoButton>
       </StyledFormSelectDiv>
 
-      <StyledSelect
+      <StyledSelectDiv<any>
         name={name}
         value={Number(currentValue)}
         onChange={handleFormChange}
       >
-        {props.children}
-      </StyledSelect>
+        <ul>{props.children}</ul>
+      </StyledSelectDiv>
     </StyledFormSelect>
   );
 }
 
 // code for info icon &#9432;,
+
+// Q: How can I pass a prop to a styled component?
+// A: https://stackoverflow.com/questions/53951855/how-to-pass-a-prop-to-a-styled-component
