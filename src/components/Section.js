@@ -26,9 +26,12 @@ export const Section = styled.section`
 
 // Create a SectionMarker component that will render an <h4> tag with styles
 const SectionMarker = styled.h4`
-  color: #f05125;
-  font-weight: 700;
-  font-size: 20px;
+  /* color: #f05125; */
+  /* font-weight: 700;
+  font-size: 20px; */
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.brightB};
   line-height: 22px;
   margin: 0px;
   display: flex;
@@ -37,8 +40,11 @@ const SectionMarker = styled.h4`
 
 // Create a SectionTitle component that will render an <h2> tag with styles
 const SectionTitle = styled.h2`
-  font-weight: 700;
-  font-size: 60px;
+  /* font-weight: 700;
+  font-size: 60px; */
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+
   line-height: 107%;
   letter-spacing: -0.02em;
   margin: 0;
@@ -60,15 +66,18 @@ const SectionTitleCard = styled(SectionTitle)`
       font-size:${props.horiz ? "52px" : "44px"}
 `}
   }
-  @media (max-width:500px){
-  max-width: 350px;
-}
+  @media (max-width: 500px) {
+    max-width: 350px;
+  }
 `;
 // Create a CaptionLarge component that will render an <p> tag with styles
 const CaptionLarge = styled.p`
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 38px;
+  /* font-weight: 400;
+  font-size: 28px; */
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+
+  line-height: 38px; //1.36
   max-width: 804px;
   @media (max-width: 1000px) {
     font-size: 24px;
@@ -77,47 +86,56 @@ const CaptionLarge = styled.p`
 `;
 
 const NavLink = styled.a`
-  font-size: 20px;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.brightA};
+  /* font-size: 20px;
+   color: ${({ theme: { colors } }) => colors.brightA};
+  font-weight: 700; */
   text-decoration: none;
-  color: ${({ theme: { colors } }) => colors.brightA};
-  font-weight: 700;
+
   line-height: 21px;
   &:hover {
     cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.brightB};
+    color: ${({ theme }) => theme.colors.brightB};
   }
   &:hover .navbar__link-icon {
-    fill: ${({ theme: { colors } }) => colors.brightB};
-    color: ${({ theme: { colors } }) => colors.brightB};
+    fill: ${({ theme }) => theme.colors.brightB};
+    color: ${({ theme }) => theme.colors.brightB};
   }
 `;
 
 const NavCalcIcon = styled(CalcIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
 const NavWallIcon = styled(WallIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
 const NavFactoryIcon = styled(FactoryIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
 const NavRecycleIcon = styled(RecycleIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
 const Footer = styled.footer`
-  margin: 0;
-  background-color: #54585b;
-  box-sizing: border-box;
+  background-color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+
+  /* background-color: #54585b;
   color: #ffffff;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 16px; */
   line-height: 20px;
   width: 100%;
+  box-sizing: border-box;
+  margin: 0;
   @media (max-width: 1000px) {
     min-width: 375px;
     box-sizing: border-box;
@@ -125,13 +143,17 @@ const Footer = styled.footer`
 `;
 
 const Header = styled.header`
-  padding: 0px 80px;
-  margin: 0 auto;
-  background-color: #fff;
+  /* background-color: #fff;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 16px; */
+  background-color: ${({ theme }) => theme.colors.white};
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
   line-height: 20px;
+
+  padding: 0px 80px;
+  margin: 0 auto;
   max-width: 1280px;
 `;
 
@@ -140,13 +162,13 @@ const MeetingCard = styled.section`
   flex-direction: row;
   color: #ffffff;
   max-width: 1280px;
-  min-height:373px;
+  min-height: 373px;
   background: #ffffff;
-  box-sizing:border-box;
+  box-sizing: border-box;
   @media (max-width: 900px) {
     flex-direction: column-reverse;
-    height:735px;
-    min-height:100%
+    height: 735px;
+    min-height: 100%;
   }
 `;
 const MeetingCardContainer = styled.section`
@@ -155,8 +177,8 @@ const MeetingCardContainer = styled.section`
   background: #f05125;
   padding: 40px;
   border-radius: 10px 0 0 10px;
-  box-sizing:border-box;
- 
+  box-sizing: border-box;
+
   @media (max-width: 900px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
