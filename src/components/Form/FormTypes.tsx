@@ -1,7 +1,6 @@
 import React = require('react');
 
 export interface FormOptionProps {
-  selected?: boolean;
   value: number;
 }
 
@@ -13,6 +12,7 @@ export interface FormProps {
 export interface FormSelectProps {
   name: any;
   label: string;
+  isOpen: boolean;
   children: React.ReactNode;
 }
 

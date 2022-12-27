@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import FormOption from '../Form/FormOption';
 import CalculatorFormOptionTons from './CalculatorFormOptionTons';
 import FormSelect from '../Form/FormSelect';
@@ -49,11 +49,22 @@ function TotalRevenue() {
 }
 
 export default function Calculator() {
+  // initialize states for each dropdown to false
+  const [processingDD, setProcessingDD] = useState(false);
+  const [plasticDD, setPlasticDD] = useState(false);
+  const [gravelDD, setGravelDD] = useState(false);
+  const [pelletsDD, setPelletsDD] = useState(false);
+  const [tonsDD, setTonsDD] = useState(false);
+
   return (
     <CalculatorForm initialValues={initialValues}>
       <StyledRow1>
         {/* a */}
-        <FormSelect label='Processing Fee' name='processingFee'>
+        <FormSelect
+          label='Processing Fee'
+          name='processingFee'
+          isOpen={processingDD}
+        >
           <FormOption value={10} />
           <FormOption value={20} />
           <FormOption value={30} />
@@ -66,7 +77,11 @@ export default function Calculator() {
           <FormOption value={100} />
         </FormSelect>
         {/* b */}
-        <FormSelect label='Plastic credits' name='plasticCredits'>
+        <FormSelect
+          label='Plastic credits'
+          name='plasticCredits'
+          isOpen={plasticDD}
+        >
           <FormOption value={10} />
           <FormOption value={20} />
           <FormOption value={30} />
@@ -79,17 +94,26 @@ export default function Calculator() {
           <FormOption value={100} />
         </FormSelect>
       </StyledRow1>
+      {/* }
       <StyledRow2>
-        {/* c */}
-        <FormSelect label='Gravel revenue bulk' name='gravelRevenueBulk'>
+
+        <FormSelect
+          label='Gravel revenue bulk'
+          name='gravelRevenueBulk'
+          isOpen={gravelDD}
+        >
           <FormOption value={200} />
           <FormOption value={300} />
           <FormOption value={400} />
           <FormOption value={500} />
           <FormOption value={600} />
         </FormSelect>
-        {/* d */}
-        <FormSelect label='Pellets revenue bulk' name='pelletsRevenueBulk'>
+
+        <FormSelect
+          label='Pellets revenue bulk'
+          name='pelletsRevenueBulk'
+          isOpen={pelletsDD}
+        >
           <FormOption value={900} />
           <FormOption value={1000} />
           <FormOption value={1200} />
@@ -99,11 +123,12 @@ export default function Calculator() {
         </FormSelect>
       </StyledRow2>
       <StyledRow3>
-        {/* e */}
+
 
         <CalculatorFormSelectTons
           label='Total tons per month'
           name='totalTonsPerMonth'
+          isOpen={tonsDD}
         >
           <CalculatorFormOptionTons value={462} />
           <CalculatorFormOptionTons value={462} />
@@ -114,7 +139,7 @@ export default function Calculator() {
           <CalculatorFormOptionTons value={3696} />
           <CalculatorFormOptionTons value={4620} />
         </CalculatorFormSelectTons>
-      </StyledRow3>
+      </StyledRow3> */}
 
       <TotalRevenue />
     </CalculatorForm>

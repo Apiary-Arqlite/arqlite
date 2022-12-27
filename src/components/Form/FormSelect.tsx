@@ -49,6 +49,7 @@ export const StyledSelectDiv = styled.div`
   position: relative;
   appearance: none;
   height: 22px;
+  width: 385px;
   margin: 12px 20px 0;
   padding: 0;
   border: none;
@@ -61,19 +62,28 @@ export const StyledSelectDiv = styled.div`
   color: #54585b;
 
   border: 2px solid red;
-  width: 385px;
-
-  &:hover {
-    opacity: 0.8;
-  }
 
   &:first-child {
     padding-top: 8px;
   }
 `;
 
+export const DropdownItems = styled.ul`
+  margin: 50px 0 0;
+  padding: 12px 0;
+  width: 425px;
+  display: ${({ isOpen }: any) => (isOpen ? 'block' : 'none')};
+  display: block;
+  background-color: #fff;
+  border: 1px solid #54585b;
+  border-radius: 4px;
+  position: relative;
+  left: -24px;
+  z-index: 1;
+`;
+
 export default function FormSelect(props: FormSelectProps) {
-  const { label, name } = props;
+  const { label, name, isOpen } = props;
 
   const formContext = useContext(FormContext);
   const { form, handleFormChange } = formContext;
@@ -90,14 +100,15 @@ export default function FormSelect(props: FormSelectProps) {
         name={name}
         value={Number(currentValue)}
         onChange={handleFormChange}
+        isOpen={isOpen}
       >
-        <ul>{props.children}</ul>
+        {/* @ts-ignore */}
+        <DropdownItems isOpen={isOpen}>{props.children}</DropdownItems>
       </StyledSelectDiv>
     </StyledFormSelect>
   );
 }
 
 // code for info icon &#9432;,
-
-// Q: How can I pass a prop to a styled component?
-// A: https://stackoverflow.com/questions/53951855/how-to-pass-a-prop-to-a-styled-component
+// q: how to ignore a typsecript error for a line of code in a react component?
+// a:
