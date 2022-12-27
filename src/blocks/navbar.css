@@ -39,11 +39,30 @@
 }
 
 .navbar__meeting-btn {
-  margin-right: 0px;
   align-self: flex-end;
+  margin-right: -25px;
+  grid-area: btn;
 }
 
 .navbar__meeting-btn:hover {
   cursor: pointer;
   background: #d2390e;
+}
+
+@media screen and (max-width: 900px) {
+  .navbar__links {
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navbar__links {
+    display: grid;
+    grid-template-areas:
+      "calc wall"
+      "factory recycle"
+      "btn btn";
+    justify-content: space-around;
+  }
 }
