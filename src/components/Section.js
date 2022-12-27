@@ -131,12 +131,17 @@ const RecycleImage = styled.img.attrs(({ src }) => ({
   src: src,
   alt: "Universal Recycling Symbols for Materials 1, 2, 4, 5, 6 and 7",
 }))`
-  visibility: ${(props) => (props.mobile ? "hidden" : "visibile")};
-  width: 535px;
-  margin: 80px 108px 0 auto;
+  /* visibility: ${(props) => (props.mobile ? "hidden" : "visibile")}; */
+  visibility: ${(props) => (props.mobile ? "hidden" : "visible")};
+  width: ${(props) => (props.mobile ? "0" : "535px")};
+  /* width: 535px; */
+  margin: ${(props) => (props.mobile ? "0" : "80px 108px 0 auto")};
+  /* margin: 80px 108px 0 auto; */
   @media (max-width: 600px) {
     visibility: ${(props) => (props.mobile ? "visible" : "hidden")};
-    width: 254px;
+    width: ${(props) => (props.mobile ? "254px" : "0")};
+    /* margin: ${(props) => (props.mobile ? "0" : "0")}; */
+    /* width: 254px; */
     margin: 0;
   }
 `;

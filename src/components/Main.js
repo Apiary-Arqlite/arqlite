@@ -145,7 +145,7 @@ function Main({ onDownloadClick }) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        <img className="section__recycle-icons" src={recycleImgPath} />
+        {/* <img className="section__recycle-icons" src={recycleImgPath} /> */}
         <Section.RecycleImage src={recycleImgPath}/>
         <Section.RecycleImage mobile src={recycleImgMobPath}/>
       </Section>
