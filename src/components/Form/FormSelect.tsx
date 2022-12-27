@@ -69,6 +69,20 @@ export const StyledSelectDiv = styled.div`
   }
 `;
 
+export const StyledTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))`
+  & .MuiTooltip-tooltip {
+    background: rgba(0, 0, 0, 0.8);
+
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+`;
+
 export const DropdownItems = styled.ul`
   margin: 50px 0 0;
   padding: 12px 0;
@@ -93,9 +107,9 @@ export default function FormSelect(props: FormSelectProps) {
     <StyledFormSelect>
       <StyledFormSelectDiv>
         <StyledLabel>{label}</StyledLabel>
-        <Tooltip title={description}>
+        <StyledTooltip title={description} placement='bottom-end'>
           <StyledInfoButton>&#9432;</StyledInfoButton>
-        </Tooltip>
+        </StyledTooltip>
       </StyledFormSelectDiv>
 
       <StyledSelectDiv<any>

@@ -8,9 +8,9 @@ import {
   StyledSelectDiv,
   StyledInfoButton,
   DropdownItems,
+  StyledTooltip,
 } from '../Form/FormSelect';
 import styled from 'styled-components';
-import { Tooltip } from '@mui/material';
 
 const StyledFormSelectTons = styled(StyledFormSelect)`
   width: 870px;
@@ -35,9 +35,9 @@ export default function FormSelect(props: FormSelectProps) {
     <StyledFormSelectTons>
       <StyledFormSelectDiv>
         <StyledLabel>{label}</StyledLabel>
-        <Tooltip title={description}>
+        <StyledTooltip title={description}>
           <StyledInfoButton>&#9432;</StyledInfoButton>
-        </Tooltip>
+        </StyledTooltip>
       </StyledFormSelectDiv>
 
       <StyledSelectTons<any>
@@ -50,3 +50,5 @@ export default function FormSelect(props: FormSelectProps) {
     </StyledFormSelectTons>
   );
 }
+
+// q: how to style children of an element css?
