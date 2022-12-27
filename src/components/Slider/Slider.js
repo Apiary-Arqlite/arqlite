@@ -31,7 +31,7 @@ const StyledTitleLeft = styled(StyledTitle)`
 `;
 
 export const Slider = () => {
-  const [currentValue, setCurrentValue] = useState(1);
+  const [currentValue, setCurrentValue] = useState(5);
   return (
     <div>
       <StyledValue>1000 ft2</StyledValue>
@@ -45,12 +45,12 @@ export const Slider = () => {
         marks={[1, 2, 4, 6, 8, 10]}
         min={1}
         max={10}
-        defaultValue={6}
+        defaultValue={currentValue}
         renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
         onAfterChange={(value) => setCurrentValue(value)}
       />
       <StyledTons>{currentValue}</StyledTons>
-      <StyledTitle>Tonns of plastic per hour</StyledTitle>
+      <StyledTitle>Tons of plastic per hour</StyledTitle>
     </div>
   );
 };
