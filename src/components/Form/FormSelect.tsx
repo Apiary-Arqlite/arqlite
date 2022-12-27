@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FormSelectProps } from './FormTypes';
 import { FormContext } from './FormCtx';
 import styled from 'styled-components';
+import { Tooltip } from '@mui/material';
 import info from '../../images/info.svg';
 
 export const StyledFormSelect = styled.div`
@@ -73,17 +74,16 @@ export const DropdownItems = styled.ul`
   padding: 12px 0;
   width: 425px;
   display: ${({ isOpen }: any) => (isOpen ? 'block' : 'none')};
-  display: block;
+  display: none;
   background-color: #fff;
   border: 1px solid #54585b;
   border-radius: 4px;
   position: relative;
   left: -24px;
-  z-index: 1;
 `;
 
 export default function FormSelect(props: FormSelectProps) {
-  const { label, name, isOpen } = props;
+  const { label, name, description, isOpen } = props;
 
   const formContext = useContext(FormContext);
   const { form, handleFormChange } = formContext;
@@ -93,7 +93,9 @@ export default function FormSelect(props: FormSelectProps) {
     <StyledFormSelect>
       <StyledFormSelectDiv>
         <StyledLabel>{label}</StyledLabel>
-        <StyledInfoButton>&#9432;</StyledInfoButton>
+        <Tooltip title={description}>
+          <StyledInfoButton>&#9432;</StyledInfoButton>
+        </Tooltip>
       </StyledFormSelectDiv>
 
       <StyledSelectDiv<any>

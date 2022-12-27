@@ -50,11 +50,11 @@ function TotalRevenue() {
 
 export default function Calculator() {
   // initialize states for each dropdown to false
-  const [processingDD, setProcessingDD] = useState(false);
-  const [plasticDD, setPlasticDD] = useState(false);
-  const [gravelDD, setGravelDD] = useState(false);
-  const [pelletsDD, setPelletsDD] = useState(false);
-  const [tonsDD, setTonsDD] = useState(false);
+  const [processingOpen, setprocessingOpen] = useState(false);
+  const [plasticOpen, setplasticOpen] = useState(false);
+  const [gravelOpen, setgravelOpen] = useState(false);
+  const [pelletsOpen, setpelletsOpen] = useState(false);
+  const [tonsOpen, settonsOpen] = useState(false);
 
   return (
     <CalculatorForm initialValues={initialValues}>
@@ -63,7 +63,8 @@ export default function Calculator() {
         <FormSelect
           label='Processing Fee'
           name='processingFee'
-          isOpen={processingDD}
+          description="Arqlite charges a processing fee for its recycling solution, meaning the company doesn't pay for its raw material but gets paid."
+          isOpen={processingOpen}
         >
           <FormOption value={10} />
           <FormOption value={20} />
@@ -80,7 +81,8 @@ export default function Calculator() {
         <FormSelect
           label='Plastic credits'
           name='plasticCredits'
-          isOpen={plasticDD}
+          description='Arqlite technology is certified for RMS Plastic Credits that can be sold to the green bond market.'
+          isOpen={plasticOpen}
         >
           <FormOption value={10} />
           <FormOption value={20} />
@@ -94,13 +96,13 @@ export default function Calculator() {
           <FormOption value={100} />
         </FormSelect>
       </StyledRow1>
-      {/* }
-      <StyledRow2>
 
+      <StyledRow2>
         <FormSelect
           label='Gravel revenue bulk'
           name='gravelRevenueBulk'
-          isOpen={gravelDD}
+          description='This is the lowest price for Arqlite Smart Gravel sold bulk, usually to companies in the built environment.'
+          isOpen={gravelOpen}
         >
           <FormOption value={200} />
           <FormOption value={300} />
@@ -112,7 +114,8 @@ export default function Calculator() {
         <FormSelect
           label='Pellets revenue bulk'
           name='pelletsRevenueBulk'
-          isOpen={pelletsDD}
+          description='This is the bulk price for Arqlite Composite Plastic pellets sold to blenders and plastic manufacturers.'
+          isOpen={pelletsOpen}
         >
           <FormOption value={900} />
           <FormOption value={1000} />
@@ -123,12 +126,11 @@ export default function Calculator() {
         </FormSelect>
       </StyledRow2>
       <StyledRow3>
-
-
         <CalculatorFormSelectTons
           label='Total tons per month'
           name='totalTonsPerMonth'
-          isOpen={tonsDD}
+          description='Pick the total number of tons associated with each hardware setup: 1tn/h, 2tn/h, 4tn/h, 6tn/h, 8tn/h and 10tn/h.'
+          isOpen={tonsOpen}
         >
           <CalculatorFormOptionTons value={462} />
           <CalculatorFormOptionTons value={462} />
@@ -139,7 +141,7 @@ export default function Calculator() {
           <CalculatorFormOptionTons value={3696} />
           <CalculatorFormOptionTons value={4620} />
         </CalculatorFormSelectTons>
-      </StyledRow3> */}
+      </StyledRow3>
 
       <TotalRevenue />
     </CalculatorForm>

@@ -7,8 +7,10 @@ import {
   StyledLabel,
   StyledSelectDiv,
   StyledInfoButton,
+  DropdownItems,
 } from '../Form/FormSelect';
 import styled from 'styled-components';
+import { Tooltip } from '@mui/material';
 
 const StyledFormSelectTons = styled(StyledFormSelect)`
   width: 870px;
@@ -18,8 +20,12 @@ const StyledSelectTons = styled(StyledSelectDiv)`
   width: 830px;
 `;
 
+const DropdownItemsTons = styled(DropdownItems)`
+  width: 870px;
+`;
+
 export default function FormSelect(props: FormSelectProps) {
-  const { label, name } = props;
+  const { label, name, description } = props;
 
   const formContext = useContext(FormContext);
   const { form, handleFormChange } = formContext;
@@ -29,7 +35,9 @@ export default function FormSelect(props: FormSelectProps) {
     <StyledFormSelectTons>
       <StyledFormSelectDiv>
         <StyledLabel>{label}</StyledLabel>
-        <StyledInfoButton>&#9432;</StyledInfoButton>
+        <Tooltip title={description}>
+          <StyledInfoButton>&#9432;</StyledInfoButton>
+        </Tooltip>
       </StyledFormSelectDiv>
 
       <StyledSelectTons<any>
@@ -37,7 +45,7 @@ export default function FormSelect(props: FormSelectProps) {
         value={Number(currentValue)}
         onChange={handleFormChange}
       >
-        <ul>{props.children}</ul>
+        <DropdownItemsTons>{props.children}</DropdownItemsTons>
       </StyledSelectTons>
     </StyledFormSelectTons>
   );

@@ -12,6 +12,7 @@ export interface FormProps {
 export interface FormSelectProps {
   name: any;
   label: string;
+  description: string;
   isOpen: boolean;
   children: React.ReactNode;
 }
