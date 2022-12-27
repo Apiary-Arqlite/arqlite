@@ -54,7 +54,6 @@ const SectionTitle = styled.h2`
   letter-spacing: -0.02em;
   margin: 0;
   @media (max-width: 700px) {
-    font-weight: 44px;
     font-size: 44px;
   }
 `;
@@ -66,8 +65,7 @@ const SectionTitleCard = styled(SectionTitle)`
     `};
 
   @media (max-width: 700px) {
-    ${(props) => `
-      font-weight:${props.horiz ? "52" : "44"}
+    ${(props) => `   
       font-size:${props.horiz ? "52px" : "44px"}
 `}
   }
