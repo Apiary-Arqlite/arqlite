@@ -10,7 +10,9 @@ import CalcIcon from "./icons/CalcIcon";
 export const Section = styled.section`
   background: ${({ theme, ...props }) =>
     props.dark ? theme.colors.dark : theme.colors.white};
-  color: ${(props) => (props.dark ? "#fff" : "#54585b")};
+  color: ${({ theme, ...props }) =>
+    props.dark ? theme.colors.white : theme.colors.dark};
+  /* color: ${(props) => (props.dark ? "#fff" : "#54585b")}; */
   padding: 80px;
   display: flex;
   flex-direction: column;
@@ -30,7 +32,7 @@ const SectionMarker = styled.h4`
   /* font-weight: 700;
   font-size: 20px; */
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
   color: ${({ theme }) => theme.colors.brightB};
   line-height: 22px;
   margin: 0px;
@@ -48,13 +50,14 @@ const SectionTitle = styled.h2`
   /* font-weight: 700;
   font-size: 60px; */
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({ theme }) => theme.fontSizes[7]};
 
   line-height: 107%;
   letter-spacing: -0.02em;
   margin: 0;
   @media (max-width: 700px) {
-    font-size: 44px;
+    font-size: ${({ theme }) => theme.fontSizes[5]};
+    /* font-size: 44px; */
   }
 `;
 
@@ -65,9 +68,11 @@ const SectionTitleCard = styled(SectionTitle)`
     `};
 
   @media (max-width: 700px) {
-    ${(props) => `   
+    /* ${(props) => `   
       font-size:${props.horiz ? "52px" : "44px"}
-`}
+`} */
+    font-size: ${({ theme, ...props }) =>
+      props.horiz ? theme.fontSizes[6] : theme.fontSizes[5]};
   }
   @media (max-width: 500px) {
     max-width: 350px;
@@ -78,20 +83,21 @@ const CaptionLarge = styled.p`
   /* font-weight: 400;
   font-size: 28px; */
   font-weight: ${({ theme }) => theme.fontWeights.muted};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
 
   line-height: 38px; //1.36
   max-width: 804px;
   margin: 32px 0 40px;
   @media (max-width: 1000px) {
-    font-size: 24px;
+    /* font-size: 24px; */
+    font-size: ${({ theme }) => theme.fontSizes[3]};
     line-height: 120%;
   }
 `;
 
 const NavLink = styled.a`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
   color: ${({ theme }) => theme.colors.brightA};
   /* font-size: 20px;
    color: ${({ theme: { colors } }) => colors.brightA};
@@ -147,7 +153,7 @@ const Footer = styled.footer`
   background-color: ${({ theme }) => theme.colors.dark};
   color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.fontWeights.muted};
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-size: ${({ theme }) => theme.fontSizes[1]};
 
   /* background-color: #54585b;
   color: #ffffff;
@@ -171,7 +177,7 @@ const Header = styled.header`
   font-size: 16px; */
   background-color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.fontWeights.muted};
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-size: ${({ theme }) => theme.fontSizes[1]};
   line-height: 20px;
 
   padding: 0px 80px;
@@ -182,10 +188,12 @@ const Header = styled.header`
 const MeetingCard = styled.section`
   display: flex;
   flex-direction: row;
-  color: #ffffff;
+  /* color: #ffffff; */
+  color: ${({ theme }) => theme.colors.white};
   max-width: 1280px;
   min-height: 373px;
-  background: #ffffff;
+  /* background: #ffffff; */
+  background: ${({ theme }) => theme.colors.white};
   box-sizing: border-box;
   @media (max-width: 900px) {
     flex-direction: column-reverse;
@@ -196,7 +204,8 @@ const MeetingCard = styled.section`
 const MeetingCardContainer = styled.section`
   display: flex;
   flex-direction: column;
-  background: #f05125;
+  /* background: #f05125; */
+  background: ${({ theme }) => theme.colors.brightB};
   padding: 40px;
   border-radius: 10px 0 0 10px;
   box-sizing: border-box;
@@ -207,24 +216,34 @@ const MeetingCardContainer = styled.section`
   }
 `;
 const MeetingCardButton = styled.button`
-  background: ${(props) => (props.orange ? " #F05125" : "#FFFFFF")};
-  color: ${(props) => (props.orange ? "#FFFFFF" : "#F05125")};
+  /* background: ${(props) => (props.orange ? " #F05125" : "#FFFFFF")}; */
+  /* color: ${(props) => (props.orange ? "#FFFFFF" : "#F05125")}; */
+  background: ${({ theme, ...props }) =>
+    props.orange ? theme.colors.brightB : theme.colors.white};
+  color: ${({ theme, ...props }) =>
+    props.orange ? theme.colors.white : theme.colors.brightB};
+
+  /* font-family: "Archivo"; */
+  /* font-weight: 600;
+  font-size: 20px; */
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  line-height: 22px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
   width: 237px;
   height: 60px;
   border-radius: 10px;
   border: none;
-  font-family: "Archivo";
-  /* font-style: normal; */
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 22px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  margin: 0;
+
+  margin: 0 25px 0 0;
   padding: 0;
-  margin-right: 25px;
+  /* margin-right: 25px; */
   cursor: pointer;
   transition: linear 0.4s;
+
   @media (max-width: 900px) {
     margin: 0;
     margin-bottom: 20px;
@@ -232,14 +251,19 @@ const MeetingCardButton = styled.button`
   }
 `;
 const MeetingCardArqliteLicensingDeckLink = styled.a`
-  display: flex;
-  flex-direction: row;
-  font-weight: 600;
-  font-size: 20px;
+  /* font-weight: 600;
+  font-size: 20px; */
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+
   line-height: 22px;
   letter-spacing: 0.02em;
-  background: transparent;
-  color: #ffffff;
+  /* background: transparent; */
+  /* color: #ffffff; */ //this is declared in section meeting card parent
+
+  display: flex;
+  flex-direction: row;
+
   text-decoration: none;
   align-items: center;
   border: none;
@@ -257,18 +281,19 @@ const MeetingCardAction = styled.section`
   }
 `;
 const MeetingCardIcon = styled(DownloadIcon)`
+  stroke: ${({ theme }) => theme.colors.white};
   padding: 0;
-  margin: 0;
-  margin-left: 12px;
+  margin: 0 0 0 12px;
+  /* margin-left: 12px; */
   align-self: center;
-  stroke: ${({ theme: { colors } }) => colors.white};
+
   @media (max-width: 1000px) {
     margin: 0;
   }
 `;
 
 const TimelineCards = styled.div`
-  background: #ffffff;
+  /* background: #ffffff; //no change */
   display: flex;
   flex-direction: row;
   gap: 20px;
