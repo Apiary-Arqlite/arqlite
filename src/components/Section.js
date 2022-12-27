@@ -36,6 +36,11 @@ const SectionMarker = styled.h4`
   margin: 0px;
   display: flex;
   margin: 0 0 32px;
+
+  @media (max-width: 500px) {
+    margin: 0 0 40px;
+    justify-content: space-between;
+  }
 `;
 
 // Create a SectionTitle component that will render an <h2> tag with styles
@@ -74,11 +79,12 @@ const SectionTitleCard = styled(SectionTitle)`
 const CaptionLarge = styled.p`
   /* font-weight: 400;
   font-size: 28px; */
-  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
   font-size: ${({ theme }) => theme.fontSizes.md};
 
   line-height: 38px; //1.36
   max-width: 804px;
+  margin: 32px 0 40px;
   @media (max-width: 1000px) {
     font-size: 24px;
     line-height: 120%;
@@ -121,6 +127,19 @@ const NavRecycleIcon = styled(RecycleIcon)`
   fill: ${({ theme }) => theme.colors.brightA};
 `;
 
+const RecycleImage = styled.img.attrs(({ src }) => ({
+  src: src,
+  alt: "Universal Recycling Symbols for Materials 1, 2, 4, 5, 6 and 7",
+}))`
+  visibility: ${(props) => (props.mobile ? "hidden" : "visibile")};
+  width: 535px;
+  margin: 80px 108px 0 auto;
+  @media (max-width: 600px) {
+    visibility: ${(props) => (props.mobile ? "visible" : "hidden")};
+    width: 254px;
+    margin: 0;
+  }
+`;
 const Footer = styled.footer`
   background-color: ${({ theme }) => theme.colors.dark};
   color: ${({ theme }) => theme.colors.white};
@@ -273,6 +292,7 @@ Section.Marker = SectionMarker;
 Section.Title = SectionTitle;
 Section.TitleCard = SectionTitleCard;
 Section.CaptionLarge = CaptionLarge;
+Section.RecycleImage = RecycleImage;
 Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
 Section.MeetingCardContainer = MeetingCardContainer;
@@ -281,4 +301,5 @@ Section.MeetingCardArqliteLicensingDeckLink =
   MeetingCardArqliteLicensingDeckLink;
 Section.MeetingCardAction = MeetingCardAction;
 Section.MeetingCardIcon = MeetingCardIcon;
+
 Section.TimelineCards = TimelineCards;
