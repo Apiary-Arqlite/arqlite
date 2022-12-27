@@ -33,7 +33,7 @@
   width: 64px;
   height: 64px;
   position: absolute;
-  z-index: 1000;
+  z-index: 5;
   right: calc(50% - 32px);
   top: -35px;
 }
@@ -42,4 +42,11 @@
   position: absolute;
   top: 5px;
   right: -14px;
+}
+@media only screen and (max-width: 1000px) {
+  .card__side-element {
+    transform: rotate(90deg);
+    right: calc(50% - 10px);
+    top: 193px;
+  }
 }
