@@ -1,16 +1,15 @@
 /* --------------------------------- imports -------------------------------- */
-import React from 'react';
+import React from "react";
 
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+import Header from "./Header";
+import Main from "./Main";
+import Footer from "./Footer";
 
 /* -------------------------------------------------------------------------- */
 /*                                function App                                */
 /* -------------------------------------------------------------------------- */
 function App() {
   function handleDownloadClick(pdf) {
-    console.log(pdf);
     // using Java Script method to get PDF file
     fetch(pdf).then((response) => {
       response.blob().then((blob) => {

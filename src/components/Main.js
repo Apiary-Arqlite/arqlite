@@ -1,12 +1,12 @@
 import NavBar from "./NavBar";
 import * as data from "../utils/data";
-// import * as pdfs from "../utils/downloads";
 import React, { useState, useEffect } from "react";
 import Calculator from "./Calculator/Calculator.tsx";
 import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
 import Cards from "./Card";
 import recycleImgPath from "../images/recycle-plastics-icons.png";
+import recycleImgMobPath from "../images/recycle-icons-mobile.png";
 import MeetingCard from "./MeetingCard";
 import pelletProductionImg from "../images/pellet-production-image.png";
 import buildingImg from "../images/building-image.png";
@@ -134,6 +134,7 @@ function Main({ onDownloadClick }) {
         <Section.Marker>
           For plastic companies and recyclers{" "}
           <img className="section__marker-icon" src={markerIconPath} />
+          
         </Section.Marker>
         <Section.Title >
           Recycle plastics <br></br> that no one else can
@@ -143,7 +144,9 @@ function Main({ onDownloadClick }) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        <img className="section__recycle-icons" src={recycleImgPath} />
+        {/* <img className="section__recycle-icons" src={recycleImgPath} /> */}
+        <Section.RecycleImage src={recycleImgPath}/>
+        <Section.RecycleImage mobile src={recycleImgMobPath}/>
       </Section>
 
       <Section dark id="eco">
