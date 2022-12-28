@@ -19,7 +19,7 @@ const CardsWrapper = styled.div`
     /* grid-template-columns: 1fr; */
     row-gap: 20px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 641px) {
     grid-template-columns: 343px;
     /* grid-template-columns: 1fr; */
     row-gap: 24px;
@@ -90,7 +90,7 @@ border-radius: 0 0 10px 10px;
 //Card Heading that will render styled <h3> used in Vert Card (Caption Large)
 const CardHeading = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-size: ${({ theme }) => theme.fontSizes[7]};
   color: ${({ theme }) => theme.colors.dark};
   line-height: 1.14;
   max-width: 300px;
@@ -102,7 +102,7 @@ const CardParagraph = styled.p`
   margin-top: 16px;
   margin-bottom: ${(props) => (props.horiz ? "28px" : "0")};
   font-weight: ${({ theme }) => theme.fontWeights.muted};
-  font-size: ${({ theme }) => theme.fontSizes[1]};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
   color: ${({ theme }) => theme.colors.dark};
   line-height: 1.25;
 `;
@@ -110,7 +110,7 @@ const CardParagraph = styled.p`
 //Card Caption that will render styled <p> for caption on Horiz Card
 const CardCaption = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes[0]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
   color: ${({ theme }) => theme.colors.light};
   line-height: 1.6;
 
@@ -120,7 +120,7 @@ const CardCaption = styled.p`
 //Card Heading that will render styled <h4> for Heading on Horiz Card
 const CardHeadingSmall = styled.h4`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
   color: ${({ theme }) => theme.colors.dark};
   line-height: 1.1;
 
@@ -152,7 +152,7 @@ const CardLinkIcon = styled(DownloadIcon)`
 //Card link text that will render styled <p> for Link text on  Horiz Card
 const CardLinkText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes[1]};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
   color: ${({ theme }) => theme.colors.dark};
 
   line-height: 1.25;

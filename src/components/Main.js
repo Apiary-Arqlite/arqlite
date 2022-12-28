@@ -1,6 +1,5 @@
 import NavBar from "./NavBar";
 import * as data from "../utils/data";
-// import * as pdfs from "../utils/downloads";
 import React, { useState, useEffect } from "react";
 import Calculator from "./Calculator/Calculator.tsx";
 import { Section } from "../components/Section";
