@@ -26,6 +26,7 @@ const StyledTitle = styled.p`
 
 const StyledTitleLeft = styled(StyledTitle)`
   max-width: 1064px;
+
   text-align: left;
   margin: 48px auto 0;
 `;
@@ -34,7 +35,9 @@ export const Slider = () => {
   const [currentValue, setCurrentValue] = useState(5);
   return (
     <div>
-      <StyledValue>1000 ft2</StyledValue>
+      <StyledValue>
+        1000 ft<sup>2</sup>
+      </StyledValue>
       <StyledTitle>Hardware Footprint</StyledTitle>{' '}
       <StyledTitleLeft>Recycling Capacity</StyledTitleLeft>
       <ReactSlider
