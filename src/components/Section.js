@@ -216,7 +216,8 @@ const MeetingCardButton = styled.button`
   cursor: pointer;
   transition: linear 0.4s;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
+
     margin: 0;
     margin-bottom: 20px;
     width: 100%;

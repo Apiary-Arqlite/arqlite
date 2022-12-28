@@ -63,7 +63,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="footer__link-main-site">
-            <a className="footer__link" href='https://google.com' target="_blank" rel="noreferrer">
+            <a className="footer__link" href='https://www.arqlite.com/' target="_blank" rel="noreferrer">
               → Main corporate website
             </a>
           </div>

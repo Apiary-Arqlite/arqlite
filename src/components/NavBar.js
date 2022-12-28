@@ -1,5 +1,5 @@
 import "../blocks/navbar.css";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { Section } from "./Section";
 
@@ -10,7 +10,7 @@ function NavBar({ handleArrangeMeetingClick }) {
     if (prevScrollpos > currentScrollPos) {
       document.getElementById("navbar").style.top = "0";
     } else {
-      document.getElementById("navbar").style.top = "-300px";
+      document.getElementById("navbar").style.top = "-500px";
     }
     prevScrollpos = currentScrollPos;
   };
