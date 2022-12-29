@@ -1,6 +1,7 @@
 .slider {
   margin: 24px auto 0;
   width: 1064px;
+  width: 100%;
 }
 
 .slider-track {

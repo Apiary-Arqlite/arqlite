@@ -26,15 +26,18 @@ const StyledTitle = styled.p`
 
 const StyledTitleLeft = styled(StyledTitle)`
   max-width: 1064px;
+
   text-align: left;
   margin: 48px auto 0;
 `;
 
 export const Slider = () => {
-  const [currentValue, setCurrentValue] = useState(1);
+  const [currentValue, setCurrentValue] = useState(5);
   return (
     <div>
-      <StyledValue>1000 ft2</StyledValue>
+      <StyledValue>
+        1000 ft<sup>2</sup>
+      </StyledValue>
       <StyledTitle>Hardware Footprint</StyledTitle>{' '}
       <StyledTitleLeft>Recycling Capacity</StyledTitleLeft>
       <ReactSlider
@@ -45,12 +48,12 @@ export const Slider = () => {
         marks={[1, 2, 4, 6, 8, 10]}
         min={1}
         max={10}
-        defaultValue={6}
+        defaultValue={currentValue}
         renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
         onAfterChange={(value) => setCurrentValue(value)}
       />
       <StyledTons>{currentValue}</StyledTons>
-      <StyledTitle>Tonns of plastic per hour</StyledTitle>
+      <StyledTitle>Tons of plastic per hour</StyledTitle>
     </div>
   );
 };
