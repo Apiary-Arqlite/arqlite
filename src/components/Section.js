@@ -10,157 +10,233 @@ import CalcIcon from "./icons/CalcIcon";
 export const Section = styled.section`
   background: ${({ theme, ...props }) =>
     props.dark ? theme.colors.dark : theme.colors.white};
-  color: ${(props) => (props.dark ? "#fff" : "#54585b")};
+  color: ${({ theme, ...props }) =>
+    props.dark ? theme.colors.white : theme.colors.dark};
+
   padding: 80px;
   display: flex;
   flex-direction: column;
-`;
 
-//Create a styledSection to render horiz card top padding
-export const SectionHoriz = styled(Section)`
-  padding: 64px 80px 97px 80px;
-`;
-//Create a styledSection to render vert card top padding
-export const SectionVert = styled(Section)`
-  padding-bottom: 118px;
-`;
-export const SectionVertLong = styled(Section)`
-  padding-bottom: 72px;
+  @media (max-width: 1000px) {
+    box-sizing: border-box;
+    min-width: 375px;
+    /* padding: 40px 16px 60px; */
+  }
+  @media (max-width: 641px) {
+    /* box-sizing: border-box;
+    min-width: 375px; */
+    padding: 40px 16px 60px;
+  }
 `;
 
 // Create a SectionMarker component that will render an <h4> tag with styles
 const SectionMarker = styled.h4`
-  color: #f05125;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
+  color: ${({ theme }) => theme.colors.brightB};
   line-height: 22px;
   margin: 0px;
   display: flex;
-  //trying this to standardize spacing
-  margin: 0 0 100px;
+  margin: 0 0 32px;
+
+  @media (max-width: 480px) {
+    margin: 0 0 40px;
+    justify-content: space-between;
+  }
 `;
 
 // Create a SectionTitle component that will render an <h2> tag with styles
 const SectionTitle = styled.h2`
-  font-weight: 700;
-  font-size: 60px;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes[15]};
+
   line-height: 107%;
   letter-spacing: -0.02em;
-  //trying this to standardize spacing
-  margin: 0 0 44px;
+  margin: 0;
+  @media (max-width: 641px) {
+    font-size: ${({ theme }) => theme.fontSizes[11]};
+  }
 `;
 
+//create a SectionTitleCard to pass props to card title
+const SectionTitleCard = styled(SectionTitle)`
+  ${(props) => `
+    margin:${props.horiz ? "0 0 44px 0" : "0 0 60px 0"};
+    `};
+
+  @media (max-width: 641px) {
+    font-size: ${({ theme, ...props }) =>
+      props.horiz ? theme.fontSizes[13] : theme.fontSizes[11]};
+  }
+  @media (max-width: 480px) {
+    max-width: 350px;
+  }
+`;
 // Create a CaptionLarge component that will render an <p> tag with styles
 const CaptionLarge = styled.p`
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 38px;
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes[7]};
+
+  line-height: 38px; //1.36
   max-width: 804px;
+  margin: 32px 0 40px;
+
+  @media (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.fontSizes[6]};
+    line-height: 120%;
+  }
 `;
 
 const NavLink = styled.a`
-  font-size: 20px;
-  text-decoration: none;
-  color: ${({ theme: { colors } }) => colors.brightA};
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
+  color: ${({ theme }) => theme.colors.brightA};
   line-height: 21px;
+
+  text-decoration: none;
+
   &:hover {
     cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.brightB};
+    color: ${({ theme }) => theme.colors.brightB};
   }
   &:hover .navbar__link-icon {
-    fill: ${({ theme: { colors } }) => colors.brightB};
-    color: ${({ theme: { colors } }) => colors.brightB};
+    fill: ${({ theme }) => theme.colors.brightB};
+    color: ${({ theme }) => theme.colors.brightB};
   }
 `;
 
 const NavCalcIcon = styled(CalcIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
 const NavWallIcon = styled(WallIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
 const NavFactoryIcon = styled(FactoryIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
 const NavRecycleIcon = styled(RecycleIcon)`
-  fill: ${({ theme: { colors } }) => colors.brightA};
+  fill: ${({ theme }) => theme.colors.brightA};
 `;
 
+const RecycleImage = styled.img.attrs(({ src }) => ({
+  src: src,
+  alt: "Universal Recycling Symbols for Materials 1, 2, 4, 5, 6 and 7",
+}))`
+  visibility: ${(props) => (props.mobile ? "hidden" : "visible")};
+  width: ${(props) => (props.mobile ? "0" : "535px")};
+
+  margin: ${(props) => (props.mobile ? "0" : "80px 108px 0 auto")};
+
+  @media (max-width: 641px) {
+    visibility: ${(props) => (props.mobile ? "visible" : "hidden")};
+    width: ${(props) => (props.mobile ? "254px" : "0")};
+
+    margin: 0;
+  }
+`;
 const Footer = styled.footer`
-  margin: 0;
-  background-color: #54585b;
-  box-sizing: border-box;
-  color: #ffffff;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  background-color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+
   line-height: 20px;
   width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  @media (max-width: 1000px) {
+    min-width: 375px;
+    box-sizing: border-box;
+  }
 `;
 
 const Header = styled.header`
+  background-color: ${({ theme }) => theme.colors.white};
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  line-height: 20px;
+
   padding: 0px 80px;
   margin: 0 auto;
-  background-color: #fff;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
   max-width: 1280px;
 `;
 
 const MeetingCard = styled.section`
-  padding: 80px;
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.white}; //is this needed
   display: flex;
   flex-direction: row;
-  color: #ffffff;
-  max-width: 1280px;
 
-  background: #ffffff;
+  max-width: 1280px;
+  min-height: 373px;
+  box-sizing: border-box;
+
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+    height: 735px;
+    min-height: 100%;
+  }
 `;
 const MeetingCardContainer = styled.section`
+  background: ${({ theme }) => theme.colors.brightB};
   display: flex;
   flex-direction: column;
-  background: #f05125;
   padding: 40px;
-  height: 100%;
   border-radius: 10px 0 0 10px;
+  box-sizing: border-box;
+
+  @media (max-width: 900px) {
+    border-radius: 0 0 10px 10px;
+    padding: 40px 16px;
+  }
 `;
 const MeetingCardButton = styled.button`
-  background: ${(props) => (props.orange ? " #F05125" : "#FFFFFF")};
-  color: ${(props) => (props.orange ? "#FFFFFF" : "#F05125")};
+  background: ${({ theme, ...props }) =>
+    props.orange ? theme.colors.brightB : theme.colors.white};
+  color: ${({ theme, ...props }) =>
+    props.orange ? theme.colors.white : theme.colors.brightB};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
+  line-height: 22px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
   width: 237px;
   height: 60px;
   border-radius: 10px;
   border: none;
-  font-family: "Archivo";
-  /* font-style: normal; */
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 22px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  margin: 0;
+
+  margin: 0 25px 0 0;
   padding: 0;
-  margin-right: 25px;
+
   cursor: pointer;
   transition: linear 0.4s;
+
+  @media (max-width: 1000px) {
+
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
 `;
 const MeetingCardArqliteLicensingDeckLink = styled.a`
-  display: flex;
-  flex-direction: row;
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
+
   line-height: 22px;
   letter-spacing: 0.02em;
-  background: transparent;
-  color: #ffffff;
-  text-decoration:none;
- align-items:center;
+  /* background: transparent; */ //is this needed
+  /* color: #ffffff; */ //this is declared in section meeting card parent
+
+  display: flex;
+  flex-direction: row;
+
+  text-decoration: none;
+  align-items: center;
   border: none;
   padding: 0;
   border-radius: 10px;
@@ -169,20 +245,42 @@ const MeetingCardArqliteLicensingDeckLink = styled.a`
 const MeetingCardAction = styled.section`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `;
 const MeetingCardIcon = styled(DownloadIcon)`
+  stroke: ${({ theme }) => theme.colors.white};
   padding: 0;
-  margin: 0;
-  margin-left: 12px;
+  margin: 0 0 0 12px;
+
   align-self: center;
-  stroke: ${({ theme: { colors } }) => colors.white};
+
+  @media (max-width: 1000px) {
+    margin: 0;
+  }
 `;
 
 const TimelineCards = styled.div`
-  background: #ffffff;
+  /* background: #ffffff; //no change is this needed*/
   display: flex;
   flex-direction: row;
   gap: 20px;
+
+  margin-top: 74px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    min-width: 375px;
+    gap: 64px;
+
+    margin-top: 91px;
+  }
 `;
 Section.Header = Header;
 Section.NavLink = NavLink;
@@ -192,12 +290,16 @@ Section.FactoryIcon = NavFactoryIcon;
 Section.RecycleIcon = NavRecycleIcon;
 Section.Marker = SectionMarker;
 Section.Title = SectionTitle;
+Section.TitleCard = SectionTitleCard;
 Section.CaptionLarge = CaptionLarge;
+Section.RecycleImage = RecycleImage;
 Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
 Section.MeetingCardContainer = MeetingCardContainer;
 Section.MeetingCardButton = MeetingCardButton;
-Section.MeetingCardArqliteLicensingDeckLink  = MeetingCardArqliteLicensingDeckLink ;
+Section.MeetingCardArqliteLicensingDeckLink =
+  MeetingCardArqliteLicensingDeckLink;
 Section.MeetingCardAction = MeetingCardAction;
 Section.MeetingCardIcon = MeetingCardIcon;
+
 Section.TimelineCards = TimelineCards;

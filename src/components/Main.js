@@ -1,18 +1,12 @@
 import NavBar from './NavBar';
 import * as data from '../utils/data';
-import * as pdfs from '../utils/downloads';
 import React, { useState, useEffect } from 'react';
-import { Slider } from './Slider/Slider';
-import Calculator from './Calculator/Calculator';
-import {
-  Section,
-  SectionHoriz,
-  SectionVert,
-  SectionVertLong,
-} from '../components/Section';
+import Calculator from './Calculator/Calculator.tsx';
+import { Section } from '../components/Section';
 import markerIconPath from '../images/arrow-down-orange.png';
 import Cards from './Card';
 import recycleImgPath from '../images/recycle-plastics-icons.png';
+import recycleImgMobPath from '../images/recycle-icons-mobile.png';
 import MeetingCard from './MeetingCard';
 import pelletProductionImg from '../images/pellet-production-image.png';
 import buildingImg from '../images/building-image.png';
@@ -72,13 +66,18 @@ function Main({ onDownloadClick }) {
   return (
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
-      <SectionHoriz dark>
-        <Section.Title>Our products</Section.Title>
+      <Section dark>
+        <Section.TitleCard horiz>Our products</Section.TitleCard>
         <Cards>
           {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
-              <Cards.Image horiz src={card.image} alt={card.alt} />
-
+              {/* <Cards.Image horiz src={card.image} alt={card.alt} /> */}
+              <Cards.Image
+                horiz
+                backgroundImage={card.image}
+                role='img'
+                aria-label={card.alt}
+              />
               <Cards.TextBox horiz>
                 <Cards.Caption>{card.caption}</Cards.Caption>
                 <Cards.SmallHeading>{card.heading}</Cards.SmallHeading>
@@ -91,42 +90,47 @@ function Main({ onDownloadClick }) {
             </Cards.Card>
           ))}
         </Cards>
-      </SectionHoriz>
+      </Section>
       <Section id='calculator'>
         <Section.CaptionLarge className='section__caption_center'>
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
-        <Slider />
         <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>
         <Calculator />
       </Section>
-
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}
-      />
-
-      <SectionVertLong dark id='construction'>
+      <Section id='meeting'>
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={pelletProductionImg}
+        />
+      </Section>
+      <Section dark id='construction'>
         <Section.Marker>
           For construction companies{' '}
           <img className='section__marker-icon' src={markerIconPath} />
         </Section.Marker>
-        <Section.Title>
+        <Section.TitleCard>
           Produce your own low-carbon <br></br> & LEED building materials
-        </Section.Title>
+        </Section.TitleCard>
         <Cards>
           {data.constructionCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
-              <Cards.Image src={card.image} alt={card.alt} />
+              {/* <Cards.Image src={card.image} alt={card.alt} /> */}
+              <Cards.Image
+                backgroundImage={card.image}
+                role='img'
+                aria-label={card.alt}
+              />
+              {/* <Cards.Image backgroundImage={card.image} alt={card.alt}/> */}
               <Cards.TextBox>
                 <Cards.Heading>{card.heading}</Cards.Heading>
               </Cards.TextBox>
             </Cards.Card>
           ))}
         </Cards>
-      </SectionVertLong>
+      </Section>
       <Section id='recycle'>
         <Section.Marker>
           For plastic companies and recyclers{' '}
@@ -140,30 +144,37 @@ function Main({ onDownloadClick }) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        <img className='section__recycle-icons' src={recycleImgPath} />
+        {/* <img className="section__recycle-icons" src={recycleImgPath} /> */}
+        <Section.RecycleImage src={recycleImgPath} />
+        <Section.RecycleImage mobile src={recycleImgMobPath} />
       </Section>
 
-      <SectionVert dark id='eco'>
+      <Section dark id='eco'>
         <Section.Marker>
           For eco-conscious brands{' '}
           <img className='section__marker-icon' src={markerIconPath} />
         </Section.Marker>
-        <Section.Title>
+        <Section.TitleCard>
           Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
           into sustainable products
-        </Section.Title>
+        </Section.TitleCard>
         <Cards>
           {data.ecoCards.map((card, i) => (
             <Cards.Card key={i} card={card}>
-              <Cards.Image src={card.image} alt={card.alt} />
+              <Cards.Image
+                backgroundImage={card.image}
+                role='img'
+                aria-label={card.alt}
+              />
               <Cards.TextBox>
                 <Cards.Heading>{card.heading}</Cards.Heading>
+
                 <Cards.Paragraph>{card.paragraph}</Cards.Paragraph>
               </Cards.TextBox>
             </Cards.Card>
           ))}
         </Cards>
-      </SectionVert>
+      </Section>
       <Section>
         <Section.Title>
           We set up <br></br> the process for you
@@ -184,11 +195,12 @@ function Main({ onDownloadClick }) {
           })}
         </Section.TimelineCards>
       </Section>
-
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={buildingImg}
-      />
+      <Section>
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={buildingImg}
+        />
+      </Section>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
         onClose={closeModal}

@@ -12,14 +12,16 @@ const theme = {
   },
 
   fontSizes: {
-    xxs: "12px", //small caption
-    xs: "16px", //p, input, links
-    sm: "20px", //h4, button, drop down, download text
-    md: "28px", //caption large, h3
-    lg: "60px", //h2
-    xlg: "100px", //title
+    3: "12px", //0-small caption
+    4: "16px", //1 - p, input, links
+    5: "20px", //2 - h4, button, drop down, download text
+    6: "24px", //3 - mobile caption large
+    7: "28px", //4 - caption large, h3
+    11: "44px", //5 - mobile h2
+    13: "52px", //6 - mobile h2
+    15: "60px", //7 - h2
+    25: "100px", //8 - title
   },
-
   fontWeights: {
     muted: "400",
     regular: "600",

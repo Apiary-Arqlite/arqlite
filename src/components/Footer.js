@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import arqliteLogo2 from '../images/arqlite-logo-2.svg';
 import { Section } from './Section';
 const Footer = () => {
@@ -7,39 +6,43 @@ const Footer = () => {
       <Section.Footer>
         <section className='footer__container'>
           <img alt='arqlite logo' src={arqliteLogo2} className='footer__logo' />
-          <div className='footer__column'>
+          <div className='footer__column footer__column-solutions'>
             <p className='footer__column_title'>Solutions</p>
             <ul className='footer__column_container'>
               <li className='footer__column_item'>
-                <Link to='/' className='footer__link'>
+                <a href='#construction' className='footer__link'>
                   For construction companies
-                </Link>
+                </a>
               </li>
               <li className='footer__column_item'>
-                <Link to='/' className='footer__link'>
+                <a href='#recycle' className='footer__link'>
                   For plastic producers and recyclers
-                </Link>
+                </a>
               </li>
               <li className='footer__column_item'>
-                <Link className='footer__link'>For eco-conscious brands</Link>
+                <a href='#eco' className='footer__link'>
+                  For eco-conscious brands
+                </a>
               </li>
             </ul>
           </div>
-          <div className='footer__column'>
+          <div className='footer__column footer__column-assistance'>
             <p className='footer__column_title'>Assistance</p>
             <ul className='footer__column_container'>
               <li className='footer__column_item'>
-                <Link to='/' className='footer__link'>
+                <a href='#calculator' className='footer__link'>
                   Facility size calculator
-                </Link>
+                </a>
               </li>
               <li className='footer__column_item'>
-                <Link to='/' className='footer__link'>
+                <a href='#calculator' className='footer__link'>
                   Revenue calculator
-                </Link>
+                </a>
               </li>
               <li className='footer__column_item'>
-                <Link className='footer__link'>Arrange a meeting</Link>
+                <a href='#meeting' className='footer__link'>
+                  Arrange a meeting
+                </a>
               </li>
             </ul>
           </div>
@@ -66,7 +69,7 @@ const Footer = () => {
           <div className='footer__link-main-site'>
             <a
               className='footer__link'
-              href='https://google.com'
+              href='https://www.arqlite.com/'
               target='_blank'
               rel='noreferrer'
             >
