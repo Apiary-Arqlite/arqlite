@@ -210,7 +210,7 @@ const MeetingCardButton = styled.button`
   border-radius: 10px;
   border: none;
 
-  margin: 0 25px 0 0;
+  margin: 0 0;
   padding: 0;
 
   cursor: pointer;
@@ -239,6 +239,7 @@ const MeetingCardArqliteLicensingDeckLink = styled.a`
   align-items: center;
   border: none;
   padding: 0;
+  margin-left: 25px;
   border-radius: 10px;
   cursor: pointer;
 `;
