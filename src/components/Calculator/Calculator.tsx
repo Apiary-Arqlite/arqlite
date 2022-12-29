@@ -14,6 +14,7 @@ const StyledTotalRevenue = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
   font-size: 28px;
   line-height: 32px;
   color: #fff;
@@ -43,7 +44,7 @@ function TotalRevenue() {
   } = useContext(FormContext);
   return (
     <StyledTotalRevenue>
-      Total revenue: <StyledSpan> $ {totalRevenue}</StyledSpan>
+      Total revenue: <StyledSpan> ${totalRevenue}</StyledSpan>
     </StyledTotalRevenue>
   );
 }
