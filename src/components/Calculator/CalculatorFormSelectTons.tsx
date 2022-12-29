@@ -14,14 +14,29 @@ import styled from 'styled-components';
 
 const StyledFormSelectTons = styled(StyledFormSelect)`
   width: 870px;
+
+  @media (max-width: 1000px) {
+    width: 343px;
+    height: 90px;
+  }
 `;
 
 const StyledSelectTons = styled(StyledSelectDiv)`
   width: 830px;
+
+  @media (max-width: 1000px) {
+    width: 303px;
+  }
 `;
 
 const DropdownItemsTons = styled(DropdownItems)`
   width: 870px;
+  display: none;
+
+  @media (max-width: 1000px) {
+    width: 343px;
+  }
+  z-index: 1;
 `;
 
 export default function FormSelect(props: FormSelectProps) {

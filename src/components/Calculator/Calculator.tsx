@@ -20,20 +20,25 @@ const StyledTotalRevenue = styled.div`
   color: #fff;
   background: #0091a6;
   border-radius: 4px;
+
+  @media (max-width: 1000px) {
+    width: 343px;
+    height: 90px;
+    font-size: 24px;
+  }
 `;
 
 const StyledSpan = styled.span`
   font-weight: 700;
 `;
 
-const StyledRow1 = styled.div`
+const StyledRow = styled.div`
   display: flex;
   gap: 20px;
-`;
 
-const StyledRow2 = styled.div`
-  display: flex;
-  gap: 20px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledRow3 = styled.div``;
@@ -59,10 +64,10 @@ export default function Calculator() {
 
   return (
     <CalculatorForm initialValues={initialValues}>
-      <StyledRow1>
+      <StyledRow>
         {/* a */}
         <FormSelect
-          label='Processing Fee'
+          label='Processing fee'
           name='processingFee'
           description="Arqlite charges a processing fee for its recycling solution, meaning the company doesn't pay for its raw material but gets paid."
           isOpen={processingOpen}
@@ -96,9 +101,9 @@ export default function Calculator() {
           <FormOption value={90} />
           <FormOption value={100} />
         </FormSelect>
-      </StyledRow1>
+      </StyledRow>
 
-      <StyledRow2>
+      <StyledRow>
         <FormSelect
           label='Gravel revenue bulk'
           name='gravelRevenueBulk'
@@ -125,7 +130,7 @@ export default function Calculator() {
           <FormOption value={1600} />
           <FormOption value={1800} />
         </FormSelect>
-      </StyledRow2>
+      </StyledRow>
       <StyledRow3>
         <CalculatorFormSelectTons
           label='Total tons per month'

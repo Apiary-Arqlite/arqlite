@@ -3,6 +3,7 @@ import { FormSelectProps } from './FormTypes';
 import { FormContext } from './FormCtx';
 import styled from 'styled-components';
 import { Tooltip } from '@mui/material';
+
 import info from '../../images/info.svg';
 
 export const StyledFormSelect = styled.div`
@@ -12,17 +13,25 @@ export const StyledFormSelect = styled.div`
   flex-direction: column;
   border: 1px solid #54585b;
   border-radius: 4px;
+
+  @media (max-width: 1000px) {
+    width: 343px;
+    height: 90px;
+  }
 `;
 
 export const StyledFormSelectDiv = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 1000px) {
+  }
 `;
 
 export const StyledLabel = styled.label`
   font-size: 16px;
   line-height: 20px;
-  color: #54585b;
+  color: #8f999a;
   margin-top: 16px;
   margin-left: 20px;
 `;
@@ -40,11 +49,8 @@ export const StyledInfoButton = styled.button`
   width: 16px;
   padding: 0;
   line-height: 16px;
+  color: #54585b;
 `;
-
-//   background-image: url(${info});
-//  background-repeat: no-repeat;
-//  image-fit: contain;
 
 export const StyledSelectDiv = styled.div`
   position: relative;
@@ -66,6 +72,12 @@ export const StyledSelectDiv = styled.div`
 
   &:first-child {
     padding-top: 8px;
+  }
+
+  @media (max-width: 1000px) {
+    width: 303px;
+    height: 22px;
+    margin: 12px 20px 0;
   }
 `;
 
@@ -94,6 +106,10 @@ export const DropdownItems = styled.ul`
   border-radius: 4px;
   position: relative;
   left: -24px;
+
+  @media (max-width: 1000px) {
+    width: 343px;
+  }
 `;
 
 export default function FormSelect(props: FormSelectProps) {
@@ -124,7 +140,3 @@ export default function FormSelect(props: FormSelectProps) {
     </StyledFormSelect>
   );
 }
-
-// code for info icon &#9432;,
-// q: how to ignore a typsecript error for a line of code in a react component?
-// a:
