@@ -13,14 +13,17 @@ import buildingImg from "../images/building-image.png";
 import ArrangeMeetingForm from "./ArrangeMeetingForm";
 import InfoToolModal from "./InfoToolModal";
 import TimelineCard from "./TimelineCard";
+import MobileNavModal from "./MobileNavModal";
 
 function Main({ onDownloadClick }) {
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
     useState(false);
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
+  const [isMobileNavModalOpen, setIsMobileNavModalOpen] = useState(false);
   const [isInfoToolStatus, setInfoToolStatus] = useState("");
 
-  const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
+  const isAnyModalOpen =
+    isArrangeMeetingFormOpen || isInfoToolModalOpen || isMobileNavModalOpen;
 
   const handleArrangeMeetingClick = () => {
     setIsArrangeMeetingFormOpen(true);
@@ -28,6 +31,7 @@ function Main({ onDownloadClick }) {
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
+    setIsMobileNavModalOpen(false);
   };
 
   useEffect(() => {
@@ -67,7 +71,7 @@ function Main({ onDownloadClick }) {
     <main>
       <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
       <Section dark>
-        <Section.TitleCard horiz >Our products</Section.TitleCard>
+        <Section.TitleCard horiz>Our products</Section.TitleCard>
         <Cards>
           {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
@@ -100,17 +104,18 @@ function Main({ onDownloadClick }) {
         </Section.CaptionLarge>
         <Calculator />
       </Section>
-<Section id="meeting">
-      <MeetingCard 
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={pelletProductionImg}/>
-</Section>
+      <Section id="meeting">
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={pelletProductionImg}
+        />
+      </Section>
       <Section dark id="construction">
         <Section.Marker>
           For construction companies{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.TitleCard >
+        <Section.TitleCard>
           Produce your own low-carbon <br></br> & LEED building materials
         </Section.TitleCard>
         <Cards>
@@ -134,9 +139,8 @@ function Main({ onDownloadClick }) {
         <Section.Marker>
           For plastic companies and recyclers{" "}
           <img className="section__marker-icon" src={markerIconPath} />
-          
         </Section.Marker>
-        <Section.Title >
+        <Section.Title>
           Recycle plastics <br></br> that no one else can
         </Section.Title>
         <Section.CaptionLarge>
@@ -145,8 +149,8 @@ function Main({ onDownloadClick }) {
           currently going to landfill or incineration.
         </Section.CaptionLarge>
         {/* <img className="section__recycle-icons" src={recycleImgPath} /> */}
-        <Section.RecycleImage src={recycleImgPath}/>
-        <Section.RecycleImage mobile src={recycleImgMobPath}/>
+        <Section.RecycleImage src={recycleImgPath} />
+        <Section.RecycleImage mobile src={recycleImgMobPath} />
       </Section>
 
       <Section dark id="eco">
@@ -154,7 +158,7 @@ function Main({ onDownloadClick }) {
           For eco-conscious brands{" "}
           <img className="section__marker-icon" src={markerIconPath} />
         </Section.Marker>
-        <Section.TitleCard >
+        <Section.TitleCard>
           Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
           into sustainable products
         </Section.TitleCard>
@@ -176,30 +180,30 @@ function Main({ onDownloadClick }) {
         </Cards>
       </Section>
       <Section>
-        <Section.Title >
+        <Section.Title>
           We set up <br></br> the process for you
         </Section.Title>
-      
-      <Section.TimelineCards>
-        {data.timelineCards.map((card, i) => {
-          return (
-            <TimelineCard
-              key={i}
-              title={card.title}
-              step={card.step}
-              icon={card.icon}
-              element={card.element}
-              alt={card.alt}
-            />
-          );
-        })}
-      </Section.TimelineCards>
+
+        <Section.TimelineCards>
+          {data.timelineCards.map((card, i) => {
+            return (
+              <TimelineCard
+                key={i}
+                title={card.title}
+                step={card.step}
+                icon={card.icon}
+                element={card.element}
+                alt={card.alt}
+              />
+            );
+          })}
+        </Section.TimelineCards>
       </Section>
       <Section>
-      <MeetingCard
-        handleArrangeMeetingClick={handleArrangeMeetingClick}
-        img={buildingImg}
-      />
+        <MeetingCard
+          handleArrangeMeetingClick={handleArrangeMeetingClick}
+          img={buildingImg}
+        />
       </Section>
       <ArrangeMeetingForm
         isOpen={isArrangeMeetingFormOpen}
@@ -211,6 +215,7 @@ function Main({ onDownloadClick }) {
         onClose={closeModal}
         status={isInfoToolStatus}
       />
+      <MobileNavModal isOpen={isMobileNavModalOpen} onClose={closeModal} />
     </main>
   );
 }
