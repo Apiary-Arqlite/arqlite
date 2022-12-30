@@ -3,6 +3,8 @@ import { FormSelectProps } from '../Form/FormTypes';
 import { FormContext } from '../Form/FormCtx';
 import {
   StyledFormSelect,
+  InnerWrapper,
+  Carat,
   StyledFormSelectDiv,
   StyledLabel,
   StyledSelectDiv,
@@ -10,10 +12,15 @@ import {
   DropdownItems,
   StyledTooltip,
 } from '../Form/FormSelect';
+import carat from '../../images/down-icon.png';
 import styled from 'styled-components';
 
 const StyledFormSelectTons = styled(StyledFormSelect)`
+  margin: 0;
+  padding: 0;
   width: 870px;
+  display: flex;
+  justify-content: space-between;
 
   @media (max-width: 1000px) {
     width: 343px;
@@ -22,8 +29,6 @@ const StyledFormSelectTons = styled(StyledFormSelect)`
 `;
 
 const StyledSelectTons = styled(StyledSelectDiv)`
-  width: 830px;
-
   @media (max-width: 1000px) {
     width: 303px;
   }
@@ -48,22 +53,25 @@ export default function FormSelect(props: FormSelectProps) {
 
   return (
     <StyledFormSelectTons>
-      <StyledFormSelectDiv>
-        <StyledLabel>{label}</StyledLabel>
-        <StyledTooltip title={description}>
-          <StyledInfoButton>&#9432;</StyledInfoButton>
-        </StyledTooltip>
-      </StyledFormSelectDiv>
+      <InnerWrapper>
+        <StyledFormSelectDiv>
+          <StyledLabel>{label}</StyledLabel>
+          <StyledTooltip title={description}>
+            <StyledInfoButton>&#9432;</StyledInfoButton>
+          </StyledTooltip>
+        </StyledFormSelectDiv>
 
-      <StyledSelectTons<any>
-        name={name}
-        value={Number(currentValue)}
-        onChange={handleFormChange}
-      >
-        <DropdownItemsTons>{props.children}</DropdownItemsTons>
-      </StyledSelectTons>
+        <StyledSelectTons<any>
+          name={name}
+          value={Number(currentValue)}
+          onChange={handleFormChange}
+        >
+          <DropdownItemsTons>{props.children}</DropdownItemsTons>
+        </StyledSelectTons>
+      </InnerWrapper>
+      <Carat>
+        <img src={carat} alt='carat'></img>
+      </Carat>
     </StyledFormSelectTons>
   );
 }
-
-// q: how to style children of an element css?

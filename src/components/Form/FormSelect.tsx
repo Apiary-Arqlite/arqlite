@@ -3,24 +3,48 @@ import { FormSelectProps } from './FormTypes';
 import { FormContext } from './FormCtx';
 import styled from 'styled-components';
 import { Tooltip } from '@mui/material';
-
+import carat from '../../images/down-icon.png';
 import info from '../../images/info.svg';
 
 export const StyledFormSelect = styled.div`
+  margin: 0;
+  padding: 0;
   width: 425px;
   height: 90px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #54585b;
   border-radius: 4px;
 
   @media (max-width: 1000px) {
-    width: 343px;
+    max-width: 343px;
     height: 90px;
   }
 `;
 
+export const InnerWrapper = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+`;
+
+export const Carat = styled.button`
+  margin: 29px;
+  right: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  background: transparent;
+  height: 32px;
+  width: 32px;
+`;
+
 export const StyledFormSelectDiv = styled.div`
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
 
@@ -36,7 +60,7 @@ export const StyledLabel = styled.label`
   margin-left: 20px;
 `;
 
-export const StyledInfoButton = styled.button`
+export const StyledInfoButton = styled.p`
   border: none;
   outline: none;
   cursor: pointer;
@@ -54,10 +78,9 @@ export const StyledInfoButton = styled.button`
 
 export const StyledSelectDiv = styled.div`
   position: relative;
-  appearance: none;
   height: 22px;
-  width: 385px;
-  margin: 12px 20px 0;
+  max-width: 100%;
+  margin: 0 20px 0;
   padding: 0;
   border: none;
   border-radius: 4px;
@@ -68,14 +91,11 @@ export const StyledSelectDiv = styled.div`
   font-weight: 400;
   color: #54585b;
 
-  border: 2px solid red;
-
   &:first-child {
     padding-top: 8px;
   }
 
   @media (max-width: 1000px) {
-    width: 303px;
     height: 22px;
     margin: 12px 20px 0;
   }
@@ -121,22 +141,26 @@ export default function FormSelect(props: FormSelectProps) {
 
   return (
     <StyledFormSelect>
-      <StyledFormSelectDiv>
-        <StyledLabel>{label}</StyledLabel>
-        <StyledTooltip title={description} placement='bottom-end'>
-          <StyledInfoButton>&#9432;</StyledInfoButton>
-        </StyledTooltip>
-      </StyledFormSelectDiv>
-
-      <StyledSelectDiv<any>
-        name={name}
-        value={Number(currentValue)}
-        onChange={handleFormChange}
-        isOpen={isOpen}
-      >
-        {/* @ts-ignore */}
-        <DropdownItems isOpen={isOpen}>{props.children}</DropdownItems>
-      </StyledSelectDiv>
+      <InnerWrapper>
+        <StyledFormSelectDiv>
+          <StyledLabel>{label}</StyledLabel>
+          <StyledTooltip title={description} placement='bottom-end'>
+            <StyledInfoButton>&#9432;</StyledInfoButton>
+          </StyledTooltip>
+        </StyledFormSelectDiv>
+        <StyledSelectDiv<any>
+          name={name}
+          value={Number(currentValue)}
+          onChange={handleFormChange}
+          isOpen={isOpen}
+        >
+          {/* @ts-ignore */}
+          <DropdownItems isOpen={isOpen}>{props.children}</DropdownItems>
+        </StyledSelectDiv>
+      </InnerWrapper>
+      <Carat>
+        <img src={carat} alt='carat'></img>
+      </Carat>
     </StyledFormSelect>
   );
 }
