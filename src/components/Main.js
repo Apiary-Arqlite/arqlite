@@ -13,17 +13,15 @@ import buildingImg from "../images/building-image.png";
 import ArrangeMeetingForm from "./ArrangeMeetingForm";
 import InfoToolModal from "./InfoToolModal";
 import TimelineCard from "./TimelineCard";
-import MobileNavModal from "./MobileNavModal";
 
 function Main({ onDownloadClick }) {
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
     useState(false);
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
-  const [isMobileNavModalOpen, setIsMobileNavModalOpen] = useState(false);
   const [isInfoToolStatus, setInfoToolStatus] = useState("");
 
   const isAnyModalOpen =
-    isArrangeMeetingFormOpen || isInfoToolModalOpen || isMobileNavModalOpen;
+    isArrangeMeetingFormOpen || isInfoToolModalOpen;
 
   const handleArrangeMeetingClick = () => {
     setIsArrangeMeetingFormOpen(true);
@@ -31,7 +29,6 @@ function Main({ onDownloadClick }) {
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
-    setIsMobileNavModalOpen(false);
   };
 
   useEffect(() => {
@@ -215,7 +212,6 @@ function Main({ onDownloadClick }) {
         onClose={closeModal}
         status={isInfoToolStatus}
       />
-      <MobileNavModal isOpen={isMobileNavModalOpen} onClose={closeModal} />
     </main>
   );
 }

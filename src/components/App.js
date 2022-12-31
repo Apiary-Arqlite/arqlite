@@ -9,6 +9,7 @@ import Footer from "./Footer";
 /*                                function App                                */
 /* -------------------------------------------------------------------------- */
 function App() {
+
   function handleDownloadClick(pdf) {
     // using Java Script method to get PDF file
     fetch(pdf).then((response) => {
@@ -23,6 +24,7 @@ function App() {
       });
     });
   }
+
   return (
     <div>
       <Header />

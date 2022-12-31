@@ -18,7 +18,7 @@ function NavBar({ handleArrangeMeetingClick }) {
   return (
     <>
       <Section className="navbar" id="navbar">
-        <div className="navbar__links">
+        <nav className="navbar__links">
           <Section.NavLink
             className="navbar__link navbar__link-calc"
             href="#calculator"
@@ -61,7 +61,7 @@ function NavBar({ handleArrangeMeetingClick }) {
           >
             Arrange a meeting
           </Section.MeetingCardButton>
-        </div>
+        </nav>
       </Section>
     </>
   );
