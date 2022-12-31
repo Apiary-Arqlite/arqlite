@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header/>
       <Main onDownloadClick={handleDownloadClick} />
 
       <Footer />

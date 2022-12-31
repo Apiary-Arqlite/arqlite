@@ -4,7 +4,6 @@ import { Section } from "./Section";
 import arqliteLogo2 from "../images/arqlite-logo-2.svg";
 import Box1 from "./Box1.jsx";
 import "../blocks/Box1.css";
-import NavBarClosedIcon from "./icons/NavBarIcon__closed";
 import NavBar from "./NavBar";
 
 function Header({ handleArrangeMeetingClick }) {
@@ -14,25 +13,32 @@ function Header({ handleArrangeMeetingClick }) {
   return (
     <Section.Header className="header" id="header">
       <div className="header__wrapper">
-        <div className="header__mobile-nav" id="mobile-nav">
-          <a className="header__logo-path" href="#header">
-            <img
-              alt="Arqlite logo"
-              src={arqliteLogo2}
-              className="header__logo"
+        <div className={mobileNavOpened ? "header__mobile-nav_bg" : ""}>
+          <div className="header__mobile-nav" id="mobile-nav">
+            <a className="header__logo-path" href="#header">
+              <img
+                alt="Arqlite logo"
+                src={arqliteLogo2}
+                className="header__logo"
+              />
+            </a>
+            <button
+              className={
+                mobileNavOpened
+                  ? "header__navbar-btn_opened"
+                  : "header__navbar-btn_closed"
+              }
+              onClick={toggleMobileNav}
             />
-          </a>
-          <button className="header__navbar-btn" onClick={toggleMobileNav}>
-            <NavBarClosedIcon />
-          </button>
-          <div
-            className={
-              mobileNavOpened
-                ? "header__mobile-nav_opened"
-                : "header__mobile-nav_closed"
-            }
-          >
-            <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
+            <div
+              className={
+                mobileNavOpened
+                  ? "header__mobile-nav_opened"
+                  : "header__mobile-nav_closed"
+              }
+            >
+              <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
+            </div>
           </div>
         </div>
         <h1 className="header__title">
