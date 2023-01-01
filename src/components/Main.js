@@ -20,8 +20,7 @@ function Main({ onDownloadClick }) {
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
   const [isInfoToolStatus, setInfoToolStatus] = useState("");
 
-  const isAnyModalOpen =
-    isArrangeMeetingFormOpen || isInfoToolModalOpen;
+  const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
 
   const handleArrangeMeetingClick = () => {
     setIsArrangeMeetingFormOpen(true);
@@ -64,9 +63,27 @@ function Main({ onDownloadClick }) {
     setInfoToolStatus("success");
   };
 
+  const navBar = document.getElementById("navbar");
+
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      navBar.style.top = "0px";
+    } else {
+      navBar.style.top = "-500px";
+    }
+    prevScrollpos = currentScrollPos;
+  };
+
+  console.log(navBar);
+
   return (
     <main>
-      <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
+      <NavBar
+        id="navbar"
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+      ></NavBar>
       <Section dark>
         <Section.TitleCard horiz>Our products</Section.TitleCard>
         <Cards>

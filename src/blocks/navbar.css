@@ -5,9 +5,7 @@
   position: sticky;
   top: 0px;
   z-index: 7;
-  transition: ease-in-out 0.7s;
-  background-color: rgba(0, 0, 0, 0);
-
+  transition: top 0.4s;
 }
 
 .navbar__links {

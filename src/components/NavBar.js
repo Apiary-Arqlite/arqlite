@@ -4,20 +4,10 @@ import React from "react";
 import { Section } from "./Section";
 
 function NavBar({ handleArrangeMeetingClick }) {
-  var prevScrollpos = window.pageYOffset;
-  window.onscroll = function () {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-500px";
-    }
-    prevScrollpos = currentScrollPos;
-  };
 
   return (
     <>
-      <Section className="navbar" id="navbar">
+      <Section className="navbar">
         <nav className="navbar__links">
           <Section.NavLink
             className="navbar__link navbar__link-calc"
