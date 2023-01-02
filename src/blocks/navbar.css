@@ -5,8 +5,7 @@
   position: sticky;
   top: 0px;
   z-index: 7;
-  transition: ease-in-out 0.7s;
-  background-color: rgba(0, 0, 0, 0);
+  transition: top 0.4s;
 }
 
 .navbar__links {
@@ -49,14 +48,17 @@
   background: #d2390e;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .navbar__links {
     flex-wrap: wrap;
-    row-gap: 20px;
+    row-gap: 48px;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
+  .navbar {
+    position: static;
+  }
   .navbar__links {
     display: grid;
     grid-template-areas:
