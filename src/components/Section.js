@@ -171,7 +171,7 @@ const MeetingCard = styled.section`
   min-height: 373px;
   box-sizing: border-box;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     flex-direction: column-reverse;
     height: 735px;
     min-height: 100%;
@@ -185,7 +185,7 @@ const MeetingCardContainer = styled.section`
   border-radius: 10px 0 0 10px;
   box-sizing: border-box;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
   }
