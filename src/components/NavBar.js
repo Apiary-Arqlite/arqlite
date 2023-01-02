@@ -18,6 +18,7 @@ function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
           </Section.NavLink>
 
           <Section.NavLink
+          onClick={closeMobileNav}
             className="navbar__link navbar__link-wall"
             href="#construction"
           >
@@ -26,6 +27,7 @@ function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
           </Section.NavLink>
 
           <Section.NavLink
+          onClick={closeMobileNav}
             className="navbar__link navbar__link-factory"
             href="#recycle"
           >
@@ -36,6 +38,7 @@ function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
           </Section.NavLink>
 
           <Section.NavLink
+          onClick={closeMobileNav}
             className="navbar__link navbar__link-recycle"
             href="#eco"
           >
