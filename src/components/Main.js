@@ -63,25 +63,21 @@ function Main({ onDownloadClick }) {
     setInfoToolStatus("success");
   };
 
-  const navBar = document.getElementById("navbar");
-
   var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-      navBar.style.top = "0px";
+      document.getElementById("navbar").style.top = "0px";
     } else {
-      navBar.style.top = "-500px";
+      document.getElementById("navbar").style.top = "-500px";
     }
     prevScrollpos = currentScrollPos;
   };
 
-  console.log(navBar);
-
   return (
     <main>
       <NavBar
-        id="navbar"
+        id={"navbar"}
         handleArrangeMeetingClick={handleArrangeMeetingClick}
       ></NavBar>
       <Section dark>

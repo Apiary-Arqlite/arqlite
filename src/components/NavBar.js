@@ -3,11 +3,11 @@ import React from "react";
 
 import { Section } from "./Section";
 
-function NavBar({ handleArrangeMeetingClick }) {
+function NavBar({ handleArrangeMeetingClick, id }) {
 
   return (
     <>
-      <Section className="navbar">
+      <Section className="navbar" id={id}>
         <nav className="navbar__links">
           <Section.NavLink
             className="navbar__link navbar__link-calc"

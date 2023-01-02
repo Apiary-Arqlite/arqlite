@@ -37,7 +37,10 @@ function Header({ handleArrangeMeetingClick }) {
                   : "header__mobile-nav_closed"
               }
             >
-              <NavBar handleArrangeMeetingClick={handleArrangeMeetingClick} />
+              <NavBar
+                handleArrangeMeetingClick={handleArrangeMeetingClick}
+                id={"navbar_mobile"}
+              />
             </div>
           </div>
         </div>
