@@ -3,13 +3,13 @@ import React from "react";
 
 import { Section } from "./Section";
 
-function NavBar({ handleArrangeMeetingClick, id }) {
-
+function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
   return (
     <>
       <Section className="navbar" id={id}>
         <nav className="navbar__links">
           <Section.NavLink
+            onClick={closeMobileNav}
             className="navbar__link navbar__link-calc"
             href="#calculator"
           >
