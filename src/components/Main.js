@@ -13,8 +13,11 @@ import buildingImg from "../images/building-image.png";
 import ArrangeMeetingForm from "./ArrangeMeetingForm";
 import InfoToolModal from "./InfoToolModal";
 import TimelineCard from "./TimelineCard";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 function Main({ onDownloadClick }) {
+  const isLessThan641 = useMediaQuery("(min-width:641px)");
+  console.log(recycleImgMobPath);
   const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
     useState(false);
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
@@ -158,9 +161,10 @@ function Main({ onDownloadClick }) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        {/* <img className="section__recycle-icons" src={recycleImgPath} /> */}
-        <Section.RecycleImage src={recycleImgPath} />
-        <Section.RecycleImage mobile src={recycleImgMobPath} />
+
+        <Section.RecycleImage
+          src={isLessThan641 ? recycleImgPath : recycleImgMobPath}
+        />
       </Section>
 
       <Section dark id="eco">
