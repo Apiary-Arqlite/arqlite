@@ -39,7 +39,6 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
         <Cards>
           {data.productCards.map((card, i) => (
             <Cards.Card key={i} card={card} horiz>
-              {/* <Cards.Image horiz src={card.image} alt={card.alt} /> */}
               <Cards.Image
                 horiz
                 backgroundImage={card.image}
@@ -77,7 +76,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
       <Section dark id="construction">
         <Section.Marker>
           For construction companies{" "}
-          <img className="section__marker-icon" src={markerIconPath} />
+          <img className="section__marker-icon" src={markerIconPath} alt=""/>
         </Section.Marker>
         <Section.TitleCard>
           Produce your own low-carbon <br></br> & LEED building materials
@@ -102,7 +101,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
       <Section id="recycle">
         <Section.Marker>
           For plastic companies and recyclers{" "}
-          <img className="section__marker-icon" src={markerIconPath} />
+          <img className="section__marker-icon" src={markerIconPath} alt=""/>
         </Section.Marker>
         <Section.Title>
           Recycle plastics <br></br> that no one else can
@@ -121,7 +120,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
       <Section dark id="eco">
         <Section.Marker>
           For eco-conscious brands{" "}
-          <img className="section__marker-icon" src={markerIconPath} />
+          <img className="section__marker-icon" src={markerIconPath} alt=""/>
         </Section.Marker>
         <Section.TitleCard>
           Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
