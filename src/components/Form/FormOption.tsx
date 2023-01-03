@@ -20,11 +20,20 @@ export const StyledFormOption = styled.li`
 
   &:hover {
     background-color: #f3f3f3;
+    cursor: pointer;
   }
 `;
 
 export default function FormOption(props: FormOptionProps) {
   return (
-    <StyledFormOption value={props.value}>$ {props.value}</StyledFormOption>
+    <StyledFormOption
+      value={props.value}
+      onClick={() => {
+        console.log(props.value);
+        // set isOpen to !isOpen
+      }}
+    >
+      $ {props.value}
+    </StyledFormOption>
   );
 }

@@ -14,6 +14,7 @@ export interface FormSelectProps {
   label: string;
   description: string;
   isOpen: boolean;
+  onToggle: (isOpen: boolean) => void;
   children: React.ReactNode;
 }
 

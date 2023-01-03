@@ -120,7 +120,8 @@ export const DropdownItems = styled.ul`
   padding: 12px 0;
   width: 425px;
   display: ${({ isOpen }: any) => (isOpen ? 'block' : 'none')};
-  display: none;
+  cursor: pointer;
+
   background-color: #fff;
   border: 1px solid #54585b;
   border-radius: 4px;
@@ -133,11 +134,21 @@ export const DropdownItems = styled.ul`
 `;
 
 export default function FormSelect(props: FormSelectProps) {
-  const { label, name, description, isOpen } = props;
+  const { label, name, description, isOpen, onToggle } = props;
 
   const formContext = useContext(FormContext);
   const { form, handleFormChange } = formContext;
   const currentValue = form[name];
+
+  const ToggleDropdown = (e: any) => {
+    e.preventDefault();
+    /* @ts-ignore */
+    onToggle(!isOpen);
+
+    // q: how to toggle isOpen if user clicks outside of dropdown?
+    // a: use a ref to the dropdown and add an event listener to the window
+    // that checks if the click target is inside the dropdown
+  };
 
   return (
     <StyledFormSelect>
@@ -152,15 +163,18 @@ export default function FormSelect(props: FormSelectProps) {
           name={name}
           value={Number(currentValue)}
           onChange={handleFormChange}
-          isOpen={isOpen}
         >
+          {/* @ts-ignore */}
+          <p>{Number(currentValue)}</p>
           {/* @ts-ignore */}
           <DropdownItems isOpen={isOpen}>{props.children}</DropdownItems>
         </StyledSelectDiv>
       </InnerWrapper>
-      <Carat>
+      <Carat onClick={ToggleDropdown}>
         <img src={carat} alt='carat'></img>
       </Carat>
     </StyledFormSelect>
   );
 }
+
+// q: how to comment out several lines of code at once?

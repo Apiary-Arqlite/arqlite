@@ -56,11 +56,11 @@ function TotalRevenue() {
 
 export default function Calculator() {
   // initialize states for each dropdown to false
-  const [processingOpen, setprocessingOpen] = useState(false);
-  const [plasticOpen, setplasticOpen] = useState(false);
-  const [gravelOpen, setgravelOpen] = useState(false);
-  const [pelletsOpen, setpelletsOpen] = useState(false);
-  const [tonsOpen, settonsOpen] = useState(false);
+  const [processingOpen, setProcessingOpen] = useState(false);
+  const [plasticOpen, setPlasticOpen] = useState(false);
+  const [gravelOpen, setGravelOpen] = useState(false);
+  const [pelletsOpen, setPelletsOpen] = useState(false);
+  const [tonsOpen, setTonsOpen] = useState(false);
 
   return (
     <CalculatorForm initialValues={initialValues}>
@@ -71,6 +71,7 @@ export default function Calculator() {
           name='processingFee'
           description="Arqlite charges a processing fee for its recycling solution, meaning the company doesn't pay for its raw material but gets paid."
           isOpen={processingOpen}
+          onToggle={setProcessingOpen}
         >
           <FormOption value={10} />
           <FormOption value={20} />
@@ -89,6 +90,7 @@ export default function Calculator() {
           name='plasticCredits'
           description='Arqlite technology is certified for RMS Plastic Credits that can be sold to the green bond market.'
           isOpen={plasticOpen}
+          onToggle={setPlasticOpen}
         >
           <FormOption value={10} />
           <FormOption value={20} />
@@ -109,6 +111,7 @@ export default function Calculator() {
           name='gravelRevenueBulk'
           description='This is the lowest price for Arqlite Smart Gravel sold bulk, usually to companies in the built environment.'
           isOpen={gravelOpen}
+          onToggle={setGravelOpen}
         >
           <FormOption value={200} />
           <FormOption value={300} />
@@ -122,6 +125,7 @@ export default function Calculator() {
           name='pelletsRevenueBulk'
           description='This is the bulk price for Arqlite Composite Plastic pellets sold to blenders and plastic manufacturers.'
           isOpen={pelletsOpen}
+          onToggle={setPelletsOpen}
         >
           <FormOption value={900} />
           <FormOption value={1000} />
@@ -137,6 +141,7 @@ export default function Calculator() {
           name='totalTonsPerMonth'
           description='Pick the total number of tons associated with each hardware setup: 1tn/h, 2tn/h, 4tn/h, 6tn/h, 8tn/h and 10tn/h.'
           isOpen={tonsOpen}
+          onToggle={setTonsOpen}
         >
           <CalculatorFormOptionTons value={462} />
           <CalculatorFormOptionTons value={462} />

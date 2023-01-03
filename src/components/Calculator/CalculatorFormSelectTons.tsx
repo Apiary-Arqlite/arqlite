@@ -36,7 +36,6 @@ const StyledSelectTons = styled(StyledSelectDiv)`
 
 const DropdownItemsTons = styled(DropdownItems)`
   width: 870px;
-  display: none;
 
   @media (max-width: 1000px) {
     width: 343px;
@@ -45,11 +44,18 @@ const DropdownItemsTons = styled(DropdownItems)`
 `;
 
 export default function FormSelect(props: FormSelectProps) {
-  const { label, name, description } = props;
+  const { label, name, description, isOpen, onToggle } = props;
 
   const formContext = useContext(FormContext);
   const { form, handleFormChange } = formContext;
   const currentValue = form[name];
+
+  const ToggleDropdown = (e: any) => {
+    e.preventDefault();
+    console.log('clicked!');
+    /* @ts-ignore */
+    onToggle(!isOpen);
+  };
 
   return (
     <StyledFormSelectTons>
@@ -66,10 +72,15 @@ export default function FormSelect(props: FormSelectProps) {
           value={Number(currentValue)}
           onChange={handleFormChange}
         >
-          <DropdownItemsTons>{props.children}</DropdownItemsTons>
+          {/* @ts-ignore */}
+          <p>{Number(currentValue)}</p>
+          {/* @ts-ignore */}
+          <DropdownItemsTons isOpen={isOpen}>
+            {props.children}
+          </DropdownItemsTons>
         </StyledSelectTons>
       </InnerWrapper>
-      <Carat>
+      <Carat onClick={ToggleDropdown}>
         <img src={carat} alt='carat'></img>
       </Carat>
     </StyledFormSelectTons>
