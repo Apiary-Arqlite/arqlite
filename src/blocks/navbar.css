@@ -67,10 +67,4 @@
       "btn btn";
     justify-content: space-around;
   }
-  .header__mobile-nav_bg:hover {
-    cursor: pointer;
-  }
-  .header__mobile-nav:hover {
-    cursor: default;
-  }
 }

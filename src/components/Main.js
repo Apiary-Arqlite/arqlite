@@ -1,6 +1,6 @@
 import NavBar from "./NavBar";
 import * as data from "../utils/data";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Calculator from "./Calculator/Calculator.tsx";
 import { Section } from "../components/Section";
 import markerIconPath from "../images/arrow-down-orange.png";
@@ -10,6 +10,8 @@ import recycleImgMobPath from "../images/recycle-icons-mobile.png";
 import MeetingCard from "./MeetingCard";
 import pelletProductionImg from "../images/pellet-production-image.png";
 import buildingImg from "../images/building-image.png";
+import ArrangeMeetingForm from "./ArrangeMeetingForm";
+import InfoToolModal from "./InfoToolModal";
 import TimelineCard from "./TimelineCard";
 import useMediaQuery from "../hooks/useMediaQuery";
 
@@ -217,6 +219,16 @@ function Main({ onDownloadClick }) {
           img={buildingImg}
         />
       </Section>
+      <ArrangeMeetingForm
+        isOpen={isArrangeMeetingFormOpen}
+        onClose={closeModal}
+        onSendRequest={handleSendRequest}
+      />
+      <InfoToolModal
+        isOpen={isInfoToolModalOpen}
+        onClose={closeModal}
+        status={isInfoToolStatus}
+      />
     </main>
   );
 }

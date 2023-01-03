@@ -58,11 +58,11 @@
   background-color: #fff;
   max-width: 900px;
   z-index: 9;
-  transition: all .5s ease-out;
 }
 
 .header__mobile-nav_closed {
   background: #ffffff;
+  top: 60px;
   z-index: 8;
   right: 0px;
   border-radius: 0px 0px 10px 10px;
@@ -77,12 +77,6 @@
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   z-index: 10;
-  opacity: 1;
-  transition: all 0.3s;
-}
-
-.header__mobile-nav_bg_closed {
-  opacity: 0;
 }
 
 .header__wrapper {
