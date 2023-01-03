@@ -92,6 +92,9 @@
 }
 
 @media screen and (max-width: 900px) {
+  .header__wrapper {
+    margin-top: -225px;
+  }
   .header__title {
   font-size: 60px;
   line-height: 90%;
