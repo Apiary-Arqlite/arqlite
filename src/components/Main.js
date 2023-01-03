@@ -11,8 +11,59 @@ import MeetingCard from "./MeetingCard";
 import pelletProductionImg from "../images/pellet-production-image.png";
 import buildingImg from "../images/building-image.png";
 import TimelineCard from "./TimelineCard";
+import useMediaQuery from "../hooks/useMediaQuery";
 
-function Main({ onDownloadClick, handleArrangeMeetingClick }) {
+function Main({ onDownloadClick }) {
+  const isLessThan641 = useMediaQuery("(min-width:641px)");
+  console.log(recycleImgMobPath);
+  const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
+    useState(false);
+  const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
+  const [isInfoToolStatus, setInfoToolStatus] = useState("");
+
+  const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
+
+  const handleArrangeMeetingClick = () => {
+    setIsArrangeMeetingFormOpen(true);
+  };
+  const closeModal = () => {
+    setIsArrangeMeetingFormOpen(false);
+    setIsInfoToolOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickClose = (event) => {
+      if (event.target.classList.contains("modal_opened")) {
+        closeModal();
+      }
+    };
+
+    const handleEscClose = (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    if (isAnyModalOpen) {
+      document.addEventListener("click", handleClickClose);
+      document.addEventListener("keydown", handleEscClose);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickClose);
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [isAnyModalOpen]);
+
+  const handleSendRequest = () => {
+    //implement logic for submit request
+    console.log("implement logic for submit request");
+    setIsArrangeMeetingFormOpen(false);
+    setIsInfoToolOpen(true);
+    //if request submit is successful or if not setInfoToolStatus("fail");
+    setInfoToolStatus("success");
+  };
+
   var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -108,9 +159,10 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
           company. From zero to production-ready. Add value to the plastics
           currently going to landfill or incineration.
         </Section.CaptionLarge>
-        {/* <img className="section__recycle-icons" src={recycleImgPath} /> */}
-        <Section.RecycleImage src={recycleImgPath} />
-        <Section.RecycleImage mobile src={recycleImgMobPath} />
+
+        <Section.RecycleImage
+          src={isLessThan641 ? recycleImgPath : recycleImgMobPath}
+        />
       </Section>
 
       <Section dark id="eco">
