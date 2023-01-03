@@ -125,15 +125,12 @@ const RecycleImage = styled.img.attrs(({ src }) => ({
   src: src,
   alt: "Universal Recycling Symbols for Materials 1, 2, 4, 5, 6 and 7",
 }))`
-  visibility: ${(props) => (props.mobile ? "hidden" : "visible")};
-  width: ${(props) => (props.mobile ? "0" : "535px")};
+  width: 535px;
 
-  margin: ${(props) => (props.mobile ? "0" : "80px 108px 0 auto")};
+  margin: 80px 108px 0 auto;
 
   @media (max-width: 641px) {
-    visibility: ${(props) => (props.mobile ? "visible" : "hidden")};
-    width: ${(props) => (props.mobile ? "254px" : "0")};
-
+    width: 254px;
     margin: 0;
   }
 `;
@@ -174,7 +171,7 @@ const MeetingCard = styled.section`
   min-height: 373px;
   box-sizing: border-box;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     flex-direction: column-reverse;
     height: 735px;
     min-height: 100%;
@@ -188,7 +185,7 @@ const MeetingCardContainer = styled.section`
   border-radius: 10px 0 0 10px;
   box-sizing: border-box;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     border-radius: 0 0 10px 10px;
     padding: 40px 16px;
   }
@@ -217,7 +214,6 @@ const MeetingCardButton = styled.button`
   transition: linear 0.4s;
 
   @media (max-width: 1000px) {
-
     margin: 0;
     margin-bottom: 20px;
     width: 100%;

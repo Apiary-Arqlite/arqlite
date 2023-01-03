@@ -24,6 +24,11 @@ const Footer = () => {
                   For eco-conscious brands
                 </a>
               </li>
+              <li className='footer__column_item'>
+                <a href='https://docs.google.com/presentation/d/1mPSghnCJKGwfaGw6Fkz0dcMUZ8NSmlH__FzODv4d0Dw/edit#slide=id.g17e28408c82_0_13' className='footer__link' target="_blank" rel="noreferrer">
+                Additional resources
+                </a>
+              </li>
             </ul>
           </div>
           <div className='footer__column footer__column-assistance'>
