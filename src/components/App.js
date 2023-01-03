@@ -1,14 +1,63 @@
 /* --------------------------------- imports -------------------------------- */
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Header from "./Header";
 import Main from "./Main";
+import ArrangeMeetingForm from "../components/ArrangeMeetingForm";
+import InfoToolModal from "./InfoToolModal";
 import Footer from "./Footer";
 
 /* -------------------------------------------------------------------------- */
 /*                                function App                                */
 /* -------------------------------------------------------------------------- */
 function App() {
+  const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
+    useState(false);
+  const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
+  const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
+
+  const handleArrangeMeetingClick = () => {
+    setIsArrangeMeetingFormOpen(true);
+  };
+  const closeModal = () => {
+    setIsArrangeMeetingFormOpen(false);
+    setIsInfoToolOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickClose = (event) => {
+      if (event.target.classList.contains("modal_opened")) {
+        closeModal();
+      }
+    };
+
+    const handleEscClose = (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    if (isAnyModalOpen) {
+      document.addEventListener("click", handleClickClose);
+      document.addEventListener("keydown", handleEscClose);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickClose);
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [isAnyModalOpen]);
+
+  const [isInfoToolStatus, setInfoToolStatus] = useState("");
+
+  const handleSendRequest = () => {
+    //implement logic for submit request
+    console.log("implement logic for submit request");
+    setIsArrangeMeetingFormOpen(false);
+    setIsInfoToolOpen(true);
+    //if request submit is successful or if not setInfoToolStatus("fail");
+    setInfoToolStatus("success");
+  };
 
   function handleDownloadClick(pdf) {
     // using Java Script method to get PDF file
@@ -27,8 +76,24 @@ function App() {
 
   return (
     <div>
-      <Header/>
-      <Main onDownloadClick={handleDownloadClick} />
+      <Header handleArrangeMeetingClick={handleArrangeMeetingClick} />
+      <Main
+        onDownloadClick={handleDownloadClick}
+        handleArrangeMeetingClick={handleArrangeMeetingClick}
+        closeModal={closeModal}
+        handleSendRequest={handleSendRequest}
+      />
+
+      <ArrangeMeetingForm
+        isOpen={isArrangeMeetingFormOpen}
+        onClose={closeModal}
+        onSendRequest={handleSendRequest}
+      />
+      <InfoToolModal
+        isOpen={isInfoToolModalOpen}
+        onClose={closeModal}
+        status={isInfoToolStatus}
+      />
 
       <Footer />
     </div>
