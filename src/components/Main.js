@@ -13,56 +13,9 @@ import buildingImg from '../images/building-image.png';
 import TimelineCard from './TimelineCard';
 import useMediaQuery from '../hooks/useMediaQuery';
 
-function Main({ onDownloadClick }) {
+function Main({ onDownloadClick, handleArrangeMeetingClick }) {
   const isLessThan641 = useMediaQuery('(min-width:641px)');
   console.log(recycleImgMobPath);
-  const [isArrangeMeetingFormOpen, setIsArrangeMeetingFormOpen] =
-    useState(false);
-  const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
-  const [isInfoToolStatus, setInfoToolStatus] = useState('');
-
-  const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
-
-  const handleArrangeMeetingClick = () => {
-    setIsArrangeMeetingFormOpen(true);
-  };
-  const closeModal = () => {
-    setIsArrangeMeetingFormOpen(false);
-    setIsInfoToolOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickClose = (event) => {
-      if (event.target.classList.contains('modal_opened')) {
-        closeModal();
-      }
-    };
-
-    const handleEscClose = (event) => {
-      if (event.key === 'Escape') {
-        closeModal();
-      }
-    };
-
-    if (isAnyModalOpen) {
-      document.addEventListener('click', handleClickClose);
-      document.addEventListener('keydown', handleEscClose);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickClose);
-      document.removeEventListener('keydown', handleEscClose);
-    };
-  }, [isAnyModalOpen]);
-
-  const handleSendRequest = () => {
-    //implement logic for submit request
-    console.log('implement logic for submit request');
-    setIsArrangeMeetingFormOpen(false);
-    setIsInfoToolOpen(true);
-    //if request submit is successful or if not setInfoToolStatus("fail");
-    setInfoToolStatus('success');
-  };
 
   var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
