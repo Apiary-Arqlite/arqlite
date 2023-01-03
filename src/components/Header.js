@@ -5,8 +5,10 @@ import arqliteLogo2 from '../images/arqlite-logo-2.svg';
 import Box1 from './Box1.jsx';
 import '../blocks/Box1.css';
 import NavBar from './NavBar';
+import useMediaQuery from '../hooks/useMediaQuery';
 
 function Header({ handleArrangeMeetingClick }) {
+  const isLessThan900 = useMediaQuery('(min-width:900px)');
   const [mobileNavOpened, setMobileNavOpened] = useState(false);
   const toggleMobileNav = () => setMobileNavOpened(!mobileNavOpened);
 
@@ -44,7 +46,13 @@ function Header({ handleArrangeMeetingClick }) {
             </div>
           </div>
         </div>
-        <h1 className="header__title">Recycle the unrecyclable</h1>
+        {isLessThan900 ? (
+          <h1 className="header__title">
+            Recycle <br></br> the unrecyclable
+          </h1>
+        ) : (
+          <h1 className="header__title">Recycle the unrecyclable</h1>
+        )}
         <Section.CaptionLarge className="header__caption">
           We set up a recycling line of hard-to-recycle plastic waste for your
           company. From zero to production-ready.
