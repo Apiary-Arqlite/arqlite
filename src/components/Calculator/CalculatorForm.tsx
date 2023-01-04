@@ -26,7 +26,7 @@ export default function CalculatorForm(props: FormProps) {
   const { children, initialValues } = props;
   const [values, setValues] = useState<FormType>(initialValues);
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFormChange = (e: any) => {
     const { name, value } = e.target;
 
     const newValues = {

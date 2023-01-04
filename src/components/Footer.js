@@ -20,7 +20,9 @@ const Footer = () => {
                 </a>
               </li>
               <li className='footer__column_item'>
-                <a href="#eco"className='footer__link'>For eco-conscious brands</a>
+                <a href='#eco' className='footer__link'>
+                  For eco-conscious brands
+                </a>
               </li>
               <li className='footer__column_item'>
                 <a href='https://docs.google.com/presentation/d/1mPSghnCJKGwfaGw6Fkz0dcMUZ8NSmlH__FzODv4d0Dw/edit#slide=id.g17e28408c82_0_13' className='footer__link' target="_blank" rel="noreferrer">
@@ -43,7 +45,9 @@ const Footer = () => {
                 </a>
               </li>
               <li className='footer__column_item'>
-                <a href="#meeting"className='footer__link'>Arrange a meeting</a>
+                <a href='#meeting' className='footer__link'>
+                  Arrange a meeting
+                </a>
               </li>
             </ul>
           </div>
@@ -67,8 +71,13 @@ const Footer = () => {
               Arqlite <sup>TM</sup> {new Date().getFullYear()}
             </p>
           </div>
-          <div className="footer__link-main-site">
-            <a className="footer__link" href='https://www.arqlite.com/' target="_blank" rel="noreferrer">
+          <div className='footer__link-main-site'>
+            <a
+              className='footer__link'
+              href='https://www.arqlite.com/'
+              target='_blank'
+              rel='noreferrer'
+            >
               → Main corporate website
             </a>
           </div>

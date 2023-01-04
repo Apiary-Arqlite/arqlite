@@ -87,6 +87,12 @@ const CaptionLarge = styled.p`
   }
 `;
 
+const CaptionCalculator = styled(CaptionLarge)`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+
 const NavLink = styled.a`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes[5]};
@@ -293,6 +299,7 @@ Section.Marker = SectionMarker;
 Section.Title = SectionTitle;
 Section.TitleCard = SectionTitleCard;
 Section.CaptionLarge = CaptionLarge;
+Section.CaptionCalculator = CaptionCalculator;
 Section.RecycleImage = RecycleImage;
 Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
