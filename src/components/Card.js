@@ -156,7 +156,7 @@ const CardLinkText = styled.p`
   color: ${({ theme }) => theme.colors.dark};
 
   line-height: 1.25;
-  margin: 0;
+  margin:0;
 `;
 
 CardItem.Image = CardImage;

@@ -4,11 +4,7 @@ import styled from "styled-components";
 const DLIcon = styled.svg`
   width: 20px;
   height: 20px;
-
-   @media (max-width: 1000px) {
-    width: 12px;
-    height: 14px;
-  } 
+  flex: none;
 `;
 export default function DownloadIcon({ color = "", ...rest }) {
   return (

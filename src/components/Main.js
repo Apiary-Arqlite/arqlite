@@ -16,7 +16,7 @@ import useMediaQuery from '../hooks/useMediaQuery';
 
 function Main({ onDownloadClick, handleArrangeMeetingClick }) {
   const isLessThan641 = useMediaQuery('(min-width:641px)');
-  console.log(recycleImgMobPath);
+
 
   var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
