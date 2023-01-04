@@ -2,7 +2,7 @@ import React from 'react';
 import { FormOptionProps } from './FormTypes';
 import styled from 'styled-components';
 
-export const StyledFormOption = styled.li`
+export const StyledFormOption = styled.option`
   margin: 0 auto;
   padding-left: 20px;
 

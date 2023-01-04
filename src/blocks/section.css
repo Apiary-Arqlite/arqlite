@@ -6,17 +6,15 @@
 .section__recycle-icons {
   width: 535px;
   margin: 80px 108px 0 auto;
-
- 
 }
 
 .section__caption_center {
   margin: 90px auto 32px;
 }
 
- /* adding media q here until move to style component */
- @media (max-width: 600px) {
-    .section__recycle-icons{
+/* adding media q here until move to style component */
+@media (max-width: 600px) {
+  .section__recycle-icons {
     margin: 0;
-    }
   }
+}

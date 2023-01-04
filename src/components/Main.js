@@ -1,6 +1,7 @@
 import NavBar from './NavBar';
 import * as data from '../utils/data';
 import React from 'react';
+import { Slider } from './Slider/Slider';
 import Calculator from './Calculator/Calculator.tsx';
 import { Section } from '../components/Section';
 import markerIconPath from '../images/arrow-down-orange.png';
@@ -63,7 +64,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
         <Section.CaptionLarge className='section__caption_center'>
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionLarge>
-        <RangeSlider />
+        <Slider />
         <Section.CaptionLarge className='section__caption_center'>
           Calculate the impact of a multiple revenue stream process
         </Section.CaptionLarge>

@@ -3,16 +3,15 @@ import { FormSelectProps } from './FormTypes';
 import { FormContext } from './FormCtx';
 import styled from 'styled-components';
 import { Tooltip } from '@mui/material';
-import carat from '../../images/down-icon.png';
-import info from '../../images/info.svg';
 
-export const StyledFormSelect = styled.div`
+export const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   width: 425px;
   height: 90px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+
   border: 1px solid #54585b;
   border-radius: 4px;
 
@@ -22,45 +21,25 @@ export const StyledFormSelect = styled.div`
   }
 `;
 
-export const InnerWrapper = styled.div`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-`;
-
-export const Carat = styled.button`
-  margin: 29px;
-  right: 32px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  background: transparent;
-  height: 32px;
-  width: 32px;
-`;
-
-export const StyledFormSelectDiv = styled.div`
+export const LabelWrapper = styled.div`
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
 
   @media (max-width: 1000px) {
   }
 `;
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
   font-size: 16px;
   line-height: 20px;
   color: #8f999a;
-  margin-top: 16px;
-  margin-left: 20px;
+  margin: 16px 0 0 20px;
 `;
 
-export const StyledInfoButton = styled.p`
+export const Info = styled.p`
   border: none;
   outline: none;
   cursor: pointer;
@@ -69,21 +48,21 @@ export const StyledInfoButton = styled.p`
 
   margin-top: 16px;
   margin-left: 8px;
-  height: 20px;
-  width: 16px;
+  height: 16px;
+  width: 20px;
   padding: 0;
-  line-height: 16px;
+  font-weight:
+  font-size: 16px;
+  line-height: 120x;
   color: #54585b;
 `;
 
-export const StyledSelectDiv = styled.div`
-  position: relative;
+export const Select = styled.select`
   height: 22px;
   max-width: 100%;
   margin: 0 20px 0;
   padding: 0;
   border: none;
-  border-radius: 4px;
   outline: none;
   line-height: 22px;
   font-style: normal;
@@ -91,13 +70,7 @@ export const StyledSelectDiv = styled.div`
   font-weight: 400;
   color: #54585b;
 
-  &:first-child {
-    padding-top: 8px;
-  }
-
   @media (max-width: 1000px) {
-    height: 22px;
-    margin: 12px 20px 0;
   }
 `;
 
@@ -115,65 +88,29 @@ export const StyledTooltip = styled(({ className, ...props }) => (
   }
 `;
 
-export const DropdownItems = styled.ul`
-  margin: 50px 0 0;
-  padding: 12px 0;
-  width: 425px;
-  display: ${({ isOpen }: any) => (isOpen ? 'block' : 'none')};
-  cursor: pointer;
-
-  background-color: #fff;
-  border: 1px solid #54585b;
-  border-radius: 4px;
-  position: relative;
-  left: -24px;
-
-  @media (max-width: 1000px) {
-    width: 343px;
-  }
-`;
-
 export default function FormSelect(props: FormSelectProps) {
-  const { label, name, description, isOpen, onToggle } = props;
+  const { label, name, description } = props;
 
   const formContext = useContext(FormContext);
   const { form, handleFormChange } = formContext;
   const currentValue = form[name];
 
-  const ToggleDropdown = (e: any) => {
-    e.preventDefault();
-    /* @ts-ignore */
-    onToggle(!isOpen);
-
-    // q: how to toggle isOpen if user clicks outside of dropdown?
-    // a: use a ref to the dropdown and add an event listener to the window
-    // that checks if the click target is inside the dropdown
-  };
-
   return (
-    <StyledFormSelect>
-      <InnerWrapper>
-        <StyledFormSelectDiv>
-          <StyledLabel>{label}</StyledLabel>
-          <StyledTooltip title={description} placement='bottom-end'>
-            <StyledInfoButton>&#9432;</StyledInfoButton>
-          </StyledTooltip>
-        </StyledFormSelectDiv>
-        <StyledSelectDiv<any>
-          name={name}
-          value={Number(currentValue)}
-          onChange={handleFormChange}
-        >
-          {/* @ts-ignore */}
-          <p>{Number(currentValue)}</p>
-          {/* @ts-ignore */}
-          <DropdownItems isOpen={isOpen}>{props.children}</DropdownItems>
-        </StyledSelectDiv>
-      </InnerWrapper>
-      <Carat onClick={ToggleDropdown}>
-        <img src={carat} alt='carat'></img>
-      </Carat>
-    </StyledFormSelect>
+    <Wrapper>
+      <LabelWrapper>
+        <Label>{label}</Label>
+        <StyledTooltip title={description}>
+          <Info>&#9432;</Info>
+        </StyledTooltip>
+      </LabelWrapper>
+      <Select<any>
+        name={name}
+        value={Number(currentValue)}
+        onChange={handleFormChange}
+      >
+        {props.children}
+      </Select>
+    </Wrapper>
   );
 }
 

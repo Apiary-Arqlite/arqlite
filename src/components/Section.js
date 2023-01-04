@@ -1,9 +1,9 @@
-import styled from "styled-components/macro";
-import DownloadIcon from "./icons/DownloadIcon";
-import WallIcon from "./icons/WallIcon";
-import FactoryIcon from "./icons/FactoryIcon";
-import RecycleIcon from "./icons/RecycleIcon";
-import CalcIcon from "./icons/CalcIcon";
+import styled from 'styled-components/macro';
+import DownloadIcon from './icons/DownloadIcon';
+import WallIcon from './icons/WallIcon';
+import FactoryIcon from './icons/FactoryIcon';
+import RecycleIcon from './icons/RecycleIcon';
+import CalcIcon from './icons/CalcIcon';
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
@@ -61,7 +61,7 @@ const SectionTitle = styled.h2`
 //create a SectionTitleCard to pass props to card title
 const SectionTitleCard = styled(SectionTitle)`
   ${(props) => `
-    margin:${props.horiz ? "0 0 44px 0" : "0 0 60px 0"};
+    margin:${props.horiz ? '0 0 44px 0' : '0 0 60px 0'};
     `};
 
   @media (max-width: 641px) {
@@ -85,6 +85,12 @@ const CaptionLarge = styled.p`
     font-size: ${({ theme }) => theme.fontSizes[6]};
     line-height: 120%;
   }
+`;
+
+const CaptionCalculator = styled(CaptionLarge)`
+  width: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 const NavLink = styled.a`
@@ -123,7 +129,7 @@ const NavRecycleIcon = styled(RecycleIcon)`
 
 const RecycleImage = styled.img.attrs(({ src }) => ({
   src: src,
-  alt: "Universal Recycling Symbols for Materials 1, 2, 4, 5, 6 and 7",
+  alt: 'Universal Recycling Symbols for Materials 1, 2, 4, 5, 6 and 7',
 }))`
   width: 535px;
 
@@ -289,6 +295,7 @@ Section.Marker = SectionMarker;
 Section.Title = SectionTitle;
 Section.TitleCard = SectionTitleCard;
 Section.CaptionLarge = CaptionLarge;
+Section.CaptionCalculator = CaptionCalculator;
 Section.RecycleImage = RecycleImage;
 Section.Footer = Footer;
 Section.MeetingCard = MeetingCard;
