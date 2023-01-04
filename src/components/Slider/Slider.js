@@ -26,6 +26,7 @@ const StyledTitle = styled.p`
 
 const StyledTitleLeft = styled(StyledTitle)`
   max-width: 1064px;
+  max-width: 100%;
 
   text-align: left;
   margin: 48px auto 0;
@@ -36,7 +37,7 @@ export const Slider = () => {
   return (
     <div>
       <StyledValue>
-        1000 ft<sup>2</sup>
+        {currentValue === 1 ? 500 : currentValue * 375} ft<sup>2</sup>
       </StyledValue>
       <StyledTitle>Hardware Footprint</StyledTitle>{' '}
       <StyledTitleLeft>Recycling Capacity</StyledTitleLeft>
