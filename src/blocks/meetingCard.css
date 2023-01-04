@@ -4,7 +4,6 @@
   object-fit: cover;
   border-radius: 0px 10px 10px 0px;
 
-  /* height: 100%; */
   max-width: 414px;
 }
 
@@ -15,12 +14,11 @@
   font-size: 60px;
   line-height: 65px;
   color: #ffffff;
-  padding: 0 0px 32px 0;
   margin: 0;
 }
 .meetingCard__text {
   margin: 0;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
 }
 .meetingCard__link {
   font-family: 'Archivo';
@@ -30,6 +28,7 @@
   line-height: 22px;
   letter-spacing: 0.02em;
   color: #ffffff;
+  
 }
 .meetingCard__link:hover {
   opacity: 0.9;
@@ -38,7 +37,7 @@
   width: 20px;
   height: 20px;
   align-self: center;
-  /* object-fit: contain; */
+  object-fit: contain;
   padding: 0;
   margin: 0;
   margin-left: 12px;
@@ -53,12 +52,12 @@
 @media only screen and (max-width: 1000px) {
   .meetingCard__img {
     border-radius: 10px 10px 0 0;
-    min-height: 268px;
+    height: 268px;
     max-width: 100%;
     
   }
   .meetingCard__header {
-    padding: 0 0 24px;
+   margin-bottom: -8px;
     font-size: 52px;
     line-height: 57px;
   }
