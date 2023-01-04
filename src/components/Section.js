@@ -165,6 +165,10 @@ const Header = styled.header`
   padding: 0px 80px;
   margin: 0 auto;
   max-width: 1280px;
+
+  @media (max-width: 1000px) {
+    padding: 0px 16px;
+  }
 `;
 
 const MeetingCard = styled.section`
