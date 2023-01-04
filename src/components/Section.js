@@ -268,9 +268,9 @@ const MeetingCardIcon = styled(DownloadIcon)`
 
   align-self: center;
 
-  @media (max-width: 1000px) {
+  /* @media (max-width: 1000px) {
     margin: 0;
-  }
+  } */
 `;
 
 const TimelineCards = styled.div`
