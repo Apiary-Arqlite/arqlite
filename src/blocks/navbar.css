@@ -17,19 +17,19 @@
 }
 
 .navbar__link-calc {
-  width: 104px;
+  max-width: 104px;
 }
 
 .navbar__link-wall {
-  width: 157px;
+  max-width: 157px;
 }
 
 .navbar__link-factory {
-  width: 205px;
+  max-width: 150px;
 }
 
 .navbar__link-recycle {
-  width: 177px;
+  max-width: 150px;
 }
 
 .navbar__link-caption {
@@ -66,11 +66,18 @@
       "factory recycle"
       "btn btn";
     justify-content: space-around;
+    column-gap: 20px;
   }
   .header__mobile-nav_bg:hover {
     cursor: pointer;
   }
   .header__mobile-nav:hover {
     cursor: default;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .navbar__link {
+    max-width: 100px;
   }
 }
