@@ -15,6 +15,7 @@ function App() {
     useState(false);
   const [isInfoToolModalOpen, setIsInfoToolOpen] = useState(false);
   const isAnyModalOpen = isArrangeMeetingFormOpen || isInfoToolModalOpen;
+  const [isInfoToolStatus, setInfoToolStatus] = useState("");
 
   const handleArrangeMeetingClick = () => {
     setIsArrangeMeetingFormOpen(true);
@@ -22,6 +23,7 @@ function App() {
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
+    setInfoToolStatus("");
   };
 
   useEffect(() => {
@@ -48,17 +50,21 @@ function App() {
     };
   }, [isAnyModalOpen]);
 
-  const [isInfoToolStatus, setInfoToolStatus] = useState("");
-
-  const handleSendRequest = (name, email) => {
-    //implement logic for submit request
-    console.log("implement logic for submit request");
-    console.log(name, email);
-
-    setIsArrangeMeetingFormOpen(false);
-    setIsInfoToolOpen(true);
-    //if request submit is successful or if not setInfoToolStatus("fail");
-    setInfoToolStatus("success");
+  const handleSendRequest = ({ name, email }) => {
+    api
+      .addNewContact(name, email)
+      .then(() => {
+        setIsArrangeMeetingFormOpen(false);
+        setIsInfoToolOpen(true);
+        //if request submit is successful or if not setInfoToolStatus("fail");
+        setInfoToolStatus("success");
+      })
+      .catch((err) => {
+        api.handleErrorResponse(err);
+        setIsArrangeMeetingFormOpen(false);
+        setIsInfoToolOpen(true);
+        setInfoToolStatus("");
+      });
   };
 
   function handleDownloadClick(pdf) {
