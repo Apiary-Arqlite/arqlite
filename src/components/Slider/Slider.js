@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import ReactSlider from 'react-slider';
-import styled from 'styled-components/macro';
+import React, { useState } from "react";
+import ReactSlider from "react-slider";
+import styled from "styled-components/macro";
 
 const StyledContainer = styled.div`
   margin: 0 0 54px;
@@ -11,10 +11,11 @@ const StyledContainer = styled.div`
 const StyledValue = styled.p`
   margin: 0 auto;
   text-align: center;
-  font-weight: 700;
-  font-size: 40px;
   line-height: 44px;
-  color: #54585b;
+
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes[10]};
+  color: ${({ theme }) => theme.colors.dark};
 `;
 
 const StyledTons = styled(StyledValue)`
@@ -24,10 +25,10 @@ const StyledTons = styled(StyledValue)`
 const StyledTitle = styled.p`
   margin: 12px auto 0;
   text-align: center;
-  font-weight: 400;
-  font-size: 16px;
   line-height: 20px;
-  color: #8f999a;
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  color: ${({ theme }) => theme.colors.light};
 `;
 
 const StyledTitleLeft = styled(StyledTitle)`
@@ -45,13 +46,13 @@ export const Slider = () => {
       <StyledValue>
         {currentValue === 1 ? 500 : currentValue * 375} ft<sup>2</sup>
       </StyledValue>
-      <StyledTitle>Hardware Footprint</StyledTitle>{' '}
+      <StyledTitle>Hardware Footprint</StyledTitle>{" "}
       <StyledTitleLeft>Recycling Capacity</StyledTitleLeft>
       <ReactSlider
-        className='slider'
-        thumbClassName='slider-thumb'
-        trackClassName='slider-track'
-        markClassName='slider-mark'
+        className="slider"
+        thumbClassName="slider-thumb"
+        trackClassName="slider-track"
+        markClassName="slider-mark"
         marks={[1, 2, 4, 6, 8, 10]}
         min={1}
         max={10}
