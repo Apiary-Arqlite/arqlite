@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import ReactSlider from "react-slider";
-import styled from "styled-components/macro";
+import React, { useState } from 'react';
+import ReactSlider from 'react-slider';
+import styled from 'styled-components/macro';
 
 const StyledContainer = styled.div`
   margin: 0 0 54px;
@@ -40,27 +40,38 @@ const StyledTitleLeft = styled(StyledTitle)`
 `;
 
 export const Slider = () => {
-  const [currentValue, setCurrentValue] = useState(5);
+  const [currentValue, setCurrentValue] = useState(4);
+  const [previousValue, setPreviousValue] = useState(currentValue);
   return (
     <StyledContainer>
       <StyledValue>
-        {currentValue === 1 ? 500 : currentValue * 375} ft<sup>2</sup>
+        {currentValue === 1
+          ? 500
+          : currentValue % 2 === 0
+          ? currentValue * 375
+          : previousValue * 375}{' '}
+        ft<sup>2</sup>
       </StyledValue>
-      <StyledTitle>Hardware Footprint</StyledTitle>{" "}
+      <StyledTitle>Hardware Footprint</StyledTitle>{' '}
       <StyledTitleLeft>Recycling Capacity</StyledTitleLeft>
       <ReactSlider
-        className="slider"
-        thumbClassName="slider-thumb"
-        trackClassName="slider-track"
-        markClassName="slider-mark"
-        marks={[1, 2, 4, 6, 8, 10]}
+        className='slider'
+        thumbClassName='slider-thumb'
+        trackClassName='slider-track'
+        markClassName='slider-mark'
         min={1}
         max={10}
         defaultValue={currentValue}
         renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+        onBeforeChange={(value) => setPreviousValue(value)}
+        onChange={(value) => setCurrentValue(value)}
         onAfterChange={(value) => setCurrentValue(value)}
       />
-      <StyledTons>{currentValue}</StyledTons>
+      <StyledTons>
+        {currentValue === 1 || currentValue % 2 === 0
+          ? currentValue
+          : previousValue}
+      </StyledTons>
       <StyledTitle>Tons of plastic per hour</StyledTitle>
     </StyledContainer>
   );
