@@ -23,7 +23,6 @@ function App() {
   const closeModal = () => {
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(false);
-    setInfoToolStatus("");
   };
 
   useEffect(() => {
