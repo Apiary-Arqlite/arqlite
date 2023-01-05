@@ -38,5 +38,6 @@
 }
 
 .slider-thumb:active {
-  box-shadow: 0 0 2px 8px #d9d9d9;
+  opacity: 0.9;
+  /*  box-shadow: 0 0 2px 8px #d9d9d9;  */
 }
