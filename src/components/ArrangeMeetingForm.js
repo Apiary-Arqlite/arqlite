@@ -1,4 +1,3 @@
-import {Section} from '../components/Section';
 import {useState, useRef, useEffect} from 'react';
 import Modal from './Modal';
 import {useFormAndValidation} from '../hooks/useFormAndValidation';
