@@ -27,6 +27,9 @@ export const Section = styled.section`
     &#navbar {
       padding-bottom: 40px;
     }
+    &.section__calculator {
+      padding: 80px 80px 0;
+    }
   }
   @media (max-width: 641px) {
     /* box-sizing: border-box;
@@ -35,6 +38,9 @@ export const Section = styled.section`
     &#navbar_mobile {
       padding-left: 0px;
       padding-right: 0px;
+    }
+    &.section__calculator {
+      padding: 40px 16px 40px;
     }
   }
 `;
@@ -98,9 +104,12 @@ const CaptionLarge = styled.p`
 `;
 
 const CaptionCalculator = styled(CaptionLarge)`
-  width: 100%;
-  display: flex;
-  align-items: center;
+  margin: 40px auto 33px;
+  text-align: center;
+
+  @media (max-width: 1000px) {
+    margin: 20px auto 40px;
+  }
 `;
 
 const NavLink = styled.a`
