@@ -1,6 +1,6 @@
 /* --------------------------------- imports -------------------------------- */
 import React, { useState, useEffect } from "react";
-
+import api from "../utils/api";
 import Header from "./Header";
 import Main from "./Main";
 import ArrangeMeetingForm from "../components/ArrangeMeetingForm";
@@ -50,9 +50,11 @@ function App() {
 
   const [isInfoToolStatus, setInfoToolStatus] = useState("");
 
-  const handleSendRequest = () => {
+  const handleSendRequest = (name, email) => {
     //implement logic for submit request
     console.log("implement logic for submit request");
+    console.log(name, email);
+
     setIsArrangeMeetingFormOpen(false);
     setIsInfoToolOpen(true);
     //if request submit is successful or if not setInfoToolStatus("fail");
@@ -66,7 +68,7 @@ function App() {
         // Creating new object of PDF file
         const fileURL = window.URL.createObjectURL(blob);
         // Setting various property values
-        let alink = document.createElement('a');
+        let alink = document.createElement("a");
         alink.href = fileURL;
         alink.download = pdf;
         alink.click();
