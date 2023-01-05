@@ -1,7 +1,6 @@
 //components/Card.js
 /* --------------------------------- imports -------------------------------- */
 import React from "react";
-// import Theme from "./Theme";
 import styled from "styled-components/macro";
 import DownloadIcon from "./icons/DownloadIcon";
 
@@ -16,12 +15,11 @@ const CardsWrapper = styled.div`
 
   @media (max-width: 1000px) {
     grid-template-columns: 414px;
-    /* grid-template-columns: 1fr; */
+
     row-gap: 20px;
   }
   @media (max-width: 641px) {
     grid-template-columns: 343px;
-    /* grid-template-columns: 1fr; */
     row-gap: 24px;
   }
 `;
@@ -35,7 +33,6 @@ const CardItem = styled.div`
   position: relative;
   max-width: 414px;
   flex-basis: 414px;
-  //flex bases 414px may keep width
 `;
 
 //Create a CardImg component that will render an <img> styles for a card image
@@ -156,7 +153,7 @@ const CardLinkText = styled.p`
   color: ${({ theme }) => theme.colors.dark};
 
   line-height: 1.25;
-  margin:0;
+  margin: 0;
 `;
 
 CardItem.Image = CardImage;

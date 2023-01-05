@@ -227,7 +227,6 @@ const MeetingCardButton = styled.button`
 
   text-align: center;
   letter-spacing: 0.02em;
-
   width: 237px;
   height: 60px;
   border-radius: 10px;
@@ -279,7 +278,6 @@ const MeetingCardIcon = styled(DownloadIcon)`
   stroke: ${({ theme }) => theme.colors.white};
   padding: 0;
   margin: 0 0 0 12px;
-
   align-self: center;
 `;
 
@@ -287,7 +285,6 @@ const TimelineCards = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-
   margin-top: 74px;
 
   @media (max-width: 1000px) {
@@ -296,7 +293,6 @@ const TimelineCards = styled.div`
     align-items: center;
     min-width: 375px;
     gap: 64px;
-
     margin-top: 91px;
   }
 `;
