@@ -9,6 +9,7 @@ const theme = {
     brightB: "#F05125", //orange
     white: "#FFFFFF",
     bg: "#f5f5f5",
+    hover:"f3f3f3",//hover on calculator form
   },
 
   fontSizes: {
@@ -17,6 +18,7 @@ const theme = {
     5: "20px", //2 - h4, button, drop down, download text
     6: "24px", //3 - mobile caption large
     7: "28px", //4 - caption large, h3
+    10:"40px", //calculator values
     11: "44px", //5 - mobile h2
     13: "52px", //6 - mobile h2
     15: "60px", //7 - h2

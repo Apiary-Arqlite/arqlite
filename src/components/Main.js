@@ -1,30 +1,29 @@
-import NavBar from './NavBar';
-import * as data from '../utils/data';
-import React from 'react';
-import { Slider } from './Slider/Slider';
-import Calculator from './Calculator/Calculator.tsx';
-import { Section } from '../components/Section';
-import markerIconPath from '../images/arrow-down-orange.png';
-import Cards from './Card';
-import recycleImgPath from '../images/recycle-plastics-icons.png';
-import recycleImgMobPath from '../images/recycle-icons-mobile.png';
-import MeetingCard from './MeetingCard';
-import pelletProductionImg from '../images/pellet-production-image.png';
-import buildingImg from '../images/building-image.png';
-import TimelineCard from './TimelineCard';
-import useMediaQuery from '../hooks/useMediaQuery';
+import NavBar from "./NavBar";
+import * as data from "../utils/data";
+import React from "react";
+import { Slider } from "./Slider/Slider";
+import Calculator from "./Calculator/Calculator.tsx";
+import { Section } from "../components/Section";
+import markerIconPath from "../images/arrow-down-orange.png";
+import Cards from "./Card";
+import recycleImgPath from "../images/recycle-plastics-icons.png";
+import recycleImgMobPath from "../images/recycle-icons-mobile.png";
+import MeetingCard from "./MeetingCard";
+import pelletProductionImg from "../images/pellet-production-image.png";
+import buildingImg from "../images/building-image.png";
+import TimelineCard from "./TimelineCard";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 function Main({ onDownloadClick, handleArrangeMeetingClick }) {
-  const isLessThan641 = useMediaQuery('(min-width:641px)');
-
+  const isLessThan641 = useMediaQuery("(min-width:641px)");
 
   var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-      document.getElementById('navbar').style.top = '0px';
+      document.getElementById("navbar").style.top = "0px";
     } else {
-      document.getElementById('navbar').style.top = '-500px';
+      document.getElementById("navbar").style.top = "-500px";
     }
     prevScrollpos = currentScrollPos;
   };
@@ -32,7 +31,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
   return (
     <main>
       <NavBar
-        id={'navbar'}
+        id={"navbar"}
         handleArrangeMeetingClick={handleArrangeMeetingClick}
       ></NavBar>
       <Section dark>
@@ -43,7 +42,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
               <Cards.Image
                 horiz
                 backgroundImage={card.image}
-                role='img'
+                role="img"
                 aria-label={card.alt}
               />
               <Cards.TextBox horiz>
@@ -59,26 +58,26 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
           ))}
         </Cards>
       </Section>
-      <Section id='calculator'>
-        <Section.CaptionLarge className='section__caption_center'>
+      <Section id="calculator">
+        <Section.CaptionCalculator>
           Calculate your hardware footprint for a post-consumer setup
-        </Section.CaptionLarge>
+        </Section.CaptionCalculator>
         <Slider />
-        <Section.CaptionLarge className='section__caption_center'>
+        <Section.CaptionCalculator>
           Calculate the impact of a multiple revenue stream process
-        </Section.CaptionLarge>
+        </Section.CaptionCalculator>
         <Calculator />
       </Section>
-      <Section id='meeting'>
+      <Section id="meeting">
         <MeetingCard
           handleArrangeMeetingClick={handleArrangeMeetingClick}
           img={pelletProductionImg}
         />
       </Section>
-      <Section dark id='construction'>
+      <Section dark id="construction">
         <Section.Marker>
-          For construction companies{' '}
-          <img className='section__marker-icon' src={markerIconPath} alt='' />
+          For construction companies{" "}
+          <img className="section__marker-icon" src={markerIconPath} alt="" />
         </Section.Marker>
         <Section.TitleCard>
           Produce your own low-carbon <br></br> & LEED building materials
@@ -89,7 +88,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
               {/* <Cards.Image src={card.image} alt={card.alt} /> */}
               <Cards.Image
                 backgroundImage={card.image}
-                role='img'
+                role="img"
                 aria-label={card.alt}
               />
               {/* <Cards.Image backgroundImage={card.image} alt={card.alt}/> */}
@@ -100,10 +99,10 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
           ))}
         </Cards>
       </Section>
-      <Section id='recycle'>
+      <Section id="recycle">
         <Section.Marker>
-          For plastic companies and recyclers{' '}
-          <img className='section__marker-icon' src={markerIconPath} alt='' />
+          For plastic companies and recyclers{" "}
+          <img className="section__marker-icon" src={markerIconPath} alt="" />
         </Section.Marker>
         <Section.Title>
           Recycle plastics <br></br> that no one else can
@@ -119,13 +118,13 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
         />
       </Section>
 
-      <Section dark id='eco'>
+      <Section dark id="eco">
         <Section.Marker>
-          For eco-conscious brands{' '}
-          <img className='section__marker-icon' src={markerIconPath} alt='' />
+          For eco-conscious brands{" "}
+          <img className="section__marker-icon" src={markerIconPath} alt="" />
         </Section.Marker>
         <Section.TitleCard>
-          Recycle post-industrial <br></br> and post-consumer waste <br></br>{' '}
+          Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}
           into sustainable products
         </Section.TitleCard>
         <Cards>
@@ -133,7 +132,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
             <Cards.Card key={i} card={card}>
               <Cards.Image
                 backgroundImage={card.image}
-                role='img'
+                role="img"
                 aria-label={card.alt}
               />
               <Cards.TextBox>

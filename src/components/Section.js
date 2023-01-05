@@ -91,6 +91,11 @@ const CaptionLarge = styled.p`
   max-width: 804px;
   margin: 32px 0 40px;
 
+/* &.section__caption_calculator{
+  margin: 40px auto 33px;
+  text-align:center;
+} */
+
   @media (max-width: 1000px) {
     font-size: ${({ theme }) => theme.fontSizes[6]};
     line-height: 120%;
@@ -98,9 +103,12 @@ const CaptionLarge = styled.p`
 `;
 
 const CaptionCalculator = styled(CaptionLarge)`
-  width: 100%;
-  display: flex;
-  align-items: center;
+margin:40px auto 33px;
+text-align:center;
+
+@media (max-width: 640px){
+margin:20px auto 40px;
+}
 `;
 
 const NavLink = styled.a`
