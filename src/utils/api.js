@@ -5,6 +5,9 @@ class Api {
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
+  _request(url, options) {
+    return fetch(url, options).then(this._handleResponse);
+  }
 
   _handleResponse(res) {
     if (res.ok) {
@@ -13,13 +16,13 @@ class Api {
     return Promise.reject(`Error:${res.staus}`);
   }
 
-  handleErrorRespone(err) {
+  handleErrorResponse(err) {
     console.log(`Error:${err}`);
   }
 
   //send form data to zapier
   addNewContact(name, email) {
-    return this._request(`${this._baseUrl}`, {
+    return this._request(this._baseUrl, {
       headers: this._headers,
       method: "POST",
       body: JSON.stringify({
@@ -33,7 +36,7 @@ class Api {
 const baseUrl = "https://hooks.zapier.com/hooks/catch/11894352/b7netx7/";
 const api = new Api({
   baseUrl: baseUrl,
-  headers: { "Content-Type": "application/json" },
+  headers: {},
 });
 /* --------------------------------- exports -------------------------------- */
 export default api;
