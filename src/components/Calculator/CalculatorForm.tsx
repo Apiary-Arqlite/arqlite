@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FormProps, FormType } from '../Form/FormTypes';
 import { FormContext } from '../Form/FormCtx';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const StyledForm = styled.form`
   margin: 0 auto;

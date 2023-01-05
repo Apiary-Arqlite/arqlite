@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { FormSelectProps } from './FormTypes';
-import { FormContext } from './FormCtx';
-import styled from 'styled-components';
-import { Tooltip } from '@mui/material';
+import React, { useContext } from "react";
+import { FormSelectProps } from "./FormTypes";
+import { FormContext } from "./FormCtx";
+import styled from "styled-components/macro";
+import { Tooltip } from "@mui/material";
 
 export const Wrapper = styled.div`
   margin: 0;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  border: 1px solid #54585b;
+  border: 1px solid ${(props) => props.theme.colors.dark};
   border-radius: 4px;
 
   @media (max-width: 1000px) {
@@ -33,24 +33,24 @@ export const LabelWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  color: ${({ theme }) => theme.colors.light};
   line-height: 20px;
-  color: #8f999a;
   margin: 16px 0 0 20px;
 `;
 
 export const Info = styled.p`
   cursor: pointer;
-
   margin-top: 16px;
   margin-left: 8px;
   height: 20px;
   width: 16px;
   padding: 0;
-  font-weight: 700;
-  font-size: 16px;
   line-height: 20px;
-  color: #54585b;
+
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  color: ${({ theme }) => theme.colors.dark};
 `;
 
 export const Select = styled.select`
@@ -60,10 +60,10 @@ export const Select = styled.select`
   border: none;
   outline: none;
   line-height: 22px;
-  font-style: normal;
-  font-size: 20px;
-  font-weight: 400;
-  color: #54585b;
+
+  font-weight: ${({ theme }) => theme.fontWeights.muted};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
+  color: ${({ theme }) => theme.colors.dark};
 
   @media (max-width: 1000px) {
   }
@@ -75,11 +75,11 @@ export const StyledTooltip = styled(({ className, ...props }) => (
   & .MuiTooltip-tooltip {
     background: rgba(0, 0, 0, 0.8);
     cursor: pointer;
-    font-family: 'Archivo';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+
     line-height: 20px;
+    font-weight: ${({ theme }) => theme.fontWeights.muted};
+    font-size: ${({ theme }) => theme.fontSizes[4]};
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 

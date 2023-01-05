@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import FormOption from '../Form/FormOption';
-import FormOptionTons from './CalculatorFormOptionTons';
-import FormSelect, { StyledTooltip, Info } from '../Form/FormSelect';
-import CalculatorFormSelectTons from './CalculatorFormSelectTons';
-import CalculatorForm from './CalculatorForm';
-import { FormContext } from '../Form/FormCtx';
-import { initialValues } from '../Form/FormData';
-import styled from 'styled-components';
+import React, { useContext } from "react";
+import FormOption from "../Form/FormOption";
+import FormOptionTons from "./CalculatorFormOptionTons";
+import FormSelect, { StyledTooltip, Info } from "../Form/FormSelect";
+import CalculatorFormSelectTons from "./CalculatorFormSelectTons";
+import CalculatorForm from "./CalculatorForm";
+import { FormContext } from "../Form/FormCtx";
+import { initialValues } from "../Form/FormData";
+import styled from "styled-components/macro";
 
 const RevenueWrapper = styled.div`
   width: 870px;
@@ -15,14 +15,16 @@ const RevenueWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  background: #0091a6;
+
   border-radius: 4px;
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.brightA};
 
   @media (max-width: 1000px) {
     width: 343px;
     height: 90px;
-    font-size: 24px;
+
+    font-size: ${({ theme }) => theme.fontSizes[6]};
   }
 `;
 
@@ -40,14 +42,16 @@ const InfoWrapper = styled.div`
 const RevenueInfo = styled(Info)`
   margin: 12px 0 0;
   text-align: center;
-  color: #fff;
+
+  color: ${({ theme }) => theme.colors.white};
 `;
 const TotalRevenue = styled.div`
   margin: 0;
   padding: 0;
   position: relative;
   top: -12px;
-  font-size: 28px;
+
+  font-size: ${({ theme }) => theme.fontSizes[7]};
   line-height: 32px;
 
   @media (max-width: 1000px) {
@@ -57,7 +61,7 @@ const TotalRevenue = styled.div`
 `;
 
 const StyledSpan = styled.span`
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   text-align: center;
 `;
 
@@ -77,7 +81,7 @@ function TotalRevenueBox() {
   return (
     <RevenueWrapper>
       <InfoWrapper>
-        <StyledTooltip title='The total revenue is the addition of each revenue stream multiplied by the total recycling capacity installed, considering 50% Smart Gravel and 50% Repro Pellets sales.'>
+        <StyledTooltip title="The total revenue is the addition of each revenue stream multiplied by the total recycling capacity installed, considering 50% Smart Gravel and 50% Repro Pellets sales.">
           <RevenueInfo>&#9432;</RevenueInfo>
         </StyledTooltip>
       </InfoWrapper>
@@ -93,9 +97,9 @@ export default function Calculator() {
   return (
     <CalculatorForm initialValues={initialValues}>
       <CalculatorFormSelectTons
-        label='Total tons per month'
-        name='totalTonsPerMonth'
-        description='Pick the total number of tons associated with each hardware setup: 1tn/h, 2tn/h, 4tn/h, 6tn/h, 8tn/h and 10tn/h.'
+        label="Total tons per month"
+        name="totalTonsPerMonth"
+        description="Pick the total number of tons associated with each hardware setup: 1tn/h, 2tn/h, 4tn/h, 6tn/h, 8tn/h and 10tn/h."
       >
         <FormOptionTons value={462} />
         <FormOptionTons value={462} />
@@ -109,8 +113,8 @@ export default function Calculator() {
 
       <StyledRow>
         <FormSelect
-          label='Processing fee'
-          name='processingFee'
+          label="Processing fee"
+          name="processingFee"
           description="Arqlite charges a processing fee for its recycling solution, meaning the company doesn't pay for its raw material but gets paid."
         >
           <FormOption value={10} />
@@ -125,9 +129,9 @@ export default function Calculator() {
           <FormOption value={100} />
         </FormSelect>
         <FormSelect
-          label='Plastic credits'
-          name='plasticCredits'
-          description='Arqlite technology is certified for RMS Plastic Credits that can be sold to the green bond market.'
+          label="Plastic credits"
+          name="plasticCredits"
+          description="Arqlite technology is certified for RMS Plastic Credits that can be sold to the green bond market."
         >
           <FormOption value={10} />
           <FormOption value={20} />
@@ -144,9 +148,9 @@ export default function Calculator() {
 
       <StyledRow>
         <FormSelect
-          label='Gravel revenue bulk'
-          name='gravelRevenueBulk'
-          description='This is the lowest price for Arqlite Smart Gravel sold bulk, usually to companies in the built environment.'
+          label="Gravel revenue bulk"
+          name="gravelRevenueBulk"
+          description="This is the lowest price for Arqlite Smart Gravel sold bulk, usually to companies in the built environment."
         >
           <FormOption value={200} />
           <FormOption value={300} />
@@ -156,9 +160,9 @@ export default function Calculator() {
         </FormSelect>
 
         <FormSelect
-          label='Pellets revenue bulk'
-          name='pelletsRevenueBulk'
-          description='This is the bulk price for Arqlite Composite Plastic pellets sold to blenders and plastic manufacturers.'
+          label="Pellets revenue bulk"
+          name="pelletsRevenueBulk"
+          description="This is the bulk price for Arqlite Composite Plastic pellets sold to blenders and plastic manufacturers."
         >
           <FormOption value={900} />
           <FormOption value={1000} />

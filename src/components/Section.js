@@ -20,7 +20,7 @@ export const Section = styled.section`
   @media (max-width: 1000px) {
     box-sizing: border-box;
     min-width: 375px;
-    /* padding: 40px 16px 60px; */
+
     .header__mobile-nav & {
       padding-bottom: 0px;
     }
@@ -32,8 +32,6 @@ export const Section = styled.section`
     }
   }
   @media (max-width: 641px) {
-    /* box-sizing: border-box;
-    min-width: 375px; */
     padding: 40px 16px 60px;
     &#navbar_mobile {
       padding-left: 0px;
@@ -253,8 +251,6 @@ const MeetingCardArqliteLicensingDeckLink = styled.a`
 
   line-height: 22px;
   letter-spacing: 0.02em;
-  /* background: transparent; */ //is this needed
-  /* color: #ffffff; */ //this is declared in section meeting card parent
 
   display: flex;
   flex-direction: row;
@@ -285,14 +281,9 @@ const MeetingCardIcon = styled(DownloadIcon)`
   margin: 0 0 0 12px;
 
   align-self: center;
-
-  /* @media (max-width: 1000px) {
-    margin: 0;
-  } */
 `;
 
 const TimelineCards = styled.div`
-  /* background: #ffffff; //no change is this needed*/
   display: flex;
   flex-direction: row;
   gap: 20px;

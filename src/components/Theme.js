@@ -5,6 +5,7 @@ const theme = {
   colors: {
     dark: "#54585B",
     light: "#8F999A",
+    extralight:"#DFDFDF",//light text on gray
     brightA: "#0091A6", //aquatic
     brightB: "#F05125", //orange
     white: "#FFFFFF",
