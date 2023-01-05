@@ -1,4 +1,3 @@
-// import element from '../images/side-element.svg';
 const TimelineCard = ({title, step, icon, element,alt}) => {
   return (
     <div className="card__container">
