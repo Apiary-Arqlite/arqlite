@@ -36,6 +36,9 @@ const StyledTitleLeft = styled(StyledTitle)`
 
   text-align: left;
   margin: 48px auto 0;
+  @media (max-width:640px){
+    margin:73px auto 0;
+  }
 `;
 
 export const Slider = () => {
