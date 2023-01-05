@@ -32,6 +32,10 @@ export const Section = styled.section`
     /* box-sizing: border-box;
     min-width: 375px; */
     padding: 40px 16px 60px;
+    &#navbar_mobile {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
   }
 `;
 

@@ -119,4 +119,16 @@
   .header__mobile-nav_opened {
     grid-area: links;
   }
+
+  @media screen and (max-width: 425px) {
+    .header__mobile-nav {
+      padding: 0px;
+    }
+    .header__navbar-btn_closed, .header__logo-path, .header__navbar-btn_opened {
+      margin: 10px;
+    }
+    .header__navbar-btn_opened {
+      margin-left: auto;
+    }
+  }
 }
