@@ -9,7 +9,7 @@ import {
   Info,
   StyledTooltip,
 } from '../Form/FormSelect';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const WrapperTons = styled(Wrapper)`
   width: 870px;
