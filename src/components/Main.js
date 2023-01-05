@@ -58,7 +58,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
           ))}
         </Cards>
       </Section>
-      <Section id="calculator">
+      <Section id="calculator" className="section__calculator">
         <Section.CaptionCalculator>
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionCalculator>

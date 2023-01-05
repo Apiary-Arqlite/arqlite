@@ -36,6 +36,10 @@ export const Section = styled.section`
       padding-left: 0px;
       padding-right: 0px;
     }
+
+    &.section__calculator{
+      padding: 40px 16px 40px;
+    }
   }
 `;
 

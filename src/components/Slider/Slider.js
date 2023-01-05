@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import ReactSlider from 'react-slider';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
+const StyledContainer=styled.div`
+margin: 0 0 54px;
+@media (max-width:640px){
+  margin: 0 0 60px;
+}
+`
 const StyledValue = styled.p`
   margin: 0 auto;
   text-align: center;
@@ -18,7 +24,7 @@ const StyledTons = styled(StyledValue)`
 const StyledTitle = styled.p`
   margin: 12px auto 0;
   text-align: center;
-  font-eight: 400;
+  font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   color: #8f999a;
@@ -35,7 +41,7 @@ const StyledTitleLeft = styled(StyledTitle)`
 export const Slider = () => {
   const [currentValue, setCurrentValue] = useState(5);
   return (
-    <div>
+    <StyledContainer>
       <StyledValue>
         {currentValue === 1 ? 500 : currentValue * 375} ft<sup>2</sup>
       </StyledValue>
@@ -55,7 +61,7 @@ export const Slider = () => {
       />
       <StyledTons>{currentValue}</StyledTons>
       <StyledTitle>Tons of plastic per hour</StyledTitle>
-    </div>
+    </StyledContainer>
   );
 };
 
