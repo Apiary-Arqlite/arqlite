@@ -1,6 +1,6 @@
 .box {
   margin-top: 283px;
-  margin-left: 1096px;
+  margin-left: min(70vw, 1096px);
 }
 
 .box-row {
@@ -30,4 +30,10 @@
   width: 21px;
   height: 21px;
   background-color: #f05125;
+}
+
+@media (max-width: 900px) {
+  .box {
+    margin: 320px auto 0px auto; /* top | right | bottom | left */
+  }
 }
