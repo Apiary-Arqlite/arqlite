@@ -27,6 +27,9 @@ export const Section = styled.section`
     &#navbar {
       padding-bottom: 40px;
     }
+    &.section__calculator {
+      padding: 80px 80px 0;
+    }
   }
   @media (max-width: 641px) {
     /* box-sizing: border-box;
@@ -36,8 +39,7 @@ export const Section = styled.section`
       padding-left: 0px;
       padding-right: 0px;
     }
-
-    &.section__calculator{
+    &.section__calculator {
       padding: 40px 16px 40px;
     }
   }
@@ -95,11 +97,6 @@ const CaptionLarge = styled.p`
   max-width: 804px;
   margin: 32px 0 40px;
 
-/* &.section__caption_calculator{
-  margin: 40px auto 33px;
-  text-align:center;
-} */
-
   @media (max-width: 1000px) {
     font-size: ${({ theme }) => theme.fontSizes[6]};
     line-height: 120%;
@@ -107,12 +104,12 @@ const CaptionLarge = styled.p`
 `;
 
 const CaptionCalculator = styled(CaptionLarge)`
-margin:40px auto 33px;
-text-align:center;
+  margin: 40px auto 33px;
+  text-align: center;
 
-@media (max-width: 640px){
-margin:20px auto 40px;
-}
+  @media (max-width: 1000px) {
+    margin: 20px auto 40px;
+  }
 `;
 
 const NavLink = styled.a`

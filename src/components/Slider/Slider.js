@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 
 const StyledContainer=styled.div`
 margin: 0 0 54px;
-@media (max-width:640px){
+@media (max-width:641px){
   margin: 0 0 60px;
 }
 `
