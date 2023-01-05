@@ -35,15 +35,10 @@ const InfoWrapper = styled.div`
 
   @media (max-width: 1000px) {
     width: 218px;
+  }
 `;
 const RevenueInfo = styled(Info)`
   margin: 12px 0 0;
-  padding: 0;
-  height: 16px;
-  width: 20px;
-  padding: 0;
-  font-size: 16px;
-  line-height: 20px;
   text-align: center;
   color: #fff;
 `;
@@ -58,14 +53,12 @@ const TotalRevenue = styled.div`
   @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
+  }
 `;
 
 const StyledSpan = styled.span`
   font-weight: 700;
-   text-align: center;
-
-   @media (max-width: 1000px) {
-   
+  text-align: center;
 `;
 
 const StyledRow = styled.div`
@@ -113,8 +106,8 @@ export default function Calculator() {
         <FormOptionTons value={3696} />
         <FormOptionTons value={4620} />
       </CalculatorFormSelectTons>
+
       <StyledRow>
-        {/* a */}
         <FormSelect
           label='Processing fee'
           name='processingFee'
@@ -131,7 +124,6 @@ export default function Calculator() {
           <FormOption value={90} />
           <FormOption value={100} />
         </FormSelect>
-        {/* b */}
         <FormSelect
           label='Plastic credits'
           name='plasticCredits'

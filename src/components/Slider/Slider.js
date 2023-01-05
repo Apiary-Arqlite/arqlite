@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import ReactSlider from 'react-slider';
 import styled from 'styled-components/macro';
 
-const StyledContainer=styled.div`
-margin: 0 0 54px;
-@media (max-width:641px){
-  margin: 0 0 60px;
-}
-`
+const StyledContainer = styled.div`
+  margin: 0 0 54px;
+  @media (max-width: 641px) {
+    margin: 0 0 60px;
+  }
+`;
 const StyledValue = styled.p`
   margin: 0 auto;
   text-align: center;
@@ -31,13 +31,10 @@ const StyledTitle = styled.p`
 `;
 
 const StyledTitleLeft = styled(StyledTitle)`
-  max-width: 1064px;
-  max-width: 100%;
-
   text-align: left;
-  margin: 48px auto 0;
-  @media (max-width:640px){
-    margin:73px auto 0;
+  margin: 48px auto 0 0;
+  @media (max-width: 640px) {
+    margin: 73px auto 0;
   }
 `;
 

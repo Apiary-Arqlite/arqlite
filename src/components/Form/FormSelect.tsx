@@ -40,26 +40,21 @@ export const Label = styled.label`
 `;
 
 export const Info = styled.p`
-  border: none;
-  outline: none;
   cursor: pointer;
-  text-decoration: none;
-  background: transparent;
 
   margin-top: 16px;
   margin-left: 8px;
-  height: 16px;
-  width: 20px;
+  height: 20px;
+  width: 16px;
   padding: 0;
-  font-weight:
+  font-weight: 700;
   font-size: 16px;
-  line-height: 120x;
+  line-height: 20px;
   color: #54585b;
 `;
 
 export const Select = styled.select`
   height: 22px;
-  max-width: 100%;
   margin: 0 20px 0;
   padding: 0;
   border: none;
@@ -79,7 +74,7 @@ export const StyledTooltip = styled(({ className, ...props }) => (
 ))`
   & .MuiTooltip-tooltip {
     background: rgba(0, 0, 0, 0.8);
-
+    cursor: pointer;
     font-family: 'Archivo';
     font-style: normal;
     font-weight: 400;
