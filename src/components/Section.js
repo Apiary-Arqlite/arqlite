@@ -183,7 +183,7 @@ const Header = styled.header`
   margin: 0 auto;
   max-width: 1280px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 640px) {
     padding: 0px 16px;
   }
 `;
