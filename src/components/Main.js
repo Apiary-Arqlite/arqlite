@@ -4,7 +4,6 @@ import React from "react";
 import { Slider } from "./Slider/Slider";
 import Calculator from "./Calculator/Calculator.tsx";
 import { Section } from "../components/Section";
-import markerIconPath from "../images/arrow-down-orange.png";
 import Cards from "./Card";
 import recycleImgPath from "../images/recycle-plastics-icons.png";
 import recycleImgMobPath from "../images/recycle-icons-mobile.png";
@@ -76,8 +75,8 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
       </Section>
       <Section dark id="construction">
         <Section.Marker>
-          For construction companies{" "}
-          <img className="section__marker-icon" src={markerIconPath} alt="" />
+          For construction companies
+          <Section.MarkerIcon />
         </Section.Marker>
         <Section.TitleCard>
           Produce your own low-carbon <br></br> & LEED building materials
@@ -101,8 +100,8 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
       </Section>
       <Section id="recycle">
         <Section.Marker>
-          For plastic companies and recyclers{" "}
-          <img className="section__marker-icon" src={markerIconPath} alt="" />
+          For plastic companies and recyclers
+          <Section.MarkerIcon />
         </Section.Marker>
         <Section.Title>
           Recycle plastics <br></br> that no one else can
@@ -120,8 +119,8 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
 
       <Section dark id="eco">
         <Section.Marker>
-          For eco-conscious brands{" "}
-          <img className="section__marker-icon" src={markerIconPath} alt="" />
+          For eco-conscious brands
+          <Section.MarkerIcon />
         </Section.Marker>
         <Section.TitleCard>
           Recycle post-industrial <br></br> and post-consumer waste <br></br>{" "}

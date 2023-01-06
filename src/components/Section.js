@@ -4,6 +4,7 @@ import WallIcon from "./icons/WallIcon";
 import FactoryIcon from "./icons/FactoryIcon";
 import RecycleIcon from "./icons/RecycleIcon";
 import CalcIcon from "./icons/CalcIcon";
+import DownArrowIcon from "./icons/DownArrowIcon";
 
 // Create a Section component that will render a <section> tag with some styles
 // Colors adapt based on 'dark' prop
@@ -46,7 +47,7 @@ export const Section = styled.section`
 // Create a SectionMarker component that will render an <h4> tag with styles
 const SectionMarker = styled.h4`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes[5]};
+  font-size: ${({ theme }) => theme.fontSizes[6]};
   color: ${({ theme }) => theme.colors.brightB};
   line-height: 22px;
   margin: 0px;
@@ -57,6 +58,12 @@ const SectionMarker = styled.h4`
     margin: 0 0 40px;
     justify-content: space-between;
   }
+`;
+//Create a SectionMarker Down Arrow to render an SVG
+const SectionMarkerIcon = styled(DownArrowIcon)`
+  align-self: center;
+  margin-left: 14px;
+  stroke: ${({ theme }) => theme.colors.brightB};
 `;
 
 // Create a SectionTitle component that will render an <h2> tag with styles
@@ -303,6 +310,7 @@ Section.WallIcon = NavWallIcon;
 Section.FactoryIcon = NavFactoryIcon;
 Section.RecycleIcon = NavRecycleIcon;
 Section.Marker = SectionMarker;
+Section.MarkerIcon = SectionMarkerIcon;
 Section.Title = SectionTitle;
 Section.TitleCard = SectionTitleCard;
 Section.CaptionLarge = CaptionLarge;
