@@ -64,6 +64,19 @@
   margin: 0;
   padding-top: 40px;
 }
+.footer__button {
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  text-align: start;
+  transition: all 0.2s ease;
+}
+.footer__button:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
 
 @media screen and (max-width: 768px) {
   .footer__container {
