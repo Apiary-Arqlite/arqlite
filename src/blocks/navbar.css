@@ -90,6 +90,12 @@
   .header__mobile-nav:hover {
     cursor: default;
   }
+  .navbar-logo {
+    display: none;
+  }
+  .navbar__links {
+    padding-top: 0px;
+  }
 }
 
 @media screen and (max-width: 425px) {
