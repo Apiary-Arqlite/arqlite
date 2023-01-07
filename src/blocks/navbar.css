@@ -83,6 +83,7 @@
       "btn btn";
     justify-content: space-around;
     column-gap: 20px;
+    padding-top: 20px;
   }
   .header__mobile-nav_bg:hover {
     cursor: pointer;
@@ -92,9 +93,6 @@
   }
   .navbar-logo {
     display: none;
-  }
-  .navbar__links {
-    padding-top: 0px;
   }
 }
 
