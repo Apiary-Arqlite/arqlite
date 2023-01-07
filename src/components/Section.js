@@ -18,6 +18,10 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
 
+  &#navbar {
+    padding: 20px 80px 60px;
+  }
+
   @media (max-width: 1000px) {
     box-sizing: border-box;
     min-width: 375px;

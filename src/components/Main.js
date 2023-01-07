@@ -15,22 +15,33 @@ import useMediaQuery from "../hooks/useMediaQuery";
 
 function Main({ onDownloadClick, handleArrangeMeetingClick }) {
   const isLessThan641 = useMediaQuery("(min-width:641px)");
+  let prevScrollpos = window.pageYOffset;
 
-  var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
-    var currentScrollPos = window.pageYOffset;
+    let currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
       document.getElementById("navbar").style.top = "0px";
     } else {
       document.getElementById("navbar").style.top = "-500px";
     }
     prevScrollpos = currentScrollPos;
+
+    if (currentScrollPos >= 900) {
+      document.getElementById("navbar").classList.add("navbar-scroll_shown");
+      document.getElementById("navbarlogo").classList.add("navbar-logo_shown");
+    } else {
+      document.getElementById("navbar").classList.remove("navbar-scroll_shown");
+      document
+        .getElementById("navbarlogo")
+        .classList.remove("navbar-logo_shown");
+    }
   };
 
   return (
     <main>
       <NavBar
-        id={"navbar"}
+        navbarId={"navbar"}
+        logoId={"navbarlogo"}
         handleArrangeMeetingClick={handleArrangeMeetingClick}
       ></NavBar>
       <Section dark>
