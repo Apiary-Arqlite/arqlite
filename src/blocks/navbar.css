@@ -5,7 +5,22 @@
   position: sticky;
   top: 0px;
   z-index: 7;
-  transition: top 0.4s;
+  transition: all 0.4s;
+}
+
+.navbar-scroll_shown {
+  box-shadow: 0 4px 2px -2px #54585b;
+}
+
+.navbar-logo {
+  width: 139px;
+  height: 33px;
+  transition: opacity 0.4s;
+  opacity: 0;
+}
+
+.navbar-logo_shown {
+  opacity: 1;
 }
 
 .navbar__links {
@@ -14,6 +29,7 @@
   align-items: baseline;
   background-color: #fff;
   width: 100%;
+  padding-top: 30px;
 }
 
 .navbar__link-calc {

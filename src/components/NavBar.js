@@ -1,12 +1,26 @@
 import "../blocks/navbar.css";
 import React from "react";
 
+import arqliteLogo2 from "../images/arqlite-logo-2.svg";
 import { Section } from "./Section";
 
-function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
+function NavBar({ handleArrangeMeetingClick, navbarId, logoId, closeMobileNav }) {
+
   return (
     <>
-      <Section className="navbar" id={id}>
+      <Section className="navbar" id={navbarId}>
+        <a
+          className="navbar__logo-path"
+          onClick={closeMobileNav}
+          href="#header"
+        >
+          <img
+            alt="Arqlite logo"
+            src={arqliteLogo2}
+            className="navbar-logo"
+            id={logoId}
+          />
+        </a>
         <nav className="navbar__links">
           <Section.NavLink
             onClick={closeMobileNav}
@@ -18,7 +32,7 @@ function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
           </Section.NavLink>
 
           <Section.NavLink
-          onClick={closeMobileNav}
+            onClick={closeMobileNav}
             className="navbar__link navbar__link-wall"
             href="#construction"
           >
@@ -27,7 +41,7 @@ function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
           </Section.NavLink>
 
           <Section.NavLink
-          onClick={closeMobileNav}
+            onClick={closeMobileNav}
             className="navbar__link navbar__link-factory"
             href="#recycle"
           >
@@ -38,7 +52,7 @@ function NavBar({ handleArrangeMeetingClick, id, closeMobileNav }) {
           </Section.NavLink>
 
           <Section.NavLink
-          onClick={closeMobileNav}
+            onClick={closeMobileNav}
             className="navbar__link navbar__link-recycle"
             href="#eco"
           >
