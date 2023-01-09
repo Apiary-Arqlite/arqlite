@@ -17,12 +17,20 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
   const isLessThan641 = useMediaQuery("(min-width:641px)");
   let prevScrollpos = window.pageYOffset;
 
+  const hideNavbar = () => {
+    document.getElementById("navbar").style.top = "-260px";
+  };
+
+  const showNavbar = () => {
+    document.getElementById("navbar").style.top = "0px";
+  };
+
   window.onscroll = function () {
     let currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
-      document.getElementById("navbar").style.top = "0px";
+      showNavbar();
     } else {
-      document.getElementById("navbar").style.top = "-500px";
+      hideNavbar();
     }
     prevScrollpos = currentScrollPos;
 
@@ -37,13 +45,13 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
     }
   };
 
-  
   return (
     <main>
       <NavBar
         navbarId={"navbar"}
         logoId={"navbarlogo"}
         handleArrangeMeetingClick={handleArrangeMeetingClick}
+        hideNavbar={hideNavbar}
       ></NavBar>
       <Section dark>
         <Section.TitleCard horiz>Our products</Section.TitleCard>
@@ -69,7 +77,10 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
           ))}
         </Cards>
       </Section>
-      <Section id="calculator" className="section__calculator">
+      <Section
+        id="calculator"
+        className="section__calculator section_scroll-margin"
+      >
         <Section.CaptionCalculator>
           Calculate your hardware footprint for a post-consumer setup
         </Section.CaptionCalculator>
@@ -85,7 +96,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
           img={pelletProductionImg}
         />
       </Section>
-      <Section dark id="construction">
+      <Section dark id="construction" className="section_scroll-margin">
         <Section.Marker>
           For construction companies
           <Section.MarkerIcon />
@@ -110,7 +121,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
           ))}
         </Cards>
       </Section>
-      <Section id="recycle">
+      <Section id="recycle" className="section_scroll-margin">
         <Section.Marker>
           For plastic companies and recyclers
           <Section.MarkerIcon />
@@ -129,7 +140,7 @@ function Main({ onDownloadClick, handleArrangeMeetingClick }) {
         />
       </Section>
 
-      <Section dark id="eco">
+      <Section dark id="eco" className="section_scroll-margin">
         <Section.Marker>
           For eco-conscious brands
           <Section.MarkerIcon />

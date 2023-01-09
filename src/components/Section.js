@@ -18,8 +18,12 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
 
+  &.section_scroll-margin {
+    scroll-margin-top: 200px;
+  }
+
   &#navbar {
-    padding: 20px 80px 60px;
+    padding: 20px 80px 50px;
   }
 
   @media (max-width: 1000px) {
@@ -36,6 +40,11 @@ export const Section = styled.section`
       padding: 80px 80px 0;
     }
   }
+
+  @media (max-width: 900px) {
+    scroll-margin-top: 4rem; 
+  }
+
   @media (max-width: 641px) {
     padding: 40px 16px 60px;
     &#navbar_mobile {

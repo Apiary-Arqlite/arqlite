@@ -4,7 +4,7 @@ import React from "react";
 import arqliteLogo2 from "../images/arqlite-logo-2.svg";
 import { Section } from "./Section";
 
-function NavBar({ handleArrangeMeetingClick, navbarId, logoId, closeMobileNav }) {
+function NavBar({ handleArrangeMeetingClick, navbarId, logoId, closeMobileNav, hideNavbar }) {
 
   return (
     <>
