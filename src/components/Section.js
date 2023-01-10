@@ -174,7 +174,7 @@ const RecycleImage = styled.img.attrs(({ src }) => ({
 
   @media (max-width: 641px) {
     width: 254px;
-    margin: 0;
+    margin: 0 auto;
   }
 `;
 const Footer = styled.footer`
