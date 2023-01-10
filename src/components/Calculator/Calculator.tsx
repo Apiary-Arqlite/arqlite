@@ -36,12 +36,11 @@ const InfoWrapper = styled.div`
   justify-content: flex-end;
 
   @media (max-width: 1000px) {
-    width: 218px;
+    width: 212px;
   }
 `;
 const RevenueInfo = styled(Info)`
   margin: 12px 0 0;
-  text-align: center;
 
   color: ${({ theme }) => theme.colors.white};
 `;
